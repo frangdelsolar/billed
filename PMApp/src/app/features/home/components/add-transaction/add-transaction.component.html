@@ -1,0 +1,98 @@
+<mat-card>
+  <mat-card-title>Nuevo {{ action }}</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="form" id="ngForm">
+      <div class="container">
+        <app-currency-field
+          (currencyValueSelector)="onSelectCurrency($event)"
+        ></app-currency-field>
+
+        <mat-divider></mat-divider>
+        <mat-slide-toggle formControlName="completed"
+          >Realizado</mat-slide-toggle
+        >
+
+        <mat-divider></mat-divider>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Fecha de transacción</mat-label>
+          <input
+            matInput
+            [matDatepicker]="picker"
+            formControlName="date_of_transaction"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <mat-divider></mat-divider>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Descripción</mat-label>
+          <input matInput formControlName="description" />
+        </mat-form-field>
+
+        <mat-divider></mat-divider>
+
+        <mat-slide-toggle
+          formControlName="recurrent"
+          (click)="onRecurrentToggle()"
+          >{{ action }} fijo</mat-slide-toggle
+        >
+
+        <mat-divider></mat-divider>
+
+        <mat-slide-toggle formControlName="repeats" (click)="onRepeatsToggle()"
+          >Repetir</mat-slide-toggle
+        >
+
+        <div *ngIf="showRepetitions.value">
+          <mat-form-field appearance="fill" floatLabel="always">
+            <mat-label>Cantidad</mat-label>
+            <input
+              matInput
+              type="number"
+              class="example-right-align"
+              placeholder="0"
+              formControlName="repetitions"
+            />
+          </mat-form-field>
+          <mat-form-field id="currency-selector" appearance="fill">
+            <mat-label>Periodo</mat-label>
+            <mat-select formControlName="frequency">
+              <mat-option value="days">Días</mat-option>
+              <mat-option value="weeks">Semanas</mat-option>
+              <mat-option value="months" selected>Meses</mat-option>
+              <mat-option value="years">Años</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-divider></mat-divider>
+        </div>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Notas</mat-label>
+          <input matInput formControlName="notes" />
+        </mat-form-field>
+
+        <mat-divider></mat-divider>
+
+        <app-category-picker
+          (selection)="onCategorySelection($event)"
+        ></app-category-picker>
+
+        <mat-divider></mat-divider>
+
+        <mat-slide-toggle formControlName="ignore">Ignorar</mat-slide-toggle>
+
+        <mat-divider></mat-divider>
+      </div>
+    </form>
+  </mat-card-content>
+  <mat-card-actions align="end">
+    <button mat-button (click)="onClearForm()">Limpiar</button>
+    <button mat-button (click)="onSubmitForm()">Guardar</button>
+  </mat-card-actions>
+</mat-card>

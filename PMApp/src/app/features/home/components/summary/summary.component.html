@@ -1,0 +1,60 @@
+<mat-card>
+  <div class="container">
+    <mat-card-title>Resumen mensual</mat-card-title>
+    <mat-card-content>
+      <app-monthpicker
+        class="center"
+        (dateDisplay)="setDate($event)"
+      ></app-monthpicker>
+
+      <div class="center">
+        <button mat-button (click)="onGoToListTransaction()">
+          <mat-icon fontIcon="swap_vert"></mat-icon>
+          Totales <br />
+          ${{ totalDisplayValue.value }}
+        </button>
+      </div>
+
+      <div class="center">
+        <button *ngIf="hideTotals" (click)="onVisibilityClick()" mat-button>
+          <mat-icon fontIcon="visibility"></mat-icon>
+        </button>
+        <button *ngIf="!hideTotals" (click)="onVisibilityClick()" mat-button>
+          <mat-icon fontIcon="visibility_off"></mat-icon>
+        </button>
+      </div>
+
+      <button
+        mat-button
+        color="primary"
+        (click)="onGoToListTransaction('income')"
+      >
+        <mat-icon fontIcon="arrow_upward"></mat-icon>
+        Ingresos <br />
+        ${{ ingresosDisplayValue.value }}
+      </button>
+
+      <button
+        mat-button
+        color="warn"
+        (click)="onGoToListTransaction('expense')"
+      >
+        <mat-icon fontIcon="arrow_downward"></mat-icon>
+        Gastos <br />
+        ${{ gastosDisplayValue.value }}
+      </button>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        mat-button
+        color="primary"
+        (click)="onGoToAddTransaction('income')"
+      >
+        <mat-icon fontIcon="add"></mat-icon>
+      </button>
+      <button mat-button color="warn" (click)="onGoToAddTransaction('expense')">
+        <mat-icon fontIcon="add"></mat-icon>
+      </button>
+    </mat-card-actions>
+  </div>
+</mat-card>

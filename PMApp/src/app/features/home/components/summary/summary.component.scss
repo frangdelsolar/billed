@@ -1,0 +1,27 @@
+mat-card{
+    margin-top: 25px;
+    padding-top: 25px;
+}
+
+#totalDisplayValue{
+    font-size: larger;
+    font-weight: bolder;
+}
+
+.center{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    row-gap: 15px;
+}

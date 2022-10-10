@@ -1,0 +1,12 @@
+<mat-form-field appearance="fill">
+  <mat-label>Tipo de transacción</mat-label>
+  <mat-select [formControl]="typeSelector">
+    <mat-option
+      *ngFor="let type of transaction_types"
+      [value]="type.value"
+      (click)="onSelect(type.value)"
+    >
+      {{ type.viewValue }}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
