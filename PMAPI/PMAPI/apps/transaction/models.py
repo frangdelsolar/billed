@@ -28,15 +28,22 @@ class Transaction(Metadata):
         'currency_field.CurrencyField', on_delete=models.CASCADE, blank=False, null=False)
     date_of_transaction = models.DateTimeField()
     description = models.CharField(max_length=120, null=False, blank=False)
+    notes = models.CharField(max_length=500, null=True, blank=True)
     completed = models.BooleanField(default=False)
     ignore = models.BooleanField(default=False)
-    notes = models.CharField(max_length=500, null=True, blank=True)
     parent_transaction = models.ForeignKey(
         'transaction.Transaction', on_delete=models.SET_NULL, blank=True, null=True, related_name="children"
     )
 
     @classmethod
     def create(self, *args, **kwargs):
+        """
+        accepted kwargs:
+        payment_item, amount, currency, exchange_rate, 
+        category, type, date_of_transaction, description, 
+        notes, completed, ignore, recurrent, convert, 
+        repeats, repetitions, frequency, parent_transaction
+        """
         convert = kwargs.pop('convert')
         amount = kwargs.pop('amount')
         currency = kwargs.pop('currency')
@@ -48,6 +55,16 @@ class Transaction(Metadata):
         frequency = kwargs.pop('frequency')
         category = kwargs.pop('category')
 
+        if not 'payment_item' in kwargs or payment_item is None:
+            payment_item = PaymentItem.create(
+                description=kwargs['description'],
+                amount=amount,
+                currency=currency,
+                exchange_rate=exchange_rate,
+                category=Category.objects.get(id=category)
+            )
+            kwargs['payment_item'] = payment_item
+
         if convert == True:
             amount = Decimal.from_float(float(amount)*float(exchange_rate))
             currency = 'ARS'
@@ -58,16 +75,6 @@ class Transaction(Metadata):
             exchange_rate=exchange_rate
         )
         kwargs['currency'] = cf
-
-        if not 'payment_item' in kwargs:
-            payment_item = PaymentItem.create(
-                description=kwargs['description'],
-                amount=amount,
-                currency=currency,
-                exchange_rate=exchange_rate,
-                category=Category.objects.get(id=category)
-            )
-            kwargs['payment_item'] = payment_item
 
         instance = self.objects.create(**kwargs)
 
@@ -97,21 +104,21 @@ class Transaction(Metadata):
 
             if new_date:
                 Transaction.create(
-                    convert=False,
-                    amount=self.currency.amount,
-                    currency=self.currency.currency,
-                    exchange_rate=self.currency.exchange_rate,
                     payment_item=self.payment_item,
+                    amount=self.payment_item.currency.amount,
+                    currency=self.payment_item.currency.currency,
+                    exchange_rate=self.payment_item.currency.exchange_rate,
                     category=self.payment_item.category,
                     type=self.type,
                     date_of_transaction=new_date,
                     description=self.description,
+                    notes=self.notes,
                     completed=False,
                     ignore=False,
-                    notes=self.notes,
-                    parent_transaction=self,
                     recurrent=False,
+                    convert=False,
                     repeats=False,
                     repetitions=None,
-                    frequency=None
+                    frequency=None,
+                    parent_transaction=self,
                 )

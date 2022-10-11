@@ -26,22 +26,23 @@ def get_transaction_qs_by_date(user, month, year):
                 month), day=pay.payment_item.date_created.day, tzinfo=pytz.UTC)
             if new_date > pay.payment_item.date_created:
                 Transaction.create(
-                    convert=False,
+                    payment_item=pay.payment_item,
                     amount=pay.payment_item.currency.amount,
                     currency=pay.payment_item.currency.currency,
                     exchange_rate=pay.payment_item.currency.exchange_rate,
+                    category=pay.payment_item.category.id,
                     type=pay.payment_type,
                     date_of_transaction=new_date,
                     description=pay.payment_item.description,
-                    category=pay.payment_item.category.id,
+                    notes=None,
                     completed=False,
                     ignore=False,
-                    notes=None,
-                    parent_transaction=None,
                     recurrent=False,
+                    convert=False,
                     repeats=False,
                     repetitions=None,
-                    frequency=None
+                    frequency=None,
+                    parent_transaction=None,
                 )
 
     return queryset.filter(created_by=user,
@@ -85,9 +86,11 @@ class TransactionViewSet(viewsets.ModelViewSet):
             return Response({'status': '400', 'message': 'No se pudo crear transacción'})
 
         transaction = Transaction.create(
+            payment_item=None,
             amount=amount,
             currency=currency,
             exchange_rate=exchange_rate,
+            category=category,
             type=transaction_type,
             date_of_transaction=date_of_transaction,
             description=description,
@@ -95,11 +98,11 @@ class TransactionViewSet(viewsets.ModelViewSet):
             completed=completed,
             ignore=ignore,
             recurrent=recurrent,
-            category=category,
             convert=True,
             repeats=repeats,
             repetitions=repetitions,
             frequency=frequency,
+            parent_transaction=None
         )
 
         return Response(self.serializer_class(transaction).data)
