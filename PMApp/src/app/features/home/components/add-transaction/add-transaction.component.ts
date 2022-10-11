@@ -12,6 +12,7 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class AddTransactionComponent implements OnInit {
   action: string = "Transacción";
+  actionType: string = "";
 
   form!: FormGroup;
 
@@ -45,8 +46,10 @@ export class AddTransactionComponent implements OnInit {
   ngOnInit(): void {
     if (this.querySvc.params['transaction_type'] == 'income'){
       this.action = "Ingreso";
+      this.actionType = "income";
     } else if (this.querySvc.params['transaction_type'] == 'expense'){
       this.action = "Gasto";
+      this.actionType = "expense";
     } else {
       // console.error('Tipo de transaccion invalido');
       this.router.navigate(['/']);
@@ -86,8 +89,6 @@ export class AddTransactionComponent implements OnInit {
   }
 
   onSubmitForm(){
-    console.log(this.form.valid)
-    console.log(this.form.value)
     if (this.querySvc.params['transaction_type'] == 'income'){
       this.form.value.type = 'income';
     } else if (this.querySvc.params['transaction_type'] == 'expense'){

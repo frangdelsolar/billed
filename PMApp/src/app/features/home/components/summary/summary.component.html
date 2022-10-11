@@ -11,7 +11,7 @@
         <button mat-button (click)="onGoToListTransaction()">
           <mat-icon fontIcon="swap_vert"></mat-icon>
           Totales <br />
-          ${{ totalDisplayValue.value }}
+          ${{ totalDisplayValue.value | number: ".2" }}
         </button>
       </div>
 
@@ -31,7 +31,7 @@
       >
         <mat-icon fontIcon="arrow_upward"></mat-icon>
         Ingresos <br />
-        ${{ ingresosDisplayValue.value }}
+        ${{ ingresosDisplayValue.value | number: ".2" }}
       </button>
 
       <button
@@ -41,7 +41,7 @@
       >
         <mat-icon fontIcon="arrow_downward"></mat-icon>
         Gastos <br />
-        ${{ gastosDisplayValue.value }}
+        ${{ gastosDisplayValue.value | number: ".2" }}
       </button>
     </mat-card-content>
     <mat-card-actions>

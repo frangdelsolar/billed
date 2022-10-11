@@ -15,13 +15,13 @@ export class TransactionService {
 
   constructor(private adminSvc: PrivateApiService) {}
 
-  public get(params?: string){
-    let url = params ? this._apiUrl + `/${params}` : this._apiUrl + '/';
-    return this.adminSvc.get<Transaction|Transaction[]>(url, null, true);
+  public get(id: number){
+    return this.adminSvc.get<Transaction|Transaction[]>(this._apiUrl, id, true);
   }
 
-  public getAll(){
-    return this.adminSvc.get<Transaction[]>(this._apiUrl, null, true);
+  public getAll(params?: string){
+    let url = params ? this._apiUrl + `/${params}` : this._apiUrl + '/';
+    return this.adminSvc.get<Transaction[]>(url, null, true);
   }
 
   public create(body: Income){

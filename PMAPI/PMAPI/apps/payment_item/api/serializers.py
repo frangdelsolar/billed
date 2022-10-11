@@ -6,12 +6,13 @@ from rest_framework.serializers import (
     Serializer,
     ModelSerializer
 )
-from payment_item.models import PaymentItem
+from payment_item.models import PaymentItem, RecurrentPayment
 
 
 class PaymentItemSerializer(ModelSerializer):
     category = CategorySerializer()
     currency = CurrencySerializer()
+    recurrent = SerializerMethodField()
 
     class Meta:
         model = PaymentItem
@@ -19,5 +20,9 @@ class PaymentItemSerializer(ModelSerializer):
             'id',
             'description',
             'currency',
-            'category'
+            'category',
+            'recurrent'
         ]
+
+    def get_recurrent(self, obj):
+        return RecurrentPayment.objects.filter(payment_item=obj).count() > 0

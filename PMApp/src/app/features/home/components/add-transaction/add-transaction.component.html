@@ -80,6 +80,7 @@
         <mat-divider></mat-divider>
 
         <app-category-picker
+          [transactionType]="actionType"
           (selection)="onCategorySelection($event)"
         ></app-category-picker>
 

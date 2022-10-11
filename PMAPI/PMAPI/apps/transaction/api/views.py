@@ -33,7 +33,7 @@ def get_transaction_qs_by_date(user, month, year):
                     type=pay.payment_type,
                     date_of_transaction=new_date,
                     description=pay.payment_item.description,
-                    category=pay.payment_item.category,
+                    category=pay.payment_item.category.id,
                     completed=False,
                     ignore=False,
                     notes=None,
@@ -85,21 +85,21 @@ class TransactionViewSet(viewsets.ModelViewSet):
             return Response({'status': '400', 'message': 'No se pudo crear transacción'})
 
         transaction = Transaction.create(
-            convert=True,
             amount=amount,
             currency=currency,
             exchange_rate=exchange_rate,
             type=transaction_type,
             date_of_transaction=date_of_transaction,
             description=description,
+            notes=notes,
             completed=completed,
             ignore=ignore,
-            notes=notes,
             recurrent=recurrent,
+            category=category,
+            convert=True,
             repeats=repeats,
             repetitions=repetitions,
             frequency=frequency,
-            category=category
         )
 
         return Response(self.serializer_class(transaction).data)

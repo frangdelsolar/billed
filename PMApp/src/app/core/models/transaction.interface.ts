@@ -1,3 +1,6 @@
+import { PaymentItem } from "./payment-item.interface"
+
+
 export interface Transaction{
     id: number,
     amount: number,
@@ -8,5 +11,5 @@ export interface Transaction{
     notes: string,
     type: string,
     date_of_transaction: string,
-    category: string
+    payment_item: PaymentItem,
 }

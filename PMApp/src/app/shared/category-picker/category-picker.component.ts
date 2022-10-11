@@ -12,6 +12,7 @@ import { BehaviorSubject } from 'rxjs';
 export class CategoryPickerComponent implements OnInit {
 
   @Input() value:number|null = null;
+  @Input() transactionType: string = '';
   @Output() selection = new EventEmitter();
 
   categorySelect = new FormControl('', [Validators.required]);
@@ -24,7 +25,7 @@ export class CategoryPickerComponent implements OnInit {
     if (this.value){
       this.service.get(this.value).subscribe(res=>this.categories=[res])
     } else {
-      this.service.get().subscribe(res=>this.categories=res)
+      this.service.getByType(this.transactionType).subscribe(res=>this.categories=res)
     }
   }
 

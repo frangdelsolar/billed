@@ -1,7 +1,20 @@
 <mat-list-item>
-  <mat-icon mat-list-icon>{{ transaction?.category }}</mat-icon>
-  <div mat-line>{{ transaction?.description }}</div>
-  <div mat-line>{{ transaction?.notes }}</div>
-  hola
+  <mat-icon
+    mat-list-icon
+    [color]="transaction?.payment_item?.category?.color"
+    >{{ transaction?.payment_item?.category?.icon }}</mat-icon
+  >
+
+  <div mat-line>
+    <b>{{ transaction?.description }}</b>
+  </div>
+  <div mat-line>
+    {{ transaction?.notes }}
+  </div>
+  {{ transaction?.currency }}$<b>{{ transaction?.amount | number: ".2" }}</b>
+  <mat-icon *ngIf="!transaction?.completed" color="warn">push_pin</mat-icon>
+  <mat-icon *ngIf="transaction?.completed" color="primary"
+    >check_circle</mat-icon
+  >
 </mat-list-item>
 <mat-divider></mat-divider>

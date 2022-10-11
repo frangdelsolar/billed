@@ -40,7 +40,8 @@ export class ListTransactionComponent implements OnInit {
 
   getRecords(){
     let params = this.querySvc.getParamsString()
-    this.service.getAll().subscribe(res=>this.transactions=res)
+    console.log(params)
+    this.service.getAll(params).subscribe(res=>this.transactions=res)
   }
   
   setDate(dateParams: {[key:string]: number}){
