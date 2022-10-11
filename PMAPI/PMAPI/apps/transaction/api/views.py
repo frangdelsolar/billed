@@ -138,9 +138,9 @@ class BalanceView(APIView):
             year = today.year
 
         income = get_transaction_qs_by_date(request.user, month, year).filter(
-            type='income').aggregate(total=Sum('currency__amount'))['total']
+            type='income', completed=True).aggregate(total=Sum('currency__amount'))['total']
         expenses = get_transaction_qs_by_date(request.user, month, year).filter(
-            type='expense').aggregate(total=Sum('currency__amount'))['total']
+            type='expense', completed=True).aggregate(total=Sum('currency__amount'))['total']
 
         total = 0
         if not income:

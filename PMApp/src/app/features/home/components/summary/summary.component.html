@@ -1,60 +1,81 @@
-<mat-card>
-  <div class="container">
-    <mat-card-title>Resumen mensual</mat-card-title>
-    <mat-card-content>
-      <app-monthpicker
-        class="center"
-        (dateDisplay)="setDate($event)"
-      ></app-monthpicker>
-
-      <div class="center">
-        <button mat-button (click)="onGoToListTransaction()">
-          <mat-icon fontIcon="swap_vert"></mat-icon>
-          Totales <br />
+<p-card header="Resumen mensual">
+  <div class="m-4 mb-0 grid flex align-items-center justify-content-center">
+    <div class="col-12 flex align-items-center justify-content-center">
+      <app-month-picker (dateDisplay)="setDate($event)"></app-month-picker>
+    </div>
+    <div class="col-12 flex align-items-center justify-content-center">
+      <p-button
+        styleClass="p-button-raised p-button-text"
+        (click)="onGoToListTransaction()"
+      >
+        <i class="pi pi-wallet"></i>
+        <span class="ml-2 font-bold"
+          >Totales<br />
           ${{ totalDisplayValue.value | number: ".2" }}
-        </button>
-      </div>
+        </span>
+      </p-button>
+    </div>
 
-      <div class="center">
-        <button *ngIf="hideTotals" (click)="onVisibilityClick()" mat-button>
-          <mat-icon fontIcon="visibility"></mat-icon>
-        </button>
-        <button *ngIf="!hideTotals" (click)="onVisibilityClick()" mat-button>
-          <mat-icon fontIcon="visibility_off"></mat-icon>
-        </button>
-      </div>
-
-      <button
-        mat-button
-        color="primary"
+    <div class="col-6 flex align-items-center justify-content-center">
+      <p-button
+        styleClass="p-button-raised p-button-text p-button-success"
         (click)="onGoToListTransaction('income')"
       >
-        <mat-icon fontIcon="arrow_upward"></mat-icon>
-        Ingresos <br />
-        ${{ ingresosDisplayValue.value | number: ".2" }}
-      </button>
-
-      <button
-        mat-button
-        color="warn"
+        <i class="pi pi-angle-up"></i>
+        <span class="ml-2 font-bold"
+          >Ingresos<br />
+          ${{ ingresosDisplayValue.value | number: ".2" }}
+        </span>
+      </p-button>
+    </div>
+    <div class="col-6 flex align-items-center justify-content-center">
+      <p-button
+        styleClass="p-button-raised p-button-text p-button-danger"
         (click)="onGoToListTransaction('expense')"
       >
-        <mat-icon fontIcon="arrow_downward"></mat-icon>
-        Gastos <br />
-        ${{ gastosDisplayValue.value | number: ".2" }}
-      </button>
-    </mat-card-content>
-    <mat-card-actions>
+        <i class="pi pi-angle-down"></i>
+        <span class="ml-2 font-bold"
+          >Gastos<br />
+          ${{ gastosDisplayValue.value | number: ".2" }}
+        </span>
+      </p-button>
+    </div>
+
+    <div class="col-6 flex align-items-center justify-content-center">
       <button
-        mat-button
-        color="primary"
+        pButton
+        type="button"
+        icon="pi pi-plus"
+        class="p-button-outlined p-button-rounded p-button-success"
         (click)="onGoToAddTransaction('income')"
-      >
-        <mat-icon fontIcon="add"></mat-icon>
-      </button>
-      <button mat-button color="warn" (click)="onGoToAddTransaction('expense')">
-        <mat-icon fontIcon="add"></mat-icon>
-      </button>
-    </mat-card-actions>
+      ></button>
+    </div>
+    <div class="col-6 flex align-items-center justify-content-center">
+      <button
+        pButton
+        type="button"
+        icon="pi pi-minus"
+        class="p-button-outlined p-button-rounded p-button-danger"
+        (click)="onGoToAddTransaction('expense')"
+      ></button>
+    </div>
+
+    <!-- <button
+      pButton
+      type="button"
+      icon="pi pi-eye-slash"
+      class="p-button-outlined p-button-rounded p-button-secondary"
+      *ngIf="hideTotals"
+      (click)="onVisibilityClick()"
+    ></button>
+  
+    <button
+      pButton
+      type="button"
+      icon="pi pi-eye"
+      class="p-button-outlined p-button-rounded p-button-secondary"
+      *ngIf="!hideTotals"
+      (click)="onVisibilityClick()"
+    ></button> -->
   </div>
-</mat-card>
+</p-card>

@@ -1,0 +1,10 @@
+<span class="p-float-label">
+  <p-calendar
+    [(ngModel)]="dateValue"
+    view="month"
+    dateFormat="mm/yy"
+    (onSelect)="onValueChange()"
+    inputId="monthpicker"
+  ></p-calendar>
+  <label for="monthpicker">Seleccionar mes</label>
+</span>
