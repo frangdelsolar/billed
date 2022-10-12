@@ -16,6 +16,7 @@ export class CategoryPickerComponent implements OnInit {
   @Output() selection = new EventEmitter();
 
   categorySelect = new FormControl('', [Validators.required]);
+  valueSelected: any=null;
 
   categories: any = [];
 
@@ -29,7 +30,7 @@ export class CategoryPickerComponent implements OnInit {
     }
   }
 
-  onSelect(value: number){
+  onSelect(value: any){
     this.selection.emit(value);
   }
 

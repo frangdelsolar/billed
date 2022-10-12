@@ -16,6 +16,8 @@ export class CurrencyFieldComponent implements OnInit {
 
   @Output() currencyValueSelector: EventEmitter<any> = new EventEmitter();
 
+  currencySelected: string="ARS";
+  amountInput:number=0;
   currency: FormControl = new FormControl('ARS', [Validators.required]);
   amount: FormControl = new FormControl("", [Validators.required]);
   exchange_rate: FormControl = new FormControl(1, []);
@@ -36,6 +38,7 @@ export class CurrencyFieldComponent implements OnInit {
   }
 
   setHint(){
+
     if (this.currency.value == 'USD'){
       this.getUSDRate().subscribe((res:any)=>{
         this.exchange_rate.setValue(res.venta);

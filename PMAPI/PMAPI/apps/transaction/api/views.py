@@ -16,7 +16,6 @@ import pytz
 def get_transaction_qs_by_date(user, month, year):
     queryset = Transaction.objects.filter(
         created_by=user, date_of_transaction__month=month, date_of_transaction__year=year)
-
     recurrent_qs = RecurrentPayment.objects.filter(
         created_by=user)
 
@@ -138,10 +137,9 @@ class BalanceView(APIView):
             year = today.year
 
         income = get_transaction_qs_by_date(request.user, month, year).filter(
-            type='income', completed=True).aggregate(total=Sum('currency__amount'))['total']
+            type='income').aggregate(total=Sum('currency__amount'))['total']
         expenses = get_transaction_qs_by_date(request.user, month, year).filter(
-            type='expense', completed=True).aggregate(total=Sum('currency__amount'))['total']
-
+            type='expense').aggregate(total=Sum('currency__amount'))['total']
         total = 0
         if not income:
             income = 0

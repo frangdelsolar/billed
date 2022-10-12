@@ -18,6 +18,8 @@ export class AddTransactionComponent implements OnInit {
 
   showRepetitions: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
+  dateSelected: Date = new Date();
+
   constructor(
     private fb: FormBuilder, 
     private svc: TransactionService,
@@ -56,6 +58,10 @@ export class AddTransactionComponent implements OnInit {
     }
   }
 
+  onFrequencyChange(value:any){
+    this.form.get('frequency')?.setValue(value);
+  }
+
   onSelectCurrency(value: any){
     this.form.get('currency')?.setValue(value.currency);
     this.form.get('amount')?.setValue(value.amount);
@@ -76,7 +82,7 @@ export class AddTransactionComponent implements OnInit {
   }
 
   onRepeatsToggle(){
-    let showRepetitions = !this.form.get('repeats')?.value;
+    let showRepetitions = this.form.get('repeats')?.value;
     this.showRepetitions.next(showRepetitions);
     if (showRepetitions){
       this.form.get('recurrent')?.setValue(false);
@@ -89,6 +95,7 @@ export class AddTransactionComponent implements OnInit {
   }
 
   onSubmitForm(){
+    console.log(this.form.value)
     if (this.querySvc.params['transaction_type'] == 'income'){
       this.form.value.type = 'income';
     } else if (this.querySvc.params['transaction_type'] == 'expense'){

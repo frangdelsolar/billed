@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { Transaction } from '@core/models/transaction.interface';
 
 @Component({
@@ -15,4 +16,7 @@ export class ItemTransactionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onTransactionClick(id:any){
+    console.log(id)
+  }
 }

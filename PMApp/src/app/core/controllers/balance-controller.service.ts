@@ -15,7 +15,7 @@ export class BalanceService {
   constructor(private adminSvc: PrivateApiService) {}
 
   public get(params?: string){
-    let url = params ? this._apiUrl + `${params}` : this._apiUrl;
+    let url = params ? this._apiUrl + `${params}` : this._apiUrl ;
     return this.adminSvc.get<Balance>(url, null, true);
   }
 

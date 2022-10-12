@@ -1,20 +1,39 @@
-<mat-list-item>
-  <mat-icon
-    mat-list-icon
-    [color]="transaction?.payment_item?.category?.color"
-    >{{ transaction?.payment_item?.category?.icon }}</mat-icon
-  >
-
-  <div mat-line>
-    <b>{{ transaction?.description }}</b>
+<div
+  class="grid"
+  [ngClass]="
+    transaction?.type == 'income' ? 'hover:bg-green-50' : 'hover:bg-red-50'
+  "
+  (click)="onTransactionClick(transaction?.id)"
+>
+  <div class="flex flex-column col-1 justify-content-center">
+    <mat-icon [color]="transaction?.payment_item?.category?.color">{{
+      transaction?.payment_item?.category?.icon
+    }}</mat-icon>
   </div>
-  <div mat-line>
-    {{ transaction?.notes }}
+  <div class="flex flex-column col-4 justify-content-center">
+    <p class="my-0 py-0">
+      <b>{{ transaction?.description }}</b>
+    </p>
+    <p class="my-0 py-0">
+      {{ transaction?.notes }}
+    </p>
   </div>
-  {{ transaction?.currency }}$<b>{{ transaction?.amount | number: ".2" }}</b>
-  <mat-icon *ngIf="!transaction?.completed" color="warn">push_pin</mat-icon>
-  <mat-icon *ngIf="transaction?.completed" color="primary"
-    >check_circle</mat-icon
-  >
-</mat-list-item>
-<mat-divider></mat-divider>
+  <div class="flex flex-column col-1 col-offset-1 justify-content-center">
+    {{ transaction?.currency }}$<b>{{ transaction?.amount | number: ".2" }}</b>
+  </div>
+  <div class="flex flex-column col-1 col-offset-2 justify-content-center">
+    <i class="pi pi-refresh" *ngIf="!transaction?.payment_item?.recurrent"></i>
+  </div>
+  <div class="flex flex-column col-1 col-offset-1 justify-content-center">
+    <i
+      class="pi pi-times-circle"
+      style="color: red"
+      *ngIf="!transaction?.completed"
+    ></i>
+    <i
+      class="pi pi-check-circle"
+      style="color: green"
+      *ngIf="transaction?.completed"
+    ></i>
+  </div>
+</div>

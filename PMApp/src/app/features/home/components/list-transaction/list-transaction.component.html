@@ -1,24 +1,23 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>{{ title }}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <app-monthpicker
-      class="center"
-      [selectedDate]="selectedDate"
-      (dateDisplay)="setDate($event)"
-    ></app-monthpicker>
-    <app-transaction-type-picker
-      [valueSelected]="selectedType"
-      (selection)="setTransactionType($event)"
-    ></app-transaction-type-picker>
-    <div class="container">
-      <mat-list>
+<p-card header="{{ title }}">
+  <div class="grid">
+    <div class="col-12 flex mt-4 mb-4">
+      <div class="col-4 col-offset-1">
+        <app-month-picker [dateValue]="selectedDate"></app-month-picker>
+      </div>
+      <div class="col-4 col-offset-2">
+        <app-transaction-type-picker
+          [valueSelected]="selectedType"
+          (selection)="setTransactionType($event)"
+        ></app-transaction-type-picker>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="list-item" *ngFor="let transaction of transactions">
         <app-item-transaction
-          *ngFor="let transaction of transactions"
           [transaction]="transaction"
         ></app-item-transaction>
-      </mat-list>
+        <p-divider></p-divider>
+      </div>
     </div>
-  </mat-card-content>
-</mat-card>
+  </div>
+</p-card>

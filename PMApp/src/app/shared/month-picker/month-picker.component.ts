@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-month-picker',
@@ -7,7 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class MonthPickerComponent implements OnInit {
 
-  dateValue = new Date();
+  @Input() dateValue = new Date();
   @Output() dateDisplay = new EventEmitter<any>();
 
   constructor() { }

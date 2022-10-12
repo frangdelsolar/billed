@@ -22,12 +22,13 @@ export class ListTransactionComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.selectedDate = {
-      month: this.querySvc.params['month'],
-      year: this.querySvc.params['year'],
-    }
+    this.setupDateSelection();
+    this.setupTitle();
+    this.getRecords();
+  }
+
+  setupTitle(){
     this.selectedType = this.querySvc.params['transaction_type'];
-    console.log(this.selectedType)
     if (this.querySvc.params['transaction_type'] == 'income'){
       this.title = "Ingresos";
     } else if (this.querySvc.params['transaction_type'] == 'expense'){
@@ -35,7 +36,16 @@ export class ListTransactionComponent implements OnInit {
     } else {
       this.title = "Transacciones";
     }
-    this.getRecords();
+  }
+  
+  setupDateSelection(){
+    let year = this.querySvc.params['year'];
+    let month = this.querySvc.params['month']-1;
+    this.selectedDate = new Date();
+    if (year && month > -1){
+      this.selectedDate.setFullYear(year)
+      this.selectedDate.setMonth(month)
+    }
   }
 
   getRecords(){
@@ -49,7 +59,7 @@ export class ListTransactionComponent implements OnInit {
     this.getRecords();
   }
 
-  setTransactionType(value:string){
+  setTransactionType(value:any){
     this.querySvc.setTransactionType(value);
     this.getRecords();
   }

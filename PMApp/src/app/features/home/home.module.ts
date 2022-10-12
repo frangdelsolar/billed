@@ -9,6 +9,7 @@ import { ListTransactionComponent } from './components/list-transaction/list-tra
 
 import { HomeComponent } from './home.component';
 import { ItemTransactionComponent } from './components/item-transaction/item-transaction.component';
+import { DetailTransactionComponent } from './components/detail-transaction/detail-transaction.component';
 
 
 
@@ -18,7 +19,8 @@ import { ItemTransactionComponent } from './components/item-transaction/item-tra
     SummaryComponent,
     AddTransactionComponent,
     ListTransactionComponent,
-    ItemTransactionComponent
+    ItemTransactionComponent,
+    DetailTransactionComponent
   ],
   imports: [
     CommonModule,

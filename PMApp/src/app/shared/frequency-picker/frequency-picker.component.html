@@ -1,11 +1,11 @@
 <span class="p-float-label">
   <p-dropdown
-    inputId="typeSelector"
-    [options]="transaction_types"
+    inputId="frequencySelector"
+    [options]="frequencies"
     [(ngModel)]="valueSelected"
     optionLabel="viewValue"
     optionValue="value"
     (onChange)="onSelect(valueSelected)"
   ></p-dropdown>
-  <label for="typeSelector">Tipo de transacción</label>
+  <label for="frequencySelector">Frecuencia</label>
 </span>

@@ -8,15 +8,15 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class TransactionTypePickerComponent implements OnInit {
 
-  @Input() valueSelected?: any;
+  @Input() valueSelected: string = "";
   @Output() selection = new EventEmitter<string>();
 
-  typeSelector = new FormControl('', [Validators.required])
+  typeSelector = new FormControl('-', [Validators.required])
 
   transaction_types = [
+    { value:"-", viewValue: "Todos"},
     { value:"income", viewValue: "Ingreso/s"},
     { value:"expense", viewValue: "Gasto/s"},
-    { value:"", viewValue: "Todos"},
   ]
 
   constructor() { }

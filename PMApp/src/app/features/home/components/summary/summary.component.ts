@@ -43,7 +43,6 @@ export class SummaryComponent implements OnInit {
   }
 
   setDate(dateParams: any){
-    console.log(dateParams)
     this.querySvc.setDateToQuery(dateParams['month'], dateParams['year'])
     this.getTotals();
   }

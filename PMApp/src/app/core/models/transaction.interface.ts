@@ -11,5 +11,5 @@ export interface Transaction{
     notes: string,
     type: string,
     date_of_transaction: string,
-    payment_item: PaymentItem,
+    payment_item?: PaymentItem,
 }
