@@ -5,6 +5,7 @@ import { HomeComponent } from './home.component';
 import { SummaryComponent } from './components/summary/summary.component';
 import { AddTransactionComponent } from './components/add-transaction/add-transaction.component';
 import { ListTransactionComponent } from './components/list-transaction/list-transaction.component';
+import { DetailTransactionComponent } from './components/detail-transaction/detail-transaction.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,14 @@ const routes: Routes = [
       {
         path: 'transacciones',
         component: ListTransactionComponent
+      },
+      {
+        path: 'transacciones/:id',
+        component: DetailTransactionComponent
+      },
+      {
+        path: 'transacciones/:id/editar',
+        component: AddTransactionComponent
       }
     ]
   },

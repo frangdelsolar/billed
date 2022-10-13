@@ -26,14 +26,11 @@
   </div>
   <div class="flex flex-column col-1 col-offset-1 justify-content-center">
     <i
-      class="pi pi-times-circle"
-      style="color: red"
-      *ngIf="!transaction?.completed"
-    ></i>
-    <i
       class="pi pi-check-circle"
-      style="color: green"
-      *ngIf="transaction?.completed"
+      [ngStyle]="{
+        color: transaction?.payment_item?.recurrent == true ? 'green' : 'gray'
+      }"
+      style="font-weight: bolder"
     ></i>
   </div>
 </div>

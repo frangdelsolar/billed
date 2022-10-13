@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { Transaction } from '@core/models/transaction.interface';
 
@@ -11,12 +12,12 @@ export class ItemTransactionComponent implements OnInit {
 
   @Input() transaction?: Transaction;
 
-  constructor() { }
+  constructor(private router:Router) { }
 
   ngOnInit(): void {
   }
 
   onTransactionClick(id:any){
-    console.log(id)
+    this.router.navigate(['transacciones', id]);
   }
 }

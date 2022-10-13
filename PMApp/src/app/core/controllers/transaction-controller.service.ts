@@ -16,7 +16,7 @@ export class TransactionService {
   constructor(private adminSvc: PrivateApiService) {}
 
   public get(id: number){
-    return this.adminSvc.get<Transaction|Transaction[]>(this._apiUrl, id, true);
+    return this.adminSvc.get<Transaction>(this._apiUrl, id, true);
   }
 
   public getAll(params?: string){

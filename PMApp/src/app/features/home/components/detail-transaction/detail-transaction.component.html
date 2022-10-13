@@ -1,1 +1,238 @@
-<p>detail-transaction works!</p>
+<p-card>
+  <div
+    class="border-round-lg px-1 py-5 lg:p-6"
+    [ngClass]="transaction.type == 'income' ? 'bg-green-50' : 'bg-red-50'"
+  >
+    <div class="grid">
+      <div
+        class="col-3 flex flex-wrap justify-content-center align-items-center"
+      >
+        <i
+          class="pi pi-check-circle"
+          style="font-size: 3rem"
+          [ngStyle]="{
+            color:
+              transaction.payment_item?.recurrent == true ? 'green' : 'gray'
+          }"
+        ></i>
+      </div>
+      <div
+        class="col-3 flex flex-wrap justify-content-center align-items-center"
+      >
+        <i
+          class="pi pi-refresh"
+          style="font-size: 3rem"
+          [ngStyle]="{
+            color:
+              transaction.payment_item?.recurrent == true
+                ? 'lightgreen'
+                : 'gray'
+          }"
+        ></i>
+      </div>
+      <div
+        class="col-3 flex flex-wrap justify-content-center align-items-center"
+      >
+        <i class="pi pi-image" style="color: blue; font-size: 3rem"></i>
+      </div>
+      <div
+        class="col-3 flex flex-wrap justify-content-center align-items-center"
+      >
+        <i class="pi pi-heart" style="color: red; font-size: 3rem"></i>
+      </div>
+    </div>
+    <p-divider></p-divider>
+    <div class="lg:col-10 lg:col-offset-1">
+      <table>
+        <tr>
+          <td
+            class="col-2 justify-content-center align-items-right"
+            rowspan="2"
+          >
+            <i
+              class="pi pi-book"
+              [ngClass]="
+                transaction.type == 'income' ? 'text-teal-400' : 'text-red-400'
+              "
+              style="font-size: 2rem"
+            ></i>
+          </td>
+          <td class="col-4 align-items-left mb-0 pb-0">Descripción</td>
+          <td class="col-2"></td>
+          <td
+            class="col-2 justify-content-center align-items-right"
+            rowspan="2"
+          >
+            <i
+              class="pi pi-dollar"
+              [ngClass]="
+                transaction.type == 'income' ? 'text-teal-400' : 'text-red-400'
+              "
+              style="font-size: 2rem"
+            ></i>
+          </td>
+          <td class="col-4 align-items-left mb-0 pb-0">Valor</td>
+        </tr>
+        <tr>
+          <td class="col-4 align-items-left mt-0 pt-0">
+            {{ transaction.description }}
+          </td>
+          <td class="col-2"></td>
+          <td class="col-4 align-items-left mt-0 pt-0">
+            ${{ transaction.amount | number: ".2" }}
+          </td>
+        </tr>
+
+        <tr>
+          <td
+            class="col-2 justify-content-center align-items-right"
+            rowspan="2"
+          >
+            <i
+              class="pi pi-calendar"
+              [ngClass]="
+                transaction.type == 'income' ? 'text-teal-400' : 'text-red-400'
+              "
+              style="font-size: 2rem"
+            ></i>
+          </td>
+          <td class="col-4 align-items-left mb-0 pb-0">Fecha</td>
+          <td class="col-2"></td>
+          <td
+            class="col-2 justify-content-center align-items-right"
+            rowspan="2"
+          >
+            <i
+              class="pi pi-wallet"
+              [ngClass]="
+                transaction.type == 'income' ? 'text-teal-400' : 'text-red-400'
+              "
+              style="font-size: 2rem"
+            ></i>
+          </td>
+          <td class="col-4 align-items-left mb-0 pb-0">Cuenta</td>
+        </tr>
+        <tr>
+          <td class="col-4 align-items-left mt-0 pt-0">
+            {{ transaction.date_of_transaction | date }}
+          </td>
+          <td class="col-2"></td>
+          <td class="col-4 align-items-left mt-0 pt-0">Billetera</td>
+        </tr>
+
+        <tr>
+          <td
+            class="col-2 justify-content-center align-items-right"
+            rowspan="2"
+          >
+            <i
+              class="pi pi-th-large"
+              [ngClass]="
+                transaction.type == 'income' ? 'text-teal-400' : 'text-red-400'
+              "
+              style="font-size: 2rem"
+            ></i>
+          </td>
+          <td class="col-4 align-items-left mb-0 pb-0">Categoría</td>
+          <td class="col-2"></td>
+          <td
+            class="col-2 justify-content-center align-items-right"
+            rowspan="2"
+          >
+            <i
+              class="pi pi-tag"
+              [ngClass]="
+                transaction.type == 'income' ? 'text-teal-400' : 'text-red-400'
+              "
+              style="font-size: 2rem"
+            ></i>
+          </td>
+          <td class="col-4 align-items-left mb-0 pb-0">Etiquetas</td>
+        </tr>
+        <tr>
+          <td class="col-4 align-items-left mt-0 pt-0">categoría</td>
+          <td class="col-2"></td>
+          <td class="col-4 align-items-left mt-0 pt-0">Tags</td>
+        </tr>
+
+        <tr>
+          <td
+            class="col-2 justify-content-center align-items-right"
+            rowspan="2"
+          >
+            <i
+              class="pi pi-bell"
+              [ngClass]="
+                transaction.type == 'income' ? 'text-teal-400' : 'text-red-400'
+              "
+              style="font-size: 2rem"
+            ></i>
+          </td>
+          <td class="col-4 align-items-left mb-0 pb-0">Recordatorio</td>
+          <td class="col-2"></td>
+          <td
+            class="col-2 justify-content-center align-items-right"
+            rowspan="2"
+          ></td>
+          <td class="col-4 align-items-left mb-0 pb-0"></td>
+        </tr>
+        <tr>
+          <td class="col-4 align-items-left mt-0 pt-0">Ninguno</td>
+          <td class="col-2"></td>
+          <td class="col-4 align-items-left mt-0 pt-0"></td>
+        </tr>
+
+        <tr>
+          <td
+            class="col-2 justify-content-center align-items-right"
+            rowspan="2"
+          >
+            <i
+              class="pi pi-pencil"
+              [ngClass]="
+                transaction.type == 'income' ? 'text-teal-400' : 'text-red-400'
+              "
+              style="font-size: 2rem"
+            ></i>
+          </td>
+          <td class="col-4 align-items-left mb-0 pb-0">Notas</td>
+          <td class="col-2"></td>
+          <td
+            class="col-2 justify-content-center align-items-right"
+            rowspan="2"
+          ></td>
+          <td class="col-4 align-items-left mb-0 pb-0"></td>
+        </tr>
+        <tr>
+          <td class="col-4 align-items-left mt-0 pt-0">
+            {{ transaction.notes }}
+          </td>
+          <td class="col-2"></td>
+          <td class="col-4 align-items-left mt-0 pt-0"></td>
+        </tr>
+      </table>
+    </div>
+
+    <p-divider></p-divider>
+    <div class="grid">
+      <div
+        class="col-2"
+        [ngClass]="
+          transaction.completed == true ? 'col-offset-5' : 'col-offset-3'
+        "
+      >
+        <p-button label="Editar" (onClick)="onEditClick()"></p-button>
+      </div>
+      <div *ngIf="!transaction.completed" class="col-2 col-offset-1">
+        <button
+          pButton
+          pRipple
+          type="button"
+          label="Completar"
+          class="p-button-info p-button-outlined"
+          (onClick)="onPayClick()"
+        ></button>
+      </div>
+    </div>
+  </div>
+</p-card>

@@ -95,7 +95,6 @@ export class AddTransactionComponent implements OnInit {
   }
 
   onSubmitForm(){
-    console.log(this.form.value)
     if (this.querySvc.params['transaction_type'] == 'income'){
       this.form.value.type = 'income';
     } else if (this.querySvc.params['transaction_type'] == 'expense'){

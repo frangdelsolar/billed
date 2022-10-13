@@ -26,7 +26,6 @@ export class PrivateApiService {
     if (id != null){
       url = `${url}/${id}/`
     } 
-
     return this.http.get<T>(
       url, 
       activateHeader ? { headers: this._headers } : {}

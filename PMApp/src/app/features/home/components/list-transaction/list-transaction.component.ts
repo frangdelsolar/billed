@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { Transaction } from '@core/models/transaction.interface';
-// import { Transaction } from '@core/models/transaction.interface';
 import { QueryService } from '@core/services/query.service';
 
 @Component({
@@ -49,9 +48,8 @@ export class ListTransactionComponent implements OnInit {
   }
 
   getRecords(){
-    let params = this.querySvc.getParamsString()
-    console.log(params)
-    this.service.getAll(params).subscribe(res=>this.transactions=res)
+    let params = this.querySvc.getParamsString();
+    this.service.getAll(params).subscribe(res=>this.transactions=res);
   }
   
   setDate(dateParams: {[key:string]: number}){
