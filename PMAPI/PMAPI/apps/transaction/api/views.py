@@ -153,3 +153,17 @@ class BalanceView(APIView):
             'total': total
         }
         return Response(data)
+
+
+class PayView(APIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = TransactionSerializer
+
+    def post(self, request, pk):
+        transaction = Transaction.objects.get(pk=pk)
+        if transaction.created_by == request.user:
+            transaction.completed = True
+            transaction.save()
+
+            return Response(self.serializer_class(transaction).data)
+        return Response({'message': 'No tienes permiso para editar esta transacción'}, status=403)

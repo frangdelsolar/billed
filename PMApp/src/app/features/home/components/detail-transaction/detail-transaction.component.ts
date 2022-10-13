@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { PayService } from '@core/controllers/pay-controller.service';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { Transaction } from '@core/models/transaction.interface';
 
@@ -11,9 +12,13 @@ import { Transaction } from '@core/models/transaction.interface';
 export class DetailTransactionComponent implements OnInit {
 
   transactionId!: number;
-  transaction!: Transaction
+  transaction!: Transaction;
 
-  constructor(private service: TransactionService, private route: ActivatedRoute, private router: Router) { }
+  constructor(
+    private service: TransactionService,
+    private paySvc: PayService, 
+    private route: ActivatedRoute, 
+    private router: Router) { }
 
   ngOnInit(): void {
     this.route.params.subscribe(res=>{
@@ -34,8 +39,11 @@ export class DetailTransactionComponent implements OnInit {
   }
   
   onPayClick(){
-    console.log(this.transactionId)
-
+    this.paySvc.post(this.transactionId).subscribe(
+      res=>{
+        this.transaction=res
+      }
+    )
   }
 
 }

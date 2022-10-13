@@ -11,8 +11,7 @@
           class="pi pi-check-circle"
           style="font-size: 3rem"
           [ngStyle]="{
-            color:
-              transaction.payment_item?.recurrent == true ? 'green' : 'gray'
+            color: transaction.completed == true ? 'green' : 'gray'
           }"
         ></i>
       </div>
@@ -224,14 +223,11 @@
         <p-button label="Editar" (onClick)="onEditClick()"></p-button>
       </div>
       <div *ngIf="!transaction.completed" class="col-2 col-offset-1">
-        <button
-          pButton
-          pRipple
-          type="button"
+        <p-button
+          styleClass="p-button-info p-button-outlined"
           label="Completar"
-          class="p-button-info p-button-outlined"
           (onClick)="onPayClick()"
-        ></button>
+        ></p-button>
       </div>
     </div>
   </div>

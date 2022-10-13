@@ -9,6 +9,7 @@ export const environment = {
   apiUrlBalance: 'api/balance',
   apiUrlTransaction: 'api/transaction',
   apiUrlCategory: 'api/category',
+  apiUrlPay: 'api/pay'
 };
 
 /*
