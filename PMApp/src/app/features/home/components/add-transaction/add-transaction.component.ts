@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { QueryService } from '@core/services/query.service';
 import { BehaviorSubject } from 'rxjs';
@@ -18,17 +18,19 @@ export class AddTransactionComponent implements OnInit {
 
   showRepetitions: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
+  transactionId?: number;
   dateSelected: Date = new Date();
 
   constructor(
     private fb: FormBuilder, 
-    private svc: TransactionService,
+    private service: TransactionService,
     private querySvc: QueryService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { 
     this.form = fb.group({
       currency: new FormControl('', [Validators.required]),
-      amount: new FormControl('', [Validators.required]),
+      amount: new FormControl(0, [Validators.required]),
       exchange_rate: new FormControl('', []),
       category: new FormControl('', [Validators.required]),
       completed: new FormControl(false, [Validators.required]),
@@ -45,7 +47,52 @@ export class AddTransactionComponent implements OnInit {
 
   }
 
+
   ngOnInit(): void {
+    this.initialSetup();
+    this.setEditionMode();
+  }
+
+  setEditionMode(){
+    this.route.params.subscribe(res=>{
+      let id = res['id'];
+      if (id){
+        this.transactionId = id;
+        this.prefill();
+      }
+    });
+  }
+
+  prefill(){
+    if (this.transactionId){
+      this.service.get(this.transactionId).subscribe(
+        (res)=>{
+          
+          this.form.get('currency')?.setValue(res.currency);
+          this.form.get('amount')?.setValue(res.amount);
+          this.form.get('exchange_rate')?.setValue(res.payment_item?.currency?.exchange_rate);
+          this.form.get('category')?.setValue(res.payment_item?.category);
+          this.form.get('completed')?.setValue(res.completed);
+          this.form.get('date_of_transaction')?.setValue(res.date_of_transaction);
+          this.dateSelected = new Date(res.date_of_transaction);
+          this.form.get('description')?.setValue(res.description);
+          this.form.get('recurrent')?.setValue(res.payment_item?.recurrent);
+          // this.form.get('repeats')?.setValue(res.repeats);
+          // this.form.get('repetitions')?.setValue(res.repetitions);
+          // this.form.get('frequency')?.setValue(res.frequency);
+          this.form.get('notes')?.setValue(res.notes);
+          this.form.get('ignore')?.setValue(res.ignore);
+          this.form.get('type')?.setValue(res.type);
+  
+        },
+        (err)=>{
+          this.router.navigate(['/']);
+        }
+      )
+    }
+  }
+
+  initialSetup(){
     if (this.querySvc.params['transaction_type'] == 'income'){
       this.action = "Ingreso";
       this.actionType = "income";
@@ -54,7 +101,7 @@ export class AddTransactionComponent implements OnInit {
       this.actionType = "expense";
     } else {
       // console.error('Tipo de transaccion invalido');
-      this.router.navigate(['/']);
+      // this.router.navigate(['/']);
     }
   }
 
@@ -104,7 +151,7 @@ export class AddTransactionComponent implements OnInit {
       this.router.navigate(['/']);
     }
     if (this.form.valid){
-      this.svc.create(this.form.value).subscribe(res=>{
+      this.service.create(this.form.value).subscribe(res=>{
         this.router.navigate(['/']);
       })
     } else {

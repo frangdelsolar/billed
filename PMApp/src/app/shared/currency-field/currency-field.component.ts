@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { PrivateApiService } from '@core/services/privateApi.service';
 import { currencies } from './currencies';
@@ -16,8 +16,8 @@ export class CurrencyFieldComponent implements OnInit {
 
   @Output() currencyValueSelector: EventEmitter<any> = new EventEmitter();
 
-  currencySelected: string="ARS";
-  amountInput:number=0;
+  @Input() currencySelected: string="ARS";
+  @Input() amountInput:number=0;
   currency: FormControl = new FormControl('ARS', [Validators.required]);
   amount: FormControl = new FormControl("", [Validators.required]);
   exchange_rate: FormControl = new FormControl(1, []);

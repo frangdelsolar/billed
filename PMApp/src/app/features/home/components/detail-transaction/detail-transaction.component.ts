@@ -35,7 +35,7 @@ export class DetailTransactionComponent implements OnInit {
   }
 
   onEditClick(){
-    console.log(this.transactionId)
+    this.router.navigate(['transacciones', this.transactionId, 'editar']);
   }
   
   onPayClick(){

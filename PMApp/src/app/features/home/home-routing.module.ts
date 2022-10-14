@@ -14,27 +14,37 @@ const routes: Routes = [
     children:[
       {
         path: '',
+        pathMatch: 'full' ,
         component: SummaryComponent
       },
       {
-        path: 'nueva-transaccion',
-        component: AddTransactionComponent
-      },
-      {
         path: 'transacciones',
-        component: ListTransactionComponent
+        children:[
+          {
+            path:"",
+            component: ListTransactionComponent
+          },
+          {
+            path: 'crear',
+            component: AddTransactionComponent
+          },
+          {
+            path: ':id',
+            children:[
+              {
+                path: "",
+                component: DetailTransactionComponent
+              },
+              {
+                path: 'editar',
+                component: AddTransactionComponent
+              }
+            ]
+          },
+        ]
       },
-      {
-        path: 'transacciones/:id',
-        component: DetailTransactionComponent
-      },
-      {
-        path: 'transacciones/:id/editar',
-        component: AddTransactionComponent
-      }
     ]
   },
-
 ]
 
 

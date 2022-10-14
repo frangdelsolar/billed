@@ -1,5 +1,5 @@
-<div class="grid">
-  <div class="col-6">
+<div class="grid flex-row">
+  <div class="col-5">
     <span class="p-float-label">
       <p-dropdown
         inputId="currencySelector"
@@ -14,7 +14,7 @@
       <small class="block">{{ exchangeHint }}</small>
     </span>
   </div>
-  <div class="col-6">
+  <div class="col-5 col-offset-2">
     <span class="p-float-label">
       <p-inputNumber
         [formControl]="amount"

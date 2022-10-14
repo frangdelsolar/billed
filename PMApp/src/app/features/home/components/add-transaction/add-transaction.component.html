@@ -3,9 +3,11 @@
     class="border-round-lg px-1 py-5 lg:p-6"
     [ngClass]="actionType == 'income' ? 'bg-green-50' : 'bg-red-50'"
   >
-    <form [formGroup]="form" id="ngForm">
+    <form class="m-3" [formGroup]="form" id="ngForm">
       <app-currency-field
         (currencyValueSelector)="onSelectCurrency($event)"
+        [amountInput]="form.controls['amount']?.value"
+        [currencySelected]="form.controls['currency']?.value"
       ></app-currency-field>
       <p-divider></p-divider>
 
@@ -23,6 +25,7 @@
           formControlName="date_of_transaction"
           [showIcon]="true"
           inputId="calendar"
+          [(ngModel)]="dateSelected"
         ></p-calendar>
         <label for="calendar">Fecha de transacción</label>
       </span>
