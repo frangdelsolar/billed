@@ -4,11 +4,10 @@
       <p-dropdown
         inputId="currencySelector"
         [options]="currencies"
-        [(ngModel)]="currencySelected"
+        [(ngModel)]="in_currency"
         optionLabel="value"
         optionValue="key"
         (onChange)="setHint()"
-        [formControl]="currency"
       ></p-dropdown>
       <label for="currencySelector">Moneda</label>
       <small class="block">{{ exchangeHint }}</small>
@@ -17,10 +16,9 @@
   <div class="col-5 col-offset-2">
     <span class="p-float-label">
       <p-inputNumber
-        [formControl]="amount"
-        [(ngModel)]="amountInput"
+        [(ngModel)]="in_amount"
         mode="currency"
-        [currency]="currencySelected"
+        [currency]="in_currency"
         inputId="amountInput"
         (ngModelChange)="setHint()"
       ></p-inputNumber>

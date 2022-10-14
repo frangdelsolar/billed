@@ -1,0 +1,32 @@
+<div class="grid">
+  <div class="col-12 mb-3">
+    <span>
+      <h5>Repetir</h5>
+      <p-inputSwitch
+        inputId="repeatsSwitch"
+        [(ngModel)]="in_repetitionOn"
+        (click)="onRepetitionToggle()"
+      ></p-inputSwitch>
+    </span>
+  </div>
+  <div
+    class="flex flex-wrap flex-row justify-content-between"
+    *ngIf="showRepetitionDetails"
+  >
+    <app-frequency-picker
+      [(selection)]="in_frequency"
+      (selectionChange)="onChange()"
+    ></app-frequency-picker>
+    <span class="p-float-label">
+      <p-inputNumber
+        [showButtons]="true"
+        inputId="repetitions"
+        [min]="0"
+        [max]="100"
+        [(ngModel)]="in_repetitions"
+        (ngModelChange)="onChange()"
+      ></p-inputNumber>
+      <label for="repetitions">Repeticiones</label>
+    </span>
+  </div>
+</div>

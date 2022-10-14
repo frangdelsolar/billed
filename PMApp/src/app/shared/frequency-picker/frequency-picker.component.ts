@@ -8,8 +8,11 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class FrequencyPickerComponent implements OnInit {
 
-  @Input() valueSelected: string = "";
-  @Output() selection = new EventEmitter<string>();
+  @Input()
+  selection: string="";
+  
+  @Output()
+  selectionChange = new EventEmitter<string>();
 
   frequencySelector = new FormControl('', [Validators.required])
 
@@ -23,13 +26,10 @@ export class FrequencyPickerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if (this.valueSelected){
-      this.frequencySelector.setValue(this.valueSelected);
-    }
+
   }
 
-  onSelect(value: string){
-    this.selection.emit(value);
+  onChange(){
+    this.selectionChange.emit(this.selection);
   }
-
 }

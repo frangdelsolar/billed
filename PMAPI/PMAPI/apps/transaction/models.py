@@ -122,3 +122,6 @@ class Transaction(Metadata):
                     frequency=None,
                     parent_transaction=self,
                 )
+
+    def update(self, *args, **kwargs):
+        print(kwargs)

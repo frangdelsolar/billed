@@ -2,10 +2,10 @@
   <p-dropdown
     inputId="frequencySelector"
     [options]="frequencies"
-    [(ngModel)]="valueSelected"
+    [(ngModel)]="selection"
+    (ngModelChange)="onChange()"
     optionLabel="viewValue"
     optionValue="value"
-    (onChange)="onSelect(valueSelected)"
   ></p-dropdown>
   <label for="frequencySelector">Frecuencia</label>
 </span>

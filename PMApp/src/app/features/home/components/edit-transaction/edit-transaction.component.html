@@ -1,0 +1,125 @@
+<p-card header="Editar {{ action }}">
+  <div
+    class="border-round-lg px-1 py-5 lg:p-6"
+    [ngClass]="actionType == 'income' ? 'bg-green-50' : 'bg-red-50'"
+  >
+    <form class="m-3" [formGroup]="form" id="ngForm">
+      <app-currency-field
+        (out_selection)="onSelectCurrency($event)"
+        [in_amount]="form.controls['amount'].value"
+        [in_currency]="form.controls['currency'].value"
+      ></app-currency-field>
+      <p-divider></p-divider>
+
+      <span>
+        <h5>Realizado</h5>
+        <p-inputSwitch
+          inputId="completedSwitch"
+          formControlName="completed"
+        ></p-inputSwitch>
+      </span>
+      <p-divider></p-divider>
+
+      <span class="p-float-label">
+        <p-calendar
+          formControlName="date_of_transaction"
+          [showIcon]="true"
+          inputId="calendar"
+          [(ngModel)]="form_date"
+        ></p-calendar>
+        <label for="calendar">Fecha de transacción</label>
+      </span>
+      <p-divider></p-divider>
+
+      <span class="p-float-label">
+        <input
+          id="description-input"
+          formControlName="description"
+          type="text"
+          pInputText
+        />
+        <label for="description-input">Descripción</label>
+      </span>
+      <p-divider></p-divider>
+
+      <span>
+        <h5>{{ action }} Fijo</h5>
+        <p-inputSwitch
+          inputId="recurrentSwitch"
+          formControlName="recurrent"
+          (click)="onRecurrentToggle()"
+        ></p-inputSwitch>
+      </span>
+      <p-divider></p-divider>
+
+      <span>
+        <h5>Repetir</h5>
+        <p-inputSwitch
+          inputId="repeatsSwitch"
+          formControlName="repeats"
+          (click)="onRepeatsToggle()"
+        ></p-inputSwitch>
+      </span>
+      <div
+        class="col-12 flex flex-wrap flex-row justify-content-around"
+        *ngIf="showRepetitions.value"
+      >
+        <span class="p-float-label">
+          <p-inputNumber formControlName="repetitions"></p-inputNumber>
+          <label for="calendar">Repeticiones</label>
+        </span>
+
+        <app-frequency-picker
+          (selection)="onFrequencyChange($event)"
+        ></app-frequency-picker>
+      </div>
+      <p-divider></p-divider>
+
+      <span class="p-float-label">
+        <input
+          id="notes-input"
+          formControlName="notes"
+          type="text"
+          pInputText
+        />
+        <label for="notes-input">Notas</label>
+      </span>
+      <p-divider></p-divider>
+
+      <app-category-picker
+        [transactionType]="actionType"
+        (selection)="onCategorySelection($event)"
+      ></app-category-picker>
+      <p-divider></p-divider>
+
+      <span>
+        <h5>Ignorar</h5>
+        <p-inputSwitch
+          inputId="ignoreSwitch"
+          formControlName="ignore"
+        ></p-inputSwitch>
+      </span>
+      <p-divider></p-divider>
+    </form>
+  </div>
+
+  <ng-template pTemplate="footer">
+    <span class="p-buttonset">
+      <button
+        pButton
+        pRipple
+        label="Guardar"
+        icon="pi pi-check"
+        (click)="onSubmitForm()"
+      ></button>
+      <button pButton pRipple label="Eliminar" icon="pi pi-trash"></button>
+      <button
+        pButton
+        pRipple
+        label="Limpiar"
+        icon="pi pi-times"
+        (click)="onClearForm()"
+      ></button>
+    </span>
+  </ng-template>
+</p-card>

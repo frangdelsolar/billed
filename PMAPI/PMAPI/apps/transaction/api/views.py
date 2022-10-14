@@ -84,7 +84,7 @@ class TransactionViewSet(viewsets.ModelViewSet):
         if repeats and not (repetitions and frequency):
             return Response({'status': '400', 'message': 'No se pudo crear transacción'})
 
-        transaction = Transaction.create(
+        instance = Transaction.create(
             payment_item=None,
             amount=amount,
             currency=currency,
@@ -104,7 +104,7 @@ class TransactionViewSet(viewsets.ModelViewSet):
             parent_transaction=None
         )
 
-        return Response(self.serializer_class(transaction).data)
+        return Response(self.serializer_class(instance).data)
 
     def list(self, request):
         month = request.GET.get('month')
@@ -121,6 +121,32 @@ class TransactionViewSet(viewsets.ModelViewSet):
 
         serializer = self.serializer_class(queryset, many=True)
         return Response(serializer.data)
+
+    def update(self, request, pk=None):
+        transaction_type = request.data.get('type')
+        currency = request.data.get('currency')
+        amount = request.data.get('amount')
+        exchange_rate = request.data.get('exchange_rate')
+        completed = request.data.get('completed')
+        date_of_transaction = datetime.datetime.fromisoformat(
+            request.data.get('date_of_transaction').replace("Z", ""))
+        description = request.data.get('description')
+        recurrent = request.data.get('recurrent')
+        repeats = request.data.get('repeats')
+        repetitions = request.data.get('repetitions')
+        frequency = request.data.get('frequency')
+        notes = request.data.get('notes')
+        ignore = request.data.get('ignore')
+        category = request.data.get('category')
+
+        instance = Transaction.objects.get(pk=pk)
+        instance.update(**request.data)
+        print(request.data)
+
+        return Response(self.serializer_class(instance).data)
+
+    def destroy(self, request, pk=None):
+        pass
 
 
 class BalanceView(APIView):

@@ -9,14 +9,16 @@ import { CurrencyFieldComponent } from './currency-field/currency-field.componen
 import { PrimeNGModule } from './primeng.module';
 import { MonthPickerComponent } from './month-picker/month-picker.component';
 import { FrequencyPickerComponent } from './frequency-picker/frequency-picker.component';
+import { RepetitionFieldComponent } from './repetition-field/repetition-field.component';
 
 
 const myComp = [
   CategoryPickerComponent,
   CurrencyFieldComponent,
   FrequencyPickerComponent,
-  ToolbarComponent,
   MonthPickerComponent,
+  RepetitionFieldComponent,
+  ToolbarComponent,
   TransactionTypePickerComponent,
 ]
 

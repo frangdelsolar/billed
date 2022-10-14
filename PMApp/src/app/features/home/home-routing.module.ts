@@ -6,6 +6,7 @@ import { SummaryComponent } from './components/summary/summary.component';
 import { AddTransactionComponent } from './components/add-transaction/add-transaction.component';
 import { ListTransactionComponent } from './components/list-transaction/list-transaction.component';
 import { DetailTransactionComponent } from './components/detail-transaction/detail-transaction.component';
+import { EditTransactionComponent } from './components/edit-transaction/edit-transaction.component';
 
 const routes: Routes = [
   {
@@ -37,7 +38,7 @@ const routes: Routes = [
               },
               {
                 path: 'editar',
-                component: AddTransactionComponent
+                component: EditTransactionComponent
               }
             ]
           },

@@ -6,15 +6,17 @@ import { QueryService } from '@core/services/query.service';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
-  selector: 'app-add-transaction',
-  templateUrl: './add-transaction.component.html',
-  styleUrls: ['./add-transaction.component.scss']
+  selector: 'app-edit-transaction',
+  templateUrl: './edit-transaction.component.html',
+  styleUrls: ['./edit-transaction.component.scss']
 })
-export class AddTransactionComponent implements OnInit {
+export class EditTransactionComponent implements OnInit {
   action: string = "Transacción";
   actionType: string = "";
 
   form!: FormGroup;
+
+  showRepetitions: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
   transactionId?: number;
 
@@ -105,7 +107,9 @@ export class AddTransactionComponent implements OnInit {
     }
   }
 
-
+  onFrequencyChange(value:any){
+    this.form.get('frequency')?.setValue(value);
+  }
 
   onSelectCurrency(value: any){
     this.form.get('currency')?.setValue(value.currency);
@@ -118,7 +122,7 @@ export class AddTransactionComponent implements OnInit {
   }
 
   onRecurrentToggle(){
-    // this.showRepetitions.next(false);
+    this.showRepetitions.next(false);
     this.form.get('repeats')?.setValue(false);
     this.form.get('repetitions')?.reset();
     this.form.get('frequency')?.reset();
@@ -126,10 +130,18 @@ export class AddTransactionComponent implements OnInit {
     this.form.get('frequency')?.clearValidators();
   }
 
-  onRepetitionSelect(data: any){
-    console.log(data)
+  onRepeatsToggle(){
+    let showRepetitions = this.form.get('repeats')?.value;
+    this.showRepetitions.next(showRepetitions);
+    if (showRepetitions){
+      this.form.get('recurrent')?.setValue(false);
+      this.form.get('repetitions')?.setValidators([Validators.required]);
+      this.form.get('frequency')?.setValidators([Validators.required]);
+    }  else {
+      this.form.get('repetitions')?.clearValidators();
+      this.form.get('frequency')?.clearValidators();
+    }
   }
-
 
   onSubmitForm(){
     let data = {

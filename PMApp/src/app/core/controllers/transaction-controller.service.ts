@@ -29,4 +29,8 @@ export class TransactionService {
     return this.adminSvc.post<Income>(url, body, true);
   }
 
+  public update(id: number, body: any){
+    return this.adminSvc.put<any>(this._apiUrl, body, id, true);
+  }
+
 }

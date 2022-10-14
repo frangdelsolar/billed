@@ -10,6 +10,7 @@ import { ListTransactionComponent } from './components/list-transaction/list-tra
 import { HomeComponent } from './home.component';
 import { ItemTransactionComponent } from './components/item-transaction/item-transaction.component';
 import { DetailTransactionComponent } from './components/detail-transaction/detail-transaction.component';
+import { EditTransactionComponent } from './components/edit-transaction/edit-transaction.component';
 
 
 
@@ -18,6 +19,7 @@ import { DetailTransactionComponent } from './components/detail-transaction/deta
     HomeComponent,
     SummaryComponent,
     AddTransactionComponent,
+    EditTransactionComponent,
     ListTransactionComponent,
     ItemTransactionComponent,
     DetailTransactionComponent
