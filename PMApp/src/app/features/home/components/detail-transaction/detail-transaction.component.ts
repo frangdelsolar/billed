@@ -3,6 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { PayService } from '@core/controllers/pay-controller.service';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { Transaction } from '@core/models/transaction.interface';
+import { QueryService } from '@core/services/query.service';
 
 @Component({
   selector: 'app-detail-transaction',
@@ -16,6 +17,7 @@ export class DetailTransactionComponent implements OnInit {
 
   constructor(
     private service: TransactionService,
+    private querySvc: QueryService,
     private paySvc: PayService, 
     private route: ActivatedRoute, 
     private router: Router) { }
@@ -35,6 +37,7 @@ export class DetailTransactionComponent implements OnInit {
   }
 
   onEditClick(){
+    this.querySvc.setTransactionType(this.transaction.type);
     this.router.navigate(['transacciones', this.transactionId, 'editar']);
   }
   

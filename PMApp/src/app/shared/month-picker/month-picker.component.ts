@@ -22,4 +22,13 @@ export class MonthPickerComponent implements OnInit {
     })
   }
 
+  setMonth(action: string){
+    if (action=='add'){
+      this.dateValue = new Date(this.dateValue.setMonth(this.dateValue.getMonth()+1));
+    } else if (action=='substract') {
+      this.dateValue = new Date(this.dateValue.setMonth(this.dateValue.getMonth()-1));
+    }
+    this.onValueChange();
+  }
+
 }

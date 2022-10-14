@@ -1,11 +1,15 @@
-<span class="p-float-label">
-  <p-dropdown
-    inputId="typeSelector"
-    [options]="transaction_types"
-    [(ngModel)]="valueSelected"
-    optionLabel="viewValue"
-    optionValue="value"
-    (onChange)="onSelect(valueSelected)"
-  ></p-dropdown>
-  <label for="typeSelector">Tipo de transacción</label>
-</span>
+<div class="grid">
+  <div class="col-12">
+    <span class="p-float-label">
+      <p-dropdown
+        inputId="typeSelector"
+        [options]="transaction_types"
+        [(ngModel)]="valueSelected"
+        optionLabel="viewValue"
+        optionValue="value"
+        (onChange)="onSelect(valueSelected)"
+      ></p-dropdown>
+      <label for="typeSelector">Tipo de transacción</label>
+    </span>
+  </div>
+</div>

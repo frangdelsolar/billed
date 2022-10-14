@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { QueryService } from '@core/services/query.service';
@@ -100,8 +100,8 @@ export class AddTransactionComponent implements OnInit {
       this.action = "Gasto";
       this.actionType = "expense";
     } else {
-      // console.error('Tipo de transaccion invalido');
-      // this.router.navigate(['/']);
+      console.error('Tipo de transaccion invalido');
+      this.router.navigate(['/']);
     }
   }
 
@@ -152,6 +152,7 @@ export class AddTransactionComponent implements OnInit {
     }
     if (this.form.valid){
       this.service.create(this.form.value).subscribe(res=>{
+        console.log('Operacion exitosa.')
         this.router.navigate(['/']);
       })
     } else {
@@ -160,6 +161,8 @@ export class AddTransactionComponent implements OnInit {
 
   onClearForm(){
     this.form.reset();
+    // this.form.get('currency')?.setValue('ARS');
+    // this.form.get('amount')?.setValue(.0);
   }
 
 }
