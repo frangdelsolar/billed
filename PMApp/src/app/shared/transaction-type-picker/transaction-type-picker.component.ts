@@ -8,8 +8,8 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class TransactionTypePickerComponent implements OnInit {
 
-  @Input() valueSelected: string = "";
-  @Output() selection = new EventEmitter<string>();
+  @Input() in_selection: string = "";
+  @Output() out_selection = new EventEmitter<string>();
 
   typeSelector = new FormControl('-', [Validators.required])
 
@@ -22,13 +22,13 @@ export class TransactionTypePickerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if (this.valueSelected){
-      this.typeSelector.setValue(this.valueSelected);
+    if (this.in_selection){
+      this.typeSelector.setValue(this.in_selection);
     }
   }
 
   onSelect(value: string){
-    this.selection.emit(value);
+    this.out_selection.emit(value);
   }
 
 }

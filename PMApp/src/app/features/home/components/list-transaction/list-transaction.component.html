@@ -3,14 +3,17 @@
     <div
       class="col-5 col-offset-1 flex flex-row justify-content-between align-items-center"
     >
-      <app-month-picker [dateValue]="selectedDate"></app-month-picker>
+      <app-month-picker
+        [in_selection]="selectedDate"
+        (out_selection)="setDate($event)"
+      ></app-month-picker>
     </div>
     <div
       class="col-5 col-offset-1 flex flex-row justify-content-between align-items-center"
     >
       <app-transaction-type-picker
-        [valueSelected]="selectedType"
-        (selection)="setTransactionType($event)"
+        [in_selection]="selectedType"
+        (out_selection)="setTransactionType($event)"
       ></app-transaction-type-picker>
     </div>
     <div class="col-12">

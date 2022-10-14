@@ -4,10 +4,10 @@
       <p-dropdown
         inputId="typeSelector"
         [options]="transaction_types"
-        [(ngModel)]="valueSelected"
+        [(ngModel)]="in_selection"
         optionLabel="viewValue"
         optionValue="value"
-        (onChange)="onSelect(valueSelected)"
+        (onChange)="onSelect(in_selection)"
       ></p-dropdown>
       <label for="typeSelector">Tipo de transacción</label>
     </span>

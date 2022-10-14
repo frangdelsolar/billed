@@ -1,7 +1,7 @@
 <p-card header="Resumen mensual">
   <div class="m-4 mb-0 grid flex align-items-center justify-content-center">
     <div class="col-12 flex align-items-center justify-content-center">
-      <app-month-picker (dateDisplay)="setDate($event)"></app-month-picker>
+      <app-month-picker (out_selection)="setDate($event)"></app-month-picker>
     </div>
     <div class="col-12 flex align-items-center justify-content-center">
       <p-button
