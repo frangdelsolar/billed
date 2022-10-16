@@ -14,7 +14,7 @@ export class TransactionTypePickerComponent implements OnInit {
   typeSelector = new FormControl('-', [Validators.required])
 
   transaction_types = [
-    { value:"-", viewValue: "Todos"},
+    { value:"", viewValue: "Todos"},
     { value:"income", viewValue: "Ingreso/s"},
     { value:"expense", viewValue: "Gasto/s"},
   ]

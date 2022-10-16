@@ -3,7 +3,6 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { QueryService } from '@core/services/query.service';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-add-transaction',
@@ -11,15 +10,12 @@ import { BehaviorSubject } from 'rxjs';
   styleUrls: ['./add-transaction.component.scss']
 })
 export class AddTransactionComponent implements OnInit {
-  action: string = "Transacción";
-  actionType: string = "";
 
   form!: FormGroup;
-
-  transactionId?: number;
-
-  
-  form_date: Date = new Date();
+  dateOfTransaction: Date = new Date();
+  repetitionOn: boolean = false;
+  transactionType: string = "";
+  transactionTypeLabel: string = "";
 
   constructor(
     private fb: FormBuilder, 
@@ -38,131 +34,75 @@ export class AddTransactionComponent implements OnInit {
       description: new FormControl('', [Validators.required]),
       recurrent: new FormControl(false, [Validators.required]),
       repeats: new FormControl(false, [Validators.required]),
-      repetitions: new FormControl('', []),
+      repetitions: new FormControl(1, []),
       frequency: new FormControl('', []),
       notes: new FormControl('', []),
       ignore: new FormControl(false, [Validators.required]),
-      type: new FormControl('expense', [Validators.required])
+      type: new FormControl('', [Validators.required])
     });
 
   }
 
 
   ngOnInit(): void {
-    this.initialSetup();
-    this.setEditionMode();
-  }
-
-  setEditionMode(){
-    this.route.params.subscribe(res=>{
-      let id = res['id'];
-      if (id){
-        this.transactionId = id;
-        this.prefill();
-      }
-    });
-  }
-
-  prefill(){
-    if (this.transactionId){
-      this.service.get(this.transactionId).subscribe(
-        (res)=>{
-          
-          this.form.get('currency')?.setValue(res.currency);
-          this.form.get('amount')?.setValue(res.amount);
-          this.form.get('exchange_rate')?.setValue(res.payment_item?.currency?.exchange_rate);
-          this.form.get('category')?.setValue(res.payment_item?.category);
-          this.form.get('completed')?.setValue(res.completed);
-          this.form.get('date_of_transaction')?.setValue(res.date_of_transaction);
-          this.form_date = new Date(res.date_of_transaction);
-          this.form.get('description')?.setValue(res.description);
-          this.form.get('recurrent')?.setValue(res.payment_item?.recurrent);
-          // this.form.get('repeats')?.setValue(res.repeats);
-          // this.form.get('repetitions')?.setValue(res.repetitions);
-          // this.form.get('frequency')?.setValue(res.frequency);
-          this.form.get('notes')?.setValue(res.notes);
-          this.form.get('ignore')?.setValue(res.ignore);
-          this.form.get('type')?.setValue(res.type);
-  
-        },
-        (err)=>{
-          this.router.navigate(['/']);
-        }
-      )
-    }
-  }
-
-  initialSetup(){
     if (this.querySvc.params['transaction_type'] == 'income'){
-      this.action = "Ingreso";
-      this.actionType = "income";
+      this.transactionTypeLabel = "Ingreso";
+      this.transactionType = "income";
     } else if (this.querySvc.params['transaction_type'] == 'expense'){
-      this.action = "Gasto";
-      this.actionType = "expense";
+      this.transactionTypeLabel = "Gasto";
+      this.transactionType = "expense";
     } else {
       console.error('Tipo de transaccion invalido');
       this.router.navigate(['/']);
     }
+    this.form.controls['type'].setValue(this.transactionType);
   }
 
-
-
-  onSelectCurrency(value: any){
-    this.form.get('currency')?.setValue(value.currency);
-    this.form.get('amount')?.setValue(value.amount);
-    this.form.get('exchange_rate')?.setValue(value.exchange_rate);
+  onCurrencyFieldChange(data: any){
+    this.form.controls['amount'].setValue(data.amount);
+    this.form.controls['currency'].setValue(data.currency);
+    this.form.controls['exchange_rate'].setValue(data.exchange_rate);
   }
 
-  onCategorySelection(value: number|null){
-    this.form.get('category')?.setValue(value);
+  onRecurrentChange(){
+    if (this.form.controls['recurrent'].value==true){
+      this.repetitionOn = false;
+    }
   }
 
-  onRecurrentToggle(){
-    // this.showRepetitions.next(false);
-    this.form.get('repeats')?.setValue(false);
-    this.form.get('repetitions')?.reset();
-    this.form.get('frequency')?.reset();
-    this.form.get('repetitions')?.clearValidators();
-    this.form.get('frequency')?.clearValidators();
+  onRepetitionChange(data: any){
+    this.repetitionOn = data.repetitionOn;
+    if (this.repetitionOn){
+      this.form.controls['recurrent'].setValue(false);
+    }
+    this.form.controls['repeats'].setValue(data.repeatitionOn);
+    this.form.controls['repetitions'].setValue(data.repetitions);
+    this.form.controls['frequency'].setValue(data.frequency);
   }
 
-  onRepetitionSelect(data: any){
-    console.log(data)
+  onCategorySelection(value: string){
+    this.form.controls['category'].setValue(value);
   }
 
+  validateForm(): boolean{
+    let result = this.form.valid && this.form.controls['amount'].value > 0;
+    return false;
+  }
 
   onSubmitForm(){
-    let data = {
-      ...this.form.value,
-      date_of_transaction: this.form_date
+    let formValidationResult = this.validateForm();
+    if(formValidationResult){
+      this.service.create(this.form.value).subscribe(
+        (res)=>{
+          this.querySvc.setDateToQuery(this.dateOfTransaction.getMonth()+1, this.dateOfTransaction.getFullYear())
+          this.router.navigate(['transacciones']);
+        },
+        (err)=>{
+          console.log(err);
+        }
+      )
     }
 
-    if(this.transactionId){
-      this.service.update(this.transactionId, data).subscribe(res=>{console.log(res)});
-    }
-
-    // if (this.querySvc.params['transaction_type'] == 'income'){
-    //   this.form.value.type = 'income';
-    // } else if (this.querySvc.params['transaction_type'] == 'expense'){
-    //   this.form.value.type = 'expense';
-    // } else {
-    //   console.error('Tipo de transaccion invalido');
-    //   this.router.navigate(['/']);
-    // }
-    // if (this.form.valid){
-    //   this.service.create(this.form.value).subscribe(res=>{
-    //     console.log('Operacion exitosa.')
-    //     this.router.navigate(['/']);
-    //   })
-    // } else {
-    // }
   }
-
-  onClearForm(){
-    this.form.reset();
-    // this.form.get('currency')?.setValue('ARS');
-    // this.form.get('amount')?.setValue(.0);
-  }
-
 }
 

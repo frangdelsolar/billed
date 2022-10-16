@@ -1,8 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { CategoryService } from '@core/controllers/category-controller.service';
-import { Category } from '@core/models/category.interface';
-import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-category-picker',
@@ -11,9 +9,9 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class CategoryPickerComponent implements OnInit {
 
-  @Input() value:number|null = null;
-  @Input() transactionType: string = '';
-  @Output() selection = new EventEmitter();
+  @Input() in_categoryId: number|null = null;
+  @Input() in_transactionType: string = '';
+  @Output() out_selection = new EventEmitter();
 
   categorySelect = new FormControl('', [Validators.required]);
   valueSelected: any=null;
@@ -23,15 +21,23 @@ export class CategoryPickerComponent implements OnInit {
   constructor(private service: CategoryService) { }
 
   ngOnInit(): void {
-    if (this.value){
-      this.service.get(this.value).subscribe(res=>this.categories=[res])
+    if (this.in_categoryId){
+      this.service.get(this.in_categoryId).subscribe(res=>{
+        this.categories=[res];
+        this.valueSelected = this.in_categoryId;
+        this.onSelect();
+      })
     } else {
-      this.service.getByType(this.transactionType).subscribe(res=>this.categories=res)
+      this.service.getByType(this.in_transactionType).subscribe(res=>{
+        this.categories=res;
+        this.valueSelected = this.categories[0].id;
+        this.onSelect();
+      })
     }
   }
 
-  onSelect(value: any){
-    this.selection.emit(value);
+  onSelect(){
+    this.out_selection.emit(this.valueSelected);
   }
 
 }

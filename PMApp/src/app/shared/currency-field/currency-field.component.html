@@ -1,29 +1,31 @@
-<div class="grid flex-row">
-  <div class="col-5">
-    <span class="p-float-label">
-      <p-dropdown
-        inputId="currencySelector"
-        [options]="currencies"
-        [(ngModel)]="in_currency"
-        optionLabel="value"
-        optionValue="key"
-        (onChange)="setHint()"
-      ></p-dropdown>
-      <label for="currencySelector">Moneda</label>
+<div class="grid">
+  <div class="flex flex-wrap flex-row gap-4">
+    <div class="block">
+      <span class="p-float-label">
+        <p-dropdown
+          inputId="currencySelector"
+          [options]="currencies"
+          [(ngModel)]="in_currency"
+          optionLabel="value"
+          optionValue="key"
+          (onChange)="setHint()"
+        ></p-dropdown>
+        <label for="currencySelector">Moneda</label>
+      </span>
       <small class="block">{{ exchangeHint }}</small>
-    </span>
-  </div>
-  <div class="col-5 col-offset-2">
-    <span class="p-float-label">
-      <p-inputNumber
-        [(ngModel)]="in_amount"
-        mode="currency"
-        [currency]="in_currency"
-        inputId="amountInput"
-        (ngModelChange)="setHint()"
-      ></p-inputNumber>
-      <label for="amountInput">Total</label>
-      <small class="block">{{ amountHint }}</small>
-    </span>
+    </div>
+    <div class="block">
+      <span class="p-float-label">
+        <p-inputNumber
+          [(ngModel)]="in_amount"
+          mode="currency"
+          [currency]="in_currency"
+          inputId="amountInput"
+          (ngModelChange)="setHint()"
+        ></p-inputNumber>
+        <label for="amountInput">Total</label>
+        <small class="block">{{ amountHint }}</small>
+      </span>
+    </div>
   </div>
 </div>

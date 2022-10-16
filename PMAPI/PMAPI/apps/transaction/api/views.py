@@ -78,11 +78,32 @@ class TransactionViewSet(viewsets.ModelViewSet):
         if exchange_rate == "":
             exchange_rate = 1
 
-        if not (currency and amount and date_of_transaction and description):
-            return Response({'status': '400', 'message': 'No se pudo crear transacción'})
+        errors = []
+        if not currency:
+            errors.append({'currency': "required"})
 
-        if repeats and not (repetitions and frequency):
-            return Response({'status': '400', 'message': 'No se pudo crear transacción'})
+        if not amount:
+            errors.append({'amount': "required"})
+
+        if not date_of_transaction:
+            errors.append({'date_of_transaction': "required"})
+
+        if not description:
+            errors.append({'description': "required"})
+
+        if repeats:
+            if not repetitions:
+                errors.append({'repetitions': "required"})
+
+            if not frequency:
+                errors.append({'frequency': "required"})
+
+        if len(errors) > 0:
+            error_data = {
+                'message': 'No se pudo crear transacción',
+                'errors': errors
+            }
+            return Response({'status': '400', 'data': error_data})
 
         instance = Transaction.create(
             payment_item=None,

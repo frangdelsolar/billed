@@ -10,8 +10,8 @@ import { currencies } from './currencies';
 })
 export class CurrencyFieldComponent implements OnInit {
   
-  @Input() in_currency: string="ARS";
-  @Input() in_amount: number=0;
+  @Input() in_currency: string = "ARS";
+  @Input() in_amount: number = 0;
   @Output() out_selection: EventEmitter<any> = new EventEmitter();
 
   currencies = currencies;
