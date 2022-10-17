@@ -50,10 +50,10 @@ class RecurrentPayment(Metadata):
         'payment_item.PaymentItem', on_delete=models.CASCADE, related_name="recurrents")
     payment_type = models.CharField(choices=TRANSACTION_TYPES, max_length=120)
 
-    def get_future_transactions(self, transaction):
+    def get_pending_transactions(self):
         from transaction.models import Transaction
 
-        return Transaction.objects.filter(recurrent=self, date_of_transaction__gte=transaction.date_of_transaction)
+        return Transaction.objects.filter(recurrent=self, completed=False)
 
     def get_all_transactions(self):
         from transaction.models import Transaction
@@ -108,10 +108,10 @@ class Installment(Metadata):
                     recurrent=None
                 )
 
-    def get_future_transactions(self, transaction):
+    def get_pending_transactions(self):
         from transaction.models import Transaction
 
-        return Transaction.objects.filter(installment=self, date_of_transaction__gte=transaction.date_of_transaction)
+        return Transaction.objects.filter(installment=self, completed=False)
 
     def get_all_transactions(self):
         from transaction.models import Transaction

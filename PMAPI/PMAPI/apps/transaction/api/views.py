@@ -155,14 +155,27 @@ class TransactionViewSet(viewsets.ModelViewSet):
 
         return Response(self.serializer_class(instance).data)
 
-    def destroy(self, request, pk=None):
+    def destroy(self, request,  pk=None, *args, **kwargs):
+        bulk_mode = request.GET.get('bulk_mode')
         instance = Transaction.objects.get(pk=pk)
-        if (instance.created_by == request.user):
-            success = instance.destroy()
-            if success:
-                return Response({'message': "Success"}, 200)
-            return Response({'message': "Unknown Error"}, 500)
-        return Response({'message': "Forbidden"}, 403)
+
+        if instance.created_by != request.user:
+            return Response({'message': "Forbidden"}, 403)
+
+        success = False
+        if bulk_mode == 'single':
+            success = instance.destroy(single=True)
+
+        elif bulk_mode == 'pending':
+            success = instance.destroy(pending=True)
+
+        elif bulk_mode == 'all':
+            success = instance.destroy(all=True)
+
+        if success:
+            return Response({'message': "Success"}, 200)
+
+        return Response({'message': "Unknown Error"}, 500)
 
 
 class BalanceView(APIView):
@@ -203,17 +216,18 @@ class PayView(APIView):
 
     def post(self, request, pk):
         transaction = Transaction.objects.get(pk=pk)
-        if transaction.created_by == request.user:
-            if transaction.currency.currency == "USD":
-                api_url = "https://api-dolar-argentina.herokuapp.com/api/dolarblue"
-                response = requests.get(api_url)
-                data = response.json()
-                transaction.currency.currency = "ARS"
-                transaction.currency.amount *= Decimal(data['compra'])
-                transaction.currency.exchange_rate = Decimal(data['compra'])
-                transaction.currency.save()
-            transaction.completed = True
-            transaction.save()
+        if transaction.created_by != request.user:
+            return Response({'message': 'No tienes permiso para editar esta transacción'}, status=403)
 
-            return Response(self.serializer_class(transaction).data)
-        return Response({'message': 'No tienes permiso para editar esta transacción'}, status=403)
+        if transaction.currency.currency == "USD":
+            api_url = "https://api-dolar-argentina.herokuapp.com/api/dolarblue"
+            response = requests.get(api_url)
+            data = response.json()
+            transaction.currency.currency = "ARS"
+            transaction.currency.amount *= Decimal(data['compra'])
+            transaction.currency.exchange_rate = Decimal(data['compra'])
+            transaction.currency.save()
+        transaction.completed = True
+        transaction.save()
+
+        return Response(self.serializer_class(transaction).data)

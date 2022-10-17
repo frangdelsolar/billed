@@ -56,11 +56,12 @@ export class PrivateApiService {
     );
   }
 
-  public delete<T>(url: string, id: number, activateHeader: boolean = true): Observable<T> {
+  public delete<T>(url: string, id: number, params?: string, activateHeader: boolean = true): Observable<T> {
     return this.http.delete<T>(
-      `${url}/${id}/`,
+      `${url}/${id}?${params}`,
       activateHeader ? { headers: this._headers } : {}
     );
   }
+  
   
 }

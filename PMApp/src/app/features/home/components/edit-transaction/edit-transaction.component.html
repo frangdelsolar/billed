@@ -76,7 +76,8 @@
 
       <div class="col-12 pt-2 mb-0 pb-2">
         <app-category-picker
-          [in_transactionType]="transactionType"
+          [in_transactionType]="$transactionType"
+          [in_categoryId]="$categoryId"
           (out_selection)="onCategorySelection($event)"
         ></app-category-picker>
         <p-divider></p-divider>
@@ -108,6 +109,16 @@
     </form>
   </div>
   <ng-template pTemplate="footer">
+    <div class="col-12 justify-content-center mt-0 pt-0 mb-6">
+      <h3><b>Modo de edición</b></h3>
+      <p-selectButton
+        [options]="editionBulk"
+        [(ngModel)]="bulkEditSelection"
+        optionLabel="name"
+        inputId="editionBulkSelector"
+        (onChange)="onEditBulkSelectionChange()"
+      ></p-selectButton>
+    </div>
     <div
       class="flex flex-wrap justify-content-around px-1 pt-0 mt-0 gap-0 lg:px-6"
     >

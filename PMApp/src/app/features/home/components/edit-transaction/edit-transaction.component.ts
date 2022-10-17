@@ -3,7 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { ActivatedRoute, Router } from '@angular/router';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { QueryService } from '@core/services/query.service';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-edit-transaction',
@@ -15,10 +15,30 @@ export class EditTransactionComponent implements OnInit {
   dateOfTransaction: Date = new Date();
   repetitionOn: boolean = false;
   transactionType: string = "";
+  $transactionType: BehaviorSubject<string> = new BehaviorSubject("");
+  categoryId: number = 0;
+  $categoryId: BehaviorSubject<number> = new BehaviorSubject(0);
   transactionTypeLabel: string = "";
 
   transactionId?: number;
   transactionInstance?: any;
+
+  editionBulk = [
+    {
+      value: 'single',
+      name: 'Solo este registro'
+    },
+    {
+      value: 'pending',
+      name: 'Pendientes'
+    },
+    {
+      value: 'all',
+      name: 'Repeticiones'
+    }
+  ]
+
+  bulkEditSelection?: any;
 
   constructor(
     private fb: FormBuilder, 
@@ -41,7 +61,8 @@ export class EditTransactionComponent implements OnInit {
       frequency: new FormControl('months', []),
       notes: new FormControl('', []),
       ignore: new FormControl(false, [Validators.required]),
-      type: new FormControl('', [Validators.required])
+      type: new FormControl('', [Validators.required]),
+      bulk_mode: new FormControl('', [Validators.required])
     });
   }
 
@@ -51,6 +72,7 @@ export class EditTransactionComponent implements OnInit {
 
     this.setup();
   }
+
 
   setup(){
     this.route.params.subscribe(params=>{
@@ -81,13 +103,32 @@ export class EditTransactionComponent implements OnInit {
   }
 
   prefill(){
-    for (let key of Object.keys(this.transactionInstance)){
-        let value = this.transactionInstance[key];
-        if (key == 'date_of_transaction'){
-          value = new Date(value);
-        }
-        this.form.controls[key]?.setValue(value);
+    let data = this.transactionInstance;
+
+    this.form.controls['currency']?.setValue(data.currency)
+    this.form.controls['amount']?.setValue(data.amount)
+    this.form.controls['exchange_rate']?.setValue(data.payment_item.currency.exchange_rate)
+    this.form.controls['category']?.setValue(data.payment_item.category.id)
+
+    this.$transactionType.next(data.type)
+    this.$categoryId.next(data.payment_item.category.id)
+
+    this.form.controls['completed']?.setValue(data.completed)
+    this.form.controls['date_of_transaction']?.setValue(new Date(data.date_of_transaction))
+    this.form.controls['description']?.setValue(data.description)
+    
+    if (data.recurrent){
+      this.form.controls['recurrent']?.setValue(true)
     }
+    if (data.installment){
+      this.repetitionOn = true;
+      this.form.controls['repeats']?.setValue(true);
+      this.form.controls['repetitions']?.setValue(data.installment.repetitions)
+      this.form.controls['frequency']?.setValue(data.installment.frequency)
+    }
+    this.form.controls['notes']?.setValue(data.notes)
+    this.form.controls['ignore']?.setValue(data.ignore)
+    this.form.controls['type']?.setValue(data.type)
   }
 
   onCurrencyFieldChange(data: any){
@@ -122,8 +163,9 @@ export class EditTransactionComponent implements OnInit {
   }
 
   onDelete(){
-    if(this.transactionId){
-      this.service.delete(this.transactionId).subscribe(
+    if(this.transactionId && this.bulkEditSelection.value){
+      let param = `bulk_mode=${this.bulkEditSelection.value}`;
+      this.service.delete(this.transactionId, param).subscribe(
         (res)=>{
           console.log(res);
         },
@@ -134,21 +176,26 @@ export class EditTransactionComponent implements OnInit {
     }
   }
 
+  onEditBulkSelectionChange(){
+    this.form.controls['bulk_mode'].setValue(this.bulkEditSelection.value);
+  }
+
+
   onSubmitForm(){
-    console.log(this.form.value)
-    // let formValidationResult = this.validateForm();
-    // if(formValidationResult){
-    //   this.service.create(this.form.value).subscribe(
-    //     (res)=>{
-    //       this.querySvc.setDateToQuery(this.dateOfTransaction.getMonth()+1, this.dateOfTransaction.getFullYear());
-    //       this.querySvc.setTransactionType(this.transactionType);
-    //       this.router.navigate(['transacciones']);
-    //     },
-    //     (err)=>{
-    //       console.log(err);
-    //     }
-    //   )
-    // }
+    console.log(this.form.value, this.form.valid)
+    let formValidationResult = this.validateForm();
+    if(formValidationResult){
+      this.service.create(this.form.value).subscribe(
+        (res)=>{
+          this.querySvc.setDateToQuery(this.dateOfTransaction.getMonth()+1, this.dateOfTransaction.getFullYear());
+          this.querySvc.setTransactionType(this.transactionType);
+          this.router.navigate(['transacciones']);
+        },
+        (err)=>{
+          console.log(err);
+        }
+      )
+    }
   }
 }
 

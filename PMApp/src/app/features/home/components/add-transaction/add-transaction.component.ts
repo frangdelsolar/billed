@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { QueryService } from '@core/services/query.service';
+import { BehaviorSubject } from 'rxjs';
 
 @Component({
   selector: 'app-add-transaction',
@@ -15,6 +16,7 @@ export class AddTransactionComponent implements OnInit {
   dateOfTransaction: Date = new Date();
   repetitionOn: boolean = false;
   transactionType: string = "";
+  $transactionType: BehaviorSubject<string> = new BehaviorSubject('');
   transactionTypeLabel: string = "";
 
   constructor(
@@ -37,11 +39,12 @@ export class AddTransactionComponent implements OnInit {
       frequency: new FormControl('months', []),
       notes: new FormControl('', []),
       ignore: new FormControl(false, [Validators.required]),
-      type: new FormControl('', [Validators.required])
+      type: new FormControl('', [Validators.required]),
     });
   }
 
   ngOnInit(): void {
+    this.$transactionType.next(this.querySvc.params['transaction_type'])
     if (this.querySvc.params['transaction_type'] == 'income'){
       this.transactionTypeLabel = "Ingreso";
       this.transactionType = "income";
