@@ -1,18 +1,12 @@
 from currency_field.serializers import CurrencySerializer
 from category.api.serializers import CategorySerializer
-from rest_framework.serializers import (
-    HyperlinkedModelSerializer,
-    SerializerMethodField,
-    Serializer,
-    ModelSerializer
-)
-from payment_item.models import PaymentItem, RecurrentPayment
+from rest_framework.serializers import ModelSerializer, SerializerMethodField
+from payment_item.models import PaymentItem, Installment, RecurrentPayment
 
 
 class PaymentItemSerializer(ModelSerializer):
     category = CategorySerializer()
     currency = CurrencySerializer()
-    recurrent = SerializerMethodField()
 
     class Meta:
         model = PaymentItem
@@ -21,8 +15,30 @@ class PaymentItemSerializer(ModelSerializer):
             'description',
             'currency',
             'category',
-            'recurrent'
         ]
 
-    def get_recurrent(self, obj):
-        return RecurrentPayment.objects.filter(payment_item=obj).count() > 0
+
+class InstallmentSerializer(ModelSerializer):
+
+    class Meta:
+        model = Installment
+        fields = [
+            'id',
+            'frequency',
+            'repetitions',
+        ]
+
+
+class RecurrentSerializer(ModelSerializer):
+    since = SerializerMethodField()
+
+    class Meta:
+        model = RecurrentPayment
+        fields = [
+            'id',
+            'payment_item',
+            'since'
+        ]
+
+    def get_since(self, obj):
+        return obj.payment_item.date_created

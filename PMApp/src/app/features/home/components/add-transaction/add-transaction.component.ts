@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { QueryService } from '@core/services/query.service';
 
@@ -22,7 +22,6 @@ export class AddTransactionComponent implements OnInit {
     private service: TransactionService,
     private querySvc: QueryService,
     private router: Router,
-    private route: ActivatedRoute
   ) { 
     this.form = fb.group({
       currency: new FormControl('ARS', [Validators.required]),
@@ -35,14 +34,12 @@ export class AddTransactionComponent implements OnInit {
       recurrent: new FormControl(false, [Validators.required]),
       repeats: new FormControl(false, [Validators.required]),
       repetitions: new FormControl(1, []),
-      frequency: new FormControl('', []),
+      frequency: new FormControl('months', []),
       notes: new FormControl('', []),
       ignore: new FormControl(false, [Validators.required]),
       type: new FormControl('', [Validators.required])
     });
-
   }
-
 
   ngOnInit(): void {
     if (this.querySvc.params['transaction_type'] == 'income'){
@@ -75,7 +72,7 @@ export class AddTransactionComponent implements OnInit {
     if (this.repetitionOn){
       this.form.controls['recurrent'].setValue(false);
     }
-    this.form.controls['repeats'].setValue(data.repeatitionOn);
+    this.form.controls['repeats'].setValue(data.repetitionOn);
     this.form.controls['repetitions'].setValue(data.repetitions);
     this.form.controls['frequency'].setValue(data.frequency);
   }
@@ -86,7 +83,7 @@ export class AddTransactionComponent implements OnInit {
 
   validateForm(): boolean{
     let result = this.form.valid && this.form.controls['amount'].value > 0;
-    return false;
+    return result;
   }
 
   onSubmitForm(){
@@ -94,7 +91,8 @@ export class AddTransactionComponent implements OnInit {
     if(formValidationResult){
       this.service.create(this.form.value).subscribe(
         (res)=>{
-          this.querySvc.setDateToQuery(this.dateOfTransaction.getMonth()+1, this.dateOfTransaction.getFullYear())
+          this.querySvc.setDateToQuery(this.dateOfTransaction.getMonth()+1, this.dateOfTransaction.getFullYear());
+          this.querySvc.setTransactionType(this.transactionType);
           this.router.navigate(['transacciones']);
         },
         (err)=>{
@@ -102,7 +100,6 @@ export class AddTransactionComponent implements OnInit {
         }
       )
     }
-
   }
 }
 

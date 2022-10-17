@@ -1,11 +1,10 @@
+from gettext import install
 from django.db import models
 from payment_item.models import RecurrentPayment
-from payment_item.models import PaymentItem
+from payment_item.models import PaymentItem, Installment
 from system_details.models import Metadata
 from currency_field.models import CurrencyField
 from category.models import Category
-import datetime
-from dateutil.relativedelta import relativedelta
 
 from decimal import Decimal
 
@@ -31,9 +30,10 @@ class Transaction(Metadata):
     notes = models.CharField(max_length=500, null=True, blank=True)
     completed = models.BooleanField(default=False)
     ignore = models.BooleanField(default=False)
-    parent_transaction = models.ForeignKey(
-        'transaction.Transaction', on_delete=models.SET_NULL, blank=True, null=True, related_name="children"
-    )
+    installment = models.ForeignKey(
+        'payment_item.Installment', on_delete=models.CASCADE, blank=True, null=True)
+    recurrent = models.ForeignKey(
+        'payment_item.RecurrentPayment', on_delete=models.SET_NULL, blank=True, null=True)
 
     @classmethod
     def create(self, *args, **kwargs):
@@ -49,7 +49,8 @@ class Transaction(Metadata):
         currency = kwargs.pop('currency')
         exchange_rate = kwargs.pop('exchange_rate')
         payment_item = kwargs.get('payment_item')
-        recurrent = kwargs.pop('recurrent')
+        create_recurrent = kwargs.pop('create_recurrent')
+        recurrent_payment = kwargs.pop('recurrent')
         repeats = kwargs.pop('repeats')
         repetitions = kwargs.pop('repetitions')
         frequency = kwargs.pop('frequency')
@@ -58,6 +59,7 @@ class Transaction(Metadata):
         if not 'payment_item' in kwargs or payment_item is None:
             payment_item = PaymentItem.create(
                 description=kwargs['description'],
+                notes=kwargs['notes'],
                 amount=amount,
                 currency=currency,
                 exchange_rate=exchange_rate,
@@ -78,11 +80,16 @@ class Transaction(Metadata):
 
         instance = self.objects.create(**kwargs)
 
-        if recurrent:
+        if create_recurrent:
             recurrent_payment = RecurrentPayment.objects.create(
                 payment_item=payment_item,
                 payment_type=instance.type
             )
+            instance.recurrent = recurrent_payment
+
+        if recurrent_payment:
+            instance.recurrent = recurrent_payment
+            instance.save()
 
         if repeats:
             instance.create_repetitions(repetitions, frequency)
@@ -90,38 +97,40 @@ class Transaction(Metadata):
         return instance
 
     def create_repetitions(self, repetitions, frequency):
-        for i in range(1, int(repetitions)):
+        installment = Installment.create(
+            payment_item=self.payment_item,
+            payment_type=self.type,
+            repetitions=repetitions,
+            frequency=frequency,
+            transaction=self
+        )
+        self.installment = installment
+        self.save()
 
-            new_date = self.date_of_transaction
-            if frequency == 'days':
-                new_date += datetime.timedelta(days=i)
-            elif frequency == 'months':
-                new_date += relativedelta(months=i)
-            elif frequency == 'weeks':
-                new_date += relativedelta(weeks=i)
-            elif frequency == 'years':
-                new_date += relativedelta(years=i)
-
-            if new_date:
-                Transaction.create(
-                    payment_item=self.payment_item,
-                    amount=self.payment_item.currency.amount,
-                    currency=self.payment_item.currency.currency,
-                    exchange_rate=self.payment_item.currency.exchange_rate,
-                    category=self.payment_item.category,
-                    type=self.type,
-                    date_of_transaction=new_date,
-                    description=self.description,
-                    notes=self.notes,
-                    completed=False,
-                    ignore=False,
-                    recurrent=False,
-                    convert=False,
-                    repeats=False,
-                    repetitions=None,
-                    frequency=None,
-                    parent_transaction=self,
-                )
-
-    def update(self, *args, **kwargs):
+    def update(self, single=True, future=False, all=False, *args, **kwargs):
         print(kwargs)
+
+    def destroy(self, single=True, future=False, all=False, *args, **kwargs):
+        to_delete = []
+
+        if single:
+            to_delete = [self]
+
+        if future:
+            if self.installment:
+                to_delete = self.installment.get_future_transactions(self)
+            if self.recurrent:
+                to_delete = self.recurrent.get_future_transactions(self)
+                self.recurrent.delete()
+
+        if all:
+            if self.installment:
+                to_delete = self.installment.get_all_transactions()
+            if self.recurrent:
+                to_delete = self.recurrent.get_all_transactions()
+                self.recurrent.delete()
+
+        for item in to_delete:
+            item.delete()
+
+        return True

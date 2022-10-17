@@ -1,12 +1,14 @@
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
 from transaction.models import Transaction
-from payment_item.api.serializers import PaymentItemSerializer
+from payment_item.api.serializers import PaymentItemSerializer, InstallmentSerializer, RecurrentSerializer
 
 
 class TransactionSerializer(ModelSerializer):
     currency = SerializerMethodField()
     amount = SerializerMethodField()
     payment_item = PaymentItemSerializer()
+    installment = InstallmentSerializer()
+    recurrent = RecurrentSerializer()
 
     class Meta:
         model = Transaction
@@ -25,7 +27,8 @@ class TransactionSerializer(ModelSerializer):
             'completed',
             'ignore',
             'notes',
-            'parent_transaction',
+            'installment',
+            'recurrent',
         ]
 
     def get_currency(self, obj):

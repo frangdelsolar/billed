@@ -1,3 +1,5 @@
+from decimal import Decimal
+from timeit import repeat
 from django.db.models import Sum
 
 from rest_framework import viewsets
@@ -11,6 +13,7 @@ from .serializers import TransactionSerializer
 
 import datetime
 import pytz
+import requests
 
 
 def get_transaction_qs_by_date(user, month, year):
@@ -33,15 +36,16 @@ def get_transaction_qs_by_date(user, month, year):
                     type=pay.payment_type,
                     date_of_transaction=new_date,
                     description=pay.payment_item.description,
-                    notes=None,
+                    notes=pay.payment_item.notes,
                     completed=False,
                     ignore=False,
-                    recurrent=False,
+                    create_recurrent=False,
                     convert=False,
                     repeats=False,
                     repetitions=None,
                     frequency=None,
-                    parent_transaction=None,
+                    installment=None,
+                    recurrent=pay
                 )
 
     return queryset.filter(created_by=user,
@@ -67,7 +71,7 @@ class TransactionViewSet(viewsets.ModelViewSet):
         date_of_transaction = datetime.datetime.fromisoformat(
             request.data.get('date_of_transaction').replace("Z", ""))
         description = request.data.get('description')
-        recurrent = request.data.get('recurrent')
+        create_recurrent = request.data.get('recurrent')
         repeats = request.data.get('repeats')
         repetitions = request.data.get('repetitions')
         frequency = request.data.get('frequency')
@@ -117,12 +121,13 @@ class TransactionViewSet(viewsets.ModelViewSet):
             notes=notes,
             completed=completed,
             ignore=ignore,
-            recurrent=recurrent,
+            create_recurrent=create_recurrent,
             convert=True,
             repeats=repeats,
             repetitions=repetitions,
             frequency=frequency,
-            parent_transaction=None
+            installment=None,
+            recurrent=None
         )
 
         return Response(self.serializer_class(instance).data)
@@ -144,22 +149,6 @@ class TransactionViewSet(viewsets.ModelViewSet):
         return Response(serializer.data)
 
     def update(self, request, pk=None):
-        transaction_type = request.data.get('type')
-        currency = request.data.get('currency')
-        amount = request.data.get('amount')
-        exchange_rate = request.data.get('exchange_rate')
-        completed = request.data.get('completed')
-        date_of_transaction = datetime.datetime.fromisoformat(
-            request.data.get('date_of_transaction').replace("Z", ""))
-        description = request.data.get('description')
-        recurrent = request.data.get('recurrent')
-        repeats = request.data.get('repeats')
-        repetitions = request.data.get('repetitions')
-        frequency = request.data.get('frequency')
-        notes = request.data.get('notes')
-        ignore = request.data.get('ignore')
-        category = request.data.get('category')
-
         instance = Transaction.objects.get(pk=pk)
         instance.update(**request.data)
         print(request.data)
@@ -167,7 +156,13 @@ class TransactionViewSet(viewsets.ModelViewSet):
         return Response(self.serializer_class(instance).data)
 
     def destroy(self, request, pk=None):
-        pass
+        instance = Transaction.objects.get(pk=pk)
+        if (instance.created_by == request.user):
+            success = instance.destroy()
+            if success:
+                return Response({'message': "Success"}, 200)
+            return Response({'message': "Unknown Error"}, 500)
+        return Response({'message': "Forbidden"}, 403)
 
 
 class BalanceView(APIView):
@@ -199,7 +194,7 @@ class BalanceView(APIView):
             'expense': expenses,
             'total': total
         }
-        return Response(data)
+        return Response(data, 200)
 
 
 class PayView(APIView):
@@ -209,6 +204,14 @@ class PayView(APIView):
     def post(self, request, pk):
         transaction = Transaction.objects.get(pk=pk)
         if transaction.created_by == request.user:
+            if transaction.currency.currency == "USD":
+                api_url = "https://api-dolar-argentina.herokuapp.com/api/dolarblue"
+                response = requests.get(api_url)
+                data = response.json()
+                transaction.currency.currency = "ARS"
+                transaction.currency.amount *= Decimal(data['compra'])
+                transaction.currency.exchange_rate = Decimal(data['compra'])
+                transaction.currency.save()
             transaction.completed = True
             transaction.save()
 

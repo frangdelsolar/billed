@@ -13,5 +13,6 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self, *args, **kwargs):
         category_type = self.request.GET.get('search')
-        qs = Category.objects.filter(category_type=category_type)
+        qs = Category.objects.filter(
+            category_type=category_type).order_by('name')
         return qs

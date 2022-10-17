@@ -33,4 +33,7 @@ export class TransactionService {
     return this.adminSvc.put<any>(this._apiUrl, body, id, true);
   }
 
+  public delete(id: number){
+    return this.adminSvc.delete<any>(this._apiUrl, id, true);
+  }
 }

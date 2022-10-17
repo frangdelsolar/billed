@@ -29,8 +29,8 @@ export class CategoryPickerComponent implements OnInit {
       })
     } else {
       this.service.getByType(this.in_transactionType).subscribe(res=>{
-        this.categories=res;
-        this.valueSelected = this.categories[0].id;
+        this.categories = res;
+        this.valueSelected = res[0]['id'];
         this.onSelect();
       })
     }
