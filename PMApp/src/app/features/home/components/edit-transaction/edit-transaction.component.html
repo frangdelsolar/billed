@@ -15,7 +15,7 @@
 
       <div class="col-12 my-0 py-0">
         <span>
-          <h5>Realizado</h5>
+          <h5>Transacción completada</h5>
           <p-inputSwitch
             inputId="completedSwitch"
             formControlName="completed"
@@ -59,6 +59,7 @@
             inputId="recurrentSwitch"
             formControlName="recurrent"
             (click)="onRecurrentChange()"
+            [disabled]="true"
           ></p-inputSwitch>
         </span>
         <p-divider></p-divider>
@@ -69,6 +70,7 @@
           [in_repetitionOn]="repetitionOn"
           [in_repetitions]="form.controls['repetitions'].value"
           [in_frequency]="form.controls['frequency'].value"
+          [in_disabled]="true"
           (out_selection)="onRepetitionChange($event)"
         ></app-repetition-field>
         <p-divider></p-divider>

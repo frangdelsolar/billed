@@ -5,6 +5,7 @@
       inputId="repeatsSwitch"
       [(ngModel)]="in_repetitionOn"
       (click)="onRepetitionToggle()"
+      [disabled]="in_disabled"
     ></p-inputSwitch>
   </span>
 </div>
@@ -12,6 +13,7 @@
   <app-frequency-picker
     [(selection)]="in_frequency"
     (selectionChange)="onChange()"
+    [in_disabled]="in_disabled"
   ></app-frequency-picker>
   <span class="p-float-label">
     <p-inputNumber
@@ -21,6 +23,7 @@
       [max]="100"
       [(ngModel)]="in_repetitions"
       (ngModelChange)="onChange()"
+      [disabled]="in_disabled"
     ></p-inputNumber>
     <label for="repetitions">Repeticiones</label>
   </span>

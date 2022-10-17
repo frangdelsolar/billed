@@ -10,6 +10,7 @@ export class RepetitionFieldComponent implements OnInit {
   @Input() in_repetitionOn: boolean = false;
   @Input() in_repetitions: number = 1;
   @Input() in_frequency: string = "months";
+  @Input() in_disabled: boolean = false;
 
   @Output() out_selection = new EventEmitter();
 

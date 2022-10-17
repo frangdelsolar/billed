@@ -10,6 +10,8 @@ export class FrequencyPickerComponent implements OnInit {
 
   @Input()
   selection: string="";
+
+  @Input() in_disabled: boolean = false;
   
   @Output()
   selectionChange = new EventEmitter<string>();
