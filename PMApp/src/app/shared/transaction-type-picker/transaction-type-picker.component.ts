@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-transaction-type-picker',
@@ -8,13 +8,10 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class TransactionTypePickerComponent implements OnInit {
 
-  @Input() in_selection: string = "";
-  @Output() out_selection = new EventEmitter<string>();
-
-  typeSelector = new FormControl('-', [Validators.required])
+  @Input() in_formControl: FormControl = new FormControl('', []);
+  @Output() change: EventEmitter<any> = new EventEmitter();
 
   transaction_types = [
-    { value:"", viewValue: "Todos"},
     { value:"income", viewValue: "Ingreso/s"},
     { value:"expense", viewValue: "Gasto/s"},
   ]
@@ -22,13 +19,10 @@ export class TransactionTypePickerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    if (this.in_selection){
-      this.typeSelector.setValue(this.in_selection);
-    }
   }
 
-  onSelect(value: string){
-    this.out_selection.emit(value);
+  onChange(){
+    this.change.emit();
   }
 
 }

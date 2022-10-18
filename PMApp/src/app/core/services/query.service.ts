@@ -13,7 +13,7 @@ export class QueryService {
 
   constructor() { }
 
-  setTransactionType(type: string | undefined){
+  setTransactionType(type?: string | null){
     this.params['transaction_type'] = type;
   }
 

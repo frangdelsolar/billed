@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { Transaction } from '@core/models/transaction.interface';
 import { QueryService } from '@core/services/query.service';
@@ -13,8 +14,8 @@ export class ListTransactionComponent implements OnInit {
   title: string | undefined;
   transactions: Transaction[] = [];
   selectedDate: any;
-  selectedType: any;
 
+  transactionFormControl = new FormControl(null, []);
   constructor(
     private querySvc: QueryService,
     private service: TransactionService
@@ -27,7 +28,7 @@ export class ListTransactionComponent implements OnInit {
   }
 
   setupTitle(){
-    this.selectedType = this.querySvc.params['transaction_type'];
+    this.transactionFormControl.setValue(this.querySvc.params['transaction_type']);
     if (this.querySvc.params['transaction_type'] == 'income'){
       this.title = "Ingresos";
     } else if (this.querySvc.params['transaction_type'] == 'expense'){
@@ -57,8 +58,8 @@ export class ListTransactionComponent implements OnInit {
     this.getRecords();
   }
 
-  setTransactionType(value:any){
-    this.querySvc.setTransactionType(value);
+  setTransactionType(){
+    this.querySvc.setTransactionType(this.transactionFormControl.value);
     this.getRecords();
   }
 

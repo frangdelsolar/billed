@@ -4,12 +4,14 @@
       <p-dropdown
         inputId="typeSelector"
         [options]="transaction_types"
-        [(ngModel)]="in_selection"
         optionLabel="viewValue"
         optionValue="value"
-        (onChange)="onSelect(in_selection)"
+        [formControl]="in_formControl"
+        [showClear]="true"
+        placeholder="Todos"
+        (onChange)="onChange()"
       ></p-dropdown>
-      <label for="typeSelector">Tipo de transacción</label>
+      <label for="typeSelector">Transacción</label>
     </span>
   </div>
 </div>
