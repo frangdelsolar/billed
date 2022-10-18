@@ -1,11 +1,10 @@
 <span class="p-float-label">
   <p-dropdown
-    inputId="categorySelector"
     [options]="categories"
-    [(ngModel)]="valueSelected"
     optionLabel="name"
     optionValue="id"
-    (onChange)="onSelect()"
+    [formControl]="in_formControl"
+    inputId="categorySelector"
   ></p-dropdown>
   <label for="categorySelector">Categoría</label>
 </span>

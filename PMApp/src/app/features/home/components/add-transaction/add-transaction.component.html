@@ -6,9 +6,9 @@
     <form [formGroup]="form" id="ngForm">
       <div class="col-12 pb-0">
         <app-currency-field
-          [in_currency]="form.controls['currency'].value"
-          [in_amount]="form.controls['amount'].value"
-          (out_selection)="onCurrencyFieldChange($event)"
+          [in_currencyFormControl]="currency"
+          [in_amountFormControl]="amount"
+          (out_exchangeRate)="onCurrencyChange($event)"
         ></app-currency-field>
         <p-divider></p-divider>
       </div>
@@ -30,7 +30,6 @@
             formControlName="date_of_transaction"
             [showIcon]="true"
             inputId="calendar"
-            [(ngModel)]="dateOfTransaction"
           ></p-calendar>
           <label for="calendar">Fecha de transacción</label>
         </span>
@@ -46,6 +45,7 @@
             pInputText
             ariaRequired="true"
             allowEmpty="false"
+            style="width: 75%"
           />
           <label for="description-input">Descripción</label>
         </span>
@@ -66,10 +66,10 @@
 
       <div class="col-12 my-0 py-0">
         <app-repetition-field
-          [in_repetitionOn]="repetitionOn"
-          [in_repetitions]="form.controls['repetitions'].value"
-          [in_frequency]="form.controls['frequency'].value"
-          (out_selection)="onRepetitionChange($event)"
+          [in_repeatsFormControl]="repeats"
+          [in_repetitionFormControl]="repetitions"
+          [in_frequencyFormControl]="frequency"
+          (click)="onRepeatsChange()"
         ></app-repetition-field>
         <p-divider></p-divider>
       </div>
@@ -77,7 +77,7 @@
       <div class="col-12 pt-2 mb-0 pb-2">
         <app-category-picker
           [in_transactionType]="$transactionType"
-          (out_selection)="onCategorySelection($event)"
+          [in_formControl]="category"
         ></app-category-picker>
         <p-divider></p-divider>
       </div>
@@ -88,6 +88,7 @@
             id="notes-input"
             formControlName="notes"
             type="text"
+            style="width: 75%"
             pInputText
           />
           <label for="notes-input">Notas</label>
@@ -101,6 +102,7 @@
           <p-inputSwitch
             inputId="ignoreSwitch"
             formControlName="ignore"
+            [disabled]="true"
           ></p-inputSwitch>
         </span>
         <p-divider></p-divider>
@@ -117,6 +119,7 @@
         label="Limpiar"
         class="p-button-outlined"
         icon="pi pi-times"
+        (click)="form.reset()"
       ></button>
       <button
         pButton

@@ -11,17 +11,30 @@ import { BehaviorSubject, Observable } from 'rxjs';
   styleUrls: ['./edit-transaction.component.scss']
 })
 export class EditTransactionComponent implements OnInit {
-  form!: FormGroup;
-  dateOfTransaction: Date = new Date();
-  repetitionOn: boolean = false;
-  transactionType: string = "";
-  $transactionType: BehaviorSubject<string> = new BehaviorSubject("");
-  categoryId: number = 0;
-  $categoryId: BehaviorSubject<number> = new BehaviorSubject(0);
-  transactionTypeLabel: string = "";
-
+  
   transactionId?: number;
   transactionInstance?: any;
+
+  form!: FormGroup;
+  currency = new FormControl('ARS', [Validators.required]);
+  amount = new FormControl(0, [Validators.required]);
+  exchange_rate = new FormControl('', []);
+  category = new FormControl('', [Validators.required]);
+  completed = new FormControl(false, [Validators.required]);
+  date_of_transaction = new FormControl(new Date(), [Validators.required]);
+  description = new FormControl('', [Validators.required]);
+  recurrent = new FormControl({value: false, disabled: true}, [Validators.required]);
+  repeats = new FormControl({value: false, disabled: true}, [Validators.required]);
+  repetitions = new FormControl({value: 0, disabled: true}, [Validators.required]);
+  frequency = new FormControl({value: '', disabled: true}, [Validators.required]);
+  ignore = new FormControl({value: '', disabled: true}, [Validators.required]);
+  notes = new FormControl('', [Validators.required]);
+  bulk_mode = new FormControl('', [Validators.required]);
+
+  transactionType: string = "";
+  $transactionType: BehaviorSubject<any> = new BehaviorSubject('');
+  transactionTypeLabel: string = "";
+  repetitionOn: boolean = false;
 
   editionBulk = [
     {
@@ -38,8 +51,6 @@ export class EditTransactionComponent implements OnInit {
     }
   ]
 
-  bulkEditSelection?: any;
-
   constructor(
     private fb: FormBuilder, 
     private service: TransactionService,
@@ -48,29 +59,27 @@ export class EditTransactionComponent implements OnInit {
     private route: ActivatedRoute
   ) { 
     this.form = fb.group({
-      currency: new FormControl('ARS', [Validators.required]),
-      amount: new FormControl(0, [Validators.required]),
-      exchange_rate: new FormControl('', []),
-      category: new FormControl('', [Validators.required]),
-      completed: new FormControl(false, [Validators.required]),
-      date_of_transaction: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-      recurrent: new FormControl(false, [Validators.required]),
-      repeats: new FormControl(false, [Validators.required]),
-      repetitions: new FormControl(1, []),
-      frequency: new FormControl('months', []),
-      notes: new FormControl('', []),
-      ignore: new FormControl(false, [Validators.required]),
-      type: new FormControl('', [Validators.required]),
-      bulk_mode: new FormControl('', [Validators.required])
+      currency: this.currency,
+      amount: this.amount,
+      exchange_rate: this.exchange_rate,
+      category: this.category,
+      completed: this.completed,
+      date_of_transaction: this.date_of_transaction,
+      description: this.description,
+      recurrent: this.recurrent,
+      repeats: this.repeats,
+      repetitions: this.repetitions,
+      frequency: this.frequency,
+      ignore: this.ignore,
+      notes: this.notes,
+      bulk_mode: this.bulk_mode
     });
+
+    this.setup();
+
   }
 
   ngOnInit(): void {
-
-    // this.form.controls['type'].setValue(this.transactionType);
-
-    this.setup();
   }
 
 
@@ -84,11 +93,13 @@ export class EditTransactionComponent implements OnInit {
             if(res.type == 'income'){
               this.transactionTypeLabel = "Ingreso";
               this.transactionType = "income";
+              this.$transactionType.next('income');
             } else if (res.type == 'expense'){
               this.transactionTypeLabel = "Gasto";
               this.transactionType = "expense";
+              this.$transactionType.next('expense');
             } else {
-              console.log('Error');
+              console.log('Error - Tipo de transaccion desconocido');
               this.router.navigate(['/']);
             }
             this.prefill();
@@ -104,57 +115,29 @@ export class EditTransactionComponent implements OnInit {
 
   prefill(){
     let data = this.transactionInstance;
-
-    this.form.controls['currency']?.setValue(data.currency)
-    this.form.controls['amount']?.setValue(data.amount)
-    this.form.controls['exchange_rate']?.setValue(data.payment_item.currency.exchange_rate)
-    this.form.controls['category']?.setValue(data.payment_item.category.id)
-
-    this.$transactionType.next(data.type)
-    this.$categoryId.next(data.payment_item.category.id)
-
-    this.form.controls['completed']?.setValue(data.completed)
-    this.form.controls['date_of_transaction']?.setValue(new Date(data.date_of_transaction))
-    this.form.controls['description']?.setValue(data.description)
-    
+    this.currency.setValue(data.currency);
+    this.amount.setValue(data.amount);
+    this.category.setValue(data.payment_item.category.id);
+    this.completed.setValue(data.completed);
+    this.date_of_transaction.setValue(new Date(data.date_of_transaction));
+    this.description.setValue(data.description);
     if (data.recurrent){
-      this.form.controls['recurrent']?.setValue(true)
+      this.recurrent.setValue(true);
     }
     if (data.installment){
-      this.repetitionOn = true;
-      this.form.controls['repeats']?.setValue(true);
-      this.form.controls['repetitions']?.setValue(data.installment.repetitions)
-      this.form.controls['frequency']?.setValue(data.installment.frequency)
+      this.repeats.setValue(true);
+      this.repetitions.setValue(data.installment.repetitions);
+      this.frequency.setValue(data.installment.freuquency);
     }
-    this.form.controls['notes']?.setValue(data.notes)
-    this.form.controls['ignore']?.setValue(data.ignore)
-    this.form.controls['type']?.setValue(data.type)
+    this.notes.setValue(data.notes);
+    this.ignore.setValue(data.ignore);
   }
 
-  onCurrencyFieldChange(data: any){
-    this.form.controls['amount'].setValue(data.amount);
-    this.form.controls['currency'].setValue(data.currency);
-    this.form.controls['exchange_rate'].setValue(data.exchange_rate);
+  onCurrencyChange(value: any){
+    this.exchange_rate.setValue(value);
   }
-
+  
   onRecurrentChange(){
-    if (this.form.controls['recurrent'].value==true){
-      this.repetitionOn = false;
-    }
-  }
-
-  onRepetitionChange(data: any){
-    this.repetitionOn = data.repetitionOn;
-    if (this.repetitionOn){
-      this.form.controls['recurrent'].setValue(false);
-    }
-    this.form.controls['repeats'].setValue(data.repetitionOn);
-    this.form.controls['repetitions'].setValue(data.repetitions);
-    this.form.controls['frequency'].setValue(data.frequency);
-  }
-
-  onCategorySelection(value: string){
-    this.form.controls['category'].setValue(value);
   }
 
   validateForm(): boolean{
@@ -163,8 +146,9 @@ export class EditTransactionComponent implements OnInit {
   }
 
   onDelete(){
-    if(this.transactionId && this.bulkEditSelection.value){
-      let param = `bulk_mode=${this.bulkEditSelection.value}`;
+   
+    if(this.transactionId && this.bulk_mode.value){
+      let param = `bulk_mode=${this.bulk_mode.value}`;
       this.service.delete(this.transactionId, param).subscribe(
         (res)=>{
           console.log(res);
@@ -176,26 +160,25 @@ export class EditTransactionComponent implements OnInit {
     }
   }
 
-  onEditBulkSelectionChange(){
-    this.form.controls['bulk_mode'].setValue(this.bulkEditSelection.value);
-  }
+
 
 
   onSubmitForm(){
     console.log(this.form.value, this.form.valid)
-    let formValidationResult = this.validateForm();
-    if(formValidationResult){
-      this.service.create(this.form.value).subscribe(
-        (res)=>{
-          this.querySvc.setDateToQuery(this.dateOfTransaction.getMonth()+1, this.dateOfTransaction.getFullYear());
-          this.querySvc.setTransactionType(this.transactionType);
-          this.router.navigate(['transacciones']);
-        },
-        (err)=>{
-          console.log(err);
-        }
-      )
-    }
+    // let formValidationResult = this.validateForm();
+    // if(formValidationResult){
+    //   this.service.create(this.form.value).subscribe(
+    //     (res)=>{
+    //       this.querySvc.setDateToQuery(this.dateOfTransaction.getMonth()+1, this.dateOfTransaction.getFullYear());
+    //       this.querySvc.setTransactionType(this.transactionType);
+    //       this.router.navigate(['transacciones']);
+    //     },
+    //     (err)=>{
+    //       console.log(err);
+    //     }
+    //   )
+    // }
+    
   }
 }
 

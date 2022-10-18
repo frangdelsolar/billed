@@ -1,11 +1,11 @@
 <div class="grid">
   <div class="flex flex-wrap flex-row gap-4">
     <div class="block">
-      <span class="p-float-label pl-2">
+      <span class="p-float-label">
         <p-dropdown
           inputId="currencySelector"
           [options]="currencies"
-          [(ngModel)]="in_currency"
+          [formControl]="in_currencyFormControl"
           optionLabel="value"
           optionValue="key"
           (onChange)="setHint()"
@@ -15,13 +15,15 @@
       <small class="block">{{ exchangeHint }}</small>
     </div>
     <div class="block">
-      <span class="p-float-label pl-2">
+      <span class="p-float-label">
         <p-inputNumber
-          [(ngModel)]="in_amount"
-          mode="currency"
-          [currency]="in_currency"
+          [formControl]="in_amountFormControl"
           inputId="amountInput"
           (ngModelChange)="setHint()"
+          mode="decimal"
+          [minFractionDigits]="2"
+          [maxFractionDigits]="2"
+          [min]="0"
         ></p-inputNumber>
         <label for="amountInput">Total</label>
         <small class="block">{{ amountHint }}</small>

@@ -2,11 +2,9 @@
   <p-dropdown
     inputId="frequencySelector"
     [options]="frequencies"
-    [(ngModel)]="selection"
-    (ngModelChange)="onChange()"
     optionLabel="viewValue"
     optionValue="value"
-    [disabled]="in_disabled"
+    [formControl]="in_formControl"
   ></p-dropdown>
   <label for="frequencySelector">Frecuencia</label>
 </span>

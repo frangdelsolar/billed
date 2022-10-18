@@ -10,19 +10,21 @@ import { currencies } from './currencies';
 })
 export class CurrencyFieldComponent implements OnInit {
   
-  @Input() in_currency: string = "ARS";
-  @Input() in_amount: number = 0;
-  @Output() out_selection: EventEmitter<any> = new EventEmitter();
+  @Input() in_currencyFormControl = new FormControl('', []);
+  @Input() in_amountFormControl = new FormControl(0, []);
+  @Output() out_exchangeRate: EventEmitter<any> = new EventEmitter();
 
   currencies = currencies;
   exchangeHint:string = "";
   amountHint:string = "";
 
-  exchange_rate: FormControl = new FormControl(1, []);
 
   constructor(private service:PrivateApiService) { }
 
   ngOnInit(): void {
+    setTimeout(()=>{
+      this.setHint();
+    }, 1000)
 
   }
 
@@ -32,33 +34,27 @@ export class CurrencyFieldComponent implements OnInit {
   }
 
   getCurrencyRate(){
-    
+    this.out_exchangeRate.emit(1);
   }
 
   setHint(){
+    let amount = 0;
+    if (this.in_amountFormControl.value){
+      amount = this.in_amountFormControl.value;
+    }
 
-    if (this.in_currency == 'USD'){
+    if (this.in_currencyFormControl.value == 'USD'){
       this.getUSDRate().subscribe((res:any)=>{
-        this.exchange_rate.setValue(res.venta);
+        this.out_exchangeRate.emit(res.venta);
         this.exchangeHint = "USD $1 = ARS $" + (res.venta).toString() + " cotización blue";
-        this.amountHint = "= ARS $" + (this.in_amount * res.venta).toString();
+        this.amountHint = "= ARS $" + (amount * res.venta).toString();
       });
     } else {
       this.amountHint="";
       this.exchangeHint="";
-      this.getCurrencyRate()
+      this.getCurrencyRate();
     }
-    this.emitOutput();
   }
 
-  emitOutput(){
-    this.out_selection.emit(
-      {
-        currency: this.in_currency, 
-        amount: this.in_amount, 
-        exchange_rate: this.exchange_rate.value
-      }
-    )
-  }
 
 }

@@ -13,11 +13,26 @@ import { BehaviorSubject } from 'rxjs';
 export class AddTransactionComponent implements OnInit {
 
   form!: FormGroup;
-  dateOfTransaction: Date = new Date();
-  repetitionOn: boolean = false;
+  currency = new FormControl('ARS', [Validators.required]);
+  amount = new FormControl(0, [Validators.required, Validators.min(0)]);
+  exchange_rate = new FormControl('', []);
+  category = new FormControl('', [Validators.required]);
+  completed = new FormControl(false, [Validators.required]);
+  date_of_transaction = new FormControl(new Date(), [Validators.required]);
+  description = new FormControl('', [Validators.required]);
+  recurrent = new FormControl({value: false, disabled: false}, [Validators.required]);
+  repeats = new FormControl({value: false, disabled: false}, [Validators.required]);
+  repetitions = new FormControl(0, [Validators.required]);
+  frequency = new FormControl('', [Validators.required]);
+  ignore = new FormControl({value: false, disabled: false}, [Validators.required]);
+  notes = new FormControl('', [Validators.required]);
+  type = new FormControl('', [Validators.required]);
+
+
   transactionType: string = "";
-  $transactionType: BehaviorSubject<string> = new BehaviorSubject('');
+  $transactionType: BehaviorSubject<any> = new BehaviorSubject('');
   transactionTypeLabel: string = "";
+  repetitionOn: boolean = false;
 
   constructor(
     private fb: FormBuilder, 
@@ -26,20 +41,20 @@ export class AddTransactionComponent implements OnInit {
     private router: Router,
   ) { 
     this.form = fb.group({
-      currency: new FormControl('ARS', [Validators.required]),
-      amount: new FormControl(0, [Validators.required]),
-      exchange_rate: new FormControl('', []),
-      category: new FormControl('', [Validators.required]),
-      completed: new FormControl(false, [Validators.required]),
-      date_of_transaction: new FormControl('', [Validators.required]),
-      description: new FormControl('', [Validators.required]),
-      recurrent: new FormControl(false, [Validators.required]),
-      repeats: new FormControl(false, [Validators.required]),
-      repetitions: new FormControl(1, []),
-      frequency: new FormControl('months', []),
-      notes: new FormControl('', []),
-      ignore: new FormControl(false, [Validators.required]),
-      type: new FormControl('', [Validators.required]),
+      currency: this.currency,
+      amount: this.amount,
+      exchange_rate: this.exchange_rate,
+      category: this.category,
+      completed: this.completed,
+      date_of_transaction: this.date_of_transaction,
+      description: this.description,
+      recurrent: this.recurrent,
+      repeats: this.repeats,
+      repetitions: this.repetitions,
+      frequency: this.frequency,
+      ignore: this.ignore,
+      notes: this.notes,
+      type: this.type
     });
   }
 
@@ -58,43 +73,31 @@ export class AddTransactionComponent implements OnInit {
     this.form.controls['type'].setValue(this.transactionType);
   }
 
-  onCurrencyFieldChange(data: any){
-    this.form.controls['amount'].setValue(data.amount);
-    this.form.controls['currency'].setValue(data.currency);
-    this.form.controls['exchange_rate'].setValue(data.exchange_rate);
+  onCurrencyChange(value: any){
+    this.exchange_rate.setValue(value);
   }
-
+  
   onRecurrentChange(){
-    if (this.form.controls['recurrent'].value==true){
-      this.repetitionOn = false;
+    if (this.recurrent.value && this.repeats.enabled){
+      this.repeats.setValue(false);
     }
   }
 
-  onRepetitionChange(data: any){
-    this.repetitionOn = data.repetitionOn;
-    if (this.repetitionOn){
-      this.form.controls['recurrent'].setValue(false);
+  onRepeatsChange(){
+    if (this.repeats.value && this.recurrent.enabled){
+      this.recurrent.setValue(false);
     }
-    this.form.controls['repeats'].setValue(data.repetitionOn);
-    this.form.controls['repetitions'].setValue(data.repetitions);
-    this.form.controls['frequency'].setValue(data.frequency);
-  }
-
-  onCategorySelection(value: string){
-    this.form.controls['category'].setValue(value);
-  }
-
-  validateForm(): boolean{
-    let result = this.form.valid && this.form.controls['amount'].value > 0;
-    return result;
   }
 
   onSubmitForm(){
-    let formValidationResult = this.validateForm();
-    if(formValidationResult){
+    console.log(this.form.value)
       this.service.create(this.form.value).subscribe(
         (res)=>{
-          this.querySvc.setDateToQuery(this.dateOfTransaction.getMonth()+1, this.dateOfTransaction.getFullYear());
+          let date = new Date()
+          if (this.date_of_transaction.value){
+            date = this.date_of_transaction.value;
+          }
+          this.querySvc.setDateToQuery(date.getMonth()+1, date.getFullYear());
           this.querySvc.setTransactionType(this.transactionType);
           this.router.navigate(['transacciones']);
         },
@@ -103,6 +106,5 @@ export class AddTransactionComponent implements OnInit {
         }
       )
     }
-  }
 }
 

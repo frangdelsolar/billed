@@ -3,17 +3,13 @@
     <h5>Repetir</h5>
     <p-inputSwitch
       inputId="repeatsSwitch"
-      [(ngModel)]="in_repetitionOn"
-      (click)="onRepetitionToggle()"
-      [disabled]="in_disabled"
+      [formControl]="in_repeatsFormControl"
     ></p-inputSwitch>
   </span>
 </div>
-<div class="flex flex-wrap gap-4 mt-5" *ngIf="in_repetitionOn">
+<div class="flex flex-wrap gap-4 mt-5" *ngIf="in_repeatsFormControl.value">
   <app-frequency-picker
-    [(selection)]="in_frequency"
-    (selectionChange)="onChange()"
-    [in_disabled]="in_disabled"
+    [in_formControl]="in_frequencyFormControl"
   ></app-frequency-picker>
   <span class="p-float-label">
     <p-inputNumber
@@ -21,9 +17,7 @@
       inputId="repetitions"
       [min]="1"
       [max]="100"
-      [(ngModel)]="in_repetitions"
-      (ngModelChange)="onChange()"
-      [disabled]="in_disabled"
+      [formControl]="in_repetitionFormControl"
     ></p-inputNumber>
     <label for="repetitions">Repeticiones</label>
   </span>

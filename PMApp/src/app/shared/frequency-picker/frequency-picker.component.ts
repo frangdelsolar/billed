@@ -8,15 +8,8 @@ import { FormControl, Validators } from '@angular/forms';
 })
 export class FrequencyPickerComponent implements OnInit {
 
-  @Input()
-  selection: string="";
+  @Input() in_formControl: FormControl = new FormControl('', []);
 
-  @Input() in_disabled: boolean = false;
-  
-  @Output()
-  selectionChange = new EventEmitter<string>();
-
-  frequencySelector = new FormControl('', [Validators.required])
 
   frequencies = [
     { value:"days", viewValue: "Días"},
@@ -31,7 +24,5 @@ export class FrequencyPickerComponent implements OnInit {
 
   }
 
-  onChange(){
-    this.selectionChange.emit(this.selection);
-  }
+
 }
