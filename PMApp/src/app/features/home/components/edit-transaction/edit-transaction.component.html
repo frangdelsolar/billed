@@ -99,7 +99,10 @@
     </form>
   </div>
   <ng-template pTemplate="footer">
-    <div class="col-12 justify-content-center mt-0 pt-0 mb-6">
+    <div
+      class="flex flex-wrap flex-column justify-content-center mt-0 pt-0 mb-6"
+      *ngIf="transactionInstance.repeats || transactionInstance.recurrent"
+    >
       <h3><b>Modo de edición</b></h3>
       <p-selectButton
         [options]="editionBulk"
@@ -107,6 +110,7 @@
         optionLabel="name"
         optionValue="value"
         inputId="editionBulkSelector"
+        (onChange)="onBulkModeChange()"
       ></p-selectButton>
     </div>
     <div
@@ -119,6 +123,7 @@
         class="p-button-outlined p-button-danger"
         icon="pi pi-trash"
         (click)="onDelete()"
+        [disabled]="saveDeleteButtonDisabled"
       ></button>
       <button
         pButton
@@ -135,6 +140,7 @@
         icon="pi pi-check"
         type="submit"
         (click)="onSubmitForm()"
+        [disabled]="saveDeleteButtonDisabled"
       ></button>
     </div>
   </ng-template>

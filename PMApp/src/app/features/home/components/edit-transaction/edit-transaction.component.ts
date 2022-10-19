@@ -27,7 +27,7 @@ export class EditTransactionComponent implements OnInit {
   recurrent = new FormControl(false, [Validators.required]);
   ignore = new FormControl(false, [Validators.required]);
   notes = new FormControl('', []);
-  bulk_mode = new FormControl('', [Validators.required]);
+  bulk_mode = new FormControl('single', [Validators.required]);
   
   markAllAsDirty = markAllAsDirty;
 
@@ -35,18 +35,20 @@ export class EditTransactionComponent implements OnInit {
   $transactionType: BehaviorSubject<any> = new BehaviorSubject('');
   transactionTypeLabel: string = "";
 
+  saveDeleteButtonDisabled = false;
+
   editionBulk = [
     {
       value: 'single',
-      name: 'Solo este registro'
+      name: 'Esta cuota'
     },
     {
       value: 'pending',
-      name: 'Pendientes'
+      name: 'Cuotas pendientes'
     },
     {
       value: 'all',
-      name: 'Repeticiones'
+      name: 'Todas las cuotas'
     }
   ]
 
@@ -98,6 +100,11 @@ export class EditTransactionComponent implements OnInit {
               console.log('Error - Tipo de transaccion desconocido');
               this.router.navigate(['/']);
             }
+
+
+            if (this.transactionInstance.repeats || this.transactionInstance.recurrent){
+              this.saveDeleteButtonDisabled = false;
+            }
             this.prefill();
           },
           (err)=>{
@@ -126,6 +133,15 @@ export class EditTransactionComponent implements OnInit {
 
   onCurrencyChange(value: any){
     this.exchange_rate.setValue(value);
+  }
+
+  onBulkModeChange(){
+    if (this.bulk_mode.value){
+      this.saveDeleteButtonDisabled = false;
+    } else {
+      this.saveDeleteButtonDisabled = true;
+
+    }
   }
   
   onDelete(){

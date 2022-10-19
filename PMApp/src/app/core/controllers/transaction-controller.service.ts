@@ -36,6 +36,6 @@ export class TransactionService {
 
   public delete(id: number, params: string){
     let url = `${this._apiUrl}/${id}/?${params}`
-    return this.adminSvc.delete<any>(this._apiUrl, true);
+    return this.adminSvc.delete<any>(url, true);
   }
 }
