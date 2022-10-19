@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { QueryService } from '@core/services/query.service';
+import { MessageService } from 'primeng/api';
 import { BehaviorSubject } from 'rxjs';
 import { BalanceService } from 'src/app/core/controllers/balance-controller.service';
 
@@ -20,7 +21,12 @@ export class SummaryComponent implements OnInit {
   gastosDisplayValue: BehaviorSubject<string> = new BehaviorSubject(this.gastos);
   hideTotals: boolean = false;
 
-  constructor(private service: BalanceService, private querySvc: QueryService, private router: Router) {
+  constructor(
+    private messageService: MessageService,
+    private service: BalanceService, 
+    private querySvc: QueryService, 
+    private router: Router
+    ) {
 
   }
 
@@ -33,12 +39,17 @@ export class SummaryComponent implements OnInit {
   getTotals(){
     let params = this.querySvc.getParamsString();
 
-    this.service.get(params).subscribe(res => {
-      this.ingresos = res.income;
-      this.gastos = res.expense;
-      this.total = res.total;
-      if (!this.hideTotals) this.refreshDisplayValues();
-    })
+    this.service.get(params).subscribe(
+      (res) => {
+        this.ingresos = res.income;
+        this.gastos = res.expense;
+        this.total = res.total;
+        if (!this.hideTotals) this.refreshDisplayValues();
+      },
+      (err)=>{
+        this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
+      }
+    )
 
   }
 

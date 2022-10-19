@@ -12,6 +12,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import {ToastModule} from 'primeng/toast';
 import {TooltipModule} from 'primeng/tooltip';
 
 
@@ -29,6 +30,7 @@ const myModules = [
     MessagesModule,
     MessageModule,
     SelectButtonModule,
+    ToastModule,
     TooltipModule
 ];
 

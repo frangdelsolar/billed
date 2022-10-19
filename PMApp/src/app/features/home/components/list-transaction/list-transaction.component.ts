@@ -3,6 +3,7 @@ import { FormControl } from '@angular/forms';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { Transaction } from '@core/models/transaction.interface';
 import { QueryService } from '@core/services/query.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-list-transaction',
@@ -18,7 +19,8 @@ export class ListTransactionComponent implements OnInit {
   transactionFormControl = new FormControl(null, []);
   constructor(
     private querySvc: QueryService,
-    private service: TransactionService
+    private service: TransactionService,
+    private messageService: MessageService,
   ) { }
 
   ngOnInit(): void {
@@ -50,7 +52,14 @@ export class ListTransactionComponent implements OnInit {
 
   getRecords(){
     let params = this.querySvc.getParamsString();
-    this.service.getAll(params).subscribe(res=>this.transactions=res);
+    this.service.getAll(params).subscribe(
+      (res)=>{
+        this.transactions=res
+      },
+      (err)=>{
+        this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
+      }
+      );
   }
   
   setDate(dateParams: {[key:string]: number}){

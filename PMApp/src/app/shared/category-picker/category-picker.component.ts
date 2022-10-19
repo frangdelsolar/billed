@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { CategoryService } from '@core/controllers/category-controller.service';
+import { MessageService } from 'primeng/api';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -17,7 +18,10 @@ export class CategoryPickerComponent implements OnInit {
 
   categories: any = [];
 
-  constructor(private service: CategoryService) { 
+  constructor(
+    private messageService: MessageService,
+    private service: CategoryService
+    ) { 
   }
 
   ngOnInit(): void {
@@ -33,7 +37,7 @@ export class CategoryPickerComponent implements OnInit {
           }
         },
         (err)=>{
-          console.log(err)
+          this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
         }
         )
     })

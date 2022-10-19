@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { PrivateApiService } from '@core/services/privateApi.service';
+import { MessageService } from 'primeng/api';
 import { currencies } from './currencies';
 
 @Component({
@@ -19,7 +20,10 @@ export class CurrencyFieldComponent implements OnInit {
   amountHint:string = "";
 
 
-  constructor(private service:PrivateApiService) { }
+  constructor(
+    private messageService: MessageService,
+    private service:PrivateApiService
+  ) { }
 
   ngOnInit(): void {
     setTimeout(()=>{
@@ -44,11 +48,16 @@ export class CurrencyFieldComponent implements OnInit {
     }
 
     if (this.in_currencyFormControl.value == 'USD'){
-      this.getUSDRate().subscribe((res:any)=>{
-        this.out_exchangeRate.emit(res.venta);
-        this.exchangeHint = "USD $1 = ARS $" + (res.venta).toString() + " cotización blue";
-        this.amountHint = "= ARS $" + (amount * res.venta).toString();
-      });
+      this.getUSDRate().subscribe(
+        (res:any)=>{
+          this.out_exchangeRate.emit(res.venta);
+          this.exchangeHint = "USD $1 = ARS $" + (res.venta).toString() + " cotización blue";
+          this.amountHint = "= ARS $" + (amount * res.venta).toString();
+        },
+        (err)=>{
+          this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
+        }
+      );
     } else {
       this.amountHint="";
       this.exchangeHint="";

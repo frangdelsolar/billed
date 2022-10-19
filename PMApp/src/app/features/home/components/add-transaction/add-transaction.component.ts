@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { QueryService } from '@core/services/query.service';
 import { markAllAsDirty } from '@core/utils/markFieldsAsDirty';
+import { MessageService } from 'primeng/api';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -42,6 +43,7 @@ export class AddTransactionComponent implements OnInit {
     private service: TransactionService,
     private querySvc: QueryService,
     private router: Router,
+    private messageService: MessageService,
   ) { 
     this.form = fb.group({
       currency: this.currency,
@@ -99,7 +101,6 @@ export class AddTransactionComponent implements OnInit {
 
 
   onSubmitForm(){
-    console.log(this.form.valid, this.form.value)
     if (this.form.valid){
       this.service.create(this.form.value).subscribe(
         (res)=>{
@@ -107,16 +108,18 @@ export class AddTransactionComponent implements OnInit {
           if (this.date_of_transaction.value){
             date = this.date_of_transaction.value;
           }
+          this.messageService.add({severity:'success', summary:'Operación exitosa', detail:'Se ha registrado la transacción'});
           this.querySvc.setDateToQuery(date.getMonth()+1, date.getFullYear());
           this.querySvc.setTransactionType(this.transactionType);
           this.router.navigate(['transacciones']);
         },
         (err)=>{
-          console.log(err);
+          this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
         }
       )
     } else {
       this.markAllAsDirty(this.form);
+      this.messageService.add({severity:'error', summary:'Algo anda mal', detail: 'Parece que falta completar algo.'});
     }
 
     }

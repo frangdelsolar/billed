@@ -5,6 +5,7 @@ import { TransactionService } from '@core/controllers/transaction-controller.ser
 import { QueryService } from '@core/services/query.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { markAllAsDirty } from '@core/utils/markFieldsAsDirty';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-edit-transaction',
@@ -58,7 +59,8 @@ export class EditTransactionComponent implements OnInit {
     private service: TransactionService,
     private querySvc: QueryService,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private messageService: MessageService,
   ) { 
     this.form = fb.group({
       currency: this.currency,
@@ -98,7 +100,7 @@ export class EditTransactionComponent implements OnInit {
               this.transactionType = "expense";
               this.$transactionType.next('expense');
             } else {
-              console.log('Error - Tipo de transaccion desconocido');
+              this.messageService.add({severity:'error', summary:'Algo anda mal', detail: 'Tipo de transacción desconocido'});
               this.router.navigate(['/']);
             }
 
@@ -112,7 +114,7 @@ export class EditTransactionComponent implements OnInit {
             this.prefill();
           },
           (err)=>{
-            console.log(err);
+            this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
             this.router.navigate(['/']);
           }
         )
@@ -152,10 +154,10 @@ export class EditTransactionComponent implements OnInit {
       let param = `bulk_mode=${this.bulk_mode.value}`;
       this.service.delete(this.transactionId, param).subscribe(
         (res)=>{
-          console.log(res);
+          this.messageService.add({severity:'success', summary:'Operación exitosa', detail:`Transacción/es eliminada/s`});
         },
         (err)=>{
-          console.log(err)
+          this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
         }
       )
     }
@@ -176,11 +178,12 @@ export class EditTransactionComponent implements OnInit {
             if (date){
               this.querySvc.setDateToQuery(date.getMonth()+1, date.getFullYear());
             }
+            this.messageService.add({severity:'success', summary:'Operación exitosa', detail:'Se ha/n editado la/s transacción/es'});
             this.querySvc.setTransactionType(this.transactionType);
             this.router.navigate(['transacciones']);
           },
           (err)=>{
-            console.log(err);
+            this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
           }
         )
       } else {
