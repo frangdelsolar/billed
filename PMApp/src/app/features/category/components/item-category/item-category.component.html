@@ -1,0 +1,30 @@
+<div
+  class="grid"
+  [ngClass]="
+    category?.category_type == 'income'
+      ? 'hover:bg-green-50'
+      : 'hover:bg-red-50'
+  "
+>
+  <div class="flex flex-column col-1 justify-content-center">
+    <mat-icon [color]="category?.color">{{ category?.icon }}</mat-icon>
+  </div>
+  <div class="flex flex-column col-4 justify-content-center">
+    <p class="my-0 py-0">
+      <b>{{ category?.name }}</b>
+    </p>
+  </div>
+
+  <div class="flex flex-column col-1 col-offset-5 justify-content-center">
+    <button
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-cog"
+      class="p-button-rounded p-button-text"
+      styleClass="p-button-sm"
+      (click)="menu.toggle($event)"
+    ></button>
+    <p-menu #menu [popup]="true" [model]="items"></p-menu>
+  </div>
+</div>

@@ -21,7 +21,6 @@ export class CategoryService {
   public getByType(type: string){
     let url = this._apiUrl + `?search=${type}`;
     return this.adminSvc.get<Category[]>(url, null, true);
-
   }
 
 }

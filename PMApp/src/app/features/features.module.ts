@@ -7,8 +7,8 @@ import { CategoryModule } from './category/category.module';
 
 const myModules = [
   HomeModule,
-  SharedModule,
   CategoryModule,
+  SharedModule,
 ]
 
 @NgModule({

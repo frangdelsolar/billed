@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 import { CategoryService } from '@core/controllers/category-controller.service';
 import { MessageService } from 'primeng/api';
 import { Observable } from 'rxjs';
@@ -12,7 +12,7 @@ import { Observable } from 'rxjs';
 export class CategoryPickerComponent implements OnInit {
 
   @Input() in_transactionType: Observable<string> = new Observable();
-  @Input() in_formControl: FormControl = new FormControl('', []);
+  @Input() in_formControl: FormControl = new FormControl(null, [Validators.required]);
 
   selection: any;
 

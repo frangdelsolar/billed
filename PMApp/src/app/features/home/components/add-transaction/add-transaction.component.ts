@@ -18,7 +18,7 @@ export class AddTransactionComponent implements OnInit {
   currency = new FormControl('ARS', [Validators.required]);
   amount = new FormControl(0, [Validators.required, Validators.min(0.01)]);
   exchange_rate = new FormControl('', []);
-  category = new FormControl(0, [Validators.required]);
+  category = new FormControl(null, [Validators.required]);
   completed = new FormControl(false, [Validators.required]);
   date_of_transaction = new FormControl(new Date(), [Validators.required]);
   description = new FormControl('', [Validators.required]);

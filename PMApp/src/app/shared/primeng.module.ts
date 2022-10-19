@@ -9,9 +9,11 @@ import {DropdownModule} from 'primeng/dropdown';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {InputTextModule} from 'primeng/inputtext';
+import {MenuModule} from 'primeng/menu';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import {TabViewModule} from 'primeng/tabview';
 import {ToastModule} from 'primeng/toast';
 import {TooltipModule} from 'primeng/tooltip';
 
@@ -27,9 +29,11 @@ const myModules = [
     InputNumberModule,
     InputSwitchModule,
     InputTextModule,
+    MenuModule,
     MessagesModule,
     MessageModule,
     SelectButtonModule,
+    TabViewModule,
     ToastModule,
     TooltipModule
 ];
