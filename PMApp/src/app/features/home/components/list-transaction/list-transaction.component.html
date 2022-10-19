@@ -17,6 +17,8 @@
       ></app-transaction-type-picker>
     </div>
     <div class="col-12">
+      <p-divider></p-divider>
+
       <div class="list-item" *ngFor="let transaction of transactions">
         <app-item-transaction
           [transaction]="transaction"

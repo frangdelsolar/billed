@@ -1,5 +1,6 @@
 from gettext import install
 from django.db import models
+
 from payment_item.models import RecurrentPayment
 from payment_item.models import PaymentItem, Installment
 from system_details.models import Metadata
@@ -106,58 +107,3 @@ class Transaction(Metadata):
         )
         self.installment = installment
         self.save()
-
-    def update(self, single=False, pending=False, all=False, *args, **kwargs):
-        to_update = []
-
-        if single:
-            to_update = [self]
-
-        if pending:
-            if self.installment:
-                to_update = self.installment.get_pending_transactions()
-            if self.recurrent:
-                to_update = self.recurrent.get_pending_transactions()
-                # self.recurrent.delete()
-
-        if all:
-            if self.installment:
-                to_update = self.installment.get_all_transactions()
-            if self.recurrent:
-                to_update = self.recurrent.get_all_transactions()
-                # self.recurrent.delete()
-
-        for item in to_update:
-            # update
-            pass
-
-        return True
-
-    def destroy(self, single=False, pending=False, all=False, *args, **kwargs):
-        to_delete = []
-
-        if single:
-            to_delete = [self]
-
-        if pending:
-            if self.installment:
-                to_delete = list(self.installment.get_pending_transactions())
-            if self.recurrent:
-                to_delete = list(self.recurrent.get_pending_transactions())
-                to_delete.append(self.recurrent)
-
-        if all:
-            if self.installment:
-                to_delete = list(self.installment.get_all_transactions())
-            if self.recurrent:
-                to_delete = list(self.recurrent.get_all_transactions())
-                to_delete.append(self.recurrent)
-
-        if len(to_delete) == 0:
-            return False
-
-        for item in to_delete:
-            print('deleting', item)
-            item.delete()
-
-        return True

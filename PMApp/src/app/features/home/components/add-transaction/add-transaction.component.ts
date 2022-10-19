@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { QueryService } from '@core/services/query.service';
+import { markAllAsDirty } from '@core/utils/markFieldsAsDirty';
 import { BehaviorSubject } from 'rxjs';
 
 @Component({
@@ -14,19 +15,21 @@ export class AddTransactionComponent implements OnInit {
 
   form!: FormGroup;
   currency = new FormControl('ARS', [Validators.required]);
-  amount = new FormControl(0, [Validators.required, Validators.min(0)]);
+  amount = new FormControl(0, [Validators.required, Validators.min(0.01)]);
   exchange_rate = new FormControl('', []);
-  category = new FormControl('', [Validators.required]);
+  category = new FormControl(0, [Validators.required]);
   completed = new FormControl(false, [Validators.required]);
   date_of_transaction = new FormControl(new Date(), [Validators.required]);
   description = new FormControl('', [Validators.required]);
-  recurrent = new FormControl({value: false, disabled: false}, [Validators.required]);
-  repeats = new FormControl({value: false, disabled: false}, [Validators.required]);
-  repetitions = new FormControl(0, [Validators.required]);
-  frequency = new FormControl('', [Validators.required]);
-  ignore = new FormControl({value: false, disabled: false}, [Validators.required]);
-  notes = new FormControl('', [Validators.required]);
+  recurrent = new FormControl(false, [Validators.required]);
+  repeats = new FormControl(false, [Validators.required]);
+  repetitions = new FormControl(1, []);
+  frequency = new FormControl('months', []);
+  ignore = new FormControl(false, [Validators.required]);
+  notes = new FormControl('', []);
   type = new FormControl('', [Validators.required]);
+
+  markAllAsDirty = markAllAsDirty;
 
 
   transactionType: string = "";
@@ -80,17 +83,24 @@ export class AddTransactionComponent implements OnInit {
   onRecurrentChange(){
     if (this.recurrent.value && this.repeats.enabled){
       this.repeats.setValue(false);
+      this.frequency.clearValidators();
+      this.repetitions.clearValidators();
     }
   }
 
   onRepeatsChange(){
     if (this.repeats.value && this.recurrent.enabled){
       this.recurrent.setValue(false);
+      this.frequency.setValidators([Validators.required]);
+      this.repetitions.setValidators([Validators.required, Validators.min(1)]);
     }
   }
 
+
+
   onSubmitForm(){
-    console.log(this.form.value)
+    console.log(this.form.valid, this.form.value)
+    if (this.form.valid){
       this.service.create(this.form.value).subscribe(
         (res)=>{
           let date = new Date()
@@ -105,6 +115,10 @@ export class AddTransactionComponent implements OnInit {
           console.log(err);
         }
       )
+    } else {
+      this.markAllAsDirty(this.form);
+    }
+
     }
 }
 

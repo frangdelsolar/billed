@@ -1,6 +1,6 @@
-from decimal import Decimal
 from timeit import repeat
 from django.db.models import Sum
+from transaction.utils.pay_transaction import pay_transaction
 
 from rest_framework import viewsets
 from rest_framework.views import APIView
@@ -10,46 +10,18 @@ from rest_framework.response import Response
 from payment_item.models import RecurrentPayment
 from transaction.models import Transaction
 from .serializers import TransactionSerializer
-
+from transaction.utils._queries import get_transaction_qs_by_date
+from transaction.utils._balance import get_income_total, get_expenses_total
+from transaction.utils.destroy_transaction import (
+    destroy_all_transactions,
+    destroy_pending_transactions,
+    destroy_single_transaction)
+from transaction.utils.update_transaction import (
+    update_single_transaction,
+    update_pending_transactions,
+    update_all_transactions
+)
 import datetime
-import pytz
-import requests
-
-
-def get_transaction_qs_by_date(user, month, year):
-    queryset = Transaction.objects.filter(
-        created_by=user, date_of_transaction__month=month, date_of_transaction__year=year)
-    recurrent_qs = RecurrentPayment.objects.filter(
-        created_by=user)
-
-    for pay in recurrent_qs:
-        if queryset.filter(payment_item=pay.payment_item).count() <= 0:
-            new_date = datetime.datetime(year=int(year), month=int(
-                month), day=pay.payment_item.date_created.day, tzinfo=pytz.UTC)
-            if new_date > pay.payment_item.date_created:
-                Transaction.create(
-                    payment_item=pay.payment_item,
-                    amount=pay.payment_item.currency.amount,
-                    currency=pay.payment_item.currency.currency,
-                    exchange_rate=pay.payment_item.currency.exchange_rate,
-                    category=pay.payment_item.category.id,
-                    type=pay.payment_type,
-                    date_of_transaction=new_date,
-                    description=pay.payment_item.description,
-                    notes=pay.payment_item.notes,
-                    completed=False,
-                    ignore=False,
-                    create_recurrent=False,
-                    convert=False,
-                    repeats=False,
-                    repetitions=None,
-                    frequency=None,
-                    installment=None,
-                    recurrent=pay
-                )
-
-    return queryset.filter(created_by=user,
-                           date_of_transaction__month=month, date_of_transaction__year=year)
 
 
 class TransactionViewSet(viewsets.ModelViewSet):
@@ -148,12 +120,26 @@ class TransactionViewSet(viewsets.ModelViewSet):
         serializer = self.serializer_class(queryset, many=True)
         return Response(serializer.data)
 
-    def update(self, request, pk=None):
+    def update(self, request, pk=None, *args, **kwargs):
+        bulk_mode = request.data.get('bulk_mode')
         instance = Transaction.objects.get(pk=pk)
-        instance.update(**request.data)
-        print(request.data)
 
-        return Response(self.serializer_class(instance).data)
+        if instance.created_by != request.user:
+            return Response({'message': "Forbidden"}, 403)
+
+        updated = None
+        if bulk_mode == 'single':
+            updated = update_single_transaction(instance, request.data)
+
+        elif bulk_mode == 'pending':
+            updated = update_pending_transactions(instance, request.data)
+
+        elif bulk_mode == 'all':
+            updated = update_all_transactions(instance, request.data)
+
+        if updated:
+            return Response(updated)
+        return Response({'message': "Unknown Error"}, 500)
 
     def destroy(self, request,  pk=None, *args, **kwargs):
         bulk_mode = request.GET.get('bulk_mode')
@@ -162,20 +148,20 @@ class TransactionViewSet(viewsets.ModelViewSet):
         if instance.created_by != request.user:
             return Response({'message': "Forbidden"}, 403)
 
-        success = False
+        deleted = None
         if bulk_mode == 'single':
-            success = instance.destroy(single=True)
+            deleted = destroy_single_transaction(instance)
 
         elif bulk_mode == 'pending':
-            success = instance.destroy(pending=True)
+            deleted = destroy_pending_transactions(instance)
 
         elif bulk_mode == 'all':
-            success = instance.destroy(all=True)
+            deleted = destroy_all_transactions(instance)
 
-        if success:
-            return Response({'message': "Success"}, 200)
+        if deleted:
+            return Response({'message': "Success", "data": deleted}, 200)
 
-        return Response({'message': "Unknown Error"}, 500)
+        return Response({'message': "Unknown Error - Nothing was deleted"}, 500)
 
 
 class BalanceView(APIView):
@@ -191,15 +177,9 @@ class BalanceView(APIView):
         if not year:
             year = today.year
 
-        income = get_transaction_qs_by_date(request.user, month, year).filter(
-            type='income').aggregate(total=Sum('currency__amount'))['total']
-        expenses = get_transaction_qs_by_date(request.user, month, year).filter(
-            type='expense').aggregate(total=Sum('currency__amount'))['total']
-        total = 0
-        if not income:
-            income = 0
-        if not expenses:
-            expenses = 0
+        income = get_income_total(request.user, month, year)
+        expenses = get_expenses_total(request.user, month, year)
+
         total = income - expenses
 
         data = {
@@ -219,15 +199,6 @@ class PayView(APIView):
         if transaction.created_by != request.user:
             return Response({'message': 'No tienes permiso para editar esta transacción'}, status=403)
 
-        if transaction.currency.currency == "USD":
-            api_url = "https://api-dolar-argentina.herokuapp.com/api/dolarblue"
-            response = requests.get(api_url)
-            data = response.json()
-            transaction.currency.currency = "ARS"
-            transaction.currency.amount *= Decimal(data['compra'])
-            transaction.currency.exchange_rate = Decimal(data['compra'])
-            transaction.currency.save()
-        transaction.completed = True
-        transaction.save()
+        pay_transaction(transaction)
 
         return Response(self.serializer_class(transaction).data)

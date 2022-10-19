@@ -29,11 +29,13 @@ export class TransactionService {
     return this.adminSvc.post<Income>(url, body, true);
   }
 
-  public update(id: number, body: any){
-    return this.adminSvc.put<any>(this._apiUrl, body, id, true);
+  public update(id: number, body: any, params: string){
+    let url = `${this._apiUrl}/${id}/?${params}`;
+    return this.adminSvc.put<any>(url, body, true);
   }
 
   public delete(id: number, params: string){
-    return this.adminSvc.delete<any>(this._apiUrl, id, params, true);
+    let url = `${this._apiUrl}/${id}/?${params}`
+    return this.adminSvc.delete<any>(this._apiUrl, true);
   }
 }

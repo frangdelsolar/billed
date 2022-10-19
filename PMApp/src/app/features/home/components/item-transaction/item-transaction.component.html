@@ -22,13 +22,27 @@
     {{ transaction?.currency }}$<b>{{ transaction?.amount | number: ".2" }}</b>
   </div>
   <div class="flex flex-column col-1 col-offset-2 justify-content-center">
-    <i class="pi pi-refresh" *ngIf="!transaction?.payment_item?.recurrent"></i>
+    <i
+      class="pi pi-refresh"
+      *ngIf="transaction?.recurrent"
+      [ngStyle]="{
+        color: 'lightgreen'
+      }"
+    ></i>
+    <i
+      class="pi pi-sort-numeric-down"
+      *ngIf="transaction?.installment"
+      [ngStyle]="{
+        color: 'orange'
+      }"
+    ></i>
   </div>
+
   <div class="flex flex-column col-1 col-offset-1 justify-content-center">
     <i
       class="pi pi-check-circle"
       [ngStyle]="{
-        color: transaction?.payment_item?.recurrent == true ? 'green' : 'gray'
+        color: transaction?.completed ? 'green' : 'lightgray'
       }"
       style="font-weight: bolder"
     ></i>

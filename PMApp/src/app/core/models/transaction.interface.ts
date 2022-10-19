@@ -12,4 +12,6 @@ export interface Transaction{
     type: string,
     date_of_transaction: string,
     payment_item?: PaymentItem,
+    recurrent: any;
+    installment: any;
 }

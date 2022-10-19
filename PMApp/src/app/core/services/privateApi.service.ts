@@ -40,9 +40,9 @@ export class PrivateApiService {
       );
   }
 
-  public put<T>(url: string, body: any, id: number, activateHeader: boolean = false): Observable<T> {
+  public put<T>(url: string, body: any, activateHeader: boolean = false): Observable<T> {
     return this.http.put<T>(
-      `${url}/${id}/`, 
+      url, 
       body, 
       activateHeader ? { headers: this._headers } : {}
       );
@@ -56,9 +56,9 @@ export class PrivateApiService {
     );
   }
 
-  public delete<T>(url: string, id: number, params?: string, activateHeader: boolean = true): Observable<T> {
+  public delete<T>(url: string, activateHeader: boolean = true): Observable<T> {
     return this.http.delete<T>(
-      `${url}/${id}?${params}`,
+      url,
       activateHeader ? { headers: this._headers } : {}
     );
   }

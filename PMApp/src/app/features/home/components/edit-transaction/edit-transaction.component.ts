@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TransactionService } from '@core/controllers/transaction-controller.service';
 import { QueryService } from '@core/services/query.service';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { markAllAsDirty } from '@core/utils/markFieldsAsDirty';
 
 @Component({
   selector: 'app-edit-transaction',
@@ -17,19 +18,21 @@ export class EditTransactionComponent implements OnInit {
 
   form!: FormGroup;
   currency = new FormControl('ARS', [Validators.required]);
-  amount = new FormControl(0, [Validators.required]);
+  amount = new FormControl(0, [Validators.required, Validators.min(0.01)]);
   exchange_rate = new FormControl('', []);
   category = new FormControl('', [Validators.required]);
   completed = new FormControl(false, [Validators.required]);
   date_of_transaction = new FormControl(new Date(), [Validators.required]);
   description = new FormControl('', [Validators.required]);
-  recurrent = new FormControl({value: false, disabled: true}, [Validators.required]);
-  repeats = new FormControl({value: false, disabled: true}, [Validators.required]);
-  repetitions = new FormControl({value: 0, disabled: true}, [Validators.required]);
-  frequency = new FormControl({value: '', disabled: true}, [Validators.required]);
-  ignore = new FormControl({value: '', disabled: true}, [Validators.required]);
-  notes = new FormControl('', [Validators.required]);
+  recurrent = new FormControl(false, [Validators.required]);
+  repeats = new FormControl(false, [Validators.required]);
+  repetitions = new FormControl(1, []);
+  frequency = new FormControl('months', []);
+  ignore = new FormControl(false, [Validators.required]);
+  notes = new FormControl('', []);
   bulk_mode = new FormControl('', [Validators.required]);
+  
+  markAllAsDirty = markAllAsDirty;
 
   transactionType: string = "";
   $transactionType: BehaviorSubject<any> = new BehaviorSubject('');
@@ -138,15 +141,22 @@ export class EditTransactionComponent implements OnInit {
   }
   
   onRecurrentChange(){
+    if (this.recurrent.value && this.repeats.enabled){
+      this.repeats.setValue(false);
+      this.frequency.clearValidators();
+      this.repetitions.clearValidators();
+    }
   }
 
-  validateForm(): boolean{
-    let result = this.form.valid && this.form.controls['amount'].value > 0;
-    return result;
+  onRepeatsChange(){
+    if (this.repeats.value && this.recurrent.enabled){
+      this.recurrent.setValue(false);
+      this.frequency.setValidators([Validators.required]);
+      this.repetitions.setValidators([Validators.required, Validators.min(1)]);
+    }
   }
 
   onDelete(){
-   
     if(this.transactionId && this.bulk_mode.value){
       let param = `bulk_mode=${this.bulk_mode.value}`;
       this.service.delete(this.transactionId, param).subscribe(
@@ -164,21 +174,27 @@ export class EditTransactionComponent implements OnInit {
 
 
   onSubmitForm(){
-    console.log(this.form.value, this.form.valid)
-    // let formValidationResult = this.validateForm();
-    // if(formValidationResult){
-    //   this.service.create(this.form.value).subscribe(
-    //     (res)=>{
-    //       this.querySvc.setDateToQuery(this.dateOfTransaction.getMonth()+1, this.dateOfTransaction.getFullYear());
-    //       this.querySvc.setTransactionType(this.transactionType);
-    //       this.router.navigate(['transacciones']);
-    //     },
-    //     (err)=>{
-    //       console.log(err);
-    //     }
-    //   )
-    // }
+    // if (this.form.valid){
+      if(this.transactionId){
+        let param = `bulk_mode=${this.bulk_mode.value}`;
+        this.service.update(this.transactionId, this.form.value, param).subscribe(
+          (res)=>{
+            console.log(res)
+            this.setup();
+            // this.querySvc.setDateToQuery(this.dateOfTransaction.getMonth()+1, this.dateOfTransaction.getFullYear());
+            // this.querySvc.setTransactionType(this.transactionType);
+            // this.router.navigate(['transacciones']);
+          },
+          (err)=>{
+            console.log(err);
+          }
+        )
+      // } else {
+        this.markAllAsDirty(this.form);
+      }
+  
+    }
+
     
-  }
 }
 

@@ -13,15 +13,19 @@ export class CategoryPickerComponent implements OnInit {
   @Input() in_transactionType: Observable<string> = new Observable();
   @Input() in_formControl: FormControl = new FormControl('', []);
 
+  selection: any;
+
   categories: any = [];
 
-  constructor(private service: CategoryService) { }
+  constructor(private service: CategoryService) { 
+  }
 
   ngOnInit(): void {
     this.in_transactionType.subscribe(transaction_type=>{
       this.service.getByType(transaction_type).subscribe(
         (res)=>{
           this.categories = res;
+          this.selection = this.in_formControl.value;
         },
         (err)=>{
           console.log(err)
@@ -29,5 +33,10 @@ export class CategoryPickerComponent implements OnInit {
         )
     })
   }
+
+  updateFormControl(){
+    this.in_formControl.setValue(this.selection);
+  }
+  
 
 }
