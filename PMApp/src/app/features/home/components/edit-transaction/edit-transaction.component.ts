@@ -25,9 +25,6 @@ export class EditTransactionComponent implements OnInit {
   date_of_transaction = new FormControl(new Date(), [Validators.required]);
   description = new FormControl('', [Validators.required]);
   recurrent = new FormControl(false, [Validators.required]);
-  repeats = new FormControl(false, [Validators.required]);
-  repetitions = new FormControl(1, []);
-  frequency = new FormControl('months', []);
   ignore = new FormControl(false, [Validators.required]);
   notes = new FormControl('', []);
   bulk_mode = new FormControl('', [Validators.required]);
@@ -37,7 +34,6 @@ export class EditTransactionComponent implements OnInit {
   transactionType: string = "";
   $transactionType: BehaviorSubject<any> = new BehaviorSubject('');
   transactionTypeLabel: string = "";
-  repetitionOn: boolean = false;
 
   editionBulk = [
     {
@@ -70,9 +66,6 @@ export class EditTransactionComponent implements OnInit {
       date_of_transaction: this.date_of_transaction,
       description: this.description,
       recurrent: this.recurrent,
-      repeats: this.repeats,
-      repetitions: this.repetitions,
-      frequency: this.frequency,
       ignore: this.ignore,
       notes: this.notes,
       bulk_mode: this.bulk_mode
@@ -127,11 +120,6 @@ export class EditTransactionComponent implements OnInit {
     if (data.recurrent){
       this.recurrent.setValue(true);
     }
-    if (data.installment){
-      this.repeats.setValue(true);
-      this.repetitions.setValue(data.installment.repetitions);
-      this.frequency.setValue(data.installment.freuquency);
-    }
     this.notes.setValue(data.notes);
     this.ignore.setValue(data.ignore);
   }
@@ -140,22 +128,6 @@ export class EditTransactionComponent implements OnInit {
     this.exchange_rate.setValue(value);
   }
   
-  onRecurrentChange(){
-    if (this.recurrent.value && this.repeats.enabled){
-      this.repeats.setValue(false);
-      this.frequency.clearValidators();
-      this.repetitions.clearValidators();
-    }
-  }
-
-  onRepeatsChange(){
-    if (this.repeats.value && this.recurrent.enabled){
-      this.recurrent.setValue(false);
-      this.frequency.setValidators([Validators.required]);
-      this.repetitions.setValidators([Validators.required, Validators.min(1)]);
-    }
-  }
-
   onDelete(){
     if(this.transactionId && this.bulk_mode.value){
       let param = `bulk_mode=${this.bulk_mode.value}`;

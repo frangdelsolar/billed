@@ -1,8 +1,11 @@
 from gettext import install
 from django.db import models
 
+from .utils.create_recurrency_for_transaction import create_recurrency_for_transaction
+from .utils.create_installment_for_transaction import create_installment_for_transaction
+
 from payment_item.models import RecurrentPayment
-from payment_item.models import PaymentItem, Installment
+from payment_item.models import PaymentItem
 from system_details.models import Metadata
 from currency_field.models import CurrencyField
 from category.models import Category
@@ -82,28 +85,14 @@ class Transaction(Metadata):
         instance = self.objects.create(**kwargs)
 
         if create_recurrent:
-            recurrent_payment = RecurrentPayment.objects.create(
-                payment_item=payment_item,
-                payment_type=instance.type
-            )
-            instance.recurrent = recurrent_payment
+            create_recurrency_for_transaction(instance, payment_item)
 
         if recurrent_payment:
             instance.recurrent = recurrent_payment
             instance.save()
 
         if repeats:
-            instance.create_repetitions(repetitions, frequency)
+            create_installment_for_transaction(
+                instance, repetitions, frequency)
 
         return instance
-
-    def create_repetitions(self, repetitions, frequency):
-        installment = Installment.create(
-            payment_item=self.payment_item,
-            payment_type=self.type,
-            repetitions=repetitions,
-            frequency=frequency,
-            transaction=self
-        )
-        self.installment = installment
-        self.save()

@@ -127,19 +127,16 @@ class TransactionViewSet(viewsets.ModelViewSet):
         if instance.created_by != request.user:
             return Response({'message': "Forbidden"}, 403)
 
-        updated = None
         if bulk_mode == 'single':
-            updated = update_single_transaction(instance, request.data)
+            update_single_transaction(instance, request.data)
 
         elif bulk_mode == 'pending':
-            updated = update_pending_transactions(instance, request.data)
+            update_pending_transactions(instance, request.data)
 
         elif bulk_mode == 'all':
-            updated = update_all_transactions(instance, request.data)
+            update_all_transactions(instance, request.data)
 
-        if updated:
-            return Response(updated)
-        return Response({'message': "Unknown Error"}, 500)
+        return Response(self.serializer_class(instance).data)
 
     def destroy(self, request,  pk=None, *args, **kwargs):
         bulk_mode = request.GET.get('bulk_mode')

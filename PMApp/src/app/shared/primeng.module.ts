@@ -9,6 +9,7 @@ import {InputNumberModule} from 'primeng/inputnumber';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {InputTextModule} from 'primeng/inputtext';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import {TooltipModule} from 'primeng/tooltip';
 
 
 const myModules = [
@@ -21,7 +22,8 @@ const myModules = [
     InputNumberModule,
     InputSwitchModule,
     InputTextModule,
-    SelectButtonModule
+    SelectButtonModule,
+    TooltipModule
 ];
 
 @NgModule({

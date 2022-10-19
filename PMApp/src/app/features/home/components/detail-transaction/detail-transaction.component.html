@@ -13,6 +13,11 @@
           [ngStyle]="{
             color: transaction.completed == true ? 'green' : 'lightgray'
           }"
+          pTooltip="Completado"
+          tooltipPosition="top"
+          [fitContent]="true"
+          [showDelay]="500"
+          [life]="600"
         ></i>
       </div>
       <div
@@ -25,6 +30,11 @@
           [ngStyle]="{
             color: 'lightgreen'
           }"
+          pTooltip="Recurrente"
+          tooltipPosition="top"
+          [fitContent]="true"
+          [showDelay]="500"
+          [life]="600"
         ></i>
         <i
           class="pi pi-refresh"
@@ -41,6 +51,11 @@
           [ngStyle]="{
             color: 'orange'
           }"
+          pTooltip="Cuotas"
+          tooltipPosition="top"
+          [fitContent]="true"
+          [showDelay]="500"
+          [life]="600"
         ></i>
       </div>
       <div

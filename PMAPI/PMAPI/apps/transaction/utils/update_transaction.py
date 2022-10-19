@@ -7,9 +7,6 @@ from category.models import Category
 
 
 def update_single_transaction(transaction, data):
-    print(data)
-    updated = transaction.__str__()
-
     transaction.currency.currency = data['currency']
     transaction.currency.amount = data['amount']
     transaction.currency.save()
@@ -31,78 +28,92 @@ def update_single_transaction(transaction, data):
     is_recurrent = transaction.recurrent is not None
     if data['recurrent'] != is_recurrent:
         if data['recurrent']:
-            create_recurrency_for_transaction(transaction)
+            create_recurrency_for_transaction(
+                transaction, transaction.payment_item)
         else:
             stop_recurrency_for_transaction(transaction)
 
     transaction.save()
 
-    return updated
+    return transaction
 
 
-def update_pending_transactions(transaction):
-    # from transaction.models import Transaction
+def update_pending_transactions(transaction, data):
+    from transaction.models import Transaction
 
-    # response = []
-    # pending = None
-    # installment = transaction.installment
-    # recurrent = transaction.recurrent
+    pending = []
+    installment = transaction.installment
+    recurrent = transaction.recurrent
 
-    # if installment:
-    #     pending = Transaction.objects.filter(
-    #         installment=installment,
-    #         completed=False
-    #     )
-    # elif recurrent:
-    #     pending = Transaction.objects.filter(
-    #         recurrent=recurrent,
-    #         completed=False
-    #     )
+    if installment:
+        pending = Transaction.objects.filter(
+            installment=installment,
+            completed=False
+        )
+    elif recurrent:
+        pending = Transaction.objects.filter(
+            recurrent=recurrent,
+            completed=False
+        )
 
-    # for item in pending:
-    #     deleted = destroy_single_transaction(item)
-    #     response.append(deleted)
+    for item in pending:
+        item.currency.currency = data['currency']
+        item.currency.amount = data['amount']
+        item.currency.save()
+        item.description = data['description']
+        item.notes = data['notes']
+        item.ignore = data['ignore']
+        if data['completed']:
+            pay_transaction(item)
+        else:
+            item.completed = False
+        item.save()
 
-    # if recurrent:
-    #     deleted = recurrent.__str__()
-    #     recurrent.delete()
-    #     response.append(deleted)
+    transaction.payment_item.category = Category.objects.get(
+        id=data['category'])
+    transaction.payment_item.description = data['description']
+    transaction.payment_item.notes = data['notes']
+    transaction.payment_item.save()
 
-    # return response
-    pass
+    transaction.payment_item.currency.currency = data['currency']
+    transaction.payment_item.currency.amount = data['amount']
+    transaction.payment_item.currency.save()
+
+    return True
 
 
-def update_all_transactions(transaction):
-    # from transaction.models import Transaction
+def update_all_transactions(transaction, data):
+    from transaction.models import Transaction
 
-    # response = []
+    pending = []
+    installment = transaction.installment
+    recurrent = transaction.recurrent
 
-    # all = None
-    # installment = transaction.installment
-    # recurrent = transaction.recurrent
+    if installment:
+        pending = Transaction.objects.filter(
+            installment=installment,
+        )
+    elif recurrent:
+        pending = Transaction.objects.filter(
+            recurrent=recurrent,
+        )
 
-    # if installment:
-    #     all = Transaction.objects.filter(
-    #         installment=installment,
-    #     )
-    # elif recurrent:
-    #     all = Transaction.objects.filter(
-    #         recurrent=recurrent,
-    #     )
+    for item in pending:
+        item.currency.currency = data['currency']
+        item.currency.amount = data['amount']
+        item.currency.save()
+        item.description = data['description']
+        item.notes = data['notes']
+        item.ignore = data['ignore']
+        item.save()
 
-    # for item in all:
-    #     deleted = destroy_single_transaction(item)
-    #     response.append(deleted)
+    transaction.payment_item.category = Category.objects.get(
+        id=data['category'])
+    transaction.payment_item.description = data['description']
+    transaction.payment_item.notes = data['notes']
+    transaction.payment_item.save()
 
-    # if recurrent:
-    #     deleted = recurrent.__str__()
-    #     recurrent.delete()
-    #     response.append(deleted)
-
-    # if installment:
-    #     deleted = installment.__str__()
-    #     installment.delete()
-    #     response.append(deleted)
-
-    # return response
-    pass
+    transaction.payment_item.currency.currency = data['currency']
+    transaction.payment_item.currency.amount = data['amount']
+    transaction.payment_item.currency.save()
+    return True
