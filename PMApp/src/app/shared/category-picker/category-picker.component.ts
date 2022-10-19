@@ -25,7 +25,12 @@ export class CategoryPickerComponent implements OnInit {
       this.service.getByType(transaction_type).subscribe(
         (res)=>{
           this.categories = res;
-          this.selection = this.in_formControl.value;
+          if(this.in_formControl.value){
+            this.selection = this.in_formControl.value;
+          } else {
+            this.selection = res[0].id;
+            this.updateFormControl();
+          }
         },
         (err)=>{
           console.log(err)

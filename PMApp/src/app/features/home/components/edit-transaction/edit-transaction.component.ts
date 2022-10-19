@@ -20,14 +20,14 @@ export class EditTransactionComponent implements OnInit {
   currency = new FormControl('ARS', [Validators.required]);
   amount = new FormControl(0, [Validators.required, Validators.min(0.01)]);
   exchange_rate = new FormControl('', []);
-  category = new FormControl('', [Validators.required]);
+  category = new FormControl(null, [Validators.required]);
   completed = new FormControl(false, [Validators.required]);
   date_of_transaction = new FormControl(new Date(), [Validators.required]);
   description = new FormControl('', [Validators.required]);
   recurrent = new FormControl(false, [Validators.required]);
   ignore = new FormControl(false, [Validators.required]);
   notes = new FormControl('', []);
-  bulk_mode = new FormControl('single', [Validators.required]);
+  bulk_mode = new FormControl('', [Validators.required]);
   
   markAllAsDirty = markAllAsDirty;
 
@@ -35,6 +35,7 @@ export class EditTransactionComponent implements OnInit {
   $transactionType: BehaviorSubject<any> = new BehaviorSubject('');
   transactionTypeLabel: string = "";
 
+  bulkEditSectionVisible = false;
   saveDeleteButtonDisabled = false;
 
   editionBulk = [
@@ -102,8 +103,11 @@ export class EditTransactionComponent implements OnInit {
             }
 
 
-            if (this.transactionInstance.repeats || this.transactionInstance.recurrent){
-              this.saveDeleteButtonDisabled = false;
+            if (this.transactionInstance.installment || this.transactionInstance.recurrent){
+              this.saveDeleteButtonDisabled = true;
+              this.bulkEditSectionVisible = true;
+            } else {
+              this.bulk_mode.setValue('single');
             }
             this.prefill();
           },
@@ -140,7 +144,6 @@ export class EditTransactionComponent implements OnInit {
       this.saveDeleteButtonDisabled = false;
     } else {
       this.saveDeleteButtonDisabled = true;
-
     }
   }
   
@@ -162,27 +165,30 @@ export class EditTransactionComponent implements OnInit {
 
 
   onSubmitForm(){
-    // if (this.form.valid){
+    console.log(this.form.value)
+    if (this.form.valid){
       if(this.transactionId){
         let param = `bulk_mode=${this.bulk_mode.value}`;
         this.service.update(this.transactionId, this.form.value, param).subscribe(
           (res)=>{
-            console.log(res)
             this.setup();
-            // this.querySvc.setDateToQuery(this.dateOfTransaction.getMonth()+1, this.dateOfTransaction.getFullYear());
-            // this.querySvc.setTransactionType(this.transactionType);
-            // this.router.navigate(['transacciones']);
+            let date = this.date_of_transaction.value;
+            if (date){
+              this.querySvc.setDateToQuery(date.getMonth()+1, date.getFullYear());
+            }
+            this.querySvc.setTransactionType(this.transactionType);
+            this.router.navigate(['transacciones']);
           },
           (err)=>{
             console.log(err);
           }
         )
-      // } else {
+      } else {
         this.markAllAsDirty(this.form);
       }
   
     }
 
-    
+  }
 }
 

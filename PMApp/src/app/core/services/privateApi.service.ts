@@ -57,7 +57,6 @@ export class PrivateApiService {
   }
 
   public delete<T>(url: string, activateHeader: boolean = true): Observable<T> {
-    console.log(url)
     return this.http.delete<T>(
       url,
       activateHeader ? { headers: this._headers } : {}

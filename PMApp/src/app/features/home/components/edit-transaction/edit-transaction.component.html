@@ -101,7 +101,7 @@
   <ng-template pTemplate="footer">
     <div
       class="flex flex-wrap flex-column justify-content-center mt-0 pt-0 mb-6"
-      *ngIf="transactionInstance.repeats || transactionInstance.recurrent"
+      *ngIf="bulkEditSectionVisible"
     >
       <h3><b>Modo de edición</b></h3>
       <p-selectButton
