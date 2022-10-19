@@ -28,7 +28,7 @@ export class CategoryPickerComponent implements OnInit {
           if(this.in_formControl.value){
             this.selection = this.in_formControl.value;
           } else {
-            this.selection = res[0].id;
+            this.selection = res[0]?.id;
             this.updateFormControl();
           }
         },
