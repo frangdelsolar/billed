@@ -85,23 +85,24 @@ def update_pending_transactions(transaction, data):
 def update_all_transactions(transaction, data):
     from transaction.models import Transaction
 
-    pending = []
+    all_transactions = []
     installment = transaction.installment
     recurrent = transaction.recurrent
 
     if installment:
-        pending = Transaction.objects.filter(
+        all_transactions = Transaction.objects.filter(
             installment=installment,
         )
     elif recurrent:
-        pending = Transaction.objects.filter(
+        all_transactions = Transaction.objects.filter(
             recurrent=recurrent,
         )
 
-    for item in pending:
-        item.currency.currency = data['currency']
-        item.currency.amount = data['amount']
-        item.currency.save()
+    for item in all_transactions:
+        if not item.completed:
+            item.currency.currency = data['currency']
+            item.currency.amount = data['amount']
+            item.currency.save()
         item.description = data['description']
         item.notes = data['notes']
         item.ignore = data['ignore']

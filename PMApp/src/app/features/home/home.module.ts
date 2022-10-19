@@ -13,16 +13,19 @@ import { DetailTransactionComponent } from './components/detail-transaction/deta
 import { EditTransactionComponent } from './components/edit-transaction/edit-transaction.component';
 
 
+const myComponents = [
+  HomeComponent,
+  SummaryComponent,
+  AddTransactionComponent,
+  EditTransactionComponent,
+  ListTransactionComponent,
+  ItemTransactionComponent,
+  DetailTransactionComponent
+]
 
 @NgModule({
   declarations: [
-    HomeComponent,
-    SummaryComponent,
-    AddTransactionComponent,
-    EditTransactionComponent,
-    ListTransactionComponent,
-    ItemTransactionComponent,
-    DetailTransactionComponent
+    ...myComponents
   ],
   imports: [
     CommonModule,
@@ -30,13 +33,6 @@ import { EditTransactionComponent } from './components/edit-transaction/edit-tra
     SharedModule
   ],
   exports: [
-    HomeComponent,
-    SummaryComponent,
-    AddTransactionComponent,
-    ListTransactionComponent,
-    ItemTransactionComponent
-
-
   ]
 })
 export class HomeModule { }

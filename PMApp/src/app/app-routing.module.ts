@@ -7,6 +7,12 @@ const routes: Routes = [
     loadChildren: () => import('./features/home/home-routing.module').then(
       (m) => m.HomeRoutingModule
     )
+  },
+  {
+    path: 'categorias',
+    loadChildren: () => import('./features/category/category-routing.module').then(
+      (m) => m.CategoryRoutingModule
+    )
   }
 ];
 

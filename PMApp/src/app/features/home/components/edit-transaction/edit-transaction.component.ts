@@ -154,7 +154,13 @@ export class EditTransactionComponent implements OnInit {
       let param = `bulk_mode=${this.bulk_mode.value}`;
       this.service.delete(this.transactionId, param).subscribe(
         (res)=>{
+          let date = this.date_of_transaction.value;
+          if(date){
+            this.querySvc.setDateToQuery(date.getMonth()+1, date.getFullYear());
+          }
           this.messageService.add({severity:'success', summary:'Operación exitosa', detail:`Transacción/es eliminada/s`});
+          this.querySvc.setTransactionType(this.transactionType);
+          this.router.navigate(['transacciones']);
         },
         (err)=>{
           this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
@@ -163,11 +169,13 @@ export class EditTransactionComponent implements OnInit {
     }
   }
 
-
+  onClearForm(){
+    this.form.reset();
+    this.saveDeleteButtonDisabled = true;
+  }
 
 
   onSubmitForm(){
-    console.log(this.form.value)
     if (this.form.valid){
       if(this.transactionId){
         let param = `bulk_mode=${this.bulk_mode.value}`;
@@ -189,9 +197,7 @@ export class EditTransactionComponent implements OnInit {
       } else {
         this.markAllAsDirty(this.form);
       }
-  
     }
-
   }
 }
 

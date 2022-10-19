@@ -97,3 +97,4 @@ class Installment(Metadata):
                     installment=instance,
                     recurrent=None
                 )
+        return instance

@@ -25,6 +25,13 @@
         ></app-item-transaction>
         <p-divider></p-divider>
       </div>
+      <div *ngIf="transactions.length == 0">
+        <p-message
+          severity="info"
+          text="Parece que no hay movimientos para esta fecha"
+          styleClass="mr-2"
+        ></p-message>
+      </div>
     </div>
   </div>
 </p-card>
