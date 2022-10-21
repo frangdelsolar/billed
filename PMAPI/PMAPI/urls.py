@@ -31,5 +31,6 @@ urlpatterns = [
     path('api/', include('payment_item.api.urls', namespace='payment-item-api')),
     path('api/', include('payment_method.api.urls', namespace='payment-method-api')),
     path('api/', include('transaction.api.urls', namespace='transaction-api')),
+    path('api/', include('user.api.urls', namespace='user-api')),
 
 ]

@@ -27,7 +27,7 @@ class PaymentItem(Metadata):
     currency = models.OneToOneField(
         'currency_field.CurrencyField', on_delete=models.CASCADE, blank=False, null=False)
     category = models.ForeignKey(
-        'category.Category', on_delete=models.CASCADE, null=True, blank=True)
+        'category.Category', on_delete=models.CASCADE, null=True, blank=True, related_name='payment_items')
     notes = models.CharField(max_length=500, null=True, blank=True)
 
     @classmethod

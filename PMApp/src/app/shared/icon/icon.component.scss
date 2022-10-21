@@ -1,0 +1,16 @@
+.icon-round {
+    border-radius: 50%;
+    height: 35px;
+    object-fit: cover;
+    object-position: center;
+    width: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    .icon{
+        font-size: 1.4rem;
+        color: white;
+    }
+}

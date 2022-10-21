@@ -105,41 +105,39 @@ categories = [
     },
     {
         'name': 'Inversiones',
-        'color': 'primary',
-        'icon': 'trending_up',
+        'color': '#e3e848',
+        'icon': 'pi-chart-line',
         'category_type': 'income'
     },
     {
-        'name': 'Salario',
-        'color': 'primary',
-        'icon': 'paid',
+        'name': 'Sueldo',
+        'color': '#198c34',
+        'icon': 'pi-history',
         'category_type': 'income'
     },
     {
         'name': 'Otros',
-        'color': 'primary',
-        'icon': 'more',
-        'category_type': 'income'
-    },
-    {
-        'name': 'Premios',
-        'color': 'primary',
-        'icon': 'redeem',
+        'color': '#adadad',
+        'icon': 'pi-ellipsis-h',
         'category_type': 'income'
     },
     {
         'name': 'Regalos',
-        'color': 'primary',
-        'icon': 'sell',
+        'color': '#4858e8',
+        'icon': 'pi-gift',
         'category_type': 'income'
     },
 ]
 
-for c in categories:
 
-    Category.objects.create(
-        name=c['name'],
-        color=c['color'],
-        icon=c['icon'],
-        category_type=c['category_type']
-    )
+def initialize_categories(user):
+    for c in categories:
+        instance = Category.objects.create(
+            name=c['name'],
+            color=c['color'],
+            icon=c['icon'],
+            category_type=c['category_type'],
+        )
+
+        instance.created_by = user
+        instance.save()

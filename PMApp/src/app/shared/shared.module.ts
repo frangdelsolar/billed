@@ -10,6 +10,8 @@ import { PrimeNGModule } from './primeng.module';
 import { MonthPickerComponent } from './month-picker/month-picker.component';
 import { FrequencyPickerComponent } from './frequency-picker/frequency-picker.component';
 import { RepetitionFieldComponent } from './repetition-field/repetition-field.component';
+import { IconPickerComponent } from './icon-picker/icon-picker.component';
+import { IconComponent } from './icon/icon.component';
 
 
 const myComp = [
@@ -20,6 +22,8 @@ const myComp = [
   RepetitionFieldComponent,
   ToolbarComponent,
   TransactionTypePickerComponent,
+  IconPickerComponent,
+  IconComponent,
 ]
 
 const myMod = [
@@ -32,6 +36,7 @@ const myMod = [
 @NgModule({
   declarations: [
     ...myComp,
+
   ],
   imports: [
     CommonModule,

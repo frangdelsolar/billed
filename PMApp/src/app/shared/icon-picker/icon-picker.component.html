@@ -1,0 +1,30 @@
+<p-overlayPanel #panel>
+  <ng-template pTemplate>
+    <div
+      style="max-width: 400px; max-height: 300px; padding: 10px"
+      class="overflow-auto surface-overlay"
+    >
+      <div class="flex flex-wrap">
+        <div *ngFor="let icon of icon_list">
+          <button
+            pButton
+            pRipple
+            type="button"
+            icon="pi {{ icon }}"
+            class="p-button-rounded p-button-text p-button-secondary"
+            (click)="onIconClick(icon, panel)"
+          ></button>
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</p-overlayPanel>
+
+<button
+  pButton
+  pRipple
+  type="button"
+  icon="pi {{ iconFormControl.value }}"
+  class="p-button-outlined p-button-primary p-button-lg"
+  (click)="panel.toggle($event)"
+></button>

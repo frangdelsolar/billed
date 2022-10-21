@@ -23,4 +23,18 @@ export class CategoryService {
     return this.adminSvc.get<Category[]>(url, null, true);
   }
 
+  public create(body: any){
+    let url = this._apiUrl + '/';
+    return this.adminSvc.post<any>(url, body, true);
+  }
+
+  public update(id: number, body: any){
+    let url = `${this._apiUrl}/${id}/`;
+    return this.adminSvc.put<any>(url, body, true);
+  }
+
+  public delete(id: number){
+    let url = `${this._apiUrl}/${id}/`
+    return this.adminSvc.delete<any>(url, true);
+  }
 }

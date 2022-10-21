@@ -1,0 +1,93 @@
+<p-card header="Registro de usuario">
+  <div class="border-round-lg px-1 pt-6 pb-0 gap-0 lg:px-6">
+    <form [formGroup]="form" id="ngForm">
+      <div class="flex flex-wrap flex-column gap-4 align-items-center">
+        <span class="p-float-label">
+          <input
+            id="username-input"
+            formControlName="username"
+            type="text"
+            pInputText
+            (ngModelChange)="onUsernameChange()"
+          />
+          <label for="username-input">Nombre de usuario</label>
+        </span>
+        <span class="p-float-label">
+          <input
+            id="password-input"
+            formControlName="password"
+            type="password"
+            pInputText
+          />
+          <label for="password-input">Contraseña</label>
+        </span>
+        <span class="p-float-label">
+          <input
+            id="password_confirmation-input"
+            formControlName="password_confirmation"
+            type="password"
+            pInputText
+          />
+          <label for="password_confirmation-input">Repetir Contraseña</label>
+        </span>
+        <span class="p-float-label">
+          <input
+            id="first_name-input"
+            formControlName="first_name"
+            type="text"
+            pInputText
+          />
+          <label for="first_name-input">Nombre</label>
+        </span>
+        <span class="p-float-label">
+          <input
+            id="last_name-input"
+            formControlName="last_name"
+            type="text"
+            pInputText
+          />
+          <label for="last_name-input">Apellido</label>
+        </span>
+        <span class="p-float-label">
+          <input
+            id="email-input"
+            formControlName="email"
+            type="email"
+            pInputText
+          />
+          <label for="email-input">Email</label>
+        </span>
+        <span class="p-float-label">
+          <input
+            id="email_confirmation-input"
+            formControlName="email_confirmation"
+            type="email"
+            pInputText
+          />
+          <label for="email_confirmation-input">Repetir Email</label>
+        </span>
+      </div>
+    </form>
+  </div>
+  <ng-template pTemplate="footer">
+    <div
+      class="flex flex-wrap justify-content-around px-1 pt-0 mt-0 gap-0 lg:px-6"
+    >
+      <button
+        pButton
+        pRipple
+        label="Limpiar"
+        class="p-button-outlined"
+        icon="pi pi-times"
+        (click)="form.reset()"
+      ></button>
+      <button
+        pButton
+        pRipple
+        label="Registrar"
+        icon="pi pi-check"
+        (click)="onRegister()"
+      ></button>
+    </div>
+  </ng-template>
+</p-card>

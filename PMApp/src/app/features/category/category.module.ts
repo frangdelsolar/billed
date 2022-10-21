@@ -7,6 +7,8 @@ import { ListCategoryComponent } from './components/list-category/list-category.
 import { ListCategoryIncomeComponent } from './components/list-category-income/list-category-income.component';
 import { ListCategoryExpenseComponent } from './components/list-category-expense/list-category-expense.component';
 import { ItemCategoryComponent } from './components/item-category/item-category.component';
+import { AddCategoryComponent } from './components/add-category/add-category.component';
+import { MoveCategoryComponent } from './components/move-category/move-category.component';
 
 
 
@@ -16,7 +18,9 @@ import { ItemCategoryComponent } from './components/item-category/item-category.
     ListCategoryComponent,
     ListCategoryIncomeComponent,
     ListCategoryExpenseComponent,
-    ItemCategoryComponent
+    ItemCategoryComponent,
+    AddCategoryComponent,
+    MoveCategoryComponent,
   ],
   imports: [
     CommonModule,

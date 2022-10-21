@@ -9,8 +9,10 @@ export const environment = {
   apiUrlBalance: 'api/balance',
   apiUrlTransaction: 'api/transaction',
   apiUrlCategory: 'api/category',
-  apiUrlPay: 'api/pay'
-};
+  apiUrlLogin: 'api/token',
+  apiUrlPay: 'api/pay',
+  apiUrlUser: 'api/user',
+}
 
 /*
  * For easier debugging in development mode, you can import the following file

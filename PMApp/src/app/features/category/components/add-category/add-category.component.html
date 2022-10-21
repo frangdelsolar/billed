@@ -1,0 +1,60 @@
+<div class="container">
+  <form [formGroup]="form" id="ngForm">
+    <div class="flex flex-wrap flex-column gap-5 align-items-center">
+      <div
+        class="flex flex-row gap-5 block justify-content-around align-items-center"
+      >
+        <div class="block flex flex-column align-items-center">
+          <p-colorPicker formControlName="color"></p-colorPicker>
+          <small>Color</small>
+        </div>
+
+        <div class="block flex flex-column align-items-center">
+          <app-icon-picker [iconFormControl]="icon"></app-icon-picker>
+          <small>Icono</small>
+        </div>
+      </div>
+
+      <span class="p-float-label">
+        <input
+          id="description-input"
+          formControlName="name"
+          type="text"
+          pInputText
+        />
+        <label for="description-input">Descripción</label>
+      </span>
+
+      <div class="block flex flex-column align-items-center">
+        <app-icon [icon]="form.value"></app-icon>
+        <small>Vista previa</small>
+      </div>
+
+      <div *ngIf="in_category" class="flex flex-wrap gap-5">
+        <button
+          pButton
+          pRipple
+          label="Eliminar"
+          class="p-button-outlined p-button-danger"
+          icon="pi pi-trash"
+          (click)="onDelete()"
+        ></button>
+        <button
+          pButton
+          pRipple
+          label="Actualizar"
+          icon="pi pi-check"
+          (click)="onUpdate()"
+        ></button>
+      </div>
+      <button
+        *ngIf="!in_category"
+        pButton
+        pRipple
+        label="Guardar"
+        icon="pi pi-check"
+        (click)="onSubmit()"
+      ></button>
+    </div>
+  </form>
+</div>

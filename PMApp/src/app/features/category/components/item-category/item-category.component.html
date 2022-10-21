@@ -6,8 +6,8 @@
       : 'hover:bg-red-50'
   "
 >
-  <div class="flex flex-column col-1 justify-content-center">
-    <mat-icon [color]="category?.color">{{ category?.icon }}</mat-icon>
+  <div class="flex flex-column col-2 justify-content-center">
+    <app-icon [icon]="category"></app-icon>
   </div>
   <div class="flex flex-column col-4 justify-content-center">
     <p class="my-0 py-0">
@@ -15,7 +15,7 @@
     </p>
   </div>
 
-  <div class="flex flex-column col-1 col-offset-5 justify-content-center">
+  <div class="flex flex-column col-1 col-offset-4 justify-content-center">
     <button
       pButton
       pRipple

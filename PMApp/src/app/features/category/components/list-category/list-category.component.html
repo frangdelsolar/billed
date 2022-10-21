@@ -1,9 +1,20 @@
 <p-card header="Categorías">
   <p-tabView>
     <p-tabPanel header="Ingresos">
+      <p-button
+        label="Nueva Categoría"
+        styleClass="p-button-text p-button-primary"
+        (click)="onAddClick('income')"
+      ></p-button>
+      <p-divider></p-divider>
       <app-list-category-income></app-list-category-income>
     </p-tabPanel>
     <p-tabPanel header="Gastos">
+      <p-button
+        label="Nueva Categoría"
+        styleClass="p-button-text p-button-primary"
+        (click)="onAddClick('expense')"
+      ></p-button>
       <app-list-category-expense></app-list-category-expense>
     </p-tabPanel>
   </p-tabView>

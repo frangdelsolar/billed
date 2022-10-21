@@ -1,0 +1,47 @@
+<p-card header="Iniciar sesión">
+  <div class="border-round-lg px-1 pt-6 pb-0 gap-0 lg:px-6">
+    <form [formGroup]="form" id="ngForm">
+      <div class="flex flex-wrap flex-column gap-4 align-items-center">
+        <span class="p-float-label">
+          <input
+            id="float-input"
+            formControlName="username"
+            type="text"
+            pInputText
+          />
+          <label for="float-input">Nombre de usuario</label>
+        </span>
+        <span class="p-float-label">
+          <input
+            id="float-input"
+            formControlName="password"
+            type="password"
+            pInputText
+          />
+          <label for="float-input">Contraseña</label>
+        </span>
+      </div>
+    </form>
+  </div>
+  <ng-template pTemplate="footer">
+    <div
+      class="flex flex-wrap justify-content-around px-1 pt-0 mt-0 gap-0 lg:px-6"
+    >
+      <button
+        pButton
+        pRipple
+        label="Limpiar"
+        class="p-button-outlined"
+        icon="pi pi-times"
+        (click)="form.reset()"
+      ></button>
+      <button
+        pButton
+        pRipple
+        label="Guardar"
+        icon="pi pi-check"
+        (click)="onLogin()"
+      ></button>
+    </div>
+  </ng-template>
+</p-card>

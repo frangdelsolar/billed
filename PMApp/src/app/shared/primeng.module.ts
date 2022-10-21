@@ -2,6 +2,7 @@ import { NgModule } from "@angular/core";
 import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from 'primeng/calendar';
 import {CardModule} from 'primeng/card';
+import {ColorPickerModule} from 'primeng/colorpicker';
 import {DialogModule} from 'primeng/dialog';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {DividerModule} from 'primeng/divider';
@@ -12,6 +13,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import {MenuModule} from 'primeng/menu';
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {SelectButtonModule} from 'primeng/selectbutton';
 import {TabViewModule} from 'primeng/tabview';
 import {ToastModule} from 'primeng/toast';
@@ -22,6 +24,7 @@ const myModules = [
     ButtonModule,
     CalendarModule,
     CardModule,
+    ColorPickerModule,
     DialogModule,
     DividerModule,
     DropdownModule,
@@ -32,6 +35,7 @@ const myModules = [
     MenuModule,
     MessagesModule,
     MessageModule,
+    OverlayPanelModule,
     SelectButtonModule,
     TabViewModule,
     ToastModule,
