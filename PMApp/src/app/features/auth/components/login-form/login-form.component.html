@@ -1,47 +1,56 @@
-<p-card header="Iniciar sesión">
-  <div class="border-round-lg px-1 pt-6 pb-0 gap-0 lg:px-6">
-    <form [formGroup]="form" id="ngForm">
-      <div class="flex flex-wrap flex-column gap-4 align-items-center">
-        <span class="p-float-label">
-          <input
-            id="float-input"
-            formControlName="username"
-            type="text"
-            pInputText
-          />
-          <label for="float-input">Nombre de usuario</label>
-        </span>
-        <span class="p-float-label">
-          <input
-            id="float-input"
-            formControlName="password"
-            type="password"
-            pInputText
-          />
-          <label for="float-input">Contraseña</label>
-        </span>
+<div class="flex flex-row justify-content-center align-items-center">
+  <div class="container">
+    <p-card header="Iniciar sesión">
+      <div class="border-round-lg px-1 pt-6 pb-0 gap-0 lg:px-6">
+        <form [formGroup]="form" id="ngForm">
+          <div class="flex flex-wrap flex-column gap-4 align-items-center">
+            <p>Iniciar sesión con correo electrónico</p>
+            <span class="p-float-label">
+              <input
+                id="float-input"
+                formControlName="username"
+                type="text"
+                pInputText
+              />
+              <label for="float-input">Nombre de usuario</label>
+            </span>
+
+            <span class="p-float-label">
+              <input
+                id="float-input"
+                formControlName="password"
+                type="password"
+                pInputText
+                aria-describedby="username1-help"
+              />
+              <label for="float-input">Contraseña</label>
+            </span>
+          </div>
+        </form>
       </div>
-    </form>
+      <ng-template pTemplate="footer">
+        <div
+          class="flex flex-wrap justify-content-around px-1 pt-0 mt-0 gap-0 lg:px-6"
+        >
+          <button
+            pButton
+            pRipple
+            label="Guardar"
+            icon="pi pi-check"
+            (click)="onLogin()"
+          ></button>
+
+          <button
+            pButton
+            pRipple
+            id="btn_googleLogin"
+            class="btn mt-2"
+            type="button"
+            label="Ingresar con google"
+            (click)="loginGoogle()"
+          ></button>
+        </div>
+      </ng-template>
+    </p-card>
   </div>
-  <ng-template pTemplate="footer">
-    <div
-      class="flex flex-wrap justify-content-around px-1 pt-0 mt-0 gap-0 lg:px-6"
-    >
-      <button
-        pButton
-        pRipple
-        label="Limpiar"
-        class="p-button-outlined"
-        icon="pi pi-times"
-        (click)="form.reset()"
-      ></button>
-      <button
-        pButton
-        pRipple
-        label="Guardar"
-        icon="pi pi-check"
-        (click)="onLogin()"
-      ></button>
-    </div>
-  </ng-template>
-</p-card>
+</div>

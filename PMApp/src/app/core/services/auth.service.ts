@@ -1,8 +1,10 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { from, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { User } from '@core/models/user.interface';
+import { AngularFireAuth } from '@angular/fire/compat/auth';
+import firebase from 'firebase/compat/app';
 
 
 @Injectable({
@@ -16,8 +18,12 @@ export class AuthService {
 
   private isAuthenticated = false;
 
-  constructor(private http: HttpClient) { 
+  constructor(private http: HttpClient, public afAuth: AngularFireAuth) { 
 
+  }
+
+  googleLogin(): Observable<firebase.auth.UserCredential>{
+    return from(this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider()));
   }
 
   isValidUsername(username: string){

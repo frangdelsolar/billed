@@ -13,6 +13,9 @@ import os
 import sys
 import datetime
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -22,8 +25,7 @@ APPEND_SLASH = True
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-==%zni!hjn082+(w=opueho!)t2l0aw96x4*%t4-6=dd7cf*bd'
-
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', "secret")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -163,7 +165,6 @@ REST_FRAMEWORK = {
         'rest_framework.authentication.SessionAuthentication',
         'rest_framework.authentication.BasicAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-
     ),
 }
 

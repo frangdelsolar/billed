@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from '@core/services/auth.service';
 import { markAllAsDirty } from '@core/utils/markFieldsAsDirty';
 import { MessageService } from 'primeng/api';
-
+import { tap, exhaustMap, map, mergeMap } from 'rxjs/operators';
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
@@ -31,6 +31,12 @@ export class LoginFormComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  }
+
+  loginGoogle(){
+    this.authSvc.googleLogin().subscribe(res=>{
+      console.log(res)
+    })
   }
 
   onLogin(){
