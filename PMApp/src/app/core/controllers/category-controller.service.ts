@@ -18,8 +18,11 @@ export class CategoryService {
     return this.adminSvc.get<Category>(this._apiUrl, id, true);
   }
 
-  public getByType(type: string){
+  public getByType(type: string, archived:boolean=false){
     let url = this._apiUrl + `?search=${type}`;
+    if (archived){
+      url += '&archived=true'
+    }
     return this.adminSvc.get<Category[]>(url, null, true);
   }
 

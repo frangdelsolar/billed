@@ -3,5 +3,6 @@ export interface Category {
     name: string,
     icon: string,
     color: string,
-    category_type: string
+    category_type: string,
+    archived:boolean
 }

@@ -17,8 +17,16 @@ class CategoryViewSet(viewsets.ModelViewSet):
 
     def get_queryset(self, *args, **kwargs):
         category_type = self.request.GET.get('search')
+        archived = self.request.GET.get('archived')
         qs = Category.objects.filter(
-            category_type=category_type, created_by=self.request.user).order_by('name')
+            category_type=category_type,
+            created_by=self.request.user
+        ).order_by('name')
+
+        if archived:
+            qs = qs.filter(archived=True)
+        else:
+            qs = qs.filter(archived=False)
         return qs
 
     def post(self, request):
@@ -47,7 +55,7 @@ class CategoryViewSet(viewsets.ModelViewSet):
             instance.color = color
             instance.icon = icon
 
-        if archived:
+        if 'archived' in request.data:
             instance.archived = archived
 
         instance.save()

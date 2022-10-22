@@ -1,7 +1,7 @@
 <div
   class="grid"
   [ngClass]="
-    category?.category_type == 'income'
+    category?.category_type == 'income' && !category?.archived
       ? 'hover:bg-green-50'
       : 'hover:bg-red-50'
   "

@@ -11,6 +11,10 @@ import { MessageService } from 'primeng/api';
 export class ListCategoryIncomeComponent implements OnInit {
 
   categories?: Category[];
+  archived?: Category[];
+  accessible?: Category[];
+
+  showArchive: boolean = false;
 
   constructor(
     private service: CategoryService,
@@ -18,9 +22,21 @@ export class ListCategoryIncomeComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.service.getByType('income').subscribe(
+    this.service.getByType('income', true).subscribe(
       (res)=>{
-        this.categories = res;
+        this.archived = res;
+        if (res.length > 0){
+          this.showArchive = true;
+        }
+      },
+      (err)=>{
+        this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
+      }
+    )
+    this.service.getByType('income', false).subscribe(
+      (res)=>{
+        this.accessible = res;
+
       },
       (err)=>{
         this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});

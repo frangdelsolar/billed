@@ -1,4 +1,12 @@
-<div *ngFor="let category of categories">
+<div *ngFor="let category of accessible">
   <app-item-category [category]="category"></app-item-category>
   <p-divider></p-divider>
+</div>
+<div *ngIf="showArchive">
+  <h3>Categorías archivadas</h3>
+  <p-divider></p-divider>
+  <div *ngFor="let category of archived">
+    <app-item-category [category]="category"></app-item-category>
+    <p-divider></p-divider>
+  </div>
 </div>

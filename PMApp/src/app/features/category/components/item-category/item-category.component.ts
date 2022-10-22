@@ -19,7 +19,7 @@ export class ItemCategoryComponent implements OnInit {
 
   reloadCurrentRoute = reloadCurrentRoute; 
 
-  @Input() category?: Category;
+  @Input() category!: Category;
   items: MenuItem[];
 
   constructor(
@@ -29,32 +29,45 @@ export class ItemCategoryComponent implements OnInit {
       private service: CategoryService,
       private messageService: MessageService,
     ) {
-    this.items = [
-      {
-        label: 'Editar', 
-        icon: 'pi pi-fw pi-pencil',
-        command: () => {
-          this.onEditClick();
+      this.items = [
+        {
+          label: 'Editar', 
+          icon: 'pi pi-fw pi-pencil',
+          command: () => {
+            this.onEditClick();
+          }
+        },
+        {
+          label: 'Mover Transacciones', 
+          icon: 'pi pi-fw pi-file-export',
+          command: () => {
+            this.onMoveTransactionsClick();
+          }
         }
-      },
-      {
-        label: 'Archivar', 
-        icon: 'pi pi-fw pi-download',
-        command: () => {
-          this.onArchiveClick();
-        }
-      },
-      {
-        label: 'Mover Transacciones', 
-        icon: 'pi pi-fw pi-file-export',
-        command: () => {
-          this.onMoveTransactionsClick();
-        }
-      }
-  ];
+      ];
+
+
+
    }
 
   ngOnInit(): void {
+    if (this.category?.archived == false){
+      this.items.push({
+        label: 'Archivar', 
+        icon: 'pi pi-fw pi-download',
+        command: () => {
+          this.onArchiveClick(true, '¿Quieres archivar esta categoría?');
+        }
+      })
+    } else {
+      this.items.push({
+        label: 'Activar', 
+        icon: 'pi pi-fw pi-upload',
+        command: () => {
+          this.onArchiveClick(false, '¿Quieres activar esta categoría?');
+        }
+      })
+    }
 
   }
 
@@ -74,18 +87,18 @@ export class ItemCategoryComponent implements OnInit {
     });
   }
 
-  onArchiveClick(){
+  onArchiveClick(value:boolean, prompt: string){
     let data = {
-      archived: true
+      archived: value
     }
     this.confirmationService.confirm({
-        message: '¿Quieres archivar esta categoría?',
+        message: prompt,
         accept: () => {
           if(this.category){
             this.service.update(this.category.id, data).subscribe(
               (res)=>{
                 this.messageService.add({severity:'success', summary:'Operación exitosa', detail:'Categoría actualizada'});
-                this.router.navigate(['categorias/']);
+                this.reloadCurrentRoute(this.router);
               },
               (err)=>{
                 this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error.message});
