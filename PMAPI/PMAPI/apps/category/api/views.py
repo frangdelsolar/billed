@@ -1,7 +1,10 @@
 from unicodedata import name
+from payment_item.utils.change_category import move_items_from_category
 from rest_framework import viewsets
-from rest_framework.permissions import IsAuthenticated, IsAdminUser
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.views import APIView
+
 
 from category.models import Category
 from .serializers import CategorySerializer
@@ -34,9 +37,19 @@ class CategoryViewSet(viewsets.ModelViewSet):
         if instance.created_by != request.user:
             return Response({'message': "Forbidden"}, 403)
 
-        instance.name = request.data['name']
-        instance.color = request.data['color']
-        instance.icon = request.data['icon']
+        name = request.data.get('name')
+        color = request.data.get('color')
+        icon = request.data.get('icon')
+        archived = request.data.get('archived')
+
+        if name and color and icon:
+            instance.name = name
+            instance.color = color
+            instance.icon = icon
+
+        if archived:
+            instance.archived = archived
+
         instance.save()
 
         return Response(self.serializer_class(instance).data)
@@ -56,3 +69,19 @@ class CategoryViewSet(viewsets.ModelViewSet):
             return Response({'message': "Success", "data": deleted}, 200)
 
         return Response({'message': "No puedes eliminar este item."}, 500)
+
+
+class MoveCategoryView(APIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = CategorySerializer
+
+    def put(self, request, pk):
+        instance = Category.objects.get(pk=pk)
+
+        if instance.created_by != request.user:
+            return Response({'message': "Forbidden"}, 403)
+
+        move_items_from_category(
+            request.user, request.data['from'], request.data['to'])
+
+        return Response(request.data)

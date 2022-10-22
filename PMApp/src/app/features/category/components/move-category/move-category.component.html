@@ -4,14 +4,14 @@
       class="flex flex-wrap flex-column gap-6 justify-content-center align-items-center"
     >
       <app-category-picker
-        [in_transactionType]="in_transactionType"
+        [in_transactionType]="transactionType"
         [in_formControl]="formFrom"
       ></app-category-picker>
       <i class="pi pi-angle-double-down" style="font-size: 2rem"></i>
       <app-category-picker
-        [in_transactionType]="in_transactionType"
+        [in_transactionType]="transactionType"
         [in_formControl]="formTo"
-        [in_dropValue]="selectionFrom"
+        [in_dropValue]="in_category?.id"
       ></app-category-picker>
       <button
         pButton

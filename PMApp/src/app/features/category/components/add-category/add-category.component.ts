@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { CategoryService } from '@core/controllers/category-controller.service';
 import { Category } from '@core/models/category.interface';
 import { markAllAsDirty } from '@core/utils/markFieldsAsDirty';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
@@ -30,8 +30,8 @@ export class AddCategoryComponent implements OnInit {
     private service: CategoryService,
     private router: Router,
     public ref: DynamicDialogRef, 
-    public config: DynamicDialogConfig
-
+    public config: DynamicDialogConfig,
+    private confirmationService: ConfirmationService
   ) { 
     this.form = fb.group({
       name: this.name,
@@ -96,18 +96,27 @@ export class AddCategoryComponent implements OnInit {
   }
 
   onDelete(){
-    if(this.in_category){
-      this.service.delete(this.in_category.id).subscribe(
-        (res)=>{
-          this.messageService.add({severity:'success', summary:'Operación exitosa', detail:`Categoría eliminada`});
-          this.router.navigate(['categorías']);
-          this.ref.close()
-        },
-        (err)=>{
-          this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error.message});
-          this.ref.close()
-        }
-      )
+    if(!this.in_category){
+      return;
     }
+    this.confirmationService.confirm({
+      message: '¿Quieres eliminar esta categoría?',
+      accept: () => {
+        if(this.in_category){
+          this.service.delete(this.in_category.id).subscribe(
+            (res)=>{
+              this.messageService.add({severity:'success', summary:'Operación exitosa', detail:`Categoría eliminada`});
+              this.router.navigate(['categorías']);
+              this.ref.close()
+            },
+            (err)=>{
+              this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error.message});
+              this.ref.close()
+            }
+          )
+        }
+      }
+    });  
+
   }
 }

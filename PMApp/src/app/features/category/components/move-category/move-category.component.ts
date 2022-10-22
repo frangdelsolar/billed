@@ -1,8 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { BehaviorSubject } from 'rxjs';
+import { Router } from '@angular/router';
+import { CategoryService } from '@core/controllers/category-controller.service';
+import { Category } from '@core/models/category.interface';
 import { markAllAsDirty } from '@core/utils/markFieldsAsDirty';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-move-category',
@@ -13,51 +16,57 @@ export class MoveCategoryComponent implements OnInit {
   
   markAllAsDirty = markAllAsDirty;
 
-  @Input() in_transactionType ='expense';
+  @Input() in_category?: Category;
 
   form!: FormGroup;
 
   formFrom: FormControl = new FormControl({value: null, disabled: true}, [Validators.required]);
   formTo: FormControl = new FormControl(null, [Validators.required]);
+  transactionType='';
 
-  selectionFrom = 229;
 
   constructor(
     private fb: FormBuilder, 
     private messageService: MessageService,
-
+    public ref: DynamicDialogRef, 
+    public config: DynamicDialogConfig,
+    private confirmationService: ConfirmationService,
+    private service: CategoryService,
+    private router: Router,
   ) {
     this.form = fb.group({
-      formFrom: this.formFrom,
-      formTo: this.formTo,
+      from: this.formFrom,
+      to: this.formTo,
     });
+    
+    this.in_category = this.config.data.category;
+    this.transactionType = this.config.data.category.category_type
+    this.formFrom.setValue(this.config.data.category.id);
    }
 
   ngOnInit(): void {
-    this.formFrom.setValue(this.selectionFrom);
   }
 
   onSubmitForm(){
-    // this.formFrom.enable()
-    console.log(this.form.getRawValue())
     if (this.form.valid){
-      // if(this.transactionId){
-      //   let param = `bulk_mode=${this.bulk_mode.value}`;
-      //   this.service.update(this.transactionId, this.form.value, param).subscribe(
-      //     (res)=>{
-      //       this.setup();
-      //       let date = this.date_of_transaction.value;
-      //       if (date){
-      //         this.querySvc.setDateToQuery(date.getMonth()+1, date.getFullYear());
-      //       }
-      //       this.messageService.add({severity:'success', summary:'Operación exitosa', detail:'Se ha/n editado la/s transacción/es'});
-      //       this.querySvc.setTransactionType(this.transactionType);
-      //       this.router.navigate(['transacciones']);
-      //     },
-      //     (err)=>{
-      //       this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
-      //     }
-      //   )
+      this.confirmationService.confirm({
+        message: '¿Quieres cambiar las transacciones de categoría?',
+        accept: () => {
+          if(this.in_category){
+            this.service.move(this.in_category.id, this.form.getRawValue()).subscribe(
+              (res)=>{
+                this.messageService.add({severity:'success', summary:'Operación exitosa', detail:`Las transacciones han cambiado de categoría`});
+                this.router.navigate(['categorías']);
+                this.ref.close()
+              },
+              (err)=>{
+                this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error.message});
+                this.ref.close()
+              }
+            )
+          }
+        }
+      });  
       } else {
         this.markAllAsDirty(this.form);
       }

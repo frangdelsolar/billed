@@ -33,6 +33,11 @@ export class CategoryService {
     return this.adminSvc.put<any>(url, body, true);
   }
 
+  public move(id: number, body: any){
+    let url = `${this._apiUrl}/${id}/move`;
+    return this.adminSvc.put<any>(url, body, true);
+  }
+
   public delete(id: number){
     let url = `${this._apiUrl}/${id}/`
     return this.adminSvc.delete<any>(url, true);

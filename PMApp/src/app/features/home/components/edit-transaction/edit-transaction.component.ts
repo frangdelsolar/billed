@@ -5,7 +5,7 @@ import { TransactionService } from '@core/controllers/transaction-controller.ser
 import { QueryService } from '@core/services/query.service';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { markAllAsDirty } from '@core/utils/markFieldsAsDirty';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-edit-transaction',
@@ -60,6 +60,8 @@ export class EditTransactionComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private messageService: MessageService,
+    private confirmationService: ConfirmationService
+
   ) { 
     this.form = fb.group({
       currency: this.currency,
@@ -145,23 +147,29 @@ export class EditTransactionComponent implements OnInit {
   }
   
   onDelete(){
-    if(this.transactionId && this.bulk_mode.value){
-      let param = `bulk_mode=${this.bulk_mode.value}`;
-      this.service.delete(this.transactionId, param).subscribe(
-        (res)=>{
-          let date = this.date_of_transaction.value;
-          if(date){
-            this.querySvc.setDateToQuery(date.getMonth()+1, date.getFullYear());
-          }
-          this.messageService.add({severity:'success', summary:'Operación exitosa', detail:`Transacción/es eliminada/s`});
-          this.querySvc.setTransactionType(this.transactionType);
-          this.router.navigate(['transacciones']);
-        },
-        (err)=>{
-          this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
+    this.confirmationService.confirm({
+      message: '¿Quieres eliminar esta transacción/es?',
+      accept: () => {
+        if(this.transactionId && this.bulk_mode.value){
+          let param = `bulk_mode=${this.bulk_mode.value}`;
+          this.service.delete(this.transactionId, param).subscribe(
+            (res)=>{
+              let date = this.date_of_transaction.value;
+              if(date){
+                this.querySvc.setDateToQuery(date.getMonth()+1, date.getFullYear());
+              }
+              this.messageService.add({severity:'success', summary:'Operación exitosa', detail:`Transacción/es eliminada/s`});
+              this.querySvc.setTransactionType(this.transactionType);
+              this.router.navigate(['transacciones']);
+            },
+            (err)=>{
+              this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
+            }
+          )
         }
-      )
-    }
+      }
+    });  
+
   }
 
   onClearForm(){

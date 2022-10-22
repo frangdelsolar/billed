@@ -15,5 +15,6 @@ class CategorySerializer(HyperlinkedModelSerializer):
             'name',
             'color',
             'icon',
-            'category_type'
+            'category_type',
+            'archived'
         ]

@@ -15,10 +15,7 @@ const myModules = [
 
 @NgModule({
   declarations: [
-    
-  
     LoginFormComponent,
-          
     RegisterFormComponent
   ],
   imports: [
