@@ -74,13 +74,18 @@
         <p-divider></p-divider>
       </div>
 
-      <div class="col-12 pt-2 mb-0 pb-2">
+      <div class="col-12 flex flex-row gap-4 pt-2 mb-0 pb-2 align-items-center">
         <app-category-picker
           [in_transactionType]="$transactionType"
           [in_formControl]="category"
         ></app-category-picker>
-        <p-divider></p-divider>
+        <p-button
+          label="Administrar"
+          [routerLink]="'/categorias'"
+          styleClass="p-button-text p-button-primary p-button-sm"
+        ></p-button>
       </div>
+      <p-divider></p-divider>
 
       <div class="col-12 my-0 py-0">
         <span class="p-float-label">

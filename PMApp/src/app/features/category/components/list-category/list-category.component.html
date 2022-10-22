@@ -3,7 +3,7 @@
     <p-tabPanel header="Ingresos">
       <p-button
         label="Nueva Categoría"
-        styleClass="p-button-text p-button-primary"
+        styleClass="p-button-text p-button-primary p-button-sm"
         (click)="onAddClick('income')"
       ></p-button>
       <p-divider></p-divider>
@@ -12,9 +12,10 @@
     <p-tabPanel header="Gastos">
       <p-button
         label="Nueva Categoría"
-        styleClass="p-button-text p-button-primary"
+        styleClass="p-button-text p-button-primary p-button-sm"
         (click)="onAddClick('expense')"
       ></p-button>
+      <p-divider></p-divider>
       <app-list-category-expense></app-list-category-expense>
     </p-tabPanel>
   </p-tabView>
