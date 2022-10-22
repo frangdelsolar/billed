@@ -4,6 +4,8 @@ import { Category } from '@core/models/category.interface';
 import { reloadCurrentRoute } from '@core/utils/reloadCurrentRoute';
 import { MenuItem } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
+import {ConfirmationService} from 'primeng/api';
+
 import { AddCategoryComponent } from '../add-category/add-category.component';
 import { MoveCategoryComponent } from '../move-category/move-category.component';
 
@@ -21,6 +23,7 @@ export class ItemCategoryComponent implements OnInit {
 
   constructor(public dialogService: DialogService, 
     private router: Router,
+    private confirmationService: ConfirmationService
     ) {
     this.items = [
       {
@@ -51,6 +54,7 @@ export class ItemCategoryComponent implements OnInit {
 
   }
 
+
   onEditClick(){
     const ref = this.dialogService.open(AddCategoryComponent, {
       header: 'Añadir Categoría',
@@ -67,18 +71,12 @@ export class ItemCategoryComponent implements OnInit {
   }
 
   onArchiveClick(){
-    const ref = this.dialogService.open(AddCategoryComponent, {
-      header: 'Editar Categoría',
-      width: '70%',
-      contentStyle: {'overflow': 'visible'},
-      data: {
-        type: 'income'
-    },
-    });
-    ref.onClose.subscribe((res: any) => {
-      this.router.navigate(['/categorias/']);
-    });
-  }
+    this.confirmationService.confirm({
+      message: '¿Quieres archivar esta categoría?',
+      accept: () => {
+          //Actual logic to perform a confirmation
+      }
+  });  }
 
   onMoveTransactionsClick(){
     const ref = this.dialogService.open(MoveCategoryComponent, {

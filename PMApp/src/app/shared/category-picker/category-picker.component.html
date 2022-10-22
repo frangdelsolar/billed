@@ -3,9 +3,8 @@
     [options]="categories"
     optionLabel="name"
     optionValue="id"
-    [(ngModel)]="selection"
+    [formControl]="in_formControl"
     inputId="categorySelector"
-    (onChange)="updateFormControl()"
   ></p-dropdown>
   <label for="categorySelector">Categoría</label>
 </span>

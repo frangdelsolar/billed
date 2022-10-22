@@ -11,12 +11,11 @@ import { Observable } from 'rxjs';
 })
 export class CategoryPickerComponent implements OnInit {
 
-  @Input() in_transactionType: Observable<string> = new Observable();
-  @Input() in_formControl: FormControl = new FormControl(null, [Validators.required]);
+  @Input() in_transactionType: string= "";
+  @Input() in_formControl: FormControl = new FormControl("", []);
+  @Input() in_dropValue?: number;
 
-  selection: any;
-
-  categories: any = [];
+  categories?: any = [];
 
   constructor(
     private messageService: MessageService,
@@ -25,27 +24,28 @@ export class CategoryPickerComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.in_transactionType.subscribe(transaction_type=>{
-      this.service.getByType(transaction_type).subscribe(
-        (res)=>{
-          this.categories = res;
-          if(this.in_formControl.value){
-            this.selection = this.in_formControl.value;
-          } else {
-            this.selection = res[0]?.id;
-            this.updateFormControl();
-          }
-        },
-        (err)=>{
-          this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
-        }
-        )
-    })
-  }
+    setTimeout(()=>{
+      this.getData();
+    }, 100)
 
-  updateFormControl(){
-    this.in_formControl.setValue(this.selection);
   }
   
+  getData(){
+    this.service.getByType(this.in_transactionType).subscribe(
+      (res)=>{
+        this.categories = res;
+        this.dropValueInCategories();
+      },
+      (err)=>{
+        this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error});
+      }
+      )
+  }
+
+  dropValueInCategories(){
+    if (this.in_dropValue){
+      this.categories = this.categories.filter((cat:any)=>cat.id!=this.in_dropValue)
+    }
+  }
 
 }

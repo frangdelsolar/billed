@@ -13,14 +13,14 @@ export class MoveCategoryComponent implements OnInit {
   
   markAllAsDirty = markAllAsDirty;
 
-  @Input() in_transactionType: BehaviorSubject<string> = new BehaviorSubject('expense');
+  @Input() in_transactionType ='expense';
 
   form!: FormGroup;
 
-  formFrom: FormControl = new FormControl(187, [Validators.required]);
-  formTo: FormControl = new FormControl(187, [Validators.required]);
+  formFrom: FormControl = new FormControl({value: null, disabled: true}, [Validators.required]);
+  formTo: FormControl = new FormControl(null, [Validators.required]);
 
-  categoryId=187;
+  selectionFrom = 229;
 
   constructor(
     private fb: FormBuilder, 
@@ -30,16 +30,16 @@ export class MoveCategoryComponent implements OnInit {
     this.form = fb.group({
       formFrom: this.formFrom,
       formTo: this.formTo,
-
     });
    }
 
   ngOnInit(): void {
-    this.formFrom.setValue(this.categoryId)
+    this.formFrom.setValue(this.selectionFrom);
   }
 
   onSubmitForm(){
-    console.log(this.form.value)
+    // this.formFrom.enable()
+    console.log(this.form.getRawValue())
     if (this.form.valid){
       // if(this.transactionId){
       //   let param = `bulk_mode=${this.bulk_mode.value}`;

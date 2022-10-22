@@ -3,6 +3,7 @@ import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from 'primeng/calendar';
 import {CardModule} from 'primeng/card';
 import {ColorPickerModule} from 'primeng/colorpicker';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {DialogModule} from 'primeng/dialog';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {DividerModule} from 'primeng/divider';
@@ -25,6 +26,7 @@ const myModules = [
     CalendarModule,
     CardModule,
     ColorPickerModule,
+    ConfirmDialogModule,
     DialogModule,
     DividerModule,
     DropdownModule,

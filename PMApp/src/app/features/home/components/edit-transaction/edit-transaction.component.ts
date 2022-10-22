@@ -32,8 +32,7 @@ export class EditTransactionComponent implements OnInit {
   
   markAllAsDirty = markAllAsDirty;
 
-  transactionType: string = "";
-  $transactionType: BehaviorSubject<any> = new BehaviorSubject('');
+  transactionType="";
   transactionTypeLabel: string = "";
 
   bulkEditSectionVisible = false;
@@ -94,17 +93,13 @@ export class EditTransactionComponent implements OnInit {
             if(res.type == 'income'){
               this.transactionTypeLabel = "Ingreso";
               this.transactionType = "income";
-              this.$transactionType.next('income');
             } else if (res.type == 'expense'){
               this.transactionTypeLabel = "Gasto";
               this.transactionType = "expense";
-              this.$transactionType.next('expense');
             } else {
               this.messageService.add({severity:'error', summary:'Algo anda mal', detail: 'Tipo de transacción desconocido'});
               this.router.navigate(['/']);
             }
-
-
             if (this.transactionInstance.installment || this.transactionInstance.recurrent){
               this.saveDeleteButtonDisabled = true;
               this.bulkEditSectionVisible = true;

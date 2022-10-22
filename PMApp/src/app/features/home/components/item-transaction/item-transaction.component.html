@@ -6,9 +6,7 @@
   (click)="onTransactionClick(transaction?.id)"
 >
   <div class="flex flex-column col-1 justify-content-center">
-    <mat-icon [color]="transaction?.payment_item?.category?.color">{{
-      transaction?.payment_item?.category?.icon
-    }}</mat-icon>
+    <app-icon [icon]="transaction?.payment_item?.category"></app-icon>
   </div>
   <div class="flex flex-column col-4 justify-content-center">
     <p class="my-0 py-0">
