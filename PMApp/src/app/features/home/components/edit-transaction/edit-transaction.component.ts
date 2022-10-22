@@ -26,7 +26,6 @@ export class EditTransactionComponent implements OnInit {
   date_of_transaction = new FormControl(new Date(), [Validators.required]);
   description = new FormControl('', [Validators.required]);
   recurrent = new FormControl(false, [Validators.required]);
-  ignore = new FormControl(false, [Validators.required]);
   notes = new FormControl('', []);
   bulk_mode = new FormControl('', [Validators.required]);
   
@@ -72,7 +71,6 @@ export class EditTransactionComponent implements OnInit {
       date_of_transaction: this.date_of_transaction,
       description: this.description,
       recurrent: this.recurrent,
-      ignore: this.ignore,
       notes: this.notes,
       bulk_mode: this.bulk_mode
     });
@@ -131,7 +129,6 @@ export class EditTransactionComponent implements OnInit {
       this.recurrent.setValue(true);
     }
     this.notes.setValue(data.notes);
-    this.ignore.setValue(data.ignore);
   }
 
   onCurrencyChange(value: any){

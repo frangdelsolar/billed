@@ -48,7 +48,6 @@ class TransactionViewSet(viewsets.ModelViewSet):
         repetitions = request.data.get('repetitions')
         frequency = request.data.get('frequency')
         notes = request.data.get('notes')
-        ignore = request.data.get('ignore')
         category = request.data.get('category')
 
         if exchange_rate == "":
@@ -92,7 +91,6 @@ class TransactionViewSet(viewsets.ModelViewSet):
             description=description,
             notes=notes,
             completed=completed,
-            ignore=ignore,
             create_recurrent=create_recurrent,
             convert=True,
             repeats=repeats,

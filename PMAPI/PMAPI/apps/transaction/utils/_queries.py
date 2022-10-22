@@ -27,7 +27,6 @@ def get_transaction_qs_by_date(user, month, year):
                     description=pay.payment_item.description,
                     notes=pay.payment_item.notes,
                     completed=False,
-                    ignore=False,
                     create_recurrent=False,
                     convert=False,
                     repeats=False,

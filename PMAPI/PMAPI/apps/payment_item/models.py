@@ -88,7 +88,6 @@ class Installment(Metadata):
                     description=transaction.description,
                     notes=transaction.notes,
                     completed=False,
-                    ignore=False,
                     create_recurrent=False,
                     convert=False,
                     repeats=False,

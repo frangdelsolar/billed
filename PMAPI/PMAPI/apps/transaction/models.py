@@ -33,7 +33,6 @@ class Transaction(Metadata):
     description = models.CharField(max_length=120, null=False, blank=False)
     notes = models.CharField(max_length=500, null=True, blank=True)
     completed = models.BooleanField(default=False)
-    ignore = models.BooleanField(default=False)
     installment = models.ForeignKey(
         'payment_item.Installment', on_delete=models.CASCADE, blank=True, null=True)
     recurrent = models.ForeignKey(

@@ -23,7 +23,6 @@ def update_single_transaction(transaction, data):
     transaction.date_of_transaction = data['date_of_transaction']
     transaction.description = data['description']
     transaction.notes = data['notes']
-    transaction.ignore = data['ignore']
 
     is_recurrent = transaction.recurrent is not None
     if data['recurrent'] != is_recurrent:
@@ -62,7 +61,6 @@ def update_pending_transactions(transaction, data):
         item.currency.save()
         item.description = data['description']
         item.notes = data['notes']
-        item.ignore = data['ignore']
         if data['completed']:
             pay_transaction(item)
         else:
@@ -105,7 +103,6 @@ def update_all_transactions(transaction, data):
             item.currency.save()
         item.description = data['description']
         item.notes = data['notes']
-        item.ignore = data['ignore']
         item.save()
 
     transaction.payment_item.category = Category.objects.get(

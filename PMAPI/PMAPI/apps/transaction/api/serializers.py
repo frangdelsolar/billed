@@ -25,7 +25,6 @@ class TransactionSerializer(ModelSerializer):
             'date_of_transaction',
             'description',
             'completed',
-            'ignore',
             'notes',
             'installment',
             'recurrent',

@@ -26,7 +26,6 @@ export class AddTransactionComponent implements OnInit {
   repeats = new FormControl(false, [Validators.required]);
   repetitions = new FormControl(1, []);
   frequency = new FormControl('months', []);
-  ignore = new FormControl(false, [Validators.required]);
   notes = new FormControl('', []);
   type = new FormControl('', [Validators.required]);
 
@@ -57,7 +56,6 @@ export class AddTransactionComponent implements OnInit {
       repeats: this.repeats,
       repetitions: this.repetitions,
       frequency: this.frequency,
-      ignore: this.ignore,
       notes: this.notes,
       type: this.type
     });
