@@ -7,4 +7,5 @@ export interface PaymentItem{
     currency: CurrencyField,
     category: Category,
     recurrent: boolean,
+    tags:any[]
 }

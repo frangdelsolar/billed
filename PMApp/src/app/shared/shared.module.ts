@@ -12,6 +12,7 @@ import { FrequencyPickerComponent } from './frequency-picker/frequency-picker.co
 import { RepetitionFieldComponent } from './repetition-field/repetition-field.component';
 import { IconPickerComponent } from './icon-picker/icon-picker.component';
 import { IconComponent } from './icon/icon.component';
+import { TagPickerComponent } from './tag-picker/tag-picker.component';
 
 
 const myComp = [
@@ -24,6 +25,8 @@ const myComp = [
   TransactionTypePickerComponent,
   IconPickerComponent,
   IconComponent,
+  TagPickerComponent,
+
 ]
 
 const myMod = [

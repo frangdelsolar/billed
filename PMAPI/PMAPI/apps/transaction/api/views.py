@@ -49,6 +49,7 @@ class TransactionViewSet(viewsets.ModelViewSet):
         frequency = request.data.get('frequency')
         notes = request.data.get('notes')
         category = request.data.get('category')
+        tags = request.data.get('tags')
 
         if exchange_rate == "":
             exchange_rate = 1
@@ -97,7 +98,8 @@ class TransactionViewSet(viewsets.ModelViewSet):
             repetitions=repetitions,
             frequency=frequency,
             installment=None,
-            recurrent=None
+            recurrent=None,
+            tags=tags
         )
 
         return Response(self.serializer_class(instance).data)

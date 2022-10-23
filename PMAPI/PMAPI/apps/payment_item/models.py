@@ -3,6 +3,7 @@ from currency_field.models import CurrencyField
 from system_details.models import Metadata
 import datetime
 from dateutil.relativedelta import relativedelta
+from tag.models import Tag
 
 CURRENCIES = [
     ('ars', 'Peso Argentino'),
@@ -29,12 +30,14 @@ class PaymentItem(Metadata):
     category = models.ForeignKey(
         'category.Category', on_delete=models.CASCADE, null=True, blank=True, related_name='payment_items')
     notes = models.CharField(max_length=500, null=True, blank=True)
+    tags = models.ManyToManyField('tag.Tag')
 
     @classmethod
     def create(self, *args, **kwargs):
         amount = kwargs.pop('amount')
         currency = kwargs.pop('currency')
         exchange_rate = kwargs.pop('exchange_rate')
+        tags = kwargs.pop('tags')
 
         cf = CurrencyField.objects.create(
             amount=amount,
@@ -42,7 +45,12 @@ class PaymentItem(Metadata):
             exchange_rate=exchange_rate
         )
         kwargs['currency'] = cf
-        return self.objects.create(**kwargs)
+
+        instance = self.objects.create(**kwargs)
+        for tag_name in tags:
+            item = Tag.objects.get(name=tag_name)
+            instance.tags.add(item)
+        return instance
 
 
 class RecurrentPayment(Metadata):
@@ -94,6 +102,7 @@ class Installment(Metadata):
                     repetitions=None,
                     frequency=None,
                     installment=instance,
-                    recurrent=None
+                    recurrent=None,
+                    tags=transaction.payment_item.tags
                 )
         return instance

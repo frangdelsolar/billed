@@ -1,0 +1,14 @@
+<span class="p-float-label">
+  <p-autoComplete
+    inputId="tagSelector"
+    [formControl]="in_formControl"
+    [suggestions]="items"
+    (completeMethod)="search($event)"
+    style="width: 75%"
+    [multiple]="true"
+    [showEmptyMessage]="false"
+    [forceSelection]="false"
+    [unique]="true"
+  ></p-autoComplete>
+  <label for="tagSelector">Etiquetas</label>
+</span>

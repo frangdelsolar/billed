@@ -28,6 +28,7 @@ export class AddTransactionComponent implements OnInit {
   frequency = new FormControl('months', []);
   notes = new FormControl('', []);
   type = new FormControl('', [Validators.required]);
+  tags = new FormControl([], []);
 
   markAllAsDirty = markAllAsDirty;
 
@@ -57,7 +58,8 @@ export class AddTransactionComponent implements OnInit {
       repetitions: this.repetitions,
       frequency: this.frequency,
       notes: this.notes,
-      type: this.type
+      type: this.type,
+      tags: this.tags
     });
   }
 
@@ -99,6 +101,7 @@ export class AddTransactionComponent implements OnInit {
 
 
   onSubmitForm(){
+    console.log(this.form.value)
     if (this.form.valid){
       this.service.create(this.form.value).subscribe(
         (res)=>{

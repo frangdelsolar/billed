@@ -2,11 +2,13 @@ from currency_field.serializers import CurrencySerializer
 from category.api.serializers import CategorySerializer
 from rest_framework.serializers import ModelSerializer, SerializerMethodField
 from payment_item.models import PaymentItem, Installment, RecurrentPayment
+from tag.api.serializers import TagSerializer
 
 
 class PaymentItemSerializer(ModelSerializer):
     category = CategorySerializer()
     currency = CurrencySerializer()
+    tags = TagSerializer(many=True, read_only=True)
 
     class Meta:
         model = PaymentItem
@@ -15,6 +17,7 @@ class PaymentItemSerializer(ModelSerializer):
             'description',
             'currency',
             'category',
+            'tags'
         ]
 
 

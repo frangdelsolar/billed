@@ -1,9 +1,7 @@
 <div
   class="grid"
   [ngClass]="
-    category?.category_type == 'income' && !category?.archived
-      ? 'hover:bg-green-50'
-      : 'hover:bg-red-50'
+    category.category_type == 'income' ? 'hover:bg-green-50' : 'hover:bg-red-50'
   "
 >
   <div class="flex flex-column col-2 justify-content-center">
@@ -11,7 +9,7 @@
   </div>
   <div class="flex flex-column col-4 justify-content-center">
     <p class="my-0 py-0">
-      <b>{{ category?.name }}</b>
+      <b>{{ category.name }}</b>
     </p>
   </div>
 

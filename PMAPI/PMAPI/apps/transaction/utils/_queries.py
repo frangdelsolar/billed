@@ -33,7 +33,8 @@ def get_transaction_qs_by_date(user, month, year):
                     repetitions=None,
                     frequency=None,
                     installment=None,
-                    recurrent=pay
+                    recurrent=pay,
+                    tags=pay.payment_item.tags
                 )
 
     return queryset.filter(created_by=user,

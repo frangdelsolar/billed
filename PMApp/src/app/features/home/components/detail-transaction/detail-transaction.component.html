@@ -206,7 +206,11 @@
             {{ transaction.payment_item?.category?.name }}
           </td>
           <td class="col-2"></td>
-          <td class="col-4 align-items-left mt-0 pt-0">Tags</td>
+          <td class="col-4 align-items-left mt-0 pt-0">
+            <div *ngFor="let tag of transaction.payment_item?.tags">
+              <p-chip [label]="tag.name" [removable]="false"></p-chip>
+            </div>
+          </td>
         </tr>
 
         <tr>

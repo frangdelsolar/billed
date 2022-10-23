@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'payment_item',
     'payment_method',
     'system_details',
+    'tag',
     'transaction',
     'user',
     'user_settings',

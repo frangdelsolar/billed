@@ -58,6 +58,7 @@ class Transaction(Metadata):
         repetitions = kwargs.pop('repetitions')
         frequency = kwargs.pop('frequency')
         category = kwargs.pop('category')
+        tags = kwargs.pop('tags')
 
         if not 'payment_item' in kwargs or payment_item is None:
             payment_item = PaymentItem.create(
@@ -66,7 +67,8 @@ class Transaction(Metadata):
                 amount=amount,
                 currency=currency,
                 exchange_rate=exchange_rate,
-                category=Category.objects.get(id=category)
+                category=Category.objects.get(id=category),
+                tags=tags
             )
             kwargs['payment_item'] = payment_item
 

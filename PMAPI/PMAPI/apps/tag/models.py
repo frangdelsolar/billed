@@ -1,4 +1,5 @@
 from django.db import models
+from requests import delete
 from system_details.models import Metadata
 
 
