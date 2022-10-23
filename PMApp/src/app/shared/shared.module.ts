@@ -13,6 +13,7 @@ import { RepetitionFieldComponent } from './repetition-field/repetition-field.co
 import { IconPickerComponent } from './icon-picker/icon-picker.component';
 import { IconComponent } from './icon/icon.component';
 import { TagPickerComponent } from './tag-picker/tag-picker.component';
+import { RouterModule } from '@angular/router';
 
 
 const myComp = [

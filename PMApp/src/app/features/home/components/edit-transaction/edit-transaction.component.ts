@@ -133,7 +133,7 @@ export class EditTransactionComponent implements OnInit {
     }
     this.notes.setValue(data.notes);
 
-    this.tags.setValue(data.payment_item.tags.map((item: { name: any; })=>item.name));
+    this.tags.setValue(data.payment_item.tags);
   }
 
   onCurrencyChange(value: any){
@@ -181,8 +181,6 @@ export class EditTransactionComponent implements OnInit {
 
 
   onSubmitForm(){
-    console.log(this.form.value)
-
     if (this.form.valid){
       if(this.transactionId){
         let param = `bulk_mode=${this.bulk_mode.value}`;

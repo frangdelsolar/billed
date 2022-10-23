@@ -20,6 +20,7 @@ import {MessageModule} from 'primeng/message';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import { TagModule } from 'primeng/tag';
 import {TabViewModule} from 'primeng/tabview';
 import {ToastModule} from 'primeng/toast';
 import {TooltipModule} from 'primeng/tooltip';
@@ -48,6 +49,7 @@ const myModules = [
     OverlayPanelModule,
     SelectButtonModule,
     TabViewModule,
+    TagModule,
     ToastModule,
     TooltipModule
 ];

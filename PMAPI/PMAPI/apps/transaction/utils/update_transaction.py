@@ -26,9 +26,9 @@ def update_single_transaction(transaction, data):
         transaction.payment_item.tags.remove(tag_id['id'])
 
     updated_tags = data['tags']
-    for tag_name in updated_tags:
+    for tag in updated_tags:
         item = Tag.objects.get(
-            name=tag_name, created_by=transaction.created_by)
+            pk=tag['id'], created_by=transaction.created_by)
         if item:
             transaction.payment_item.tags.add(item)
 
@@ -89,9 +89,9 @@ def update_pending_transactions(transaction, data):
             transaction.payment_item.tags.all().values('id')):
         transaction.payment_item.tags.remove(tag_id['id'])
     updated_tags = data['tags']
-    for tag_name in updated_tags:
+    for tag in updated_tags:
         item = Tag.objects.get(
-            name=tag_name, created_by=transaction.created_by)
+            pk=tag['id'], created_by=transaction.created_by)
         if item:
             transaction.payment_item.tags.add(item)
     transaction.payment_item.save()
@@ -136,9 +136,9 @@ def update_all_transactions(transaction, data):
             transaction.payment_item.tags.all().values('id')):
         transaction.payment_item.tags.remove(tag_id['id'])
     updated_tags = data['tags']
-    for tag_name in updated_tags:
+    for tag in updated_tags:
         item = Tag.objects.get(
-            name=tag_name, created_by=transaction.created_by)
+            pk=tag['id'], created_by=transaction.created_by)
         if item:
             transaction.payment_item.tags.add(item)
     transaction.payment_item.save()

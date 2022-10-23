@@ -17,13 +17,14 @@ class TagViewSet(viewsets.ModelViewSet):
         return qs
 
     def list(self, request):
-        qs = self.queryset
+        qs = self.get_queryset()
         search = request.GET.get('search')
 
         if search:
-            qs = self.queryset.filter(name__icontains=search)
+            qs = qs.filter(
+                name__icontains=search)
 
-        data = []
-        for item in qs:
-            data.append(item.name)
-        return Response(data)
+        serializer = self.serializer_class(qs, many=True)
+        return Response(serializer.data)
+
+    # Avoid creating clone tags

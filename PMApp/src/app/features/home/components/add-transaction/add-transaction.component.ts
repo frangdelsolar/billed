@@ -122,6 +122,6 @@ export class AddTransactionComponent implements OnInit {
       this.messageService.add({severity:'error', summary:'Algo anda mal', detail: 'Parece que falta completar algo.'});
     }
 
-    }
+  }
 }
 

@@ -17,6 +17,12 @@ const routes: Routes = [
     )
   },
   {
+    path: 'etiquetas',
+    loadChildren: () => import('./features/tag/tag-routing.module').then(
+      (m) => m.TagRoutingModule
+    )
+  },
+  {
     path: 'iniciar-sesion',
     component: LoginFormComponent
   },

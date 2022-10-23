@@ -47,9 +47,9 @@ class PaymentItem(Metadata):
         kwargs['currency'] = cf
 
         instance = self.objects.create(**kwargs)
-        for tag_name in tags:
+        for tag in tags:
             item = Tag.objects.get(
-                name=tag_name, created_by=instance.created_by)
+                pk=tag['id'], created_by=instance.created_by)
             if item:
                 instance.tags.add(item)
         return instance
