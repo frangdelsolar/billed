@@ -4,6 +4,7 @@ from .stop_recurrency_for_transaction import stop_recurrency_for_transaction
 from .create_recurrency_for_transaction import create_recurrency_for_transaction
 from .pay_transaction import pay_transaction
 from category.models import Category
+from tag.models import Tag
 
 
 def update_single_transaction(transaction, data):
@@ -18,6 +19,19 @@ def update_single_transaction(transaction, data):
 
     transaction.payment_item.category = Category.objects.get(
         id=data['category'])
+
+    # clear tags from payment item
+    for tag_id in list(
+            transaction.payment_item.tags.all().values('id')):
+        transaction.payment_item.tags.remove(tag_id['id'])
+
+    updated_tags = data['tags']
+    for tag_name in updated_tags:
+        item = Tag.objects.get(
+            name=tag_name, created_by=transaction.created_by)
+        if item:
+            transaction.payment_item.tags.add(item)
+
     transaction.payment_item.save()
 
     transaction.date_of_transaction = data['date_of_transaction']
@@ -71,6 +85,15 @@ def update_pending_transactions(transaction, data):
         id=data['category'])
     transaction.payment_item.description = data['description']
     transaction.payment_item.notes = data['notes']
+    for tag_id in list(
+            transaction.payment_item.tags.all().values('id')):
+        transaction.payment_item.tags.remove(tag_id['id'])
+    updated_tags = data['tags']
+    for tag_name in updated_tags:
+        item = Tag.objects.get(
+            name=tag_name, created_by=transaction.created_by)
+        if item:
+            transaction.payment_item.tags.add(item)
     transaction.payment_item.save()
 
     transaction.payment_item.currency.currency = data['currency']
@@ -109,6 +132,15 @@ def update_all_transactions(transaction, data):
         id=data['category'])
     transaction.payment_item.description = data['description']
     transaction.payment_item.notes = data['notes']
+    for tag_id in list(
+            transaction.payment_item.tags.all().values('id')):
+        transaction.payment_item.tags.remove(tag_id['id'])
+    updated_tags = data['tags']
+    for tag_name in updated_tags:
+        item = Tag.objects.get(
+            name=tag_name, created_by=transaction.created_by)
+        if item:
+            transaction.payment_item.tags.add(item)
     transaction.payment_item.save()
 
     transaction.payment_item.currency.currency = data['currency']

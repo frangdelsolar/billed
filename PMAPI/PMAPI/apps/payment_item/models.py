@@ -48,8 +48,10 @@ class PaymentItem(Metadata):
 
         instance = self.objects.create(**kwargs)
         for tag_name in tags:
-            item = Tag.objects.get(name=tag_name)
-            instance.tags.add(item)
+            item = Tag.objects.get(
+                name=tag_name, created_by=instance.created_by)
+            if item:
+                instance.tags.add(item)
         return instance
 
 

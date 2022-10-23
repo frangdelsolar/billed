@@ -28,6 +28,8 @@ export class EditTransactionComponent implements OnInit {
   recurrent = new FormControl(false, [Validators.required]);
   notes = new FormControl('', []);
   bulk_mode = new FormControl('', [Validators.required]);
+  tags = new FormControl([], []);
+
   
   markAllAsDirty = markAllAsDirty;
 
@@ -72,7 +74,8 @@ export class EditTransactionComponent implements OnInit {
       description: this.description,
       recurrent: this.recurrent,
       notes: this.notes,
-      bulk_mode: this.bulk_mode
+      bulk_mode: this.bulk_mode,
+      tags: this.tags
     });
 
     this.setup();
@@ -129,6 +132,8 @@ export class EditTransactionComponent implements OnInit {
       this.recurrent.setValue(true);
     }
     this.notes.setValue(data.notes);
+
+    this.tags.setValue(data.payment_item.tags.map((item: { name: any; })=>item.name));
   }
 
   onCurrencyChange(value: any){
@@ -176,6 +181,8 @@ export class EditTransactionComponent implements OnInit {
 
 
   onSubmitForm(){
+    console.log(this.form.value)
+
     if (this.form.valid){
       if(this.transactionId){
         let param = `bulk_mode=${this.bulk_mode.value}`;
