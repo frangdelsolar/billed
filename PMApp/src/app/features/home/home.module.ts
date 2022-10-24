@@ -12,6 +12,7 @@ import { ItemTransactionComponent } from './components/item-transaction/item-tra
 import { DetailTransactionComponent } from './components/detail-transaction/detail-transaction.component';
 import { EditTransactionComponent } from './components/edit-transaction/edit-transaction.component';
 import { UploadTransactionComponent } from './components/upload-transaction/upload-transaction.component';
+import { DownloadTransactionComponent } from './components/download-transaction/download-transaction.component';
 
 
 const myComponents = [
@@ -22,6 +23,7 @@ const myComponents = [
   ListTransactionComponent,
   ItemTransactionComponent,
   DetailTransactionComponent,
+  DownloadTransactionComponent,
   UploadTransactionComponent
 ]
 

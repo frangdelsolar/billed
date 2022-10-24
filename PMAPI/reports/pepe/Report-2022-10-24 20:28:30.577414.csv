@@ -1,0 +1,964 @@
+Fecha,Descripción,Moneda,Total,Tipo de transacción,Completado,Categoría,Etiquetas,Notas
+2022-02-11 00:00:00+00:00,desc 1,ARS,40703.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 1
+2022-01-11 00:00:00+00:00,desc 10,ARS,14055.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 1
+2022-03-11 00:00:00+00:00,desc 12,ARS,46670.00,expense,True,Deporte,[],nota 3
+2022-04-11 00:00:00+00:00,desc 13,ARS,4179.00,income,True,Vivienda,['reparaciones'],nota 4
+2022-09-11 00:00:00+00:00,desc 18,ARS,59662.00,expense,True,Viajes,[],nota 1
+2022-10-11 00:00:00+00:00,desc 19,ARS,29813.00,expense,True,Recreación,"['Vacaciones 2022', ' gente del trabajo']",nota 2
+2022-12-11 00:00:00+00:00,desc 21,ARS,666.32,income,True,Vivienda,[],nota 4
+2022-02-11 00:00:00+00:00,desc 1,ARS,40703.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 1
+2022-02-11 00:00:00+00:00,desc 8,ARS,18247080.00,income,False,Transporte,['sube'],nota 8
+2022-01-11 00:00:00+00:00,desc 10,ARS,14055.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 1
+2022-03-11 00:00:00+00:00,desc 12,ARS,46670.00,expense,True,Deporte,[],nota 3
+2022-04-11 00:00:00+00:00,desc 13,ARS,4179.00,income,True,Vivienda,['reparaciones'],nota 4
+2022-09-11 00:00:00+00:00,desc 18,ARS,59662.00,expense,True,Viajes,[],nota 1
+2022-10-11 00:00:00+00:00,desc 19,ARS,29813.00,expense,True,Recreación,"['Vacaciones 2022', ' gente del trabajo']",nota 2
+2022-11-11 00:00:00+00:00,desc 20,ARS,48479.00,expense,False,Deporte,[],nota 3
+2022-12-11 00:00:00+00:00,desc 21,ARS,666.32,income,True,Vivienda,[],nota 4
+2023-02-11 00:00:00+00:00,desc 23,ARS,407924.00,income,False,Educación,"['peluquero', ' manicura']",nota 6
+2022-02-11 00:00:00+00:00,desc 1,ARS,93564.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 1
+2022-02-11 00:00:00+00:00,desc 5,ARS,8760.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 5
+2022-02-11 00:00:00+00:00,desc 8,ARS,11920024.00,income,False,Transporte,['sube'],nota 8
+2022-01-11 00:00:00+00:00,desc 10,ARS,81172.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 1
+2022-03-11 00:00:00+00:00,desc 12,ARS,27571.00,expense,True,Deporte,[],nota 3
+2022-04-11 00:00:00+00:00,desc 13,ARS,94413.00,income,True,Vivienda,['reparaciones'],nota 4
+2022-09-11 00:00:00+00:00,desc 18,ARS,48684.00,expense,True,Viajes,[],nota 1
+2022-10-11 00:00:00+00:00,desc 19,ARS,90291.00,expense,True,Recreación,"['Vacaciones 2022', ' gente del trabajo']",nota 2
+2022-11-11 00:00:00+00:00,desc 20,ARS,10043.00,expense,False,Deporte,[],nota 3
+2022-12-11 00:00:00+00:00,desc 21,ARS,666.32,income,True,Vivienda,[],nota 4
+2023-02-11 00:00:00+00:00,desc 23,ARS,15723616.00,income,False,Educación,"['peluquero', ' manicura']",nota 6
+2022-01-06 00:00:00+00:00,desc 1,ARS,804.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 1
+2020-08-20 00:00:00+00:00,desc 2,ARS,144.00,expense,True,Recreación,[],nota 2
+2022-12-17 00:00:00+00:00,desc 3,ARS,97.00,expense,True,Deporte,[],nota 3
+2021-06-12 00:00:00+00:00,desc 4,ARS,358.00,income,True,Vivienda,['reparaciones'],nota 4
+2021-09-15 00:00:00+00:00,desc 5,ARS,211700.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 5
+2021-08-04 00:00:00+00:00,desc 6,ARS,65.00,expense,False,Educación,"['universidad', ' postgrado']",nota 6
+2022-03-14 00:00:00+00:00,desc 7,ARS,815.00,expense,True,Vehículo,['mecanico'],nota 7
+2020-02-03 00:00:00+00:00,desc 8,ARS,672.00,expense,False,Transporte,['sube'],nota 8
+2021-01-23 00:00:00+00:00,desc 9,ARS,74.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 9
+2021-01-05 00:00:00+00:00,desc 10,ARS,967.00,expense,True,Recreación,[],nota 10
+2020-04-12 00:00:00+00:00,desc 11,ARS,806.00,income,False,Deporte,[],nota 11
+2022-03-11 00:00:00+00:00,desc 12,ARS,543.00,expense,True,Vivienda,['reparaciones'],nota 12
+2021-09-21 00:00:00+00:00,desc 13,ARS,129356.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 13
+2020-10-14 00:00:00+00:00,desc 14,ARS,211.00,expense,False,Educación,"['universidad', ' postgrado']",nota 14
+2021-02-24 00:00:00+00:00,desc 15,ARS,940.00,expense,False,Vehículo,['mecanico'],nota 15
+2021-12-12 00:00:00+00:00,desc 16,ARS,54.00,expense,True,Transporte,['sube'],nota 16
+2020-11-23 00:00:00+00:00,desc 17,ARS,402.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 17
+2022-04-15 00:00:00+00:00,desc 18,ARS,186880.00,income,True,Recreación,[],nota 18
+2022-01-02 00:00:00+00:00,desc 19,ARS,168.00,expense,True,Deporte,[],nota 19
+2021-11-12 00:00:00+00:00,desc 20,ARS,995.00,expense,False,Vivienda,['reparaciones'],nota 20
+2020-01-20 00:00:00+00:00,desc 21,ARS,48.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 21
+2021-03-12 00:00:00+00:00,desc 22,ARS,330.00,expense,True,Educación,"['universidad', ' postgrado']",nota 22
+2022-08-27 00:00:00+00:00,desc 23,ARS,866.00,expense,False,Vehículo,['mecanico'],nota 23
+2020-01-23 00:00:00+00:00,desc 24,ARS,696.00,expense,True,Transporte,['sube'],nota 24
+2021-12-08 00:00:00+00:00,desc 25,ARS,730.00,income,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 25
+2020-09-07 00:00:00+00:00,desc 26,ARS,28616.00,expense,True,Recreación,[],nota 26
+2021-03-05 00:00:00+00:00,desc 27,ARS,435.00,expense,True,Deporte,[],nota 27
+2021-02-25 00:00:00+00:00,desc 28,ARS,492.00,expense,False,Vivienda,['reparaciones'],nota 28
+2022-04-23 00:00:00+00:00,desc 29,ARS,923.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 29
+2022-08-08 00:00:00+00:00,desc 30,ARS,63.00,expense,True,Educación,"['universidad', ' postgrado']",nota 30
+2022-08-05 00:00:00+00:00,desc 31,ARS,83804.00,expense,False,Vehículo,['mecanico'],nota 31
+2020-01-17 00:00:00+00:00,desc 32,ARS,408.00,income,False,Transporte,['sube'],nota 32
+2021-05-03 00:00:00+00:00,desc 33,ARS,170.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 33
+2022-05-18 00:00:00+00:00,desc 34,ARS,648.00,expense,False,Recreación,[],nota 34
+2020-08-07 00:00:00+00:00,desc 35,ARS,700.00,expense,True,Deporte,[],nota 35
+2022-10-15 00:00:00+00:00,desc 36,ARS,856.00,expense,True,Vivienda,['reparaciones'],nota 36
+2020-01-05 00:00:00+00:00,desc 37,ARS,42.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 37
+2021-11-17 00:00:00+00:00,desc 38,ARS,870.00,expense,True,Educación,"['universidad', ' postgrado']",nota 38
+2021-05-26 00:00:00+00:00,desc 39,ARS,278568.00,income,True,Vehículo,['mecanico'],nota 39
+2022-06-16 00:00:00+00:00,desc 40,ARS,50.00,expense,False,Transporte,['sube'],nota 40
+2021-10-03 00:00:00+00:00,desc 41,ARS,98.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 41
+2021-07-12 00:00:00+00:00,desc 42,ARS,447.00,expense,False,Recreación,[],nota 42
+2020-03-22 00:00:00+00:00,desc 43,ARS,570.00,expense,True,Deporte,[],nota 43
+2020-06-24 00:00:00+00:00,desc 44,ARS,167900.00,expense,True,Vivienda,['reparaciones'],nota 44
+2020-06-16 00:00:00+00:00,desc 45,ARS,903.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 45
+2020-03-04 00:00:00+00:00,desc 46,ARS,246.00,income,True,Educación,"['universidad', ' postgrado']",nota 46
+2022-10-07 00:00:00+00:00,desc 47,ARS,436.00,expense,True,Vehículo,['mecanico'],nota 47
+2022-08-11 00:00:00+00:00,desc 48,ARS,34.00,expense,False,Transporte,['sube'],nota 48
+2022-03-12 00:00:00+00:00,desc 49,ARS,250.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 49
+2021-03-11 00:00:00+00:00,desc 50,ARS,864.00,expense,True,Recreación,[],nota 50
+2020-06-24 00:00:00+00:00,desc 51,ARS,108.00,expense,False,Deporte,[],nota 51
+2022-08-04 00:00:00+00:00,desc 53,ARS,888.00,income,True,Belleza,"['peluquero', ' manicura']",nota 53
+2020-12-27 00:00:00+00:00,desc 54,ARS,678.00,expense,False,Educación,"['universidad', ' postgrado']",nota 54
+2022-02-03 00:00:00+00:00,desc 55,ARS,596.00,expense,True,Vehículo,['mecanico'],nota 55
+2021-08-14 00:00:00+00:00,desc 56,ARS,540.00,expense,True,Transporte,['sube'],nota 56
+2022-09-10 00:00:00+00:00,desc 57,ARS,61320.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 57
+2022-11-02 00:00:00+00:00,desc 58,ARS,520.00,expense,True,Recreación,[],nota 58
+2020-04-23 00:00:00+00:00,desc 59,ARS,483.00,expense,False,Deporte,[],nota 59
+2021-02-11 00:00:00+00:00,desc 60,ARS,443.00,income,True,Vivienda,['reparaciones'],nota 60
+2021-04-28 00:00:00+00:00,desc 61,ARS,540.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 61
+2020-11-26 00:00:00+00:00,desc 62,ARS,269.00,expense,False,Educación,"['universidad', ' postgrado']",nota 62
+2022-08-20 00:00:00+00:00,desc 63,ARS,343.00,expense,True,Vehículo,['mecanico'],nota 63
+2021-04-03 00:00:00+00:00,desc 64,ARS,897.00,expense,True,Transporte,['sube'],nota 64
+2020-12-22 00:00:00+00:00,desc 65,ARS,268348.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 65
+2020-10-13 00:00:00+00:00,desc 66,ARS,22.00,expense,False,Recreación,[],nota 66
+2020-10-03 00:00:00+00:00,desc 67,ARS,16.00,income,True,Deporte,[],nota 67
+2022-10-28 00:00:00+00:00,desc 68,ARS,773.00,expense,False,Vivienda,['reparaciones'],nota 68
+2020-12-06 00:00:00+00:00,desc 69,ARS,511.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 69
+2021-06-24 00:00:00+00:00,desc 70,ARS,49932.00,expense,True,Educación,"['universidad', ' postgrado']",nota 70
+2022-06-08 00:00:00+00:00,desc 71,ARS,461.00,expense,True,Vehículo,['mecanico'],nota 71
+2022-11-17 00:00:00+00:00,desc 72,ARS,864.00,expense,True,Transporte,['sube'],nota 72
+2022-10-24 00:00:00+00:00,desc 73,ARS,69.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 73
+2022-01-01 00:00:00+00:00,desc 74,ARS,707.00,income,False,Recreación,[],nota 74
+2020-10-15 00:00:00+00:00,desc 75,ARS,578.00,expense,True,Deporte,[],nota 75
+2020-04-18 00:00:00+00:00,desc 76,ARS,380.00,expense,False,Vivienda,['reparaciones'],nota 76
+2022-04-23 00:00:00+00:00,desc 77,ARS,198.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 77
+2021-08-26 00:00:00+00:00,desc 78,ARS,74168.00,expense,True,Educación,"['universidad', ' postgrado']",nota 78
+2022-02-23 00:00:00+00:00,desc 79,ARS,615.00,expense,False,Vehículo,['mecanico'],nota 79
+2022-01-14 00:00:00+00:00,desc 80,ARS,787.00,expense,True,Transporte,['sube'],nota 80
+2021-06-05 00:00:00+00:00,desc 81,ARS,533.00,income,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 81
+2021-10-24 00:00:00+00:00,desc 82,ARS,900.00,expense,False,Recreación,[],nota 82
+2022-07-16 00:00:00+00:00,desc 83,ARS,150088.00,expense,False,Deporte,[],nota 83
+2020-12-24 00:00:00+00:00,desc 84,ARS,572.00,expense,True,Vivienda,['reparaciones'],nota 84
+2022-01-12 00:00:00+00:00,desc 85,ARS,304.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 85
+2020-12-05 00:00:00+00:00,desc 86,ARS,658.00,expense,True,Educación,"['universidad', ' postgrado']",nota 86
+2022-04-01 00:00:00+00:00,desc 87,ARS,812.00,expense,True,Vehículo,['mecanico'],nota 87
+2020-05-18 00:00:00+00:00,desc 88,ARS,842.00,income,False,Transporte,['sube'],nota 88
+2020-03-08 00:00:00+00:00,desc 89,ARS,194.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 89
+2021-10-04 00:00:00+00:00,desc 90,ARS,487.00,expense,True,Recreación,[],nota 90
+2021-09-17 00:00:00+00:00,desc 91,ARS,159140.00,expense,False,Deporte,[],nota 91
+2021-08-12 00:00:00+00:00,desc 92,ARS,785.00,expense,True,Vivienda,['reparaciones'],nota 92
+2022-08-02 00:00:00+00:00,desc 93,ARS,841.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 93
+2021-06-01 00:00:00+00:00,desc 94,ARS,149.00,expense,True,Educación,"['universidad', ' postgrado']",nota 94
+2021-08-01 00:00:00+00:00,desc 95,ARS,912.00,income,True,Vehículo,['mecanico'],nota 95
+2022-05-03 00:00:00+00:00,desc 96,ARS,246740.00,expense,False,Transporte,['sube'],nota 96
+2020-07-17 00:00:00+00:00,desc 97,ARS,804.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 97
+2021-08-18 00:00:00+00:00,desc 98,ARS,841.00,expense,True,Recreación,[],nota 98
+2020-08-12 00:00:00+00:00,desc 99,ARS,338.00,expense,False,Deporte,[],nota 99
+2021-04-17 00:00:00+00:00,desc 100,ARS,179.00,expense,False,Vivienda,['reparaciones'],nota 100
+2022-06-24 00:00:00+00:00,desc 101,ARS,325.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 101
+2022-05-26 00:00:00+00:00,desc 102,ARS,432.00,income,False,Educación,"['universidad', ' postgrado']",nota 102
+2021-02-05 00:00:00+00:00,desc 103,ARS,989.00,expense,True,Vehículo,['mecanico'],nota 103
+2022-04-25 00:00:00+00:00,desc 104,ARS,102492.00,expense,True,Transporte,['sube'],nota 104
+2020-12-20 00:00:00+00:00,desc 105,ARS,764.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 105
+2022-05-05 00:00:00+00:00,desc 106,ARS,377.00,expense,True,Recreación,[],nota 106
+2021-05-03 00:00:00+00:00,desc 107,ARS,678.00,expense,True,Deporte,[],nota 107
+2022-09-14 00:00:00+00:00,desc 108,ARS,479.00,expense,False,Vivienda,['reparaciones'],nota 108
+2021-10-27 00:00:00+00:00,desc 109,ARS,46136.00,income,True,Belleza,"['peluquero', ' manicura']",nota 109
+2022-01-07 00:00:00+00:00,desc 110,ARS,830.00,expense,False,Educación,"['universidad', ' postgrado']",nota 110
+2022-04-19 00:00:00+00:00,desc 111,ARS,623.00,expense,True,Vehículo,['mecanico'],nota 111
+2022-05-01 00:00:00+00:00,desc 112,ARS,17.00,expense,True,Transporte,['sube'],nota 112
+2022-11-27 00:00:00+00:00,desc 113,ARS,933.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 113
+2020-04-23 00:00:00+00:00,desc 114,ARS,273.00,expense,True,Recreación,[],nota 114
+2022-04-16 00:00:00+00:00,desc 115,ARS,450.00,expense,True,Deporte,[],nota 115
+2020-08-24 00:00:00+00:00,desc 116,ARS,162.00,income,False,Vivienda,['reparaciones'],nota 116
+2022-12-03 00:00:00+00:00,desc 117,ARS,137240.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 117
+2021-02-28 00:00:00+00:00,desc 118,ARS,999.00,expense,True,Educación,"['universidad', ' postgrado']",nota 118
+2020-03-14 00:00:00+00:00,desc 119,ARS,420.00,expense,False,Vehículo,['mecanico'],nota 119
+2022-08-24 00:00:00+00:00,desc 120,ARS,439.00,expense,True,Transporte,['sube'],nota 120
+2022-01-03 00:00:00+00:00,desc 121,ARS,863.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 121
+2021-06-05 00:00:00+00:00,desc 122,ARS,43216.00,expense,False,Recreación,[],nota 122
+2022-05-05 00:00:00+00:00,desc 123,ARS,850.00,income,True,Deporte,[],nota 123
+2021-03-22 00:00:00+00:00,desc 124,ARS,325.00,expense,True,Vivienda,['reparaciones'],nota 124
+2020-12-21 00:00:00+00:00,desc 125,ARS,905.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 125
+2022-02-03 00:00:00+00:00,desc 126,ARS,575.00,expense,True,Educación,"['universidad', ' postgrado']",nota 126
+2020-07-22 00:00:00+00:00,desc 127,ARS,345.00,expense,False,Vehículo,['mecanico'],nota 127
+2022-02-22 00:00:00+00:00,desc 128,ARS,960.00,expense,True,Transporte,['sube'],nota 128
+2020-09-27 00:00:00+00:00,desc 129,ARS,85.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 129
+2022-06-17 00:00:00+00:00,desc 130,ARS,213160.00,income,False,Recreación,[],nota 130
+2022-12-25 00:00:00+00:00,desc 131,ARS,535.00,expense,True,Deporte,[],nota 131
+2021-12-25 00:00:00+00:00,desc 132,ARS,843.00,expense,True,Vivienda,['reparaciones'],nota 132
+2021-02-19 00:00:00+00:00,desc 133,ARS,115.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 133
+2020-04-08 00:00:00+00:00,desc 134,ARS,927.00,expense,False,Educación,"['universidad', ' postgrado']",nota 134
+2022-07-22 00:00:00+00:00,desc 135,ARS,196808.00,expense,True,Vehículo,['mecanico'],nota 135
+2020-07-04 00:00:00+00:00,desc 136,ARS,139.00,expense,False,Transporte,['sube'],nota 136
+2021-01-08 00:00:00+00:00,desc 137,ARS,313.00,income,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 137
+2021-09-24 00:00:00+00:00,desc 138,ARS,787.00,expense,True,Recreación,[],nota 138
+2021-08-13 00:00:00+00:00,desc 139,ARS,648.00,expense,True,Deporte,[],nota 139
+2020-05-06 00:00:00+00:00,desc 140,ARS,663.00,expense,True,Vivienda,['reparaciones'],nota 140
+2020-11-10 00:00:00+00:00,desc 141,ARS,972.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 141
+2021-06-25 00:00:00+00:00,desc 142,ARS,418.00,expense,False,Educación,"['universidad', ' postgrado']",nota 142
+2020-08-09 00:00:00+00:00,desc 143,ARS,184836.00,expense,True,Vehículo,['mecanico'],nota 143
+2021-10-11 00:00:00+00:00,desc 144,ARS,888.00,income,False,Transporte,['sube'],nota 144
+2022-10-26 00:00:00+00:00,desc 145,ARS,718.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 145
+2020-04-02 00:00:00+00:00,desc 146,ARS,883.00,expense,True,Recreación,[],nota 146
+2020-12-14 00:00:00+00:00,desc 147,ARS,902.00,expense,False,Deporte,[],nota 147
+2020-09-09 00:00:00+00:00,desc 148,ARS,94900.00,expense,True,Vivienda,['reparaciones'],nota 148
+2021-06-23 00:00:00+00:00,desc 149,ARS,731.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 149
+2022-06-24 00:00:00+00:00,desc 150,ARS,832.00,expense,False,Educación,"['universidad', ' postgrado']",nota 150
+2021-10-17 00:00:00+00:00,desc 151,ARS,45.00,income,False,Vehículo,['mecanico'],nota 151
+2022-06-18 00:00:00+00:00,desc 152,ARS,470.00,expense,True,Transporte,['sube'],nota 152
+2020-06-10 00:00:00+00:00,desc 153,ARS,618.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 153
+2021-06-05 00:00:00+00:00,desc 154,ARS,713.00,expense,True,Recreación,[],nota 154
+2022-10-09 00:00:00+00:00,desc 155,ARS,176.00,expense,True,Deporte,[],nota 155
+2020-01-13 00:00:00+00:00,desc 156,ARS,18980.00,expense,False,Vivienda,['reparaciones'],nota 156
+2021-10-11 00:00:00+00:00,desc 157,ARS,675.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 157
+2021-09-01 00:00:00+00:00,desc 158,ARS,887.00,income,True,Educación,"['universidad', ' postgrado']",nota 158
+2022-06-11 00:00:00+00:00,desc 159,ARS,542.00,expense,False,Vehículo,['mecanico'],nota 159
+2022-08-11 00:00:00+00:00,desc 160,ARS,853.00,expense,True,Transporte,['sube'],nota 160
+2022-12-07 00:00:00+00:00,desc 161,ARS,74460.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 161
+2020-06-03 00:00:00+00:00,desc 162,ARS,73.00,expense,True,Recreación,[],nota 162
+2021-10-07 00:00:00+00:00,desc 163,ARS,304.00,expense,True,Deporte,[],nota 163
+2021-03-10 00:00:00+00:00,desc 164,ARS,95.00,expense,False,Vivienda,['reparaciones'],nota 164
+2022-05-10 00:00:00+00:00,desc 165,ARS,973.00,income,True,Belleza,"['peluquero', ' manicura']",nota 165
+2020-10-13 00:00:00+00:00,desc 166,ARS,986.00,expense,True,Educación,"['universidad', ' postgrado']",nota 166
+2022-09-11 00:00:00+00:00,desc 167,ARS,172.00,expense,False,Vehículo,['mecanico'],nota 167
+2021-01-08 00:00:00+00:00,desc 168,ARS,129.00,expense,False,Transporte,['sube'],nota 168
+2021-09-06 00:00:00+00:00,desc 169,ARS,144248.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 169
+2020-08-20 00:00:00+00:00,desc 170,ARS,748.00,expense,False,Recreación,[],nota 170
+2022-09-04 00:00:00+00:00,desc 171,ARS,7.00,expense,True,Deporte,[],nota 171
+2022-11-11 00:00:00+00:00,desc 172,ARS,905.00,income,True,Vivienda,['reparaciones'],nota 172
+2020-11-22 00:00:00+00:00,desc 173,ARS,766.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 173
+2021-03-08 00:00:00+00:00,desc 174,ARS,179872.00,expense,True,Educación,"['universidad', ' postgrado']",nota 174
+2022-02-22 00:00:00+00:00,desc 175,ARS,450.00,expense,True,Vehículo,['mecanico'],nota 175
+2021-03-14 00:00:00+00:00,desc 176,ARS,976.00,expense,False,Transporte,['sube'],nota 176
+2020-11-27 00:00:00+00:00,desc 177,ARS,607.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 177
+2021-04-21 00:00:00+00:00,desc 178,ARS,843.00,expense,False,Recreación,[],nota 178
+2022-03-02 00:00:00+00:00,desc 179,ARS,155.00,income,True,Deporte,[],nota 179
+2020-09-20 00:00:00+00:00,desc 180,ARS,689.00,expense,True,Vivienda,['reparaciones'],nota 180
+2022-02-05 00:00:00+00:00,desc 181,ARS,740.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 181
+2020-11-06 00:00:00+00:00,desc 182,ARS,17520.00,expense,True,Educación,"['universidad', ' postgrado']",nota 182
+2021-12-22 00:00:00+00:00,desc 183,ARS,192.00,expense,True,Vehículo,['mecanico'],nota 183
+2020-11-05 00:00:00+00:00,desc 184,ARS,382.00,expense,False,Transporte,['sube'],nota 184
+2021-01-04 00:00:00+00:00,desc 185,ARS,503.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 185
+2022-08-17 00:00:00+00:00,desc 186,ARS,348.00,income,True,Recreación,[],nota 186
+2020-02-27 00:00:00+00:00,desc 187,ARS,233308.00,expense,False,Deporte,[],nota 187
+2022-02-10 00:00:00+00:00,desc 188,ARS,242.00,expense,True,Vivienda,['reparaciones'],nota 188
+2021-07-18 00:00:00+00:00,desc 189,ARS,669.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 189
+2022-08-03 00:00:00+00:00,desc 190,ARS,332.00,expense,False,Educación,"['universidad', ' postgrado']",nota 190
+2020-12-12 00:00:00+00:00,desc 191,ARS,671.00,expense,True,Vehículo,['mecanico'],nota 191
+2022-09-21 00:00:00+00:00,desc 192,ARS,112.00,expense,True,Transporte,['sube'],nota 192
+2021-07-01 00:00:00+00:00,desc 193,ARS,37.00,income,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 193
+2022-07-23 00:00:00+00:00,desc 194,ARS,981.00,expense,True,Recreación,[],nota 194
+2021-06-16 00:00:00+00:00,desc 195,ARS,195932.00,expense,False,Deporte,[],nota 195
+2022-11-22 00:00:00+00:00,desc 196,ARS,922.00,expense,True,Vivienda,['reparaciones'],nota 196
+2020-09-10 00:00:00+00:00,desc 197,ARS,711.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 197
+2022-01-19 00:00:00+00:00,desc 198,ARS,489.00,expense,False,Educación,"['universidad', ' postgrado']",nota 198
+2022-02-21 00:00:00+00:00,desc 199,ARS,937.00,expense,True,Vehículo,['mecanico'],nota 199
+2021-09-04 00:00:00+00:00,desc 200,ARS,184544.00,income,True,Transporte,['sube'],nota 200
+2022-08-13 00:00:00+00:00,desc 201,ARS,282.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 201
+2020-04-03 00:00:00+00:00,desc 202,ARS,574.00,expense,False,Recreación,[],nota 202
+2022-12-13 00:00:00+00:00,desc 203,ARS,79.00,expense,True,Deporte,[],nota 203
+2021-07-07 00:00:00+00:00,desc 204,ARS,527.00,expense,False,Vivienda,['reparaciones'],nota 204
+2021-03-05 00:00:00+00:00,desc 205,ARS,436.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 205
+2020-07-23 00:00:00+00:00,desc 206,ARS,734.00,expense,True,Educación,"['universidad', ' postgrado']",nota 206
+2022-06-15 00:00:00+00:00,desc 207,ARS,349.00,income,True,Vehículo,['mecanico'],nota 207
+2020-06-15 00:00:00+00:00,desc 208,ARS,135196.00,expense,True,Transporte,['sube'],nota 208
+2021-10-20 00:00:00+00:00,desc 209,ARS,881.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 209
+2020-06-27 00:00:00+00:00,desc 210,ARS,562.00,expense,False,Recreación,[],nota 210
+2021-12-14 00:00:00+00:00,desc 211,ARS,413.00,expense,True,Deporte,[],nota 211
+2020-02-18 00:00:00+00:00,desc 212,ARS,188.00,expense,False,Vivienda,['reparaciones'],nota 212
+2021-04-10 00:00:00+00:00,desc 213,ARS,248200.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 213
+2021-04-21 00:00:00+00:00,desc 214,ARS,975.00,income,True,Educación,"['universidad', ' postgrado']",nota 214
+2021-04-25 00:00:00+00:00,desc 215,ARS,650.00,expense,False,Vehículo,['mecanico'],nota 215
+2020-08-19 00:00:00+00:00,desc 216,ARS,194.00,expense,True,Transporte,['sube'],nota 216
+2022-02-16 00:00:00+00:00,desc 217,ARS,873.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 217
+2020-11-16 00:00:00+00:00,desc 218,ARS,332.00,expense,False,Recreación,[],nota 218
+2022-05-09 00:00:00+00:00,desc 219,ARS,674.00,expense,False,Deporte,[],nota 219
+2020-09-09 00:00:00+00:00,desc 220,ARS,618.00,expense,True,Vivienda,['reparaciones'],nota 220
+2020-04-09 00:00:00+00:00,desc 221,ARS,270976.00,income,False,Belleza,"['peluquero', ' manicura']",nota 221
+2022-09-22 00:00:00+00:00,desc 222,ARS,737.00,expense,True,Educación,"['universidad', ' postgrado']",nota 222
+2022-06-15 00:00:00+00:00,desc 223,ARS,138.00,expense,True,Vehículo,['mecanico'],nota 223
+2022-09-03 00:00:00+00:00,desc 224,ARS,624.00,expense,False,Transporte,['sube'],nota 224
+2021-03-16 00:00:00+00:00,desc 225,ARS,609.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 225
+2022-08-28 00:00:00+00:00,desc 226,ARS,145124.00,expense,True,Recreación,[],nota 226
+2022-12-15 00:00:00+00:00,desc 227,ARS,742.00,expense,False,Deporte,[],nota 227
+2021-08-16 00:00:00+00:00,desc 228,ARS,323.00,income,True,Vivienda,['reparaciones'],nota 228
+2021-08-20 00:00:00+00:00,desc 229,ARS,386.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 229
+2022-06-06 00:00:00+00:00,desc 230,ARS,607.00,expense,True,Educación,"['universidad', ' postgrado']",nota 230
+2021-11-11 00:00:00+00:00,desc 231,ARS,755.00,expense,True,Vehículo,['mecanico'],nota 231
+2020-12-05 00:00:00+00:00,desc 232,ARS,750.00,expense,False,Transporte,['sube'],nota 232
+2022-03-22 00:00:00+00:00,desc 233,ARS,645.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 233
+2021-08-13 00:00:00+00:00,desc 234,ARS,103660.00,expense,True,Recreación,[],nota 234
+2022-01-21 00:00:00+00:00,desc 235,ARS,310.00,income,False,Deporte,[],nota 235
+2021-11-23 00:00:00+00:00,desc 236,ARS,617.00,expense,False,Vivienda,['reparaciones'],nota 236
+2022-11-22 00:00:00+00:00,desc 237,ARS,721.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 237
+2020-08-17 00:00:00+00:00,desc 238,ARS,601.00,expense,False,Educación,"['universidad', ' postgrado']",nota 238
+2021-03-06 00:00:00+00:00,desc 239,ARS,49640.00,expense,True,Vehículo,['mecanico'],nota 239
+2021-03-25 00:00:00+00:00,desc 240,ARS,582.00,expense,True,Transporte,['sube'],nota 240
+2021-04-12 00:00:00+00:00,desc 241,ARS,739.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 241
+2022-04-20 00:00:00+00:00,desc 242,ARS,84.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 242
+2020-08-23 00:00:00+00:00,desc 243,ARS,683.00,expense,True,Recreación,[],nota 243
+2021-05-21 00:00:00+00:00,desc 244,ARS,538.00,expense,True,Deporte,[],nota 244
+2022-03-13 00:00:00+00:00,desc 245,ARS,760.00,income,True,Vivienda,['reparaciones'],nota 245
+2022-07-08 00:00:00+00:00,desc 246,ARS,36792.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 246
+2022-08-28 00:00:00+00:00,desc 247,ARS,148.00,expense,False,Educación,"['universidad', ' postgrado']",nota 247
+2021-08-24 00:00:00+00:00,desc 248,ARS,1.00,expense,True,Vehículo,['mecanico'],nota 248
+2022-05-13 00:00:00+00:00,desc 249,ARS,322.00,expense,False,Transporte,['sube'],nota 249
+2020-07-10 00:00:00+00:00,desc 250,ARS,450.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 250
+2020-03-15 00:00:00+00:00,desc 251,ARS,874.00,expense,True,Recreación,[],nota 251
+2020-05-11 00:00:00+00:00,desc 252,ARS,20.00,income,False,Deporte,[],nota 252
+2020-05-18 00:00:00+00:00,desc 253,ARS,224.00,expense,True,Vivienda,['reparaciones'],nota 253
+2021-03-08 00:00:00+00:00,desc 254,ARS,129356.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 254
+2022-09-09 00:00:00+00:00,desc 255,ARS,805.00,expense,False,Educación,"['universidad', ' postgrado']",nota 255
+2020-03-08 00:00:00+00:00,desc 256,ARS,143.00,expense,False,Vehículo,['mecanico'],nota 256
+2020-08-11 00:00:00+00:00,desc 257,ARS,95.00,expense,True,Transporte,['sube'],nota 257
+2022-02-21 00:00:00+00:00,desc 258,ARS,64.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 258
+2020-01-28 00:00:00+00:00,desc 259,ARS,205568.00,income,True,Recreación,[],nota 259
+2020-02-26 00:00:00+00:00,desc 260,ARS,912.00,expense,True,Deporte,[],nota 260
+2022-04-15 00:00:00+00:00,desc 261,ARS,58.00,expense,False,Vivienda,['reparaciones'],nota 261
+2022-12-13 00:00:00+00:00,desc 262,ARS,798.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 262
+2022-04-05 00:00:00+00:00,desc 263,ARS,529.00,expense,True,Educación,"['universidad', ' postgrado']",nota 263
+2021-10-23 00:00:00+00:00,desc 264,ARS,11.00,expense,False,Vehículo,['mecanico'],nota 264
+2022-09-12 00:00:00+00:00,desc 265,ARS,598.00,expense,True,Transporte,['sube'],nota 265
+2020-01-02 00:00:00+00:00,desc 266,ARS,485.00,income,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 266
+2020-03-05 00:00:00+00:00,desc 267,ARS,241484.00,expense,True,Recreación,[],nota 267
+2022-10-08 00:00:00+00:00,desc 268,ARS,688.00,expense,True,Deporte,[],nota 268
+2021-11-11 00:00:00+00:00,desc 269,ARS,537.00,expense,False,Vivienda,['reparaciones'],nota 269
+2021-08-09 00:00:00+00:00,desc 270,ARS,617.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 270
+2022-10-02 00:00:00+00:00,desc 271,ARS,667.00,expense,True,Educación,"['universidad', ' postgrado']",nota 271
+2022-11-07 00:00:00+00:00,desc 272,ARS,91688.00,expense,False,Vehículo,['mecanico'],nota 272
+2020-09-14 00:00:00+00:00,desc 273,ARS,913.00,income,False,Transporte,['sube'],nota 273
+2020-02-06 00:00:00+00:00,desc 274,ARS,678.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 274
+2021-01-21 00:00:00+00:00,desc 275,ARS,896.00,expense,False,Recreación,[],nota 275
+2020-10-11 00:00:00+00:00,desc 276,ARS,962.00,expense,True,Deporte,[],nota 276
+2021-12-20 00:00:00+00:00,desc 277,ARS,400.00,expense,True,Vivienda,['reparaciones'],nota 277
+2022-06-14 00:00:00+00:00,desc 278,ARS,438.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 278
+2022-05-25 00:00:00+00:00,desc 279,ARS,267.00,expense,True,Educación,"['universidad', ' postgrado']",nota 279
+2021-07-18 00:00:00+00:00,desc 280,ARS,214912.00,income,True,Vehículo,['mecanico'],nota 280
+2020-09-05 00:00:00+00:00,desc 281,ARS,857.00,expense,False,Transporte,['sube'],nota 281
+2021-07-02 00:00:00+00:00,desc 282,ARS,645.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 282
+2022-10-15 00:00:00+00:00,desc 283,ARS,284.00,expense,False,Recreación,[],nota 283
+2022-01-10 00:00:00+00:00,desc 284,ARS,130.00,expense,True,Deporte,[],nota 284
+2020-01-17 00:00:00+00:00,desc 285,ARS,149796.00,expense,True,Vivienda,['reparaciones'],nota 285
+2021-01-20 00:00:00+00:00,desc 286,ARS,485.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 286
+2021-03-01 00:00:00+00:00,desc 287,ARS,464.00,income,True,Educación,"['universidad', ' postgrado']",nota 287
+2020-02-18 00:00:00+00:00,desc 288,ARS,114.00,expense,True,Vehículo,['mecanico'],nota 288
+2022-04-11 00:00:00+00:00,desc 289,ARS,299.00,expense,False,Transporte,['sube'],nota 289
+2021-10-06 00:00:00+00:00,desc 290,ARS,234.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 290
+2020-04-26 00:00:00+00:00,desc 291,ARS,75.00,expense,True,Recreación,[],nota 291
+2020-01-18 00:00:00+00:00,desc 292,ARS,768.00,expense,False,Deporte,[],nota 292
+2020-08-10 00:00:00+00:00,desc 293,ARS,237688.00,expense,True,Vivienda,['reparaciones'],nota 293
+2020-04-21 00:00:00+00:00,desc 294,ARS,45.00,income,True,Belleza,"['peluquero', ' manicura']",nota 294
+2020-06-10 00:00:00+00:00,desc 295,ARS,305.00,expense,False,Educación,"['universidad', ' postgrado']",nota 295
+2021-09-12 00:00:00+00:00,desc 296,ARS,253.00,expense,True,Vehículo,['mecanico'],nota 296
+2022-12-10 00:00:00+00:00,desc 297,ARS,491.00,expense,True,Transporte,['sube'],nota 297
+2022-06-20 00:00:00+00:00,desc 298,ARS,126144.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 298
+2021-04-17 00:00:00+00:00,desc 299,ARS,253.00,expense,True,Recreación,[],nota 299
+2021-10-19 00:00:00+00:00,desc 300,ARS,602.00,expense,False,Deporte,[],nota 300
+2020-12-25 00:00:00+00:00,desc 301,ARS,556.00,income,True,Vivienda,['reparaciones'],nota 301
+2022-12-08 00:00:00+00:00,desc 302,ARS,58.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 302
+2021-05-02 00:00:00+00:00,desc 303,ARS,98.00,expense,False,Educación,"['universidad', ' postgrado']",nota 303
+2020-04-28 00:00:00+00:00,desc 304,ARS,336.00,expense,True,Vehículo,['mecanico'],nota 304
+2021-01-23 00:00:00+00:00,desc 305,ARS,526.00,expense,True,Transporte,['sube'],nota 305
+2021-03-04 00:00:00+00:00,desc 306,ARS,195640.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 306
+2021-03-13 00:00:00+00:00,desc 307,ARS,283.00,expense,False,Recreación,[],nota 307
+2020-01-05 00:00:00+00:00,desc 308,ARS,172.00,income,True,Deporte,[],nota 308
+2021-07-03 00:00:00+00:00,desc 309,ARS,78.00,expense,False,Vivienda,['reparaciones'],nota 309
+2022-07-16 00:00:00+00:00,desc 310,ARS,579.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 310
+2021-08-04 00:00:00+00:00,desc 311,ARS,172864.00,expense,True,Educación,"['universidad', ' postgrado']",nota 311
+2022-10-04 00:00:00+00:00,desc 312,ARS,174.00,expense,True,Vehículo,['mecanico'],nota 312
+2021-03-18 00:00:00+00:00,desc 313,ARS,313.00,expense,True,Transporte,['sube'],nota 313
+2022-02-21 00:00:00+00:00,desc 314,ARS,920.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 314
+2020-06-25 00:00:00+00:00,desc 315,ARS,532.00,income,False,Recreación,[],nota 315
+2022-06-12 00:00:00+00:00,desc 316,ARS,526.00,expense,True,Deporte,[],nota 316
+2022-12-20 00:00:00+00:00,desc 317,ARS,637.00,expense,False,Vivienda,['reparaciones'],nota 317
+2021-03-09 00:00:00+00:00,desc 318,ARS,23.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 318
+2020-12-18 00:00:00+00:00,desc 319,ARS,161476.00,expense,True,Educación,"['universidad', ' postgrado']",nota 319
+2022-07-01 00:00:00+00:00,desc 320,ARS,744.00,expense,False,Vehículo,['mecanico'],nota 320
+2020-08-28 00:00:00+00:00,desc 321,ARS,690.00,expense,True,Transporte,['sube'],nota 321
+2020-10-02 00:00:00+00:00,desc 322,ARS,629.00,income,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 322
+2022-05-12 00:00:00+00:00,desc 323,ARS,208.00,expense,False,Recreación,[],nota 323
+2021-07-15 00:00:00+00:00,desc 324,ARS,157972.00,expense,False,Deporte,[],nota 324
+2021-05-25 00:00:00+00:00,desc 325,ARS,31.00,expense,True,Vivienda,['reparaciones'],nota 325
+2020-05-02 00:00:00+00:00,desc 326,ARS,356.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 326
+2020-04-14 00:00:00+00:00,desc 327,ARS,559.00,expense,True,Educación,"['universidad', ' postgrado']",nota 327
+2021-07-11 00:00:00+00:00,desc 328,ARS,757.00,expense,True,Vehículo,['mecanico'],nota 328
+2020-11-08 00:00:00+00:00,desc 329,ARS,566.00,income,False,Transporte,['sube'],nota 329
+2021-11-25 00:00:00+00:00,desc 330,ARS,768.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 330
+2021-12-20 00:00:00+00:00,desc 331,ARS,771.00,expense,True,Recreación,[],nota 331
+2022-02-21 00:00:00+00:00,desc 332,ARS,211992.00,expense,False,Deporte,[],nota 332
+2020-05-04 00:00:00+00:00,desc 333,ARS,31.00,expense,True,Vivienda,['reparaciones'],nota 333
+2022-04-28 00:00:00+00:00,desc 334,ARS,639.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 334
+2021-09-01 00:00:00+00:00,desc 335,ARS,74.00,expense,True,Educación,"['universidad', ' postgrado']",nota 335
+2020-08-26 00:00:00+00:00,desc 336,ARS,216.00,income,True,Vehículo,['mecanico'],nota 336
+2020-03-27 00:00:00+00:00,desc 337,ARS,58984.00,expense,False,Transporte,['sube'],nota 337
+2022-08-13 00:00:00+00:00,desc 338,ARS,531.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 338
+2022-01-02 00:00:00+00:00,desc 339,ARS,5.00,expense,True,Recreación,[],nota 339
+2021-08-02 00:00:00+00:00,desc 340,ARS,595.00,expense,False,Deporte,[],nota 340
+2022-12-08 00:00:00+00:00,desc 341,ARS,867.00,expense,False,Vivienda,['reparaciones'],nota 341
+2022-05-01 00:00:00+00:00,desc 342,ARS,581.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 342
+2022-10-11 00:00:00+00:00,desc 343,ARS,122.00,income,False,Educación,"['universidad', ' postgrado']",nota 343
+2021-04-24 00:00:00+00:00,desc 344,ARS,199.00,expense,True,Vehículo,['mecanico'],nota 344
+2022-07-02 00:00:00+00:00,desc 345,ARS,9928.00,expense,True,Transporte,['sube'],nota 345
+2020-01-15 00:00:00+00:00,desc 346,ARS,482.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 346
+2021-08-06 00:00:00+00:00,desc 347,ARS,184.00,expense,True,Recreación,[],nota 347
+2020-10-09 00:00:00+00:00,desc 348,ARS,972.00,expense,True,Deporte,[],nota 348
+2022-11-24 00:00:00+00:00,desc 349,ARS,281.00,expense,False,Vivienda,['reparaciones'],nota 349
+2022-10-28 00:00:00+00:00,desc 350,ARS,6716.00,income,True,Belleza,"['peluquero', ' manicura']",nota 350
+2021-01-03 00:00:00+00:00,desc 351,ARS,127.00,expense,False,Educación,"['universidad', ' postgrado']",nota 351
+2021-10-06 00:00:00+00:00,desc 352,ARS,323.00,expense,True,Vehículo,['mecanico'],nota 352
+2022-09-17 00:00:00+00:00,desc 353,ARS,638.00,expense,True,Transporte,['sube'],nota 353
+2021-01-13 00:00:00+00:00,desc 354,ARS,155.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 354
+2020-05-02 00:00:00+00:00,desc 355,ARS,37.00,expense,True,Recreación,[],nota 355
+2022-04-01 00:00:00+00:00,desc 356,ARS,803.00,expense,True,Deporte,[],nota 356
+2021-09-28 00:00:00+00:00,desc 357,ARS,891.00,income,False,Vivienda,['reparaciones'],nota 357
+2020-08-05 00:00:00+00:00,desc 358,ARS,146584.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 358
+2022-08-26 00:00:00+00:00,desc 359,ARS,728.00,expense,True,Educación,"['universidad', ' postgrado']",nota 359
+2022-10-15 00:00:00+00:00,desc 360,ARS,632.00,expense,False,Vehículo,['mecanico'],nota 360
+2022-06-10 00:00:00+00:00,desc 361,ARS,749.00,expense,True,Transporte,['sube'],nota 361
+2022-06-09 00:00:00+00:00,desc 362,ARS,436.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 362
+2021-05-11 00:00:00+00:00,desc 363,ARS,127604.00,expense,False,Recreación,[],nota 363
+2022-04-28 00:00:00+00:00,desc 364,ARS,352.00,income,True,Deporte,[],nota 364
+2021-05-25 00:00:00+00:00,desc 365,ARS,880.00,expense,True,Vivienda,['reparaciones'],nota 365
+2020-02-20 00:00:00+00:00,desc 366,ARS,309.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 366
+2020-08-01 00:00:00+00:00,desc 367,ARS,649.00,expense,True,Educación,"['universidad', ' postgrado']",nota 367
+2021-10-06 00:00:00+00:00,desc 368,ARS,858.00,expense,False,Vehículo,['mecanico'],nota 368
+2022-04-22 00:00:00+00:00,desc 369,ARS,429.00,expense,True,Transporte,['sube'],nota 369
+2022-03-07 00:00:00+00:00,desc 370,ARS,218.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 370
+2021-06-23 00:00:00+00:00,desc 371,ARS,6424.00,income,False,Recreación,[],nota 371
+2021-11-11 00:00:00+00:00,desc 372,ARS,847.00,expense,True,Deporte,[],nota 372
+2021-04-19 00:00:00+00:00,desc 373,ARS,253.00,expense,True,Vivienda,['reparaciones'],nota 373
+2020-09-06 00:00:00+00:00,desc 374,ARS,703.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 374
+2022-06-27 00:00:00+00:00,desc 375,ARS,928.00,expense,False,Educación,"['universidad', ' postgrado']",nota 375
+2022-04-06 00:00:00+00:00,desc 376,ARS,88476.00,expense,True,Vehículo,['mecanico'],nota 376
+2021-07-07 00:00:00+00:00,desc 377,ARS,793.00,expense,False,Transporte,['sube'],nota 377
+2020-03-06 00:00:00+00:00,desc 378,ARS,144.00,income,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 378
+2021-02-19 00:00:00+00:00,desc 379,ARS,178.00,expense,True,Recreación,[],nota 379
+2021-07-15 00:00:00+00:00,desc 380,ARS,954.00,expense,True,Deporte,[],nota 380
+2022-03-14 00:00:00+00:00,desc 381,ARS,177.00,expense,True,Vivienda,['reparaciones'],nota 381
+2022-10-01 00:00:00+00:00,desc 382,ARS,187.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 382
+2021-07-03 00:00:00+00:00,desc 383,ARS,78.00,expense,False,Educación,"['universidad', ' postgrado']",nota 383
+2022-10-06 00:00:00+00:00,desc 384,ARS,232140.00,expense,True,Vehículo,['mecanico'],nota 384
+2022-02-07 00:00:00+00:00,desc 385,ARS,900.00,income,False,Transporte,['sube'],nota 385
+2020-08-28 00:00:00+00:00,desc 386,ARS,463.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 386
+2022-01-17 00:00:00+00:00,desc 387,ARS,84.00,expense,True,Recreación,[],nota 387
+2020-10-27 00:00:00+00:00,desc 388,ARS,650.00,expense,False,Deporte,[],nota 388
+2021-04-28 00:00:00+00:00,desc 389,ARS,44384.00,expense,True,Vivienda,['reparaciones'],nota 389
+2020-06-25 00:00:00+00:00,desc 390,ARS,13.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 390
+2020-07-14 00:00:00+00:00,desc 391,ARS,992.00,expense,False,Educación,"['universidad', ' postgrado']",nota 391
+2020-11-17 00:00:00+00:00,desc 392,ARS,448.00,income,False,Vehículo,['mecanico'],nota 392
+2022-10-23 00:00:00+00:00,desc 393,ARS,701.00,expense,True,Transporte,['sube'],nota 393
+2021-07-08 00:00:00+00:00,desc 394,ARS,283.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 394
+2021-09-15 00:00:00+00:00,desc 395,ARS,744.00,expense,True,Recreación,[],nota 395
+2020-04-05 00:00:00+00:00,desc 396,ARS,363.00,expense,True,Deporte,[],nota 396
+2021-08-03 00:00:00+00:00,desc 397,ARS,3212.00,expense,False,Vivienda,['reparaciones'],nota 397
+2021-12-09 00:00:00+00:00,desc 398,ARS,317.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 398
+2020-05-04 00:00:00+00:00,desc 399,ARS,669.00,income,True,Educación,"['universidad', ' postgrado']",nota 399
+2020-12-12 00:00:00+00:00,desc 400,ARS,200.00,expense,False,Vehículo,['mecanico'],nota 400
+2021-12-09 00:00:00+00:00,desc 401,ARS,164.00,expense,True,Transporte,['sube'],nota 401
+2020-06-28 00:00:00+00:00,desc 402,ARS,219876.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 402
+2022-05-01 00:00:00+00:00,desc 403,ARS,226.00,expense,True,Recreación,[],nota 403
+2020-05-14 00:00:00+00:00,desc 404,ARS,467.00,expense,True,Deporte,[],nota 404
+2020-05-24 00:00:00+00:00,desc 405,ARS,19.00,expense,False,Vivienda,['reparaciones'],nota 405
+2021-12-12 00:00:00+00:00,desc 406,ARS,554.00,income,True,Belleza,"['peluquero', ' manicura']",nota 406
+2021-04-09 00:00:00+00:00,desc 407,ARS,58.00,expense,True,Educación,"['universidad', ' postgrado']",nota 407
+2022-05-09 00:00:00+00:00,desc 408,ARS,354.00,expense,False,Vehículo,['mecanico'],nota 408
+2021-01-18 00:00:00+00:00,desc 409,ARS,962.00,expense,False,Transporte,['sube'],nota 409
+2022-04-25 00:00:00+00:00,desc 410,ARS,284992.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 410
+2022-10-22 00:00:00+00:00,desc 411,ARS,515.00,expense,False,Recreación,[],nota 411
+2021-06-22 00:00:00+00:00,desc 412,ARS,478.00,expense,True,Deporte,[],nota 412
+2021-09-03 00:00:00+00:00,desc 413,ARS,557.00,income,True,Vivienda,['reparaciones'],nota 413
+2021-06-07 00:00:00+00:00,desc 414,ARS,132.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 414
+2021-07-17 00:00:00+00:00,desc 415,ARS,176076.00,expense,True,Educación,"['universidad', ' postgrado']",nota 415
+2020-01-11 00:00:00+00:00,desc 416,ARS,579.00,expense,True,Vehículo,['mecanico'],nota 416
+2022-11-18 00:00:00+00:00,desc 417,ARS,352.00,expense,False,Transporte,['sube'],nota 417
+2022-08-03 00:00:00+00:00,desc 418,ARS,661.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 418
+2022-08-17 00:00:00+00:00,desc 419,ARS,703.00,expense,False,Recreación,[],nota 419
+2022-01-18 00:00:00+00:00,desc 420,ARS,553.00,income,True,Deporte,[],nota 420
+2022-05-02 00:00:00+00:00,desc 421,ARS,161.00,expense,True,Vivienda,['reparaciones'],nota 421
+2020-11-22 00:00:00+00:00,desc 422,ARS,417.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 422
+2020-04-06 00:00:00+00:00,desc 423,ARS,89936.00,expense,True,Educación,"['universidad', ' postgrado']",nota 423
+2022-04-05 00:00:00+00:00,desc 424,ARS,119.00,expense,True,Vehículo,['mecanico'],nota 424
+2022-01-05 00:00:00+00:00,desc 425,ARS,115.00,expense,False,Transporte,['sube'],nota 425
+2020-11-20 00:00:00+00:00,desc 426,ARS,826.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 426
+2022-02-22 00:00:00+00:00,desc 427,ARS,435.00,income,True,Recreación,[],nota 427
+2020-05-26 00:00:00+00:00,desc 428,ARS,42048.00,expense,False,Deporte,[],nota 428
+2021-12-19 00:00:00+00:00,desc 429,ARS,905.00,expense,True,Vivienda,['reparaciones'],nota 429
+2021-11-18 00:00:00+00:00,desc 430,ARS,510.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 430
+2021-06-09 00:00:00+00:00,desc 431,ARS,366.00,expense,False,Educación,"['universidad', ' postgrado']",nota 431
+2021-04-04 00:00:00+00:00,desc 432,ARS,162.00,expense,True,Vehículo,['mecanico'],nota 432
+2020-08-20 00:00:00+00:00,desc 433,ARS,700.00,expense,True,Transporte,['sube'],nota 433
+2021-07-25 00:00:00+00:00,desc 434,ARS,70.00,income,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 434
+2021-10-28 00:00:00+00:00,desc 435,ARS,813.00,expense,True,Recreación,[],nota 435
+2020-05-06 00:00:00+00:00,desc 436,ARS,259004.00,expense,False,Deporte,[],nota 436
+2020-08-02 00:00:00+00:00,desc 437,ARS,391.00,expense,True,Vivienda,['reparaciones'],nota 437
+2022-02-24 00:00:00+00:00,desc 438,ARS,460.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 438
+2020-07-10 00:00:00+00:00,desc 439,ARS,694.00,expense,False,Educación,"['universidad', ' postgrado']",nota 439
+2020-02-23 00:00:00+00:00,desc 440,ARS,597.00,expense,True,Vehículo,['mecanico'],nota 440
+2020-09-14 00:00:00+00:00,desc 441,ARS,275064.00,income,True,Transporte,['sube'],nota 441
+2022-10-03 00:00:00+00:00,desc 442,ARS,203.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 442
+2022-03-11 00:00:00+00:00,desc 443,ARS,195.00,expense,False,Recreación,[],nota 443
+2020-03-22 00:00:00+00:00,desc 444,ARS,101.00,expense,True,Deporte,[],nota 444
+2021-02-23 00:00:00+00:00,desc 445,ARS,855.00,expense,False,Vivienda,['reparaciones'],nota 445
+2022-10-06 00:00:00+00:00,desc 446,ARS,826.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 446
+2021-05-03 00:00:00+00:00,desc 447,ARS,927.00,expense,True,Educación,"['universidad', ' postgrado']",nota 447
+2021-12-02 00:00:00+00:00,desc 448,ARS,641.00,income,True,Vehículo,['mecanico'],nota 448
+2022-07-08 00:00:00+00:00,desc 449,ARS,285868.00,expense,True,Transporte,['sube'],nota 449
+2022-04-15 00:00:00+00:00,desc 450,ARS,276.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 450
+2021-01-23 00:00:00+00:00,desc 451,ARS,589.00,expense,False,Recreación,[],nota 451
+2021-10-06 00:00:00+00:00,desc 452,ARS,466.00,expense,True,Deporte,[],nota 452
+2020-03-02 00:00:00+00:00,desc 453,ARS,122.00,expense,False,Vivienda,['reparaciones'],nota 453
+2022-04-27 00:00:00+00:00,desc 454,ARS,216372.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 454
+2022-02-16 00:00:00+00:00,desc 455,ARS,687.00,income,True,Educación,"['universidad', ' postgrado']",nota 455
+2020-12-23 00:00:00+00:00,desc 456,ARS,39.00,expense,False,Vehículo,['mecanico'],nota 456
+2021-05-06 00:00:00+00:00,desc 457,ARS,262.00,expense,True,Transporte,['sube'],nota 457
+2021-08-08 00:00:00+00:00,desc 458,ARS,284.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 458
+2020-11-23 00:00:00+00:00,desc 459,ARS,567.00,expense,False,Recreación,[],nota 459
+2020-03-17 00:00:00+00:00,desc 460,ARS,750.00,expense,False,Deporte,[],nota 460
+2022-02-02 00:00:00+00:00,desc 461,ARS,440.00,expense,True,Vivienda,['reparaciones'],nota 461
+2022-01-15 00:00:00+00:00,desc 462,ARS,260464.00,income,False,Belleza,"['peluquero', ' manicura']",nota 462
+2021-06-21 00:00:00+00:00,desc 463,ARS,198.00,expense,True,Educación,"['universidad', ' postgrado']",nota 463
+2021-01-12 00:00:00+00:00,desc 464,ARS,836.00,expense,True,Vehículo,['mecanico'],nota 464
+2022-06-20 00:00:00+00:00,desc 465,ARS,772.00,expense,False,Transporte,['sube'],nota 465
+2022-01-18 00:00:00+00:00,desc 466,ARS,93.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 466
+2022-10-04 00:00:00+00:00,desc 467,ARS,265720.00,expense,True,Recreación,[],nota 467
+2022-03-05 00:00:00+00:00,desc 468,ARS,667.00,expense,False,Deporte,[],nota 468
+2020-11-06 00:00:00+00:00,desc 469,ARS,432.00,income,True,Vivienda,['reparaciones'],nota 469
+2021-10-15 00:00:00+00:00,desc 470,ARS,80.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 470
+2021-06-15 00:00:00+00:00,desc 471,ARS,564.00,expense,True,Educación,"['universidad', ' postgrado']",nota 471
+2021-02-07 00:00:00+00:00,desc 472,ARS,919.00,expense,True,Vehículo,['mecanico'],nota 472
+2020-11-06 00:00:00+00:00,desc 473,ARS,825.00,expense,False,Transporte,['sube'],nota 473
+2020-03-27 00:00:00+00:00,desc 474,ARS,353.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 474
+2021-02-02 00:00:00+00:00,desc 475,ARS,119428.00,expense,True,Recreación,[],nota 475
+2021-11-09 00:00:00+00:00,desc 476,ARS,230.00,income,False,Deporte,[],nota 476
+2022-03-11 00:00:00+00:00,desc 477,ARS,666.00,expense,False,Vivienda,['reparaciones'],nota 477
+2021-04-19 00:00:00+00:00,desc 478,ARS,262.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 478
+2021-08-27 00:00:00+00:00,desc 479,ARS,270.00,expense,False,Educación,"['universidad', ' postgrado']",nota 479
+2020-10-10 00:00:00+00:00,desc 480,ARS,237980.00,expense,True,Vehículo,['mecanico'],nota 480
+2022-07-01 00:00:00+00:00,desc 481,ARS,106.00,expense,True,Transporte,['sube'],nota 481
+2022-04-03 00:00:00+00:00,desc 482,ARS,464.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 482
+2022-10-08 00:00:00+00:00,desc 483,ARS,520.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 483
+2022-07-05 00:00:00+00:00,desc 484,ARS,173.00,expense,True,Recreación,[],nota 484
+2022-09-11 00:00:00+00:00,desc 485,ARS,612.00,expense,True,Deporte,[],nota 485
+2021-12-03 00:00:00+00:00,desc 486,ARS,245.00,income,True,Vivienda,['reparaciones'],nota 486
+2021-06-25 00:00:00+00:00,desc 487,ARS,214036.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 487
+2021-04-11 00:00:00+00:00,desc 488,ARS,463.00,expense,False,Educación,"['universidad', ' postgrado']",nota 488
+2021-08-23 00:00:00+00:00,desc 489,ARS,793.00,expense,True,Vehículo,['mecanico'],nota 489
+2022-07-19 00:00:00+00:00,desc 490,ARS,847.00,expense,False,Transporte,['sube'],nota 490
+2020-02-17 00:00:00+00:00,desc 491,ARS,823.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 491
+2021-12-13 00:00:00+00:00,desc 492,ARS,320.00,expense,True,Recreación,[],nota 492
+2020-06-08 00:00:00+00:00,desc 493,ARS,977.00,income,False,Deporte,[],nota 493
+2021-07-26 00:00:00+00:00,desc 494,ARS,430.00,expense,True,Vivienda,['reparaciones'],nota 494
+2020-06-28 00:00:00+00:00,desc 495,ARS,277400.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 495
+2021-09-24 00:00:00+00:00,desc 496,ARS,940.00,expense,False,Educación,"['universidad', ' postgrado']",nota 496
+2022-06-05 00:00:00+00:00,desc 497,ARS,919.00,expense,False,Vehículo,['mecanico'],nota 497
+2021-11-09 00:00:00+00:00,desc 498,ARS,77.00,expense,True,Transporte,['sube'],nota 498
+2022-04-16 00:00:00+00:00,desc 499,ARS,452.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 499
+2022-01-12 00:00:00+00:00,desc 500,ARS,282656.00,income,True,Recreación,[],nota 500
+2022-01-23 00:00:00+00:00,desc 501,ARS,676.00,expense,True,Deporte,[],nota 501
+2021-04-13 00:00:00+00:00,desc 502,ARS,276.00,expense,False,Vivienda,['reparaciones'],nota 502
+2021-02-10 00:00:00+00:00,desc 503,ARS,591.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 503
+2022-06-11 00:00:00+00:00,desc 504,ARS,354.00,expense,True,Educación,"['universidad', ' postgrado']",nota 504
+2021-05-27 00:00:00+00:00,desc 505,ARS,329.00,expense,False,Vehículo,['mecanico'],nota 505
+2022-09-19 00:00:00+00:00,desc 506,ARS,660.00,expense,True,Transporte,['sube'],nota 506
+2020-02-13 00:00:00+00:00,desc 507,ARS,974.00,income,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 507
+2021-09-12 00:00:00+00:00,desc 508,ARS,190676.00,expense,True,Recreación,[],nota 508
+2021-07-11 00:00:00+00:00,desc 509,ARS,946.00,expense,True,Deporte,[],nota 509
+2021-01-14 00:00:00+00:00,desc 510,ARS,393.00,expense,False,Vivienda,['reparaciones'],nota 510
+2022-10-23 00:00:00+00:00,desc 511,ARS,68.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 511
+2020-04-03 00:00:00+00:00,desc 512,ARS,374.00,expense,True,Educación,"['universidad', ' postgrado']",nota 512
+2021-11-21 00:00:00+00:00,desc 513,ARS,259004.00,expense,False,Vehículo,['mecanico'],nota 513
+2022-03-26 00:00:00+00:00,desc 514,ARS,477.00,income,False,Transporte,['sube'],nota 514
+2020-08-03 00:00:00+00:00,desc 515,ARS,368.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 515
+2022-10-06 00:00:00+00:00,desc 516,ARS,893.00,expense,False,Recreación,[],nota 516
+2021-06-10 00:00:00+00:00,desc 517,ARS,349.00,expense,True,Deporte,[],nota 517
+2020-02-27 00:00:00+00:00,desc 518,ARS,423.00,expense,True,Vivienda,['reparaciones'],nota 518
+2020-02-23 00:00:00+00:00,desc 519,ARS,420.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 519
+2021-08-18 00:00:00+00:00,desc 520,ARS,143.00,expense,True,Educación,"['universidad', ' postgrado']",nota 520
+2022-02-14 00:00:00+00:00,desc 521,ARS,228344.00,income,True,Vehículo,['mecanico'],nota 521
+2020-11-09 00:00:00+00:00,desc 522,ARS,201.00,expense,False,Transporte,['sube'],nota 522
+2021-04-09 00:00:00+00:00,desc 523,ARS,76.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 523
+2020-12-27 00:00:00+00:00,desc 524,ARS,744.00,expense,False,Recreación,[],nota 524
+2021-09-14 00:00:00+00:00,desc 525,ARS,682.00,expense,True,Deporte,[],nota 525
+2022-10-10 00:00:00+00:00,desc 526,ARS,31536.00,expense,True,Vivienda,['reparaciones'],nota 526
+2022-07-01 00:00:00+00:00,desc 527,ARS,77.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 527
+2021-11-19 00:00:00+00:00,desc 528,ARS,510.00,income,True,Educación,"['universidad', ' postgrado']",nota 528
+2020-05-25 00:00:00+00:00,desc 529,ARS,92.00,expense,True,Vehículo,['mecanico'],nota 529
+2022-10-17 00:00:00+00:00,desc 530,ARS,196.00,expense,False,Transporte,['sube'],nota 530
+2021-11-21 00:00:00+00:00,desc 531,ARS,306.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 531
+2021-04-16 00:00:00+00:00,desc 532,ARS,279.00,expense,True,Recreación,[],nota 532
+2020-04-17 00:00:00+00:00,desc 533,ARS,27.00,expense,False,Deporte,[],nota 533
+2020-05-04 00:00:00+00:00,desc 534,ARS,67452.00,expense,True,Vivienda,['reparaciones'],nota 534
+2022-09-05 00:00:00+00:00,desc 535,ARS,810.00,income,True,Belleza,"['peluquero', ' manicura']",nota 535
+2020-05-05 00:00:00+00:00,desc 536,ARS,841.00,expense,False,Educación,"['universidad', ' postgrado']",nota 536
+2021-05-18 00:00:00+00:00,desc 537,ARS,963.00,expense,True,Vehículo,['mecanico'],nota 537
+2021-08-08 00:00:00+00:00,desc 538,ARS,708.00,expense,True,Transporte,['sube'],nota 538
+2020-05-09 00:00:00+00:00,desc 539,ARS,7300.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 539
+2020-08-27 00:00:00+00:00,desc 540,ARS,337.00,expense,True,Recreación,[],nota 540
+2020-09-13 00:00:00+00:00,desc 541,ARS,467.00,expense,False,Deporte,[],nota 541
+2021-12-18 00:00:00+00:00,desc 542,ARS,312.00,income,True,Vivienda,['reparaciones'],nota 542
+2022-03-16 00:00:00+00:00,desc 543,ARS,441.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 543
+2021-12-08 00:00:00+00:00,desc 544,ARS,854.00,expense,False,Educación,"['universidad', ' postgrado']",nota 544
+2021-01-05 00:00:00+00:00,desc 545,ARS,39.00,expense,True,Vehículo,['mecanico'],nota 545
+2022-03-17 00:00:00+00:00,desc 546,ARS,370.00,expense,True,Transporte,['sube'],nota 546
+2022-05-03 00:00:00+00:00,desc 547,ARS,99280.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 547
+2020-12-09 00:00:00+00:00,desc 548,ARS,132.00,expense,False,Recreación,[],nota 548
+2021-10-18 00:00:00+00:00,desc 549,ARS,208.00,income,True,Deporte,[],nota 549
+2021-09-19 00:00:00+00:00,desc 550,ARS,240.00,expense,False,Vivienda,['reparaciones'],nota 550
+2021-07-10 00:00:00+00:00,desc 551,ARS,128.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 551
+2021-11-02 00:00:00+00:00,desc 552,ARS,61612.00,expense,True,Educación,"['universidad', ' postgrado']",nota 552
+2020-12-14 00:00:00+00:00,desc 553,ARS,27.00,expense,True,Vehículo,['mecanico'],nota 553
+2022-03-05 00:00:00+00:00,desc 554,ARS,307.00,expense,True,Transporte,['sube'],nota 554
+2022-04-26 00:00:00+00:00,desc 555,ARS,205.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 555
+2021-03-15 00:00:00+00:00,desc 556,ARS,573.00,income,False,Recreación,[],nota 556
+2021-09-05 00:00:00+00:00,desc 557,ARS,110.00,expense,True,Deporte,[],nota 557
+2022-08-12 00:00:00+00:00,desc 558,ARS,235.00,expense,False,Vivienda,['reparaciones'],nota 558
+2021-06-26 00:00:00+00:00,desc 559,ARS,296.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 559
+2022-06-06 00:00:00+00:00,desc 560,ARS,246740.00,expense,True,Educación,"['universidad', ' postgrado']",nota 560
+2021-08-21 00:00:00+00:00,desc 561,ARS,519.00,expense,False,Vehículo,['mecanico'],nota 561
+2021-03-05 00:00:00+00:00,desc 562,ARS,377.00,expense,True,Transporte,['sube'],nota 562
+2022-08-14 00:00:00+00:00,desc 563,ARS,647.00,income,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 563
+2020-04-23 00:00:00+00:00,desc 564,ARS,398.00,expense,False,Recreación,[],nota 564
+2020-01-24 00:00:00+00:00,desc 565,ARS,261924.00,expense,False,Deporte,[],nota 565
+2020-03-06 00:00:00+00:00,desc 566,ARS,818.00,expense,True,Vivienda,['reparaciones'],nota 566
+2020-02-04 00:00:00+00:00,desc 567,ARS,516.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 567
+2021-10-14 00:00:00+00:00,desc 568,ARS,239.00,expense,True,Educación,"['universidad', ' postgrado']",nota 568
+2021-04-27 00:00:00+00:00,desc 569,ARS,449.00,expense,True,Vehículo,['mecanico'],nota 569
+2020-07-22 00:00:00+00:00,desc 570,ARS,337.00,income,False,Transporte,['sube'],nota 570
+2020-07-09 00:00:00+00:00,desc 571,ARS,949.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 571
+2021-01-09 00:00:00+00:00,desc 572,ARS,463.00,expense,True,Recreación,[],nota 572
+2021-04-08 00:00:00+00:00,desc 573,ARS,153300.00,expense,False,Deporte,[],nota 573
+2020-04-08 00:00:00+00:00,desc 574,ARS,681.00,expense,True,Vivienda,['reparaciones'],nota 574
+2021-09-07 00:00:00+00:00,desc 575,ARS,914.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 575
+2020-04-13 00:00:00+00:00,desc 576,ARS,119.00,expense,True,Educación,"['universidad', ' postgrado']",nota 576
+2021-01-08 00:00:00+00:00,desc 577,ARS,825.00,income,True,Vehículo,['mecanico'],nota 577
+2021-07-22 00:00:00+00:00,desc 578,ARS,281488.00,expense,False,Transporte,['sube'],nota 578
+2020-09-05 00:00:00+00:00,desc 579,ARS,486.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 579
+2022-05-03 00:00:00+00:00,desc 580,ARS,785.00,expense,True,Recreación,[],nota 580
+2022-02-27 00:00:00+00:00,desc 581,ARS,485.00,expense,False,Deporte,[],nota 581
+2020-06-25 00:00:00+00:00,desc 582,ARS,628.00,expense,False,Vivienda,['reparaciones'],nota 582
+2020-02-26 00:00:00+00:00,desc 583,ARS,923.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 583
+2022-12-01 00:00:00+00:00,desc 584,ARS,312.00,income,False,Educación,"['universidad', ' postgrado']",nota 584
+2021-05-05 00:00:00+00:00,desc 585,ARS,597.00,expense,True,Vehículo,['mecanico'],nota 585
+2022-03-26 00:00:00+00:00,desc 586,ARS,122348.00,expense,True,Transporte,['sube'],nota 586
+2022-06-18 00:00:00+00:00,desc 587,ARS,156.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 587
+2020-09-09 00:00:00+00:00,desc 588,ARS,190.00,expense,True,Recreación,[],nota 588
+2022-03-07 00:00:00+00:00,desc 589,ARS,33.00,expense,True,Deporte,[],nota 589
+2020-01-26 00:00:00+00:00,desc 590,ARS,997.00,expense,False,Vivienda,['reparaciones'],nota 590
+2022-05-02 00:00:00+00:00,desc 591,ARS,126728.00,income,True,Belleza,"['peluquero', ' manicura']",nota 591
+2022-07-15 00:00:00+00:00,desc 592,ARS,709.00,expense,False,Educación,"['universidad', ' postgrado']",nota 592
+2022-07-26 00:00:00+00:00,desc 593,ARS,810.00,expense,True,Vehículo,['mecanico'],nota 593
+2022-06-10 00:00:00+00:00,desc 594,ARS,388.00,expense,True,Transporte,['sube'],nota 594
+2022-07-08 00:00:00+00:00,desc 595,ARS,587.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 595
+2021-07-16 00:00:00+00:00,desc 596,ARS,657.00,expense,True,Recreación,[],nota 596
+2022-11-13 00:00:00+00:00,desc 597,ARS,598.00,expense,True,Deporte,[],nota 597
+2021-09-16 00:00:00+00:00,desc 598,ARS,216.00,income,False,Vivienda,['reparaciones'],nota 598
+2022-09-16 00:00:00+00:00,desc 599,ARS,197684.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 599
+2022-11-15 00:00:00+00:00,desc 600,ARS,577.00,expense,True,Educación,"['universidad', ' postgrado']",nota 600
+2020-01-25 00:00:00+00:00,desc 601,ARS,403.00,expense,False,Vehículo,['mecanico'],nota 601
+2020-07-02 00:00:00+00:00,desc 602,ARS,786.00,expense,True,Transporte,['sube'],nota 602
+2021-09-11 00:00:00+00:00,desc 603,ARS,578.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 603
+2020-02-14 00:00:00+00:00,desc 604,ARS,209364.00,expense,False,Recreación,[],nota 604
+2020-12-05 00:00:00+00:00,desc 605,ARS,887.00,income,True,Deporte,[],nota 605
+2021-04-17 00:00:00+00:00,desc 606,ARS,413.00,expense,True,Vivienda,['reparaciones'],nota 606
+2021-03-17 00:00:00+00:00,desc 607,ARS,390.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 607
+2020-11-19 00:00:00+00:00,desc 608,ARS,690.00,expense,True,Educación,"['universidad', ' postgrado']",nota 608
+2021-10-19 00:00:00+00:00,desc 609,ARS,294.00,expense,False,Vehículo,['mecanico'],nota 609
+2020-05-01 00:00:00+00:00,desc 610,ARS,58.00,expense,True,Transporte,['sube'],nota 610
+2021-05-10 00:00:00+00:00,desc 611,ARS,448.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 611
+2020-04-09 00:00:00+00:00,desc 612,ARS,143080.00,income,False,Recreación,[],nota 612
+2020-11-04 00:00:00+00:00,desc 613,ARS,419.00,expense,True,Deporte,[],nota 613
+2022-12-21 00:00:00+00:00,desc 614,ARS,232.00,expense,True,Vivienda,['reparaciones'],nota 614
+2022-08-22 00:00:00+00:00,desc 615,ARS,89.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 615
+2021-04-04 00:00:00+00:00,desc 616,ARS,991.00,expense,False,Educación,"['universidad', ' postgrado']",nota 616
+2022-11-08 00:00:00+00:00,desc 617,ARS,184252.00,expense,True,Vehículo,['mecanico'],nota 617
+2021-05-07 00:00:00+00:00,desc 618,ARS,363.00,expense,False,Transporte,['sube'],nota 618
+2020-04-04 00:00:00+00:00,desc 619,ARS,255.00,income,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 619
+2022-07-11 00:00:00+00:00,desc 620,ARS,221.00,expense,True,Recreación,[],nota 620
+2021-03-25 00:00:00+00:00,desc 621,ARS,517.00,expense,True,Deporte,[],nota 621
+2021-02-21 00:00:00+00:00,desc 622,ARS,267.00,expense,True,Vivienda,['reparaciones'],nota 622
+2022-10-23 00:00:00+00:00,desc 623,ARS,520.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 623
+2021-09-08 00:00:00+00:00,desc 624,ARS,769.00,expense,False,Educación,"['universidad', ' postgrado']",nota 624
+2021-03-14 00:00:00+00:00,desc 625,ARS,94024.00,expense,True,Vehículo,['mecanico'],nota 625
+2022-04-05 00:00:00+00:00,desc 626,ARS,177.00,income,False,Transporte,['sube'],nota 626
+2020-12-13 00:00:00+00:00,desc 627,ARS,48.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 627
+2020-03-25 00:00:00+00:00,desc 628,ARS,400.00,expense,True,Recreación,[],nota 628
+2021-12-27 00:00:00+00:00,desc 629,ARS,985.00,expense,False,Deporte,[],nota 629
+2021-09-10 00:00:00+00:00,desc 630,ARS,227760.00,expense,True,Vivienda,['reparaciones'],nota 630
+2020-11-07 00:00:00+00:00,desc 631,ARS,590.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 631
+2022-10-04 00:00:00+00:00,desc 632,ARS,569.00,expense,False,Educación,"['universidad', ' postgrado']",nota 632
+2022-02-09 00:00:00+00:00,desc 633,ARS,247.00,income,False,Vehículo,['mecanico'],nota 633
+2022-09-22 00:00:00+00:00,desc 634,ARS,99.00,expense,True,Transporte,['sube'],nota 634
+2021-04-11 00:00:00+00:00,desc 635,ARS,624.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 635
+2020-01-09 00:00:00+00:00,desc 636,ARS,832.00,expense,True,Recreación,[],nota 636
+2021-05-10 00:00:00+00:00,desc 638,ARS,176368.00,expense,False,Vivienda,['reparaciones'],nota 638
+2022-05-10 00:00:00+00:00,desc 639,ARS,361.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 639
+2022-10-10 00:00:00+00:00,desc 640,ARS,309.00,income,True,Educación,"['universidad', ' postgrado']",nota 640
+2021-12-08 00:00:00+00:00,desc 641,ARS,763.00,expense,False,Vehículo,['mecanico'],nota 641
+2022-06-23 00:00:00+00:00,desc 642,ARS,893.00,expense,True,Transporte,['sube'],nota 642
+2022-12-19 00:00:00+00:00,desc 643,ARS,134320.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 643
+2020-05-20 00:00:00+00:00,desc 644,ARS,231.00,expense,True,Recreación,[],nota 644
+2021-02-08 00:00:00+00:00,desc 645,ARS,953.00,expense,True,Deporte,[],nota 645
+2020-10-03 00:00:00+00:00,desc 646,ARS,397.00,expense,False,Vivienda,['reparaciones'],nota 646
+2021-12-17 00:00:00+00:00,desc 647,ARS,911.00,income,True,Belleza,"['peluquero', ' manicura']",nota 647
+2021-11-22 00:00:00+00:00,desc 648,ARS,321.00,expense,True,Educación,"['universidad', ' postgrado']",nota 648
+2020-01-27 00:00:00+00:00,desc 649,ARS,382.00,expense,False,Vehículo,['mecanico'],nota 649
+2020-08-16 00:00:00+00:00,desc 650,ARS,59.00,expense,False,Transporte,['sube'],nota 650
+2021-02-08 00:00:00+00:00,desc 651,ARS,225716.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 651
+2021-04-06 00:00:00+00:00,desc 652,ARS,202.00,expense,False,Recreación,[],nota 652
+2022-08-01 00:00:00+00:00,desc 653,ARS,253.00,expense,True,Deporte,[],nota 653
+2021-04-16 00:00:00+00:00,desc 654,ARS,658.00,income,True,Vivienda,['reparaciones'],nota 654
+2021-04-25 00:00:00+00:00,desc 655,ARS,131.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 655
+2021-05-02 00:00:00+00:00,desc 656,ARS,87308.00,expense,True,Educación,"['universidad', ' postgrado']",nota 656
+2022-08-14 00:00:00+00:00,desc 657,ARS,765.00,expense,True,Vehículo,['mecanico'],nota 657
+2021-03-11 00:00:00+00:00,desc 658,ARS,454.00,expense,False,Transporte,['sube'],nota 658
+2020-05-09 00:00:00+00:00,desc 659,ARS,887.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 659
+2021-01-20 00:00:00+00:00,desc 660,ARS,712.00,expense,False,Recreación,[],nota 660
+2021-07-27 00:00:00+00:00,desc 661,ARS,344.00,income,True,Deporte,[],nota 661
+2022-01-18 00:00:00+00:00,desc 662,ARS,158.00,expense,True,Vivienda,['reparaciones'],nota 662
+2021-12-11 00:00:00+00:00,desc 663,ARS,787.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 663
+2022-02-21 00:00:00+00:00,desc 664,ARS,108916.00,expense,True,Educación,"['universidad', ' postgrado']",nota 664
+2021-09-22 00:00:00+00:00,desc 665,ARS,393.00,expense,True,Vehículo,['mecanico'],nota 665
+2022-10-24 00:00:00+00:00,desc 666,ARS,767.00,expense,False,Transporte,['sube'],nota 666
+2020-04-21 00:00:00+00:00,desc 667,ARS,369.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 667
+2021-08-25 00:00:00+00:00,desc 668,ARS,377.00,income,True,Recreación,[],nota 668
+2020-02-08 00:00:00+00:00,desc 669,ARS,129940.00,expense,False,Deporte,[],nota 669
+2021-06-01 00:00:00+00:00,desc 670,ARS,710.00,expense,True,Vivienda,['reparaciones'],nota 670
+2020-12-08 00:00:00+00:00,desc 671,ARS,389.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 671
+2020-02-20 00:00:00+00:00,desc 672,ARS,766.00,expense,False,Educación,"['universidad', ' postgrado']",nota 672
+2022-05-07 00:00:00+00:00,desc 673,ARS,552.00,expense,True,Vehículo,['mecanico'],nota 673
+2021-02-24 00:00:00+00:00,desc 674,ARS,862.00,expense,True,Transporte,['sube'],nota 674
+2021-06-21 00:00:00+00:00,desc 675,ARS,599.00,income,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 675
+2021-07-03 00:00:00+00:00,desc 676,ARS,186.00,expense,True,Recreación,[],nota 676
+2022-12-08 00:00:00+00:00,desc 677,ARS,220168.00,expense,False,Deporte,[],nota 677
+2022-09-10 00:00:00+00:00,desc 678,ARS,415.00,expense,True,Vivienda,['reparaciones'],nota 678
+2022-02-08 00:00:00+00:00,desc 679,ARS,707.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 679
+2021-08-01 00:00:00+00:00,desc 680,ARS,792.00,expense,False,Educación,"['universidad', ' postgrado']",nota 680
+2021-09-16 00:00:00+00:00,desc 681,ARS,521.00,expense,True,Vehículo,['mecanico'],nota 681
+2020-11-22 00:00:00+00:00,desc 682,ARS,87016.00,income,True,Transporte,['sube'],nota 682
+2021-10-28 00:00:00+00:00,desc 683,ARS,738.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 683
+2020-11-03 00:00:00+00:00,desc 684,ARS,495.00,expense,False,Recreación,[],nota 684
+2021-06-22 00:00:00+00:00,desc 685,ARS,136.00,expense,True,Deporte,[],nota 685
+2021-05-06 00:00:00+00:00,desc 686,ARS,827.00,expense,False,Vivienda,['reparaciones'],nota 686
+2021-10-14 00:00:00+00:00,desc 687,ARS,989.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 687
+2020-12-17 00:00:00+00:00,desc 688,ARS,124.00,expense,True,Educación,"['universidad', ' postgrado']",nota 688
+2020-06-17 00:00:00+00:00,desc 689,ARS,68.00,income,True,Vehículo,['mecanico'],nota 689
+2020-12-02 00:00:00+00:00,desc 690,ARS,156220.00,expense,True,Transporte,['sube'],nota 690
+2022-05-21 00:00:00+00:00,desc 691,ARS,278.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 691
+2020-01-25 00:00:00+00:00,desc 692,ARS,394.00,expense,False,Recreación,[],nota 692
+2020-09-18 00:00:00+00:00,desc 693,ARS,539.00,expense,True,Deporte,[],nota 693
+2020-02-28 00:00:00+00:00,desc 694,ARS,660.00,expense,False,Vivienda,['reparaciones'],nota 694
+2021-12-16 00:00:00+00:00,desc 695,ARS,56356.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 695
+2020-09-04 00:00:00+00:00,desc 696,ARS,594.00,income,True,Educación,"['universidad', ' postgrado']",nota 696
+2021-06-25 00:00:00+00:00,desc 697,ARS,655.00,expense,False,Vehículo,['mecanico'],nota 697
+2022-05-13 00:00:00+00:00,desc 698,ARS,634.00,expense,True,Transporte,['sube'],nota 698
+2022-01-13 00:00:00+00:00,desc 699,ARS,606.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 699
+2021-06-13 00:00:00+00:00,desc 700,ARS,795.00,expense,False,Recreación,[],nota 700
+2022-12-03 00:00:00+00:00,desc 701,ARS,639.00,expense,False,Deporte,[],nota 701
+2020-04-27 00:00:00+00:00,desc 702,ARS,980.00,expense,True,Vivienda,['reparaciones'],nota 702
+2020-02-03 00:00:00+00:00,desc 703,ARS,237980.00,income,False,Belleza,"['peluquero', ' manicura']",nota 703
+2022-01-07 00:00:00+00:00,desc 704,ARS,969.00,expense,True,Educación,"['universidad', ' postgrado']",nota 704
+2022-11-07 00:00:00+00:00,desc 705,ARS,972.00,expense,True,Vehículo,['mecanico'],nota 705
+2021-02-18 00:00:00+00:00,desc 706,ARS,472.00,expense,False,Transporte,['sube'],nota 706
+2022-01-04 00:00:00+00:00,desc 707,ARS,286.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 707
+2020-09-21 00:00:00+00:00,desc 708,ARS,243820.00,expense,True,Recreación,[],nota 708
+2020-09-18 00:00:00+00:00,desc 709,ARS,478.00,expense,False,Deporte,[],nota 709
+2022-05-01 00:00:00+00:00,desc 710,ARS,20.00,income,True,Vivienda,['reparaciones'],nota 710
+2020-12-09 00:00:00+00:00,desc 711,ARS,113.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 711
+2021-10-21 00:00:00+00:00,desc 712,ARS,443.00,expense,True,Educación,"['universidad', ' postgrado']",nota 712
+2020-07-03 00:00:00+00:00,desc 713,ARS,679.00,expense,True,Vehículo,['mecanico'],nota 713
+2022-06-15 00:00:00+00:00,desc 714,ARS,763.00,expense,False,Transporte,['sube'],nota 714
+2020-03-16 00:00:00+00:00,desc 715,ARS,1.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 715
+2021-09-06 00:00:00+00:00,desc 716,ARS,130524.00,expense,True,Recreación,[],nota 716
+2020-07-05 00:00:00+00:00,desc 717,ARS,96.00,income,False,Deporte,[],nota 717
+2021-09-23 00:00:00+00:00,desc 718,ARS,37.00,expense,False,Vivienda,['reparaciones'],nota 718
+2020-04-15 00:00:00+00:00,desc 719,ARS,801.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 719
+2021-09-17 00:00:00+00:00,desc 720,ARS,812.00,expense,False,Educación,"['universidad', ' postgrado']",nota 720
+2021-06-22 00:00:00+00:00,desc 721,ARS,140744.00,expense,True,Vehículo,['mecanico'],nota 721
+2022-03-04 00:00:00+00:00,desc 722,ARS,421.00,expense,True,Transporte,['sube'],nota 722
+2020-05-18 00:00:00+00:00,desc 723,ARS,330.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 723
+2022-09-18 00:00:00+00:00,desc 724,ARS,191.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 724
+2021-07-18 00:00:00+00:00,desc 725,ARS,399.00,expense,True,Recreación,[],nota 725
+2020-05-15 00:00:00+00:00,desc 726,ARS,877.00,expense,True,Deporte,[],nota 726
+2020-09-24 00:00:00+00:00,desc 727,ARS,534.00,income,True,Vivienda,['reparaciones'],nota 727
+2020-09-23 00:00:00+00:00,desc 728,ARS,160308.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 728
+2021-01-11 00:00:00+00:00,desc 729,ARS,931.00,expense,False,Educación,"['universidad', ' postgrado']",nota 729
+2020-09-13 00:00:00+00:00,desc 730,ARS,43.00,expense,True,Vehículo,['mecanico'],nota 730
+2020-03-16 00:00:00+00:00,desc 731,ARS,820.00,expense,False,Transporte,['sube'],nota 731
+2020-05-13 00:00:00+00:00,desc 732,ARS,695.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 732
+2021-04-25 00:00:00+00:00,desc 733,ARS,790.00,expense,True,Recreación,[],nota 733
+2021-03-03 00:00:00+00:00,desc 734,ARS,139.00,income,False,Deporte,[],nota 734
+2021-12-26 00:00:00+00:00,desc 735,ARS,737.00,expense,True,Vivienda,['reparaciones'],nota 735
+2021-01-16 00:00:00+00:00,desc 736,ARS,75920.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 736
+2020-02-27 00:00:00+00:00,desc 737,ARS,559.00,expense,False,Educación,"['universidad', ' postgrado']",nota 737
+2022-11-10 00:00:00+00:00,desc 738,ARS,555.00,expense,False,Vehículo,['mecanico'],nota 738
+2021-08-14 00:00:00+00:00,desc 739,ARS,41.00,expense,True,Transporte,['sube'],nota 739
+2022-12-22 00:00:00+00:00,desc 740,ARS,311.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 740
+2022-11-07 00:00:00+00:00,desc 741,ARS,84096.00,income,True,Recreación,[],nota 741
+2022-01-01 00:00:00+00:00,desc 742,ARS,124.00,expense,True,Deporte,[],nota 742
+2022-08-24 00:00:00+00:00,desc 743,ARS,608.00,expense,False,Vivienda,['reparaciones'],nota 743
+2020-08-27 00:00:00+00:00,desc 744,ARS,246.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 744
+2020-06-20 00:00:00+00:00,desc 745,ARS,248.00,expense,True,Educación,"['universidad', ' postgrado']",nota 745
+2020-04-12 00:00:00+00:00,desc 746,ARS,307.00,expense,False,Vehículo,['mecanico'],nota 746
+2022-09-24 00:00:00+00:00,desc 747,ARS,547.00,expense,True,Transporte,['sube'],nota 747
+2021-07-19 00:00:00+00:00,desc 748,ARS,816.00,income,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 748
+2020-01-11 00:00:00+00:00,desc 749,ARS,49640.00,expense,True,Recreación,[],nota 749
+2022-09-18 00:00:00+00:00,desc 750,ARS,955.00,expense,True,Deporte,[],nota 750
+2022-03-24 00:00:00+00:00,desc 751,ARS,358.00,expense,False,Vivienda,['reparaciones'],nota 751
+2020-11-16 00:00:00+00:00,desc 752,ARS,127.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 752
+2022-09-22 00:00:00+00:00,desc 753,ARS,947.00,expense,True,Educación,"['universidad', ' postgrado']",nota 753
+2020-03-12 00:00:00+00:00,desc 754,ARS,41464.00,expense,False,Vehículo,['mecanico'],nota 754
+2021-05-10 00:00:00+00:00,desc 755,ARS,968.00,income,False,Transporte,['sube'],nota 755
+2022-02-09 00:00:00+00:00,desc 756,ARS,273.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 756
+2020-02-08 00:00:00+00:00,desc 757,ARS,362.00,expense,False,Recreación,[],nota 757
+2021-09-28 00:00:00+00:00,desc 758,ARS,544.00,expense,True,Deporte,[],nota 758
+2021-02-15 00:00:00+00:00,desc 759,ARS,993.00,expense,True,Vivienda,['reparaciones'],nota 759
+2022-03-13 00:00:00+00:00,desc 760,ARS,773.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 760
+2021-07-04 00:00:00+00:00,desc 761,ARS,119.00,expense,True,Educación,"['universidad', ' postgrado']",nota 761
+2021-11-20 00:00:00+00:00,desc 762,ARS,68620.00,income,True,Vehículo,['mecanico'],nota 762
+2021-06-13 00:00:00+00:00,desc 763,ARS,637.00,expense,False,Transporte,['sube'],nota 763
+2022-11-16 00:00:00+00:00,desc 764,ARS,395.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 764
+2021-11-20 00:00:00+00:00,desc 765,ARS,102.00,expense,False,Recreación,[],nota 765
+2020-06-16 00:00:00+00:00,desc 766,ARS,313.00,expense,True,Deporte,[],nota 766
+2021-05-19 00:00:00+00:00,desc 767,ARS,65408.00,expense,True,Vivienda,['reparaciones'],nota 767
+2022-12-11 00:00:00+00:00,desc 768,ARS,997.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 768
+2021-04-18 00:00:00+00:00,desc 769,ARS,557.00,income,True,Educación,"['universidad', ' postgrado']",nota 769
+2021-06-21 00:00:00+00:00,desc 770,ARS,732.00,expense,True,Vehículo,['mecanico'],nota 770
+2021-06-06 00:00:00+00:00,desc 771,ARS,476.00,expense,False,Transporte,['sube'],nota 771
+2020-03-07 00:00:00+00:00,desc 772,ARS,1.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 772
+2021-10-25 00:00:00+00:00,desc 773,ARS,621.00,expense,True,Recreación,[],nota 773
+2022-08-27 00:00:00+00:00,desc 774,ARS,819.00,expense,False,Deporte,[],nota 774
+2022-07-18 00:00:00+00:00,desc 775,ARS,89352.00,expense,True,Vivienda,['reparaciones'],nota 775
+2020-03-11 00:00:00+00:00,desc 776,ARS,739.00,income,True,Belleza,"['peluquero', ' manicura']",nota 776
+2020-04-08 00:00:00+00:00,desc 777,ARS,428.00,expense,False,Educación,"['universidad', ' postgrado']",nota 777
+2020-07-22 00:00:00+00:00,desc 778,ARS,472.00,expense,True,Vehículo,['mecanico'],nota 778
+2021-09-02 00:00:00+00:00,desc 779,ARS,60.00,expense,True,Transporte,['sube'],nota 779
+2020-07-28 00:00:00+00:00,desc 780,ARS,123516.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 780
+2020-06-27 00:00:00+00:00,desc 781,ARS,842.00,expense,True,Recreación,[],nota 781
+2020-11-27 00:00:00+00:00,desc 782,ARS,713.00,expense,False,Deporte,[],nota 782
+2020-11-07 00:00:00+00:00,desc 783,ARS,877.00,income,True,Vivienda,['reparaciones'],nota 783
+2022-05-28 00:00:00+00:00,desc 784,ARS,721.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 784
+2020-12-27 00:00:00+00:00,desc 785,ARS,698.00,expense,False,Educación,"['universidad', ' postgrado']",nota 785
+2021-07-22 00:00:00+00:00,desc 786,ARS,338.00,expense,True,Vehículo,['mecanico'],nota 786
+2020-06-10 00:00:00+00:00,desc 787,ARS,58.00,expense,True,Transporte,['sube'],nota 787
+2022-10-09 00:00:00+00:00,desc 788,ARS,279444.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 788
+2021-05-24 00:00:00+00:00,desc 789,ARS,366.00,expense,False,Recreación,[],nota 789
+2020-02-13 00:00:00+00:00,desc 790,ARS,668.00,income,True,Deporte,[],nota 790
+2022-09-18 00:00:00+00:00,desc 791,ARS,118.00,expense,False,Vivienda,['reparaciones'],nota 791
+2020-05-16 00:00:00+00:00,desc 792,ARS,779.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 792
+2020-08-20 00:00:00+00:00,desc 793,ARS,86724.00,expense,True,Educación,"['universidad', ' postgrado']",nota 793
+2020-09-25 00:00:00+00:00,desc 794,ARS,1.00,expense,True,Vehículo,['mecanico'],nota 794
+2021-02-25 00:00:00+00:00,desc 795,ARS,502.00,expense,True,Transporte,['sube'],nota 795
+2021-07-12 00:00:00+00:00,desc 796,ARS,703.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 796
+2022-01-04 00:00:00+00:00,desc 797,ARS,229.00,income,False,Recreación,[],nota 797
+2022-11-21 00:00:00+00:00,desc 798,ARS,215.00,expense,True,Deporte,[],nota 798
+2022-06-28 00:00:00+00:00,desc 799,ARS,790.00,expense,False,Vivienda,['reparaciones'],nota 799
+2021-02-23 00:00:00+00:00,desc 800,ARS,362.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 800
+2022-03-05 00:00:00+00:00,desc 801,ARS,192136.00,expense,True,Educación,"['universidad', ' postgrado']",nota 801
+2022-10-17 00:00:00+00:00,desc 802,ARS,124.00,expense,False,Vehículo,['mecanico'],nota 802
+2022-02-10 00:00:00+00:00,desc 803,ARS,554.00,expense,True,Transporte,['sube'],nota 803
+2022-09-26 00:00:00+00:00,desc 804,ARS,397.00,income,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 804
+2022-11-14 00:00:00+00:00,desc 805,ARS,200.00,expense,False,Recreación,[],nota 805
+2022-04-18 00:00:00+00:00,desc 806,ARS,179580.00,expense,False,Deporte,[],nota 806
+2020-09-17 00:00:00+00:00,desc 807,ARS,978.00,expense,True,Vivienda,['reparaciones'],nota 807
+2020-01-10 00:00:00+00:00,desc 808,ARS,909.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 808
+2022-07-19 00:00:00+00:00,desc 809,ARS,526.00,expense,True,Educación,"['universidad', ' postgrado']",nota 809
+2022-09-11 00:00:00+00:00,desc 810,ARS,272.00,expense,True,Vehículo,['mecanico'],nota 810
+2022-08-18 00:00:00+00:00,desc 811,ARS,733.00,income,False,Transporte,['sube'],nota 811
+2022-06-16 00:00:00+00:00,desc 812,ARS,78.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 812
+2020-02-07 00:00:00+00:00,desc 813,ARS,611.00,expense,True,Recreación,[],nota 813
+2022-09-05 00:00:00+00:00,desc 814,ARS,61612.00,expense,False,Deporte,[],nota 814
+2020-04-01 00:00:00+00:00,desc 815,ARS,597.00,expense,True,Vivienda,['reparaciones'],nota 815
+2022-09-22 00:00:00+00:00,desc 816,ARS,79.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 816
+2021-12-07 00:00:00+00:00,desc 817,ARS,130.00,expense,True,Educación,"['universidad', ' postgrado']",nota 817
+2021-08-14 00:00:00+00:00,desc 818,ARS,100.00,income,True,Vehículo,['mecanico'],nota 818
+2020-02-07 00:00:00+00:00,desc 819,ARS,228928.00,expense,False,Transporte,['sube'],nota 819
+2021-01-07 00:00:00+00:00,desc 820,ARS,690.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 820
+2020-11-06 00:00:00+00:00,desc 821,ARS,989.00,expense,True,Recreación,[],nota 821
+2020-07-22 00:00:00+00:00,desc 822,ARS,886.00,expense,False,Deporte,[],nota 822
+2022-04-05 00:00:00+00:00,desc 823,ARS,978.00,expense,False,Vivienda,['reparaciones'],nota 823
+2021-09-15 00:00:00+00:00,desc 824,ARS,64.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 824
+2022-12-22 00:00:00+00:00,desc 825,ARS,136.00,income,False,Educación,"['universidad', ' postgrado']",nota 825
+2020-07-13 00:00:00+00:00,desc 826,ARS,580.00,expense,True,Vehículo,['mecanico'],nota 826
+2020-09-23 00:00:00+00:00,desc 827,ARS,182792.00,expense,True,Transporte,['sube'],nota 827
+2022-02-08 00:00:00+00:00,desc 828,ARS,969.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 828
+2020-01-03 00:00:00+00:00,desc 829,ARS,977.00,expense,True,Recreación,[],nota 829
+2020-04-18 00:00:00+00:00,desc 830,ARS,571.00,expense,True,Deporte,[],nota 830
+2022-06-10 00:00:00+00:00,desc 831,ARS,111.00,expense,False,Vivienda,['reparaciones'],nota 831
+2020-12-26 00:00:00+00:00,desc 832,ARS,130232.00,income,True,Belleza,"['peluquero', ' manicura']",nota 832
+2022-05-07 00:00:00+00:00,desc 833,ARS,985.00,expense,False,Educación,"['universidad', ' postgrado']",nota 833
+2021-02-06 00:00:00+00:00,desc 834,ARS,314.00,expense,True,Vehículo,['mecanico'],nota 834
+2020-05-18 00:00:00+00:00,desc 835,ARS,85.00,expense,True,Transporte,['sube'],nota 835
+2020-02-26 00:00:00+00:00,desc 836,ARS,206.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 836
+2022-01-28 00:00:00+00:00,desc 837,ARS,307.00,expense,True,Recreación,[],nota 837
+2022-10-02 00:00:00+00:00,desc 838,ARS,933.00,expense,True,Deporte,[],nota 838
+2022-12-07 00:00:00+00:00,desc 839,ARS,344.00,income,False,Vivienda,['reparaciones'],nota 839
+2020-03-25 00:00:00+00:00,desc 840,ARS,96360.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 840
+2021-12-26 00:00:00+00:00,desc 841,ARS,501.00,expense,True,Educación,"['universidad', ' postgrado']",nota 841
+2020-03-20 00:00:00+00:00,desc 842,ARS,208.00,expense,False,Vehículo,['mecanico'],nota 842
+2020-05-10 00:00:00+00:00,desc 843,ARS,339.00,expense,True,Transporte,['sube'],nota 843
+2021-01-22 00:00:00+00:00,desc 844,ARS,740.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 844
+2021-03-12 00:00:00+00:00,desc 845,ARS,241776.00,expense,False,Recreación,[],nota 845
+2022-10-05 00:00:00+00:00,desc 846,ARS,673.00,income,True,Deporte,[],nota 846
+2020-12-15 00:00:00+00:00,desc 847,ARS,624.00,expense,True,Vivienda,['reparaciones'],nota 847
+2022-07-25 00:00:00+00:00,desc 848,ARS,722.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 848
+2022-03-19 00:00:00+00:00,desc 849,ARS,901.00,expense,True,Educación,"['universidad', ' postgrado']",nota 849
+2021-06-02 00:00:00+00:00,desc 850,ARS,56.00,expense,False,Vehículo,['mecanico'],nota 850
+2021-06-27 00:00:00+00:00,desc 851,ARS,269.00,expense,True,Transporte,['sube'],nota 851
+2021-09-12 00:00:00+00:00,desc 852,ARS,273.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 852
+2020-08-18 00:00:00+00:00,desc 853,ARS,246448.00,income,False,Recreación,[],nota 853
+2020-06-20 00:00:00+00:00,desc 854,ARS,89.00,expense,True,Deporte,[],nota 854
+2020-04-04 00:00:00+00:00,desc 855,ARS,573.00,expense,True,Vivienda,['reparaciones'],nota 855
+2021-10-24 00:00:00+00:00,desc 856,ARS,371.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 856
+2022-07-09 00:00:00+00:00,desc 857,ARS,583.00,expense,False,Educación,"['universidad', ' postgrado']",nota 857
+2022-10-28 00:00:00+00:00,desc 858,ARS,235936.00,expense,True,Vehículo,['mecanico'],nota 858
+2020-08-20 00:00:00+00:00,desc 859,ARS,167.00,expense,False,Transporte,['sube'],nota 859
+2020-08-03 00:00:00+00:00,desc 860,ARS,366.00,income,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 860
+2020-03-20 00:00:00+00:00,desc 861,ARS,260.00,expense,True,Recreación,[],nota 861
+2020-04-08 00:00:00+00:00,desc 862,ARS,806.00,expense,True,Deporte,[],nota 862
+2020-08-08 00:00:00+00:00,desc 863,ARS,995.00,expense,True,Vivienda,['reparaciones'],nota 863
+2020-03-18 00:00:00+00:00,desc 864,ARS,558.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 864
+2021-05-24 00:00:00+00:00,desc 865,ARS,325.00,expense,False,Educación,"['universidad', ' postgrado']",nota 865
+2020-01-06 00:00:00+00:00,desc 866,ARS,163228.00,expense,True,Vehículo,['mecanico'],nota 866
+2021-02-24 00:00:00+00:00,desc 867,ARS,479.00,income,False,Transporte,['sube'],nota 867
+2021-07-27 00:00:00+00:00,desc 868,ARS,694.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 868
+2020-09-11 00:00:00+00:00,desc 869,ARS,296.00,expense,True,Recreación,[],nota 869
+2022-03-09 00:00:00+00:00,desc 870,ARS,850.00,expense,False,Deporte,[],nota 870
+2020-11-23 00:00:00+00:00,desc 871,ARS,174324.00,expense,True,Vivienda,['reparaciones'],nota 871
+2021-04-02 00:00:00+00:00,desc 872,ARS,542.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 872
+2021-09-19 00:00:00+00:00,desc 873,ARS,765.00,expense,False,Educación,"['universidad', ' postgrado']",nota 873
+2021-04-07 00:00:00+00:00,desc 874,ARS,549.00,income,False,Vehículo,['mecanico'],nota 874
+2021-05-25 00:00:00+00:00,desc 875,ARS,536.00,expense,True,Transporte,['sube'],nota 875
+2022-02-26 00:00:00+00:00,desc 876,ARS,931.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 876
+2021-12-09 00:00:00+00:00,desc 877,ARS,773.00,expense,True,Recreación,[],nota 877
+2022-02-04 00:00:00+00:00,desc 878,ARS,456.00,expense,True,Deporte,[],nota 878
+2020-06-11 00:00:00+00:00,desc 879,ARS,6716.00,expense,False,Vivienda,['reparaciones'],nota 879
+2022-09-09 00:00:00+00:00,desc 880,ARS,645.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 880
+2021-01-25 00:00:00+00:00,desc 881,ARS,299.00,income,True,Educación,"['universidad', ' postgrado']",nota 881
+2021-09-02 00:00:00+00:00,desc 882,ARS,707.00,expense,False,Vehículo,['mecanico'],nota 882
+2022-09-09 00:00:00+00:00,desc 883,ARS,460.00,expense,True,Transporte,['sube'],nota 883
+2021-09-17 00:00:00+00:00,desc 884,ARS,98696.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 884
+2021-06-27 00:00:00+00:00,desc 885,ARS,219.00,expense,True,Recreación,[],nota 885
+2022-11-05 00:00:00+00:00,desc 886,ARS,288.00,expense,True,Deporte,[],nota 886
+2020-01-05 00:00:00+00:00,desc 887,ARS,488.00,expense,False,Vivienda,['reparaciones'],nota 887
+2020-03-18 00:00:00+00:00,desc 888,ARS,197.00,income,True,Belleza,"['peluquero', ' manicura']",nota 888
+2022-12-11 00:00:00+00:00,desc 889,ARS,778.00,expense,True,Educación,"['universidad', ' postgrado']",nota 889
+2022-01-16 00:00:00+00:00,desc 890,ARS,516.00,expense,False,Vehículo,['mecanico'],nota 890
+2021-05-08 00:00:00+00:00,desc 891,ARS,675.00,expense,False,Transporte,['sube'],nota 891
+2020-05-19 00:00:00+00:00,desc 892,ARS,125852.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 892
+2022-12-12 00:00:00+00:00,desc 893,ARS,304.00,expense,False,Recreación,[],nota 893
+2020-01-16 00:00:00+00:00,desc 894,ARS,970.00,expense,True,Deporte,[],nota 894
+2021-03-25 00:00:00+00:00,desc 895,ARS,603.00,income,True,Vivienda,['reparaciones'],nota 895
+2022-04-14 00:00:00+00:00,desc 896,ARS,805.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 896
+2020-04-26 00:00:00+00:00,desc 897,ARS,180748.00,expense,True,Educación,"['universidad', ' postgrado']",nota 897
+2022-06-16 00:00:00+00:00,desc 898,ARS,250.00,expense,True,Vehículo,['mecanico'],nota 898
+2020-05-11 00:00:00+00:00,desc 899,ARS,745.00,expense,False,Transporte,['sube'],nota 899
+2021-01-12 00:00:00+00:00,desc 900,ARS,292.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 900
+2021-10-20 00:00:00+00:00,desc 901,ARS,361.00,expense,False,Recreación,[],nota 901
+2020-05-03 00:00:00+00:00,desc 902,ARS,92.00,income,True,Deporte,[],nota 902
+2022-05-02 00:00:00+00:00,desc 903,ARS,191.00,expense,True,Vivienda,['reparaciones'],nota 903
+2022-03-18 00:00:00+00:00,desc 904,ARS,686.00,expense,False,Belleza,"['peluquero', ' manicura']",nota 904
+2020-02-01 00:00:00+00:00,desc 905,ARS,66868.00,expense,True,Educación,"['universidad', ' postgrado']",nota 905
+2022-04-04 00:00:00+00:00,desc 906,ARS,855.00,expense,True,Vehículo,['mecanico'],nota 906
+2022-09-09 00:00:00+00:00,desc 907,ARS,436.00,expense,False,Transporte,['sube'],nota 907
+2022-03-22 00:00:00+00:00,desc 908,ARS,404.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 908
+2020-03-26 00:00:00+00:00,desc 909,ARS,982.00,income,True,Recreación,[],nota 909
+2020-12-07 00:00:00+00:00,desc 910,ARS,29200.00,expense,False,Deporte,[],nota 910
+2020-06-08 00:00:00+00:00,desc 911,ARS,168.00,expense,True,Vivienda,['reparaciones'],nota 911
+2020-11-06 00:00:00+00:00,desc 912,ARS,20.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 912
+2022-02-25 00:00:00+00:00,desc 913,ARS,852.00,expense,False,Educación,"['universidad', ' postgrado']",nota 913
+2021-05-09 00:00:00+00:00,desc 914,ARS,14.00,expense,True,Vehículo,['mecanico'],nota 914
+2022-10-15 00:00:00+00:00,desc 915,ARS,243.00,expense,True,Transporte,['sube'],nota 915
+2022-04-22 00:00:00+00:00,desc 916,ARS,80.00,income,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 916
+2022-10-27 00:00:00+00:00,desc 917,ARS,966.00,expense,True,Recreación,[],nota 917
+2020-06-13 00:00:00+00:00,desc 918,ARS,214620.00,expense,False,Deporte,[],nota 918
+2022-11-10 00:00:00+00:00,desc 919,ARS,801.00,expense,True,Vivienda,['reparaciones'],nota 919
+2020-03-05 00:00:00+00:00,desc 920,ARS,549.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 920
+2022-08-25 00:00:00+00:00,desc 921,ARS,227.00,expense,False,Educación,"['universidad', ' postgrado']",nota 921
+2022-03-15 00:00:00+00:00,desc 922,ARS,184.00,expense,True,Vehículo,['mecanico'],nota 922
+2020-02-28 00:00:00+00:00,desc 923,ARS,227176.00,income,True,Transporte,['sube'],nota 923
+2021-02-09 00:00:00+00:00,desc 924,ARS,862.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 924
+2021-10-14 00:00:00+00:00,desc 925,ARS,101.00,expense,False,Recreación,[],nota 925
+2020-03-10 00:00:00+00:00,desc 926,ARS,921.00,expense,True,Deporte,[],nota 926
+2021-03-25 00:00:00+00:00,desc 927,ARS,918.00,expense,False,Vivienda,['reparaciones'],nota 927
+2022-02-11 00:00:00+00:00,desc 1,ARS,48592.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 1
+2022-02-11 00:00:00+00:00,desc 8,ARS,9065724.00,income,False,Transporte,['sube'],nota 8
+2022-01-11 00:00:00+00:00,desc 10,ARS,44976.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 1
+2022-03-11 00:00:00+00:00,desc 12,ARS,5341.00,expense,True,Deporte,[],nota 3
+2022-04-11 00:00:00+00:00,desc 13,ARS,16124.00,income,True,Vivienda,['reparaciones'],nota 4
+2022-09-11 00:00:00+00:00,desc 18,ARS,63495.00,expense,True,Viajes,[],nota 1
+2022-10-11 00:00:00+00:00,desc 19,ARS,76007.00,expense,True,Recreación,"['Vacaciones 2022', ' gente del trabajo']",nota 2
+2022-11-11 00:00:00+00:00,desc 20,ARS,73353.00,expense,True,Deporte,[],nota 3
+2022-12-11 00:00:00+00:00,desc 21,ARS,666.32,income,True,Vivienda,[],nota 4
+2023-02-11 00:00:00+00:00,desc 23,ARS,23677404.00,income,False,Educación,"['peluquero', ' manicura']",nota 6

@@ -1,0 +1,25 @@
+<div class="container flex flex-wrap flex-column justify-content-center">
+  <form [formGroup]="form" id="ngForm">
+    <div
+      class="flex flex-wrap flex-column gap-6 justify-content-center align-items-center"
+    >
+      <span class="p-float-label">
+        <p-calendar
+          [formControl]="dateRange"
+          selectionMode="range"
+          [readonlyInput]="true"
+          inputId="range"
+        ></p-calendar>
+        <label for="notes-input">Rango de fechas</label>
+      </span>
+      <button
+        pButton
+        pRipple
+        label="Descargar"
+        icon="pi pi-download"
+        type="submit"
+        (click)="onSubmit()"
+      ></button>
+    </div>
+  </form>
+</div>

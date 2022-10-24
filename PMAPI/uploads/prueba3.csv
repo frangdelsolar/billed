@@ -1,0 +1,46 @@
+Campo,Formato,Ejemplo,Valor por defecto o respuesta,,,,,
+Fecha*,dd/mm/aaaa,02/03/2022,Falla de validación,,,,,
+Descripcion*,texto,Alquiler,Falla de validación,,,,,
+Moneda,"[USD, ARS]",ARS,ARS,,,,,
+Total*,decimal (0.00) sin signo $,58999.99,Falla de validación,,,,,
+Tipo de transacción*,"[Gasto, Ingreso]",,Falla de validación,,,,,
+Completado,Verdadero o Falso,Verdadero,Verdadero,,,,,
+Categoría,texto,Viajes,Otros,,,,,
+Etiquetas,texto separado por ; (punto y coma),"Vacaciones, Mar del Plata, Amigos del barrio",,,,,,
+Notas,texto,Devolver a amigo,,,,,,
+,,,,,,,,
+Fecha *,Descripción *,Moneda,Total *,Tipo de transacción,Completado,Categoría,Etiquetas,Notas
+11/02/2022,desc 1,ARS,48592,Gasto,Verdadero,Viajes,Vacaciones 2022; gente del trabajo,nota 1
+1/1/98,desc 2,ARS,89766,Gasto,,Recreación,,nota 2
+fecha,desc 3,ARS,25127,Gasto,Verdadero,Deporte,,nota 3
+,desc 4,ARS,666.32,Ingreso,Verdadero,Vivienda,reparaciones,nota 4
+11223333,desc 5,USD,"212,341,234",,,Belleza,peluquero; manicura,nota 5
+,desc 6,USD,20763,Ingreso,Falso,Educación,universidad; postgrado,nota 6
+11/02/2022,desc 7,USD,82382,123,Verdadero,Vehículo,mecanico,nota 7
+11/02/2022,desc 8,USD,31047,Ingreso,Falso,Transporte,sube,nota 8
+,,,,,,,,
+11/01/2022,desc 10,ARS,44976,Gasto,Verdadero,Viajes,Vacaciones 2022; gente del trabajo,nota 1
+11/02/2022,desc 11,,,,Falso,Recreación,,nota 2
+11/03/2022,desc 12,ARS,5341,Gasto,,Deporte,,nota 3
+11/04/2022,desc 13,ARS,16124,Ingreso,Verdadero,Vivienda,reparaciones,nota 4
+11/05/2022,desc 14,,,Ingreso,Falso,Belleza,peluquero; manicura,nota 5
+11/06/2022,desc 15,USD,63769,Otra coas,Falso,Educación,universidad; postgrado,nota 6
+11/07/2022,desc 16,,4969,Gasto,Verdadero,Vehículo,mecanico,nota 7
+11/08/2022,desc 17,AUD,39794,Ingreso,Falso,Transporte,sube,nota 8
+11/09/2022,desc 18,ARS,63495,Gasto,Verdadero,Viajes,,nota 1
+11/10/2022,desc 19,ARS,76007,Gasto,,Recreación,Vacaciones 2022; gente del trabajo,nota 2
+11/11/2022,desc 20,ARS,73353,Gasto,Verdadero,Deporte,,nota 3
+11/12/2022,desc 21,ARS,666.32,Ingreso,Verdadero,Vivienda,,nota 4
+11/01/2023,desc 22,USD,"212,341,234",,,Belleza,reparaciones,nota 5
+11/02/2023,desc 23,USD,81087,Ingreso,Falso,Educación,peluquero; manicura,nota 6
+,,USD,64162,123,Verdadero,Vehículo,universidad; postgrado,nota 7
+,,USD,72268,Ingreso,Falso,Transporte,mecanico,nota 8
+,,,,,,,sube,
+,,ARS,87481,Gasto,Verdadero,Viajes,,nota 1
+,,,,,Falso,Recreación,Vacaciones 2022; gente del trabajo,nota 2
+,,ARS,33570,Gasto,,Deporte,,nota 3
+,,ARS,29232,Ingreso,Verdadero,Vivienda,,nota 4
+,,,,Ingreso,Falso,Belleza,reparaciones,nota 5
+,,USD,28689,Otra coas,Falso,Educación,peluquero; manicura,nota 6
+,,,40230,Gasto,Verdadero,Vehículo,universidad; postgrado,nota 7
+,,AUD,16902,Ingreso,Falso,Transporte,mecanico,nota 8

@@ -5,14 +5,7 @@ from .get_exchange_rate import get_exchange_rate
 from category.models import Category
 from user.models import FileUpload
 from transaction.models import Transaction
-
-
-def get_date_from_str(str_date):
-    _day = int(str_date[:2])
-    _month = int(str_date[3:5])
-    _year = int(str_date[6:])
-    return datetime.date(
-        day=_day, month=_month, year=_year)
+from .str_to_date import get_date_from_str
 
 
 def validate_and_clean_date(_date):

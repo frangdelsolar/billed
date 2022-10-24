@@ -33,3 +33,8 @@ class Profile(models.Model):
 class FileUpload(Metadata):
     file = models.FileField(upload_to='uploads/')
     description = models.CharField(max_length=200, blank=True, null=True)
+
+
+class TransactionReport(Metadata):
+    file = models.FileField(upload_to='reports/')
+    description = models.CharField(max_length=200, blank=True, null=True)

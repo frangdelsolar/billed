@@ -15,8 +15,12 @@ export class TransactionCSVService {
   constructor(private adminSvc: PrivateApiService) {}
 
   public post(body: any){
-    console.log(body)
     return this.adminSvc.post<any>(this._apiUrl, body, true);
   }
 
+  public download(params: any){
+    let url = this._apiUrl + params;
+    
+    return this.adminSvc.downloadFile(url, true);
+  }
 }

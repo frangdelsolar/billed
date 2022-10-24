@@ -1,0 +1,17 @@
+Fecha,Descripción,Moneda,Total,Tipo de transacción,Completado,Categoría,Etiquetas,Notas
+2022-10-11 00:00:00+00:00,desc 19,ARS,29813.00,expense,True,Recreación,"['Vacaciones 2022', ' gente del trabajo']",nota 2
+2022-10-11 00:00:00+00:00,desc 19,ARS,29813.00,expense,True,Recreación,"['Vacaciones 2022', ' gente del trabajo']",nota 2
+2022-10-11 00:00:00+00:00,desc 19,ARS,90291.00,expense,True,Recreación,"['Vacaciones 2022', ' gente del trabajo']",nota 2
+2022-10-07 00:00:00+00:00,desc 47,ARS,436.00,expense,True,Vehículo,['mecanico'],nota 47
+2022-10-09 00:00:00+00:00,desc 155,ARS,176.00,expense,True,Deporte,[],nota 155
+2022-10-08 00:00:00+00:00,desc 268,ARS,688.00,expense,True,Deporte,[],nota 268
+2022-10-11 00:00:00+00:00,desc 343,ARS,122.00,income,False,Educación,"['universidad', ' postgrado']",nota 343
+2022-10-06 00:00:00+00:00,desc 384,ARS,232140.00,expense,True,Vehículo,['mecanico'],nota 384
+2022-10-06 00:00:00+00:00,desc 446,ARS,826.00,expense,True,Belleza,"['peluquero', ' manicura']",nota 446
+2022-10-08 00:00:00+00:00,desc 483,ARS,520.00,expense,True,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 483
+2022-10-06 00:00:00+00:00,desc 516,ARS,893.00,expense,False,Recreación,[],nota 516
+2022-10-10 00:00:00+00:00,desc 526,ARS,31536.00,expense,True,Vivienda,['reparaciones'],nota 526
+2022-10-10 00:00:00+00:00,desc 640,ARS,309.00,income,True,Educación,"['universidad', ' postgrado']",nota 640
+2022-10-09 00:00:00+00:00,desc 788,ARS,279444.00,expense,False,Viajes,"['Vacaciones 2022', ' gente del trabajo']",nota 788
+2022-10-05 00:00:00+00:00,desc 846,ARS,673.00,income,True,Deporte,[],nota 846
+2022-10-11 00:00:00+00:00,desc 19,ARS,76007.00,expense,True,Recreación,"['Vacaciones 2022', ' gente del trabajo']",nota 2

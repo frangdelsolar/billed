@@ -63,5 +63,7 @@ export class PrivateApiService {
     );
   }
   
-  
+  public downloadFile(url: string, activateHeader: boolean=true): any{
+    return this.http.get(url, {responseType: 'blob', headers: this._headers})
+  }
 }

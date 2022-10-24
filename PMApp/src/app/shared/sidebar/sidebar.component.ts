@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { TransactionCSVService } from '@core/controllers/transaction-csv-controller.service';
 import { SidebarService } from '@core/services/sidebar.service';
+import { DownloadTransactionComponent } from '@features/home/components/download-transaction/download-transaction.component';
 import { UploadTransactionComponent } from '@features/home/components/upload-transaction/upload-transaction.component';
 import { MessageService } from 'primeng/api';
 import { DialogService } from 'primeng/dynamicdialog';
@@ -17,9 +19,20 @@ export class SidebarComponent implements OnInit {
   items = [{
     label: 'File',
     items: [
-        {label: 'Importar', icon: 'pi pi-cloud-upload',  command: (event:any) => {
-          this.onUploadClick();
-      }}
+        {
+          label: 'Importar', 
+          icon: 'pi pi-cloud-upload',  
+          command: (event:any) => {
+            this.onUploadClick();
+          }
+        },
+        {
+          label: 'Exportar', 
+          icon: 'pi pi-cloud-download',  
+          command: (event:any) => {
+            this.onDownloadClick();
+          }
+        },
     ]
   }];
   
@@ -28,6 +41,8 @@ export class SidebarComponent implements OnInit {
     public dialogService: DialogService, 
     private router: Router,
     private messageService: MessageService,
+    private service: TransactionCSVService
+
   ) { }
 
   ngOnInit(): void {
@@ -45,8 +60,8 @@ export class SidebarComponent implements OnInit {
   onUploadClick(){
     const ref = this.dialogService.open(UploadTransactionComponent, {
       header: 'Importar transacciones',
-      width: '40%',
-      height: '60%',
+      width: '80%',
+      height: '40%',
       contentStyle: {'overflow': 'visible'},
     });
     ref.onClose.subscribe((res: any) => {
@@ -54,4 +69,15 @@ export class SidebarComponent implements OnInit {
     });
   }
 
+  onDownloadClick(){
+    const ref = this.dialogService.open(DownloadTransactionComponent, {
+      header: 'Exportar transacciones',
+      width: '40%',
+      height: '30%',
+      contentStyle: {'overflow': 'visible'},
+    });
+    ref.onClose.subscribe((res: any) => {
+        
+    });
+  }
 }
