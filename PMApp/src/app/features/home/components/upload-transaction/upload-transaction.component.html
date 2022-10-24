@@ -1,0 +1,24 @@
+<div class="flex flex-wrap flex-column gap-3">
+  <a
+    pButton
+    pRipple
+    type="button"
+    label="Descargar plantilla"
+    class="p-button-raised p-button-text"
+    href="assets/Plantilla de carga de transacciones.csv"
+  ></a>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <p-fileUpload
+      name="myfile[]"
+      [auto]="true"
+      accept=".csv"
+      [customUpload]="true"
+      (uploadHandler)="onChange($event)"
+    ></p-fileUpload>
+
+    <button pButton class="p-button-raised p-button-text" type="submit">
+      Importar datos
+    </button>
+  </form>
+</div>

@@ -11,8 +11,11 @@ export const environment = {
   },
 
   apiUrlBalance: 'api/balance',
+  apiUrlBankAccount: 'api/bank-account',
+  apiUrlCreditCard: 'api/credit-card',
   apiUrlTransaction: 'api/transaction',
   apiUrlCategory: 'api/category',
+  apiUrlCsv: 'api/transaction-csv',
   apiUrlLogin: 'api/token',
   apiUrlPay: 'api/pay',
   apiUrlUser: 'api/user',

@@ -34,6 +34,9 @@ class PaymentItem(Metadata):
 
     @classmethod
     def create(self, *args, **kwargs):
+        """
+        tags = [{'id': number, 'name': string}]
+        """
         amount = kwargs.pop('amount')
         currency = kwargs.pop('currency')
         exchange_rate = kwargs.pop('exchange_rate')
@@ -47,11 +50,12 @@ class PaymentItem(Metadata):
         kwargs['currency'] = cf
 
         instance = self.objects.create(**kwargs)
-        for tag in tags:
-            item = Tag.objects.get(
-                pk=tag['id'], created_by=instance.created_by)
-            if item:
-                instance.tags.add(item)
+        if tags:
+            for tag in tags:
+                item = Tag.objects.get(
+                    pk=tag['id'], created_by=instance.created_by)
+                if item:
+                    instance.tags.add(item)
         return instance
 
 

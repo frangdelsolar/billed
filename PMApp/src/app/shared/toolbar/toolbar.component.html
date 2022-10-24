@@ -1,14 +1,22 @@
 <mat-toolbar color="primary">
+  <button
+    pButton
+    pRipple
+    type="button"
+    icon="pi pi-bars"
+    class="p-button-rounded p-button-text p-button-secondary text-white"
+    (click)="onMenuClick()"
+  ></button>
+  <span>MyBugetApp</span>
+  <span class="example-spacer"></span>
   <a
     href="/"
     mat-icon-button
     class="example-icon"
     aria-label="Example icon-button with menu icon"
   >
-    <mat-icon>menu</mat-icon>
+    <mat-icon>home</mat-icon>
   </a>
-  <span>MyBugetApp</span>
-  <span class="example-spacer"></span>
   <a
     href="iniciar-sesion/"
     mat-icon-button

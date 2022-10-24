@@ -11,6 +11,7 @@ import {DialogModule} from 'primeng/dialog';
 import {DynamicDialogModule} from 'primeng/dynamicdialog';
 import {DividerModule} from 'primeng/divider';
 import {DropdownModule} from 'primeng/dropdown';
+import {FileUploadModule} from 'primeng/fileupload';
 import {InputNumberModule} from 'primeng/inputnumber';
 import {InputSwitchModule} from 'primeng/inputswitch';
 import {InputTextModule} from 'primeng/inputtext';
@@ -20,6 +21,7 @@ import {MessageModule} from 'primeng/message';
 import {MultiSelectModule} from 'primeng/multiselect';
 import {OverlayPanelModule} from 'primeng/overlaypanel';
 import {SelectButtonModule} from 'primeng/selectbutton';
+import {SidebarModule} from 'primeng/sidebar';
 import { TagModule } from 'primeng/tag';
 import {TabViewModule} from 'primeng/tabview';
 import {ToastModule} from 'primeng/toast';
@@ -39,6 +41,7 @@ const myModules = [
     DividerModule,
     DropdownModule,
     DynamicDialogModule,
+    FileUploadModule,
     InputNumberModule,
     InputSwitchModule,
     InputTextModule,
@@ -48,6 +51,7 @@ const myModules = [
     MultiSelectModule,
     OverlayPanelModule,
     SelectButtonModule,
+    SidebarModule,
     TabViewModule,
     TagModule,
     ToastModule,

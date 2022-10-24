@@ -1,17 +1,29 @@
 from rest_framework.serializers import (
     HyperlinkedModelSerializer,
-    SerializerMethodField,
-    Serializer
 )
-from payment_method.models import PaymentMethod
+from payment_method.models import Account, CreditCard
 
 
-class PaymentMethodSerializer(HyperlinkedModelSerializer):
-
+class AccountSerializer(HyperlinkedModelSerializer):
     class Meta:
-        model = PaymentMethod
+        model = Account
         fields = [
             'id',
             'name',
-            'description'
+            'description',
+            'bank'
+        ]
+
+
+class CreditCardSerializer(HyperlinkedModelSerializer):
+    class Meta:
+        model = CreditCard
+        fields = [
+            'id',
+            'name',
+            'description',
+            'account',
+            'close_date',
+            'expiry_date',
+            'limit'
         ]

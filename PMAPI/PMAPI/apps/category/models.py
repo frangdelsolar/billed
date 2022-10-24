@@ -7,9 +7,9 @@ from system_details.models import Metadata
 class Category(Metadata):
     name = models.CharField(max_length=120, blank=False, null=False)
     color = models.CharField(max_length=120, blank=False,
-                             null=False, default='white')
+                             null=False, default='#dddddd')
     icon = models.CharField(max_length=120, blank=False,
-                            null=False, default='tag')
+                            null=False, default='pi-tag')
     category_type = models.CharField(
         choices=TRANSACTION_TYPES, max_length=120, blank=False, null=False)
     archived = models.BooleanField(default=False)

@@ -1,0 +1,12 @@
+Campo,Formato,Ejemplo,Valor por defecto o respuesta,,,,,
+Fecha*,dd/mm/aaaa,02/03/2022,Falla de validación,,,,,
+Descripcion*,texto,Alquiler,Falla de validación,,,,,
+Moneda,"[USD, ARS]",ARS,ARS,,,,,
+Total*,decimal (0.00) sin signo $,58999.99,Falla de validación,,,,,
+Tipo de transacción*,"[Gasto, Ingreso]",,Falla de validación,,,,,
+Completado,Verdadero o Falso,Verdadero,Verdadero,,,,,
+Categoría,texto,Viajes,Otros,,,,,
+Etiquetas,texto separado por comas,"Vacaciones, Mar del Plata, Amigos del barrio",,,,,,
+Notas,texto,Devolver a amigo,,,,,,
+,,,,,,,,
+Fecha *,Descripción *,Moneda,Total *,Tipo de transacción,Completado,Categoría,Etiquetas,Notas

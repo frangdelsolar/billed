@@ -61,13 +61,16 @@ class Transaction(Metadata):
         tags = kwargs.pop('tags')
 
         if not 'payment_item' in kwargs or payment_item is None:
+            category_instance = None
+            if category:
+                category_instance = Category.objects.get(id=category)
             payment_item = PaymentItem.create(
                 description=kwargs['description'],
                 notes=kwargs['notes'],
                 amount=amount,
                 currency=currency,
                 exchange_rate=exchange_rate,
-                category=Category.objects.get(id=category),
+                category=category_instance,
                 tags=tags
             )
             kwargs['payment_item'] = payment_item

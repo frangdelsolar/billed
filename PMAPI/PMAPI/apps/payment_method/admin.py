@@ -1,4 +1,5 @@
 from django.contrib import admin
-from payment_method.models import PaymentMethod
+from payment_method.models import CreditCard, Account
 
-admin.site.register(PaymentMethod)
+admin.site.register(Account)
+admin.site.register(CreditCard)

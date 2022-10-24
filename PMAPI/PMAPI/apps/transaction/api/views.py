@@ -21,6 +21,7 @@ from transaction.utils.update_transaction import (
     update_pending_transactions,
     update_all_transactions
 )
+from transaction.utils.handle_upload_csv import handle_uploaded_file
 import datetime
 
 
@@ -199,3 +200,13 @@ class PayView(APIView):
         pay_transaction(transaction)
 
         return Response(self.serializer_class(transaction).data)
+
+
+class CSVHandlerView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request):
+        # if transaction.created_by != request.user:
+        #     return Response({'message': 'No tienes permiso para editar esta transacción'}, status=403)
+        handle_uploaded_file(request.user, request.FILES['file'])
+        return Response(200)

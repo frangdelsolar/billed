@@ -11,6 +11,7 @@ import { HomeComponent } from './home.component';
 import { ItemTransactionComponent } from './components/item-transaction/item-transaction.component';
 import { DetailTransactionComponent } from './components/detail-transaction/detail-transaction.component';
 import { EditTransactionComponent } from './components/edit-transaction/edit-transaction.component';
+import { UploadTransactionComponent } from './components/upload-transaction/upload-transaction.component';
 
 
 const myComponents = [
@@ -20,7 +21,8 @@ const myComponents = [
   EditTransactionComponent,
   ListTransactionComponent,
   ItemTransactionComponent,
-  DetailTransactionComponent
+  DetailTransactionComponent,
+  UploadTransactionComponent
 ]
 
 @NgModule({
