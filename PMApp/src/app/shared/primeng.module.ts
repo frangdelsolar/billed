@@ -3,6 +3,7 @@ import {AutoCompleteModule} from 'primeng/autocomplete';
 import {ButtonModule} from 'primeng/button';
 import {CalendarModule} from 'primeng/calendar';
 import {CardModule} from 'primeng/card';
+import {ChartModule} from 'primeng/chart';
 import { ChipModule } from 'primeng/chip';
 import {ChipsModule} from 'primeng/chips';
 import {ColorPickerModule} from 'primeng/colorpicker';
@@ -33,6 +34,7 @@ const myModules = [
     ButtonModule,
     CalendarModule,
     CardModule,
+    ChartModule,
     ChipModule,
     ChipsModule,
     ColorPickerModule,

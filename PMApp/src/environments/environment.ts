@@ -13,13 +13,15 @@ export const environment = {
   apiUrlBalance: 'api/balance',
   apiUrlBankAccount: 'api/bank-account',
   apiUrlCreditCard: 'api/credit-card',
-  apiUrlTransaction: 'api/transaction',
   apiUrlCategory: 'api/category',
   apiUrlCsv: 'api/transaction-csv',
+  apiUrlHistorical: 'api/historical',
   apiUrlLogin: 'api/token',
   apiUrlPay: 'api/pay',
   apiUrlUser: 'api/user',
   apiUrlTag: 'api/tag',
+  apiUrlTransaction: 'api/transaction',
+
 }
 
 /*

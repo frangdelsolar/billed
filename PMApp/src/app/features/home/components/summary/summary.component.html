@@ -1,66 +1,67 @@
-<p-card header="Resumen mensual">
-  <div class="m-4 mb-0 grid flex align-items-center justify-content-center">
-    <div class="col-12 flex align-items-center justify-content-center">
-      <app-month-picker (out_selection)="setDate($event)"></app-month-picker>
-    </div>
-    <div class="col-12 flex align-items-center justify-content-center">
-      <p-button
-        styleClass="p-button-raised p-button-text"
-        (click)="onGoToListTransaction()"
-      >
-        <i class="pi pi-wallet"></i>
-        <span class="ml-2 font-bold"
-          >Totales<br />
-          ${{ totalDisplayValue.value | number: ".2" }}
-        </span>
-      </p-button>
-    </div>
+<div class="flex flex-column gap-5">
+  <p-card header="Resumen mensual">
+    <div class="m-4 mb-0 grid flex align-items-center justify-content-center">
+      <div class="col-12 flex align-items-center justify-content-center">
+        <app-month-picker (out_selection)="setDate($event)"></app-month-picker>
+      </div>
+      <div class="col-12 flex align-items-center justify-content-center">
+        <p-button
+          styleClass="p-button-raised p-button-text"
+          (click)="onGoToListTransaction()"
+        >
+          <i class="pi pi-wallet"></i>
+          <span class="ml-2 font-bold"
+            >Totales<br />
+            ${{ totalDisplayValue.value | number: ".2" }}
+          </span>
+        </p-button>
+      </div>
 
-    <div class="col-6 flex align-items-center justify-content-center">
-      <p-button
-        styleClass="p-button-raised p-button-text p-button-success px-2 "
-        (click)="onGoToListTransaction('income')"
-      >
-        <i class="pi pi-angle-up"></i>
-        <span class="ml-2 font-bold"
-          >Ingresos<br />
-          ${{ ingresosDisplayValue.value | number: ".2" }}
-        </span>
-      </p-button>
-    </div>
-    <div class="col-6 flex align-items-center justify-content-center">
-      <p-button
-        styleClass="p-button-raised p-button-text p-button-danger px-2"
-        (click)="onGoToListTransaction('expense')"
-      >
-        <i class="pi pi-angle-down"></i>
-        <span class="ml-2 font-bold"
-          >Gastos<br />
-          ${{ gastosDisplayValue.value | number: ".2" }}
-        </span>
-      </p-button>
-    </div>
+      <div class="col-6 flex align-items-center justify-content-center">
+        <p-button
+          styleClass="p-button-raised p-button-text p-button-success px-2 "
+          (click)="onGoToListTransaction('income')"
+        >
+          <i class="pi pi-angle-up"></i>
+          <span class="ml-2 font-bold"
+            >Ingresos<br />
+            ${{ ingresosDisplayValue.value | number: ".2" }}
+          </span>
+        </p-button>
+      </div>
+      <div class="col-6 flex align-items-center justify-content-center">
+        <p-button
+          styleClass="p-button-raised p-button-text p-button-danger px-2"
+          (click)="onGoToListTransaction('expense')"
+        >
+          <i class="pi pi-angle-down"></i>
+          <span class="ml-2 font-bold"
+            >Gastos<br />
+            ${{ gastosDisplayValue.value | number: ".2" }}
+          </span>
+        </p-button>
+      </div>
 
-    <div class="col-6 flex align-items-center justify-content-center">
-      <button
-        pButton
-        type="button"
-        icon="pi pi-plus"
-        class="p-button-outlined p-button-rounded p-button-success"
-        (click)="onGoToAddTransaction('income')"
-      ></button>
-    </div>
-    <div class="col-6 flex align-items-center justify-content-center">
-      <button
-        pButton
-        type="button"
-        icon="pi pi-minus"
-        class="p-button-outlined p-button-rounded p-button-danger"
-        (click)="onGoToAddTransaction('expense')"
-      ></button>
-    </div>
+      <div class="col-6 flex align-items-center justify-content-center">
+        <button
+          pButton
+          type="button"
+          icon="pi pi-plus"
+          class="p-button-outlined p-button-rounded p-button-success"
+          (click)="onGoToAddTransaction('income')"
+        ></button>
+      </div>
+      <div class="col-6 flex align-items-center justify-content-center">
+        <button
+          pButton
+          type="button"
+          icon="pi pi-minus"
+          class="p-button-outlined p-button-rounded p-button-danger"
+          (click)="onGoToAddTransaction('expense')"
+        ></button>
+      </div>
 
-    <!-- <button
+      <!-- <button
       pButton
       type="button"
       icon="pi pi-eye-slash"
@@ -77,5 +78,7 @@
       *ngIf="!hideTotals"
       (click)="onVisibilityClick()"
     ></button> -->
-  </div>
-</p-card>
+    </div>
+  </p-card>
+  <app-balance-historical></app-balance-historical>
+</div>

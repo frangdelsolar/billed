@@ -1,16 +1,13 @@
-from timeit import repeat
-from django.db.models import Sum
-from django.http import FileResponse, HttpResponse
+from django.http import FileResponse
+from transaction.utils.get_historical_payload import get_historical_data
 from transaction.utils.download_transaction_report import generate_report
 from transaction.utils.pay_transaction import pay_transaction
-from user.api.serializers import TransactionReportSerializer
 
 from rest_framework import viewsets
 from rest_framework.views import APIView
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from payment_item.models import RecurrentPayment
 from transaction.models import Transaction
 from .serializers import TransactionSerializer
 from transaction.utils._queries import get_transaction_qs_by_date
@@ -213,15 +210,24 @@ class CSVHandlerView(APIView):
         date_to = request.GET.get('to')
         instance = generate_report(date_from, date_to, request.user)
         file_handle = instance.file.open()
-
-        # send file
         response = FileResponse(file_handle, content_type='text/csv')
         response['Content-Length'] = instance.file.size
         response['Content-Disposition'] = 'attachment; filename="%s"' % instance.file.name
         response['status'] = 200
-        print(response)
         return response
 
     def post(self, request):
         handle_uploaded_file(request.user, request.FILES['file'])
         return Response({'message': 'Estamos procesando tu petición. Puede demorar algunos minutos.'}, status=200)
+
+
+class HistoricalView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def post(self, request, *args, **kwargs):
+        date_from = request.data.get('date_from')
+        date_to = request.data.get('date_to')
+
+        data = get_historical_data(request.user, date_from, date_to)
+
+        return Response(data, 200)

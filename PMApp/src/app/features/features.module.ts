@@ -7,6 +7,7 @@ import { LoginFormComponent } from './auth/components/login-form/login-form.comp
 import { RegisterFormComponent } from './auth/components/register-form/register-form.component';
 import { RouterModule } from '@angular/router';
 import { TagModule } from './tag/tag.module';
+import { PieCategoryComponent } from './statistics/pie-category/pie-category.component';
 
 
 const myModules = [
@@ -21,13 +22,14 @@ const myModules = [
   declarations: [
     LoginFormComponent,
     RegisterFormComponent,
+    PieCategoryComponent,
   ],
   imports: [
     CommonModule,
     ...myModules
   ],
   exports: [
-    ...myModules
+    ...myModules,
   ]
 })
 export class FeaturesModule { }

@@ -82,7 +82,7 @@ export class SummaryComponent implements OnInit {
 
   onGoToAddTransaction(type: string){
     this.querySvc.setTransactionType(type);
-    this.router.navigate(['/transacciones/crear']);
+    this.router.navigate(['transacciones/crear']);
   }
 
   onGoToListTransaction(type?: string){

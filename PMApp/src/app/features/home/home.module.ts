@@ -13,6 +13,7 @@ import { DetailTransactionComponent } from './components/detail-transaction/deta
 import { EditTransactionComponent } from './components/edit-transaction/edit-transaction.component';
 import { UploadTransactionComponent } from './components/upload-transaction/upload-transaction.component';
 import { DownloadTransactionComponent } from './components/download-transaction/download-transaction.component';
+import { BalanceHistoricalComponent } from '@features/statistics/balance-historical/balance-historical.component';
 
 
 const myComponents = [
@@ -24,7 +25,8 @@ const myComponents = [
   ItemTransactionComponent,
   DetailTransactionComponent,
   DownloadTransactionComponent,
-  UploadTransactionComponent
+  UploadTransactionComponent,
+  BalanceHistoricalComponent
 ]
 
 @NgModule({

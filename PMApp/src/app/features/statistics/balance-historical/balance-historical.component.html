@@ -1,0 +1,33 @@
+<p-card header="Histórico">
+  <div class="flex flex-column gap-5">
+    <div
+      class="flex col-12 justify-content-center align-items-center gap-2 p-2"
+    >
+      <div class="p-inputgroup">
+        <span class="p-float-label">
+          <p-calendar
+            [formControl]="dateRange"
+            selectionMode="range"
+            [readonlyInput]="true"
+            inputId="range"
+            [showIcon]="true"
+            view="month"
+            dateFormat="mm/yy"
+          ></p-calendar>
+
+          <label for="notes-input">Rango de fechas</label>
+        </span>
+      </div>
+
+      <button
+        type="button"
+        pButton
+        class="p-button-text"
+        label="Buscar"
+        (click)="onSubmit()"
+      ></button>
+    </div>
+
+    <p-chart type="line" [data]="data"></p-chart>
+  </div>
+</p-card>

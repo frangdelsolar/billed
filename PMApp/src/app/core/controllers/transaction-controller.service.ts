@@ -12,6 +12,7 @@ import { PrivateApiService } from '../services/privateApi.service';
 export class TransactionService {
   
   _apiUrl = environment.apiUrlTransaction;
+  _historical = environment.apiUrlHistorical;
 
   constructor(private adminSvc: PrivateApiService) {}
 
@@ -27,6 +28,11 @@ export class TransactionService {
   public create(body: Income){
     let url = this._apiUrl + '/';
     return this.adminSvc.post<Income>(url, body, true);
+  }
+
+  public getHistorical(body: any){
+    let url = this._historical + '/';
+    return this.adminSvc.post<any>(url, body, true);
   }
 
   public update(id: number, body: any, params: string){
