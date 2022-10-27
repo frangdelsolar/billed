@@ -1,35 +1,18 @@
 <p-card header="Registro de usuario">
-  <div class="border-round-lg px-1 pt-6 pb-0 gap-0 lg:px-6">
-    <form [formGroup]="form" id="ngForm">
-      <div class="flex flex-wrap flex-column gap-4 align-items-center">
-        <span class="p-float-label">
-          <input
-            id="username-input"
-            formControlName="username"
-            type="text"
-            pInputText
-            (ngModelChange)="onUsernameChange()"
-          />
-          <label for="username-input">Nombre de usuario</label>
-        </span>
-        <span class="p-float-label">
-          <input
-            id="password-input"
-            formControlName="password"
-            type="password"
-            pInputText
-          />
-          <label for="password-input">Contraseña</label>
-        </span>
-        <span class="p-float-label">
-          <input
-            id="password_confirmation-input"
-            formControlName="password_confirmation"
-            type="password"
-            pInputText
-          />
-          <label for="password_confirmation-input">Repetir Contraseña</label>
-        </span>
+  <form [formGroup]="form" id="ngForm">
+    <div class="col-8 col-offset-2 flex flex-wrap flex-column gap-4">
+      <span class="p-float-label">
+        <input
+          id="username-input"
+          formControlName="username"
+          type="text"
+          pInputText
+          style="width: 100%"
+          (ngModelChange)="onUsernameChange()"
+        />
+        <label for="username-input">Nombre de usuario</label>
+      </span>
+      <div class="flex gap-4">
         <span class="p-float-label">
           <input
             id="first_name-input"
@@ -48,6 +31,29 @@
           />
           <label for="last_name-input">Apellido</label>
         </span>
+      </div>
+      <div class="flex gap-4">
+        <span class="p-float-label">
+          <input
+            id="password-input"
+            formControlName="password"
+            type="password"
+            pInputText
+          />
+          <label for="password-input">Contraseña</label>
+        </span>
+        <span class="p-float-label">
+          <input
+            id="password_confirmation-input"
+            formControlName="password_confirmation"
+            type="password"
+            pInputText
+          />
+          <label for="password_confirmation-input">Repetir Contraseña</label>
+        </span>
+      </div>
+
+      <div class="flex gap-4">
         <span class="p-float-label">
           <input
             id="email-input"
@@ -67,27 +73,24 @@
           <label for="email_confirmation-input">Repetir Email</label>
         </span>
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
   <ng-template pTemplate="footer">
-    <div
-      class="flex flex-wrap justify-content-around px-1 pt-0 mt-0 gap-0 lg:px-6"
-    >
+    <div class="flex justify-content-center">
       <button
         pButton
         pRipple
-        label="Limpiar"
-        class="p-button-outlined"
-        icon="pi pi-times"
-        (click)="form.reset()"
-      ></button>
-      <button
-        pButton
-        pRipple
-        label="Registrar"
+        label="Registrarse"
         icon="pi pi-check"
         (click)="onRegister()"
       ></button>
+    </div>
+    <p-divider></p-divider>
+    <div class="flex justify-content-center">
+      <p>
+        ¿Ya tienes usuario?
+        <a href="iniciar-sesion/">Iniciar sesión</a>
+      </p>
     </div>
   </ng-template>
 </p-card>

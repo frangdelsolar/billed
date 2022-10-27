@@ -43,9 +43,9 @@ export class LoginFormComponent implements OnInit {
       if (this.form.valid){
         this.authSvc.auth(this.form.value).subscribe(
           (res)=>{
-            localStorage.setItem('access', res.access);
-            localStorage.setItem('refresh', res.refresh);
-            this.router.navigate(['/']);
+            this.authSvc.login(res)
+            window.location.href = '/';
+             
           },
           (err)=>{
             this.messageService.add({severity:'error', summary:'Algo anda mal', detail: err.error.detail});

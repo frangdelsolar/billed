@@ -4,7 +4,7 @@
       <div class="border-round-lg px-1 pt-6 pb-0 gap-0 lg:px-6">
         <form [formGroup]="form" id="ngForm">
           <div class="flex flex-wrap flex-column gap-4 align-items-center">
-            <small>Iniciar sesión con correo electrónico</small>
+            <small>Iniciar sesión con nombre de usuario</small>
             <span class="p-float-label">
               <input
                 id="float-input"
@@ -35,11 +35,11 @@
           <button
             pButton
             pRipple
-            label="Guardar"
+            label="Enviar"
             icon="pi pi-check"
             (click)="onLogin()"
           ></button>
-          <!-- 
+          <!--           
           <button
             pButton
             pRipple
@@ -49,6 +49,13 @@
             label="Ingresar con google"
             (click)="loginGoogle()"
           ></button> -->
+        </div>
+        <p-divider></p-divider>
+        <div class="flex justify-content-center">
+          <p>
+            ¿Nuevo usuario?
+            <a href="registrarse/">Registrarse</a>
+          </p>
         </div>
       </ng-template>
     </p-card>

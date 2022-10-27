@@ -26,6 +26,7 @@ import {SidebarModule} from 'primeng/sidebar';
 import { TagModule } from 'primeng/tag';
 import {TabViewModule} from 'primeng/tabview';
 import {ToastModule} from 'primeng/toast';
+import {ToolbarModule} from 'primeng/toolbar';
 import {TooltipModule} from 'primeng/tooltip';
 
 
@@ -57,6 +58,7 @@ const myModules = [
     TabViewModule,
     TagModule,
     ToastModule,
+    ToolbarModule,
     TooltipModule
 ];
 

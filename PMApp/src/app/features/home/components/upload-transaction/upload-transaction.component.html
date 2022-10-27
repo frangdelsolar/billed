@@ -1,29 +1,20 @@
-<div class="flex align-items-center justify-content-center m-5">
-  <div class="flex flex-wrap flex-column gap-3">
-    <div class="col-12">
-      <h3>Plantilla de ejemplo:</h3>
-      <a
-        type="button"
-        label="Descargar"
-        class="p-button-raised p-button-text"
-        href="assets/Plantilla de carga de transacciones.csv"
-        >Descargar</a
-      >
-    </div>
-    <div class="col-6 col-offset-3 flex gap-3">
-      <form [formGroup]="form" (ngSubmit)="onSubmit()">
-        <p-fileUpload
-          name="myfile[]"
-          [auto]="true"
-          accept=".csv"
-          [customUpload]="true"
-          (uploadHandler)="onChange($event)"
-        ></p-fileUpload>
-
-        <button pButton class="p-button-raised p-button-text" type="submit">
-          Importar datos
-        </button>
-      </form>
-    </div>
-  </div>
+<div
+  class="flex flex-column align-items-center justify-content-around m-5 gap-5"
+>
+  <a
+    type="button"
+    label="Descargar"
+    class="p-button-raised p-button-text"
+    href="assets/Plantilla de carga de transacciones.csv"
+    >Planilla de ejemplo</a
+  >
+  <p-fileUpload
+    mode="basic"
+    name="Nombre"
+    accept=".csv"
+    [customUpload]="true"
+    (uploadHandler)="onChange($event)"
+    chooseLabel="Seleccionar archivo"
+    [maxFileSize]="1000000"
+  ></p-fileUpload>
 </div>

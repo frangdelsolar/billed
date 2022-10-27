@@ -16,25 +16,52 @@ export class SidebarComponent implements OnInit {
 
   display = true;
 
-  items = [{
-    label: 'File',
-    items: [
-        {
-          label: 'Importar', 
-          icon: 'pi pi-cloud-upload',  
-          command: (event:any) => {
-            this.onUploadClick();
+  items = [
+      {
+        label: 'Navegar',
+        items: [
+          {
+            label: 'Inicio',
+            icon: 'pi pi-home',
+            routerLink: '/'
           }
-        },
-        {
-          label: 'Exportar', 
-          icon: 'pi pi-cloud-download',  
-          command: (event:any) => {
-            this.onDownloadClick();
-          }
-        },
+        ]
+      },
+      {
+        label: 'Transacciones',
+        items: [
+            {
+              label: 'Importar datos', 
+              icon: 'pi pi-cloud-upload',  
+              command: (event:any) => {
+                this.onUploadClick();
+              }
+            },
+            {
+              label: 'Exportar datos', 
+              icon: 'pi pi-cloud-download',  
+              command: (event:any) => {
+                this.onDownloadClick();
+              }
+            }
+        ],
+      },
+      {
+        label: 'Configuración',
+        items:[
+            {
+              label: 'Administrar categorías',
+              icon: 'pi pi-th-large',
+              routerLink: '/categorias'
+            },
+            {
+              label: 'Administrar etiquetas',
+              icon: 'pi pi-tags',
+              routerLink: '/etiquetas'
+            }
+          ]
+      }
     ]
-  }];
   
   constructor(
     private sidebarSvc: SidebarService,
@@ -60,8 +87,10 @@ export class SidebarComponent implements OnInit {
   onUploadClick(){
     const ref = this.dialogService.open(UploadTransactionComponent, {
       header: 'Importar transacciones',
-      width: '80%',
+      width: '40%',
       height: '40%',
+      draggable: true,
+      resizable: true,
       contentStyle: {'overflow': 'visible'},
     });
     ref.onClose.subscribe((res: any) => {
@@ -74,6 +103,8 @@ export class SidebarComponent implements OnInit {
       header: 'Exportar transacciones',
       width: '40%',
       height: '30%',
+      draggable: true,
+      resizable: true,
       contentStyle: {'overflow': 'visible'},
     });
     ref.onClose.subscribe((res: any) => {

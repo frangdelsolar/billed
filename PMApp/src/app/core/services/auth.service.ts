@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { from, Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { User } from '@core/models/user.interface';
@@ -16,7 +16,7 @@ export class AuthService {
   apiUrlUser = environment.apiUrlUser;
    
 
-  private isAuthenticated = false;
+  public isAuthenticated = false;
 
   constructor(private http: HttpClient, public afAuth: AngularFireAuth) { 
 
@@ -42,16 +42,23 @@ export class AuthService {
   }
 
   isAuth(){
+    let access = localStorage.getItem('access');
+    if (access){
+      this.isAuthenticated = true;
+    }
     return this.isAuthenticated;
   }
 
-  login(){
+  login(res: any){
     this.isAuthenticated = true;
+    localStorage.setItem('access', res.access);
+    localStorage.setItem('refresh', res.refresh);
   }
 
   logout(){
     this.isAuthenticated = false;
     localStorage.clear();
+    window.location.reload();
   }
 
   register(newUser: User): Observable<any> {

@@ -1,52 +1,36 @@
-<mat-toolbar color="primary">
-  <button
-    pButton
-    pRipple
-    type="button"
-    icon="pi pi-bars"
-    class="p-button-rounded p-button-text p-button-secondary text-white"
-    (click)="onMenuClick()"
-  ></button>
-  <span>MyBugetApp</span>
-  <span class="example-spacer"></span>
-  <a
-    href="/"
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>home</mat-icon>
-  </a>
-  <a
-    href="iniciar-sesion/"
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>login</mat-icon>
-  </a>
-  <a
-    href="registrarse/"
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>person</mat-icon>
-  </a>
-  <a
-    href="logout/"
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>logout</mat-icon>
-  </a>
-  <a
-    href="categorias/"
-    mat-icon-button
-    class="example-icon"
-    aria-label="Example icon-button with menu icon"
-  >
-    <mat-icon>category</mat-icon>
-  </a>
-</mat-toolbar>
+<p-toolbar>
+  <div class="p-toolbar-group-left">
+    <button
+      *ngIf="userIsAuth"
+      pButton
+      pRipple
+      type="button"
+      icon="pi pi-bars"
+      class="p-button-rounded p-button-text p-button-plain"
+      (click)="onMenuClick()"
+    ></button>
+    Budget
+  </div>
+
+  <div class="p-toolbar-group-right">
+    <a
+      *ngIf="!userIsAuth"
+      href="iniciar-sesion/"
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+    >
+      <mat-icon>login</mat-icon>
+    </a>
+
+    <button
+      *ngIf="userIsAuth"
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with menu icon"
+      (click)="onLogout()"
+    >
+      <mat-icon>logout</mat-icon>
+    </button>
+  </div>
+</p-toolbar>
