@@ -56,7 +56,6 @@ export class AddCategoryComponent implements OnInit {
   }
 
   onSubmit(){
-    console.log(this.form.value)
     if (this.form.valid){
       this.service.create(this.form.value).subscribe(
         (res)=>{
