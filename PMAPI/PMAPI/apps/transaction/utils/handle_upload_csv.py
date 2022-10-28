@@ -81,6 +81,8 @@ def handle_uploaded_file(user, uploaded_file):
 
         for i, row in enumerate(filereader):
             if i > 11:
+                if len(row) > 9:
+                    continue
                 _date = row[0]
                 _description = row[1]
                 _currency = row[2]
